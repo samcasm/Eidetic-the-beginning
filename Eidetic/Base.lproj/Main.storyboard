@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TYh-dk-0Bq">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Eidetic" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SOZ-58-9tC">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fBF-uh-0El">
+                                    <size key="itemSize" width="100" height="100"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="cd0-Hv-Rda" customClass="PhotoCell" customModule="Eidetic" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" tag="101" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w4E-kY-Cf1">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7VX-SL-Csv" userLabel="Live Photo Badge">
+                                                    <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="28" id="3ky-An-xGH"/>
+                                                        <constraint firstAttribute="height" constant="28" id="5m5-Ul-ugf"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="w4E-kY-Cf1" firstAttribute="top" secondItem="cd0-Hv-Rda" secondAttribute="top" id="PC4-Ax-BtB"/>
+                                            <constraint firstItem="7VX-SL-Csv" firstAttribute="top" secondItem="cd0-Hv-Rda" secondAttribute="top" id="d91-Kc-bf5"/>
+                                            <constraint firstItem="7VX-SL-Csv" firstAttribute="leading" secondItem="cd0-Hv-Rda" secondAttribute="leading" id="myY-qD-aac"/>
+                                            <constraint firstAttribute="bottom" secondItem="w4E-kY-Cf1" secondAttribute="bottom" id="sig-Wm-RqH"/>
+                                            <constraint firstItem="w4E-kY-Cf1" firstAttribute="leading" secondItem="cd0-Hv-Rda" secondAttribute="leading" id="zCI-NP-TX4"/>
+                                            <constraint firstAttribute="trailing" secondItem="w4E-kY-Cf1" secondAttribute="trailing" id="zEm-vN-1ZJ"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="w4E-kY-Cf1" id="o4Y-0X-7h7"/>
+                                            <outlet property="livePhotoBadgeImageView" destination="7VX-SL-Csv" id="OJ1-vS-mzy"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="HeQ-Dq-ecK"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="FUO-Wn-G2D"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="SOZ-58-9tC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4ml-qM-zvn"/>
+                            <constraint firstItem="SOZ-58-9tC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="9zc-Kc-oet"/>
+                            <constraint firstItem="SOZ-58-9tC" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="KNV-06-hrc"/>
+                            <constraint firstItem="SOZ-58-9tC" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="apf-GI-Zle"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="gkF-03-Vaa">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="w6m-0j-FyE">
+                            <connections>
+                                <action selector="addAsset:" destination="BYZ-38-t0r" id="VEt-rK-59e"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addButtonItem" destination="w6m-0j-FyE" id="Wes-tX-QVQ"/>
+                        <outlet property="collectionView" destination="SOZ-58-9tC" id="swO-Px-1Vh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2954.4000000000001" y="98.50074962518741"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="pot-eM-N1F">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TYh-dk-0Bq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Jis-dA-Q13">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Uut-ve-IMy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Zh-JN-Hjc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2015.2" y="98.50074962518741"/>
+        </scene>
+    </scenes>
+</document>
