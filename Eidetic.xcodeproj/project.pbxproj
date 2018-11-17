@@ -12,6 +12,7 @@
 		AD37511F219DE7F7005A577E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD37511D219DE7F7005A577E /* Main.storyboard */; };
 		AD375121219DE7F9005A577E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD375120219DE7F9005A577E /* Assets.xcassets */; };
 		AD375124219DE7F9005A577E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD375122219DE7F9005A577E /* LaunchScreen.storyboard */; };
+		AD38824421A092F6008E59EC /* AssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD38824321A092F6008E59EC /* AssetViewController.swift */; };
 		AD641C3B219F41AC00DF8CFE /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD641C3A219F41AC00DF8CFE /* PhotoCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,7 @@
 		AD375120219DE7F9005A577E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD375123219DE7F9005A577E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD375125219DE7F9005A577E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD38824321A092F6008E59EC /* AssetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetViewController.swift; sourceTree = "<group>"; };
 		AD641C3A219F41AC00DF8CFE /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,6 +65,7 @@
 				AD375122219DE7F9005A577E /* LaunchScreen.storyboard */,
 				AD375125219DE7F9005A577E /* Info.plist */,
 				AD641C3A219F41AC00DF8CFE /* PhotoCell.swift */,
+				AD38824321A092F6008E59EC /* AssetViewController.swift */,
 			);
 			path = Eidetic;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 				AD37511C219DE7F7005A577E /* ViewController.swift in Sources */,
 				AD641C3B219F41AC00DF8CFE /* PhotoCell.swift in Sources */,
 				AD37511A219DE7F7005A577E /* AppDelegate.swift in Sources */,
+				AD38824421A092F6008E59EC /* AssetViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
