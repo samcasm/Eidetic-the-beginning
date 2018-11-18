@@ -59,7 +59,7 @@
                                         <connections>
                                             <outlet property="imageView" destination="w4E-kY-Cf1" id="o4Y-0X-7h7"/>
                                             <outlet property="livePhotoBadgeImageView" destination="7VX-SL-Csv" id="OJ1-vS-mzy"/>
-                                            <segue destination="YDA-l8-Lv6" kind="showDetail" id="lVo-6d-6KE"/>
+                                            <segue destination="YDA-l8-Lv6" kind="show" id="lVo-6d-6KE"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -92,9 +92,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2954.4000000000001" y="98.50074962518741"/>
+            <point key="canvasLocation" x="2900" y="103"/>
         </scene>
-        <!--Title-->
+        <!--Asset View Controller-->
         <scene sceneID="IbI-F5-dVk">
             <objects>
                 <viewController id="YDA-l8-Lv6" customClass="AssetViewController" customModule="Eidetic" customModuleProvider="target" sceneMemberID="viewController">
@@ -102,26 +102,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="375" translatesAutoresizingMaskIntoConstraints="NO" id="e4d-cc-Os4">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="375" translatesAutoresizingMaskIntoConstraints="NO" id="e4d-cc-Os4">
                                 <rect key="frame" x="0.0" y="64" width="375" height="375"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="343" placeholderIntrinsicHeight="370" translatesAutoresizingMaskIntoConstraints="NO" id="hzR-X3-jgG" userLabel="Live Image View">
-                                <rect key="frame" x="0.0" y="64" width="375" height="370"/>
-                            </imageView>
+                            <view contentMode="scaleAspectFit" placeholderIntrinsicWidth="343" placeholderIntrinsicHeight="365" translatesAutoresizingMaskIntoConstraints="NO" id="nJO-Kq-Vay" customClass="PHLivePhotoView">
+                                <rect key="frame" x="16" y="64" width="343" height="365"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="nJO-Kq-Vay" secondAttribute="trailing" id="7DX-io-VRg"/>
+                            <constraint firstItem="nJO-Kq-Vay" firstAttribute="leading" secondItem="IYM-4d-7sr" secondAttribute="leadingMargin" id="Ffa-h7-sqd"/>
                             <constraint firstItem="e4d-cc-Os4" firstAttribute="top" secondItem="LGZ-BE-6zd" secondAttribute="top" id="LIs-Wb-CNj"/>
                             <constraint firstItem="e4d-cc-Os4" firstAttribute="leading" secondItem="IYM-4d-7sr" secondAttribute="leading" id="M7W-Op-5cL"/>
-                            <constraint firstItem="hzR-X3-jgG" firstAttribute="leading" secondItem="IYM-4d-7sr" secondAttribute="leading" id="UPr-NF-jgc"/>
                             <constraint firstAttribute="trailing" secondItem="e4d-cc-Os4" secondAttribute="trailing" id="jwE-m6-QEE"/>
-                            <constraint firstAttribute="trailing" secondItem="hzR-X3-jgG" secondAttribute="trailing" id="thY-Yg-jCv"/>
-                            <constraint firstItem="hzR-X3-jgG" firstAttribute="top" secondItem="LGZ-BE-6zd" secondAttribute="top" id="whB-Ja-NoM"/>
+                            <constraint firstItem="nJO-Kq-Vay" firstAttribute="top" secondItem="LGZ-BE-6zd" secondAttribute="top" id="pZD-g7-iLJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LGZ-BE-6zd"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="g7p-kd-bP6">
+                    <navigationItem key="navigationItem" id="g7p-kd-bP6">
+                        <nil key="title"/>
+                        <progressView key="titleView" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" id="mdp-8h-RYf">
+                            <rect key="frame" x="8" y="21" width="315.5" height="2.5"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </progressView>
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="9am-ty-13V"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -129,10 +135,13 @@
                         <outlet property="editButton" destination="9am-ty-13V" id="LRh-sE-pUm"/>
                         <outlet property="favoriteButton" destination="8Yp-WQ-pwd" id="lcP-cJ-Hxa"/>
                         <outlet property="imageView" destination="e4d-cc-Os4" id="6Vn-jr-Q2U"/>
-                        <outlet property="livePhotoView" destination="hzR-X3-jgG" id="BNe-sg-jT5"/>
+                        <outlet property="livePhotoView" destination="nJO-Kq-Vay" id="WgB-2y-KqH"/>
+                        <outlet property="progressView" destination="mdp-8h-RYf" id="Xck-ba-9I2"/>
+                        <outlet property="space" destination="mpt-ak-bMs" id="cDB-No-uHq"/>
                         <outlet property="trashButton" destination="CL7-RW-TvL" id="sHW-8x-f54"/>
                     </connections>
                 </viewController>
+                <barButtonItem style="plain" systemItem="flexibleSpace" id="mpt-ak-bMs"/>
                 <barButtonItem systemItem="trash" id="CL7-RW-TvL"/>
                 <barButtonItem title="♡" id="8Yp-WQ-pwd"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X4S-un-qKP" userLabel="First Responder" sceneMemberID="firstResponder"/>

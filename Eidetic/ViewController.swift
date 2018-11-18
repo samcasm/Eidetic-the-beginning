@@ -212,6 +212,15 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         updateCachedAssets()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let destination = segue.destination as? AssetViewController
+            else { fatalError("unexpected view controller for segue") }
+        
+        let indexPath = collectionView!.indexPath(for: sender as! UICollectionViewCell)!
+        destination.asset = fetchResult.object(at: indexPath.item)
+        destination.assetCollection = assetCollection
+    }
+    
     
 }
 
