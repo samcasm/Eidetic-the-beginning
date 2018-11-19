@@ -103,21 +103,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="375" translatesAutoresizingMaskIntoConstraints="NO" id="e4d-cc-Os4">
-                                <rect key="frame" x="0.0" y="64" width="375" height="375"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="415"/>
                             </imageView>
-                            <view contentMode="scaleAspectFit" placeholderIntrinsicWidth="343" placeholderIntrinsicHeight="365" translatesAutoresizingMaskIntoConstraints="NO" id="nJO-Kq-Vay" customClass="PHLivePhotoView">
-                                <rect key="frame" x="16" y="64" width="343" height="365"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="343" placeholderIntrinsicHeight="365" translatesAutoresizingMaskIntoConstraints="NO" id="nJO-Kq-Vay" customClass="PHLivePhotoView">
+                                <rect key="frame" x="0.0" y="64" width="375" height="365"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="nJO-Kq-Vay" secondAttribute="trailing" id="7DX-io-VRg"/>
-                            <constraint firstItem="nJO-Kq-Vay" firstAttribute="leading" secondItem="IYM-4d-7sr" secondAttribute="leadingMargin" id="Ffa-h7-sqd"/>
-                            <constraint firstItem="e4d-cc-Os4" firstAttribute="top" secondItem="LGZ-BE-6zd" secondAttribute="top" id="LIs-Wb-CNj"/>
-                            <constraint firstItem="e4d-cc-Os4" firstAttribute="leading" secondItem="IYM-4d-7sr" secondAttribute="leading" id="M7W-Op-5cL"/>
-                            <constraint firstAttribute="trailing" secondItem="e4d-cc-Os4" secondAttribute="trailing" id="jwE-m6-QEE"/>
-                            <constraint firstItem="nJO-Kq-Vay" firstAttribute="top" secondItem="LGZ-BE-6zd" secondAttribute="top" id="pZD-g7-iLJ"/>
+                            <constraint firstAttribute="trailing" secondItem="e4d-cc-Os4" secondAttribute="trailing" id="0dv-eM-M2t"/>
+                            <constraint firstItem="e4d-cc-Os4" firstAttribute="leading" secondItem="IYM-4d-7sr" secondAttribute="leading" id="Mlo-I6-EZw"/>
+                            <constraint firstItem="LGZ-BE-6zd" firstAttribute="bottom" secondItem="e4d-cc-Os4" secondAttribute="bottom" constant="144" id="h8E-fJ-GTj"/>
+                            <constraint firstItem="e4d-cc-Os4" firstAttribute="top" secondItem="LGZ-BE-6zd" secondAttribute="top" id="xm4-Dx-wkl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LGZ-BE-6zd"/>
                     </view>
@@ -128,7 +127,11 @@
                             <rect key="frame" x="8" y="21" width="315.5" height="2.5"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </progressView>
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="9am-ty-13V"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="9am-ty-13V">
+                            <connections>
+                                <action selector="editAsset:" destination="YDA-l8-Lv6" id="4q3-QL-5hL"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -142,8 +145,16 @@
                     </connections>
                 </viewController>
                 <barButtonItem style="plain" systemItem="flexibleSpace" id="mpt-ak-bMs"/>
-                <barButtonItem systemItem="trash" id="CL7-RW-TvL"/>
-                <barButtonItem title="♡" id="8Yp-WQ-pwd"/>
+                <barButtonItem systemItem="trash" id="CL7-RW-TvL">
+                    <connections>
+                        <action selector="removeAsset:" destination="YDA-l8-Lv6" id="uTi-k1-DFS"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem title="♡" id="8Yp-WQ-pwd">
+                    <connections>
+                        <action selector="toggleFavorite:" destination="YDA-l8-Lv6" id="1Ec-Ju-ZBM"/>
+                    </connections>
+                </barButtonItem>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X4S-un-qKP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3668" y="102.99850074962519"/>

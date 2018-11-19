@@ -161,6 +161,7 @@ class AssetViewController: UIViewController {
         let scale = UIScreen.main.scale
         return CGSize(width: imageView.bounds.width * scale,
                       height: imageView.bounds.height * scale)
+//        return CGSize(width: 400, height: 300)
     }
     
     func updateImage() {
@@ -228,7 +229,46 @@ class AssetViewController: UIViewController {
             self.livePhotoView.isHidden = true
             self.imageView.isHidden = false
             self.imageView.image = image
+            
+            self.resizeImageViewToImageSize(self.imageView)
         })
+    }
+    
+    // Image Resizing
+    func resizeImageViewToImageSize(_ imageView:UIImageView) {
+        
+        let maxWidth = view.frame.size.width
+        let maxHeight = view.frame.size.height
+        
+        var widthRatio = imageView.bounds.size.width / imageView.image!.size.width
+        
+        if widthRatio < 1 {
+            widthRatio = 1 / widthRatio
+        }
+        
+        var heightRatio = imageView.bounds.size.height / imageView.image!.size.height
+        
+        if heightRatio < 1 {
+            heightRatio = 1 / widthRatio
+        }
+        
+        let scale = min(widthRatio, heightRatio)
+        
+        let maxWidthRatio = maxWidth / imageView.bounds.size.width
+        let maxHeightRatio = maxHeight / imageView.bounds.size.height
+        let maxScale = min(maxWidthRatio, maxHeightRatio)
+        
+        let properScale = min(scale, maxScale)
+        
+        let imageWidth = properScale * imageView.image!.size.width
+        let imageHeight = properScale * imageView.image!.size.height
+        print("\(imageWidth) - \(imageHeight)")
+        
+        imageView.frame = CGRect(x: 0,
+                                 y: 70,
+                                 width: imageWidth,
+                                 height: imageHeight)
+        imageView.center.x = view.center.x
     }
     
     // MARK: Asset editing
@@ -402,3 +442,5 @@ extension AssetViewController: PHLivePhotoViewDelegate {
         isPlayingHint = (playbackStyle == .hint)
     }
 }
+
+
