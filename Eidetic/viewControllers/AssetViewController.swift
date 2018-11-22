@@ -16,6 +16,7 @@ class AssetViewController: UIViewController {
     var asset: PHAsset!
     var assetCollection: PHAssetCollection!
     
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var addTagTextField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var livePhotoView: PHLivePhotoView!
@@ -50,8 +51,6 @@ class AssetViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.hideKeyboardWhenTappedAround()
-        
         // Set the appropriate toolbarItems based on the mediaType of the asset.
         if asset.mediaType == .video {
             
@@ -85,8 +84,8 @@ class AssetViewController: UIViewController {
     // MARK: UI Actions
     
     
-    @IBAction func addTagToAsset(_ sender: Any) {
-        do{
+    @IBAction func addTagToAsset(_ sender: Any){
+        do {
             var allImagesTagsData = try [Images]()
             let assetId: String = asset.localIdentifier
             let newTag: String = String(addTagTextField.text!)
@@ -100,6 +99,8 @@ class AssetViewController: UIViewController {
             
             try allImagesTagsData.save()
             addTagTextField.text = ""
+            self.hideKeyboardWhenTappedAround()
+            self.collectionView.reloadData()
             
         }catch{
             print("Could not add tag to asset: \(error)")
@@ -433,6 +434,56 @@ class AssetViewController: UIViewController {
         export.videoComposition = composition
         export.exportAsynchronously(completionHandler: completion)
     }
+}
+
+//MARK: CollectionViewDelegate
+extension AssetViewController: UICollectionViewDataSource, UICollectionViewDelegate{
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        do{
+            let assetId = asset.localIdentifier
+            let allImagesTagsData = try [Images]()
+            
+            if let i = allImagesTagsData.firstIndex(where: { $0.id == assetId }) {
+                return allImagesTagsData[i].tags.count
+            }else{
+                return 0
+            }
+            
+        }catch{
+            print("CollectionView Error: \(error)")
+            return 0
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tagCell", for: indexPath as IndexPath) as! TagCellCollectionView
+        do{
+            let assetId = asset.localIdentifier
+            let allImagesTagsData = try [Images]()
+            let assetIndex = allImagesTagsData.firstIndex(where: { $0.id == assetId })
+            
+            
+            let arrayOfTags = Array(allImagesTagsData[assetIndex!].tags)
+            
+            cell.tagLabel.text = arrayOfTags[indexPath.item]
+            cell.backgroundColor = UIColor.cyan // make cell more visible in our example project
+            
+            return cell
+                
+            
+        }catch{
+            print("CollectionView Error: \(error)")
+            return cell
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // handle tap events
+        print("You selected cell #\(indexPath.item)!")
+    }
+    
+    
 }
 
 // MARK: PHPhotoLibraryChangeObserver

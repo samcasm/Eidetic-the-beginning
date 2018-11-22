@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AD11B36021A72760004D352C /* controls.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD11B35F21A72760004D352C /* controls.swift */; };
+		AD11B36421A73260004D352C /* TagCellCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD11B36321A73260004D352C /* TagCellCollectionView.swift */; };
 		AD1DFE5521A649BD008C0AFF /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1DFE5421A649BD008C0AFF /* FileManager.swift */; };
 		AD37511A219DE7F7005A577E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD375119219DE7F7005A577E /* AppDelegate.swift */; };
 		AD37511C219DE7F7005A577E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD37511B219DE7F7005A577E /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		AD11B35F21A72760004D352C /* controls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = controls.swift; sourceTree = "<group>"; };
+		AD11B36321A73260004D352C /* TagCellCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCellCollectionView.swift; sourceTree = "<group>"; };
 		AD1DFE5421A649BD008C0AFF /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		AD375116219DE7F7005A577E /* Eidetic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eidetic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD375119219DE7F7005A577E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 			children = (
 				AD641C3A219F41AC00DF8CFE /* PhotoCell.swift */,
 				AD4E7A1A21A5D1DA0031EB5C /* ImageStruct.swift */,
+				AD11B36321A73260004D352C /* TagCellCollectionView.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 				AD37511C219DE7F7005A577E /* ViewController.swift in Sources */,
 				AD641C3B219F41AC00DF8CFE /* PhotoCell.swift in Sources */,
 				AD1DFE5521A649BD008C0AFF /* FileManager.swift in Sources */,
+				AD11B36421A73260004D352C /* TagCellCollectionView.swift in Sources */,
 				AD11B36021A72760004D352C /* controls.swift in Sources */,
 				AD37511A219DE7F7005A577E /* AppDelegate.swift in Sources */,
 				AD38824421A092F6008E59EC /* AssetViewController.swift in Sources */,

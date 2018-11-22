@@ -31,7 +31,7 @@ extension Array where Element == Images {
         let jsonEncoder = JSONEncoder()
         let jsonData = try jsonEncoder.encode(self)
         
-        try jsonData.write(to: FileManager.tagsFileURL)
+        try jsonData.write(to: FileManager.tagsFileURL, options: .atomic)
     }
     
     func read() throws ->[Images]{
