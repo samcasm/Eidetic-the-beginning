@@ -16,6 +16,7 @@ class AssetViewController: UIViewController {
     var asset: PHAsset!
     var assetCollection: PHAssetCollection!
     
+    @IBOutlet weak var addTagTextField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var livePhotoView: PHLivePhotoView!
     @IBOutlet weak var editButton: UIBarButtonItem!
@@ -49,14 +50,6 @@ class AssetViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        do{
-            
-            let data = [Images(id:"j2h34g2jh4g234hjg32", tags:["snow", "falling"]), Images(id: "kjadshkjh2j4k234kjh234", tags: ["radio","csi"])]
-            try data.save(data)
-        
-        }catch{
-            print("error in retriveing images from file")
-        }
         // Set the appropriate toolbarItems based on the mediaType of the asset.
         if asset.mediaType == .video {
             
@@ -88,6 +81,25 @@ class AssetViewController: UIViewController {
     }
     
     // MARK: UI Actions
+    
+    
+    @IBAction func addTagToAsset(_ sender: Any) {
+        do{
+            var allImagesTagsData = try [Images]()
+            let assetId: String = asset.localIdentifier
+            let newTag: String = String(addTagTextField.text!)
+            if let i = allImagesTagsData.firstIndex(where: { $0.id == assetId }) {
+                allImagesTagsData[i].tags.insert(newTag)
+            }else{
+                let newAsset: Images = Images(id: assetId, tags: [newTag])
+                allImagesTagsData.append(newAsset)
+            }
+            try allImagesTagsData.save()
+            addTagTextField.text = ""
+        }catch{
+            print("Could not add tag to asset: \(error)")
+        }
+    }
     
     @IBAction func editAsset(_ sender: UIBarButtonItem) {
         // Use a UIAlertController to display editing options to the user.

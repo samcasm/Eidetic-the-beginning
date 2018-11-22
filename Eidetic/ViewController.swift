@@ -62,13 +62,6 @@ class ViewController: UIViewController {
         resetCachedAssets()
         PHPhotoLibrary.shared().register(self)
         
-        do{
-        let imagesRead = try [Images]()
-            print(imagesRead, "images read")
-        }catch{
-            print("Dint read")
-        }
-        
         // If we get here without a segue, it's because we're visible at app launch,
         // so match the behavior of segue from the default "All Photos" view.
         if fetchResult == nil {

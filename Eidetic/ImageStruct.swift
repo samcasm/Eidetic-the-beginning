@@ -11,7 +11,7 @@ import UIKit
 
 struct Images: Decodable, Encodable {
     var id: String
-    var tags: [String]
+    var tags: Set<String>
     
     enum DecodingError: Error {
         case missingFile
@@ -27,9 +27,9 @@ extension Array where Element == Images {
         self = try decoder.decode([Images].self, from: data)
     }
     
-    func save(_ data: [Images]) throws{
+    func save() throws{
         let jsonEncoder = JSONEncoder()
-        let jsonData = try jsonEncoder.encode(data)
+        let jsonData = try jsonEncoder.encode(self)
         
         try jsonData.write(to: FileManager.tagsFileURL)
     }
