@@ -102,20 +102,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="375" translatesAutoresizingMaskIntoConstraints="NO" id="e4d-cc-Os4">
-                                <rect key="frame" x="0.0" y="64" width="375" height="415"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="370" translatesAutoresizingMaskIntoConstraints="NO" id="e4d-cc-Os4">
+                                <rect key="frame" x="0.0" y="64" width="375" height="370"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="343" placeholderIntrinsicHeight="365" translatesAutoresizingMaskIntoConstraints="NO" id="nJO-Kq-Vay" customClass="PHLivePhotoView">
                                 <rect key="frame" x="0.0" y="64" width="375" height="365"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="cI4-kf-NVd">
+                                <rect key="frame" x="30" y="447" width="310" height="30"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add tags here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WX0-SQ-oqn">
+                                        <rect key="frame" x="0.0" y="0.0" width="260" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPS-gg-F0s">
+                                        <rect key="frame" x="280" y="0.0" width="30" height="30"/>
+                                        <state key="normal" title="Add"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="e4d-cc-Os4" secondAttribute="trailing" id="0dv-eM-M2t"/>
+                            <constraint firstItem="LGZ-BE-6zd" firstAttribute="trailing" secondItem="cI4-kf-NVd" secondAttribute="trailing" constant="35" id="Dd8-t1-j0F"/>
                             <constraint firstItem="e4d-cc-Os4" firstAttribute="leading" secondItem="IYM-4d-7sr" secondAttribute="leading" id="Mlo-I6-EZw"/>
-                            <constraint firstItem="LGZ-BE-6zd" firstAttribute="bottom" secondItem="e4d-cc-Os4" secondAttribute="bottom" constant="144" id="h8E-fJ-GTj"/>
+                            <constraint firstItem="cI4-kf-NVd" firstAttribute="leading" secondItem="LGZ-BE-6zd" secondAttribute="leading" constant="30" id="Z9p-PR-eOU"/>
+                            <constraint firstItem="cI4-kf-NVd" firstAttribute="top" secondItem="e4d-cc-Os4" secondAttribute="bottom" constant="13" id="fXR-p3-H17"/>
+                            <constraint firstItem="LGZ-BE-6zd" firstAttribute="bottom" secondItem="cI4-kf-NVd" secondAttribute="bottom" constant="146" id="veC-Kn-6Et"/>
                             <constraint firstItem="e4d-cc-Os4" firstAttribute="top" secondItem="LGZ-BE-6zd" secondAttribute="top" id="xm4-Dx-wkl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LGZ-BE-6zd"/>

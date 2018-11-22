@@ -59,9 +59,15 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         resetCachedAssets()
         PHPhotoLibrary.shared().register(self)
+        
+        do{
+        let imagesRead = try [Images]()
+            print(imagesRead, "images read")
+        }catch{
+            print("Dint read")
+        }
         
         // If we get here without a segue, it's because we're visible at app launch,
         // so match the behavior of segue from the default "All Photos" view.
@@ -76,6 +82,7 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         updateCachedAssets()
+        
     }
     
     

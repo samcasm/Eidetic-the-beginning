@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -39,6 +40,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        
+        do {
+            try FileManager.default.createDirectory(atPath:FileManager.dataFilesDirectoryURL.path, withIntermediateDirectories: true, attributes: nil)
+            if FileManager.default.fileExists(atPath: FileManager.tagsFileURL.path, isDirectory: nil){
+                let strData = try String(contentsOf: FileManager.tagsFileURL, encoding: .utf8)
+                print("Contents of the tagsFile:\n \(strData)")
+            }else{
+//                try "First write test".write(to: FileManager.tagsFileURL, atomically: true, encoding: .utf8)
+                guard FileManager.default.createFile(atPath: FileManager.tagsFileURL.path, contents: nil)else{
+                    print("error: Could not create initial tagsFile")
+                    return false
+                }
+            }
+        } catch {
+            print(error)
+        }
+        
+        return true
     }
 
 

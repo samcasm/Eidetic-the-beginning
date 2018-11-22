@@ -49,6 +49,14 @@ class AssetViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        do{
+            
+            let data = [Images(id:"j2h34g2jh4g234hjg32", tags:["snow", "falling"]), Images(id: "kjadshkjh2j4k234kjh234", tags: ["radio","csi"])]
+            try data.save(data)
+        
+        }catch{
+            print("error in retriveing images from file")
+        }
         // Set the appropriate toolbarItems based on the mediaType of the asset.
         if asset.mediaType == .video {
             
