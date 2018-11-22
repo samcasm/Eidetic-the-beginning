@@ -127,11 +127,33 @@
                                 <rect key="frame" x="0.0" y="130" width="375" height="351"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vZN-fw-KwI">
+                                <rect key="frame" x="10" y="513" width="355" height="139"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="F1W-HR-88r">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Z6y-cj-WsS">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="vZN-fw-KwI" secondAttribute="bottom" constant="15" id="4EJ-v2-2x9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cI4-kf-NVd" secondAttribute="trailing" constant="30" id="8yl-9W-QjX"/>
                             <constraint firstItem="e4d-cc-Os4" firstAttribute="leading" secondItem="IYM-4d-7sr" secondAttribute="leading" id="98B-aG-Gky"/>
+                            <constraint firstItem="LGZ-BE-6zd" firstAttribute="trailing" secondItem="vZN-fw-KwI" secondAttribute="trailing" constant="10" id="C1l-tQ-tkA"/>
                             <constraint firstItem="e4d-cc-Os4" firstAttribute="top" secondItem="cI4-kf-NVd" secondAttribute="bottom" constant="20" id="CTC-sj-GHV"/>
                             <constraint firstAttribute="trailing" secondItem="nJO-Kq-Vay" secondAttribute="trailing" id="E55-0z-xoB"/>
                             <constraint firstItem="LGZ-BE-6zd" firstAttribute="bottom" secondItem="nJO-Kq-Vay" secondAttribute="bottom" constant="142" id="Idi-Nj-nfJ"/>
@@ -140,8 +162,10 @@
                             <constraint firstItem="cI4-kf-NVd" firstAttribute="leading" secondItem="IYM-4d-7sr" secondAttribute="leadingMargin" constant="30" id="LPT-8d-lvF"/>
                             <constraint firstItem="cI4-kf-NVd" firstAttribute="top" secondItem="LGZ-BE-6zd" secondAttribute="top" constant="16" id="PA9-pf-1WT"/>
                             <constraint firstItem="nJO-Kq-Vay" firstAttribute="top" secondItem="cI4-kf-NVd" secondAttribute="bottom" constant="20" id="Tif-8b-mrS"/>
+                            <constraint firstItem="vZN-fw-KwI" firstAttribute="leading" secondItem="LGZ-BE-6zd" secondAttribute="leading" constant="10" id="kHn-Qc-AT2"/>
                             <constraint firstAttribute="trailing" secondItem="e4d-cc-Os4" secondAttribute="trailing" id="kwJ-k1-trq"/>
                             <constraint firstItem="LGZ-BE-6zd" firstAttribute="bottom" secondItem="e4d-cc-Os4" secondAttribute="bottom" constant="120" id="twY-w9-uYR"/>
+                            <constraint firstItem="vZN-fw-KwI" firstAttribute="top" secondItem="e4d-cc-Os4" secondAttribute="bottom" constant="10" id="yh9-iC-Asq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LGZ-BE-6zd"/>
                     </view>

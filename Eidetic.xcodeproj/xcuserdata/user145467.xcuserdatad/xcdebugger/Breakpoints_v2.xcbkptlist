@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Eidetic/AssetViewController.swift"
-            timestampString = "564602368.751678"
+            timestampString = "564604441.137166"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "addTagToAsset(_:)"
             landmarkType = "7">
          </BreakpointContent>

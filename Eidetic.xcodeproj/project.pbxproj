@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD11B36021A72760004D352C /* controls.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD11B35F21A72760004D352C /* controls.swift */; };
 		AD1DFE5521A649BD008C0AFF /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1DFE5421A649BD008C0AFF /* FileManager.swift */; };
 		AD37511A219DE7F7005A577E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD375119219DE7F7005A577E /* AppDelegate.swift */; };
 		AD37511C219DE7F7005A577E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD37511B219DE7F7005A577E /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD11B35F21A72760004D352C /* controls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = controls.swift; sourceTree = "<group>"; };
 		AD1DFE5421A649BD008C0AFF /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		AD375116219DE7F7005A577E /* Eidetic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eidetic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD375119219DE7F7005A577E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +45,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD11B35E21A7273E004D352C /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AD1DFE5421A649BD008C0AFF /* FileManager.swift */,
+				AD11B35F21A72760004D352C /* controls.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		AD11B36121A72DF8004D352C /* models */ = {
+			isa = PBXGroup;
+			children = (
+				AD641C3A219F41AC00DF8CFE /* PhotoCell.swift */,
+				AD4E7A1A21A5D1DA0031EB5C /* ImageStruct.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		AD11B36221A72E67004D352C /* viewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AD37511B219DE7F7005A577E /* ViewController.swift */,
+				AD38824321A092F6008E59EC /* AssetViewController.swift */,
+			);
+			path = viewControllers;
+			sourceTree = "<group>";
+		};
 		AD37510D219DE7F7005A577E = {
 			isa = PBXGroup;
 			children = (
@@ -62,16 +91,14 @@
 		AD375118219DE7F7005A577E /* Eidetic */ = {
 			isa = PBXGroup;
 			children = (
+				AD11B36221A72E67004D352C /* viewControllers */,
+				AD11B36121A72DF8004D352C /* models */,
+				AD11B35E21A7273E004D352C /* extensions */,
 				AD375119219DE7F7005A577E /* AppDelegate.swift */,
-				AD37511B219DE7F7005A577E /* ViewController.swift */,
 				AD37511D219DE7F7005A577E /* Main.storyboard */,
 				AD375120219DE7F9005A577E /* Assets.xcassets */,
 				AD375122219DE7F9005A577E /* LaunchScreen.storyboard */,
 				AD375125219DE7F9005A577E /* Info.plist */,
-				AD641C3A219F41AC00DF8CFE /* PhotoCell.swift */,
-				AD38824321A092F6008E59EC /* AssetViewController.swift */,
-				AD4E7A1A21A5D1DA0031EB5C /* ImageStruct.swift */,
-				AD1DFE5421A649BD008C0AFF /* FileManager.swift */,
 			);
 			path = Eidetic;
 			sourceTree = "<group>";
@@ -151,6 +178,7 @@
 				AD37511C219DE7F7005A577E /* ViewController.swift in Sources */,
 				AD641C3B219F41AC00DF8CFE /* PhotoCell.swift in Sources */,
 				AD1DFE5521A649BD008C0AFF /* FileManager.swift in Sources */,
+				AD11B36021A72760004D352C /* controls.swift in Sources */,
 				AD37511A219DE7F7005A577E /* AppDelegate.swift in Sources */,
 				AD38824421A092F6008E59EC /* AssetViewController.swift in Sources */,
 			);

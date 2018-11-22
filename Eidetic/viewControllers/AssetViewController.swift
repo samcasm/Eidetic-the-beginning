@@ -50,6 +50,8 @@ class AssetViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.hideKeyboardWhenTappedAround()
+        
         // Set the appropriate toolbarItems based on the mediaType of the asset.
         if asset.mediaType == .video {
             
@@ -88,14 +90,17 @@ class AssetViewController: UIViewController {
             var allImagesTagsData = try [Images]()
             let assetId: String = asset.localIdentifier
             let newTag: String = String(addTagTextField.text!)
+            
             if let i = allImagesTagsData.firstIndex(where: { $0.id == assetId }) {
                 allImagesTagsData[i].tags.insert(newTag)
             }else{
                 let newAsset: Images = Images(id: assetId, tags: [newTag])
                 allImagesTagsData.append(newAsset)
             }
+            
             try allImagesTagsData.save()
             addTagTextField.text = ""
+            
         }catch{
             print("Could not add tag to asset: \(error)")
         }
