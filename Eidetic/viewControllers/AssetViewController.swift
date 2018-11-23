@@ -16,6 +16,7 @@ class AssetViewController: UIViewController {
     var asset: PHAsset!
     var assetCollection: PHAssetCollection!
     
+    @IBOutlet weak var makeFolderSwitch: UISwitch!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var addTagTextField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
@@ -50,6 +51,8 @@ class AssetViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        makeFolderSwitch.isOn = false
         
         // Set the appropriate toolbarItems based on the mediaType of the asset.
         if asset.mediaType == .video {
@@ -101,6 +104,19 @@ class AssetViewController: UIViewController {
             addTagTextField.text = ""
             self.hideKeyboardWhenTappedAround()
             self.collectionView.reloadData()
+            
+            if(makeFolderSwitch.isOn){
+                var allDirectories = try [Directory]()
+                var directory: Directory = Directory(id: newTag, imageIDs:[])
+                allImagesTagsData.forEach{
+                    if($0.tags.contains(newTag)){
+                        directory.imageIDs.insert($0.id)
+                    }
+                }
+                allDirectories.append(directory)
+                try allDirectories.save()
+            }
+            
             
         }catch{
             print("Could not add tag to asset: \(error)")
@@ -259,6 +275,7 @@ class AssetViewController: UIViewController {
             self.resizeImageViewToImageSize(self.imageView)
         })
     }
+    
     
     // Image Resizing
     func resizeImageViewToImageSize(_ imageView:UIImageView) {
@@ -433,8 +450,10 @@ class AssetViewController: UIViewController {
         export.outputURL = output.renderedContentURL
         export.videoComposition = composition
         export.exportAsynchronously(completionHandler: completion)
+        
     }
 }
+
 
 //MARK: CollectionViewDelegate
 extension AssetViewController: UICollectionViewDataSource, UICollectionViewDelegate, TagCellDelegate{

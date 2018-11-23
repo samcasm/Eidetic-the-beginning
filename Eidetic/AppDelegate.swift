@@ -51,9 +51,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let strData = try String(contentsOf: FileManager.tagsFileURL, encoding: .utf8)
                 print("Contents of the tagsFile:\n \(strData)")
             }else{
-//                try "First write test".write(to: FileManager.tagsFileURL, atomically: true, encoding: .utf8)
                 guard FileManager.default.createFile(atPath: FileManager.tagsFileURL.path, contents: nil)else{
                     print("error: Could not create initial tagsFile")
+                    return false
+                }
+            }
+            
+            if FileManager.default.fileExists(atPath: FileManager.directoriesURL.path, isDirectory: nil){
+                let strData = try String(contentsOf: FileManager.directoriesURL, encoding: .utf8)
+                print("Contents of the directories:\n \(strData)")
+            }else{
+                guard FileManager.default.createFile(atPath: FileManager.directoriesURL.path, contents: nil)else{
+                    print("error: Could not create initial directories file")
                     return false
                 }
             }
