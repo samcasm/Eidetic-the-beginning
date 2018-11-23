@@ -144,12 +144,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tag" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zvt-kt-6mY">
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tag" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zvt-kt-6mY">
                                                     <rect key="frame" x="16.5" y="18.5" width="17" height="13.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bpf-ib-RIZ">
+                                                    <rect key="frame" x="25" y="0.0" width="22" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="deleteTagWithSender:" destination="Z6y-cj-WsS" eventType="touchUpInside" id="0La-tO-mF0"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </view>
                                         <constraints>
@@ -157,6 +164,7 @@
                                             <constraint firstItem="Zvt-kt-6mY" firstAttribute="centerY" secondItem="Z6y-cj-WsS" secondAttribute="centerY" id="r7y-qJ-7nu"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="deleteTagButton" destination="Bpf-ib-RIZ" id="JLp-Mx-90E"/>
                                             <outlet property="tagLabel" destination="Zvt-kt-6mY" id="S24-hr-51q"/>
                                         </connections>
                                     </collectionViewCell>

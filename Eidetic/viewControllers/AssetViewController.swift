@@ -437,7 +437,22 @@ class AssetViewController: UIViewController {
 }
 
 //MARK: CollectionViewDelegate
-extension AssetViewController: UICollectionViewDataSource, UICollectionViewDelegate{
+extension AssetViewController: UICollectionViewDataSource, UICollectionViewDelegate, TagCellDelegate{
+    func deleteTag(cell: TagCellCollectionView) {
+        do{
+            let assetId = asset.localIdentifier
+            var allImagesTagsData = try [Images]()
+            
+            if let i = allImagesTagsData.firstIndex(where: { $0.id == assetId }) {
+                allImagesTagsData[i].tags.remove(cell.tagLabel.text!)
+                try allImagesTagsData.save()
+                collectionView.reloadData()
+            }
+            
+        }catch{
+            print("CollectionView Delete Tag Error: \(error)")
+        }
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         do{
@@ -468,6 +483,8 @@ extension AssetViewController: UICollectionViewDataSource, UICollectionViewDeleg
             
             cell.tagLabel.text = arrayOfTags[indexPath.item]
             cell.backgroundColor = UIColor.cyan // make cell more visible in our example project
+            
+            cell.delegate = self
             
             return cell
                 
