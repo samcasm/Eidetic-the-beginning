@@ -25,7 +25,7 @@ class DirectoriesViewController: UIViewController, UICollectionViewDataSource, U
                 
                 // Use the outlet in our custom class to get a reference to the UILabel in the cell
                 cell.directoryName.text = allDirectories[indexPath.item].id
-                cell.backgroundColor = UIColor.green // make cell more visible in our example project
+//                cell.backgroundColor = UIColor.green // make cell more visible in our example project
                 
             }catch{
                 print("Error while assigning directories: \(error)")

@@ -138,38 +138,47 @@
                                 <rect key="frame" x="24" y="490" width="335" height="84"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="F1W-HR-88r">
-                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="itemSize" width="109" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="tagCell" id="Z6y-cj-WsS" customClass="TagCellCollectionView" customModule="Eidetic" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="109" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="109" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tag" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zvt-kt-6mY">
-                                                    <rect key="frame" x="16.5" y="18" width="17" height="14"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <nil key="textColor"/>
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tag" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zvt-kt-6mY">
+                                                    <rect key="frame" x="8" y="16" width="91" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bpf-ib-RIZ">
-                                                    <rect key="frame" x="25" y="0.0" width="22" height="22"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bpf-ib-RIZ">
+                                                    <rect key="frame" x="87" y="0.0" width="22" height="23"/>
+                                                    <state key="normal" image="delete3">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="deleteTagWithSender:" destination="Z6y-cj-WsS" eventType="touchUpInside" id="0La-tO-mF0"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                         </view>
+                                        <color key="backgroundColor" red="0.0" green="0.57364117903435208" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="Zvt-kt-6mY" firstAttribute="centerX" secondItem="Z6y-cj-WsS" secondAttribute="centerX" id="Jui-gl-Z0Q"/>
-                                            <constraint firstItem="Bpf-ib-RIZ" firstAttribute="leading" secondItem="Z6y-cj-WsS" secondAttribute="leadingMargin" constant="17" id="OUx-1b-3hb"/>
-                                            <constraint firstItem="Bpf-ib-RIZ" firstAttribute="top" secondItem="Z6y-cj-WsS" secondAttribute="top" id="lux-RC-Zf0"/>
-                                            <constraint firstItem="Zvt-kt-6mY" firstAttribute="centerY" secondItem="Z6y-cj-WsS" secondAttribute="centerY" id="r7y-qJ-7nu"/>
+                                            <constraint firstItem="Bpf-ib-RIZ" firstAttribute="top" secondItem="Z6y-cj-WsS" secondAttribute="top" id="0z5-2n-xgR"/>
+                                            <constraint firstItem="Zvt-kt-6mY" firstAttribute="top" secondItem="Z6y-cj-WsS" secondAttribute="top" constant="16" id="5Ta-PL-0v4"/>
+                                            <constraint firstAttribute="trailing" secondItem="Bpf-ib-RIZ" secondAttribute="trailing" id="LG2-dD-D4e"/>
+                                            <constraint firstAttribute="bottom" secondItem="Zvt-kt-6mY" secondAttribute="bottom" constant="14" id="LGg-w0-Gm5"/>
+                                            <constraint firstItem="Zvt-kt-6mY" firstAttribute="leading" secondItem="Z6y-cj-WsS" secondAttribute="leading" constant="8" id="Tok-g5-utg"/>
+                                            <constraint firstItem="Bpf-ib-RIZ" firstAttribute="leading" secondItem="Z6y-cj-WsS" secondAttribute="leading" constant="87" id="aGd-cs-Huz"/>
+                                            <constraint firstAttribute="trailing" secondItem="Zvt-kt-6mY" secondAttribute="trailing" constant="10" id="cYk-5F-up8"/>
+                                            <constraint firstAttribute="bottom" secondItem="Bpf-ib-RIZ" secondAttribute="bottom" constant="27" id="uaX-Eo-rtF"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="deleteTagButton" destination="Bpf-ib-RIZ" id="JLp-Mx-90E"/>
@@ -293,21 +302,24 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4i5-Cj-9U2">
-                                    <size key="itemSize" width="86" height="81"/>
+                                    <size key="itemSize" width="120" height="98"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DirectoryCell" id="fhC-QJ-Qe9" customClass="DirectoryCell" customModule="Eidetic" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="86" height="81"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="98"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="86" height="81"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="120" height="98"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yeg-aL-nE8">
-                                                    <rect key="frame" x="22" y="30" width="42" height="21"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="folder" translatesAutoresizingMaskIntoConstraints="NO" id="Oum-th-nCa">
+                                                    <rect key="frame" x="2" y="2" width="116" height="72"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yeg-aL-nE8">
+                                                    <rect key="frame" x="18" y="75" width="84" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -315,8 +327,14 @@
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="yeg-aL-nE8" firstAttribute="centerX" secondItem="fhC-QJ-Qe9" secondAttribute="centerX" id="Meo-9K-QLc"/>
-                                            <constraint firstItem="yeg-aL-nE8" firstAttribute="centerY" secondItem="fhC-QJ-Qe9" secondAttribute="centerY" id="dnl-Lq-Kdj"/>
+                                            <constraint firstAttribute="bottom" secondItem="yeg-aL-nE8" secondAttribute="bottom" constant="2" id="1sZ-Tn-K9d"/>
+                                            <constraint firstItem="Oum-th-nCa" firstAttribute="top" secondItem="fhC-QJ-Qe9" secondAttribute="top" constant="2" id="2Km-z5-mjE"/>
+                                            <constraint firstItem="yeg-aL-nE8" firstAttribute="leading" secondItem="fhC-QJ-Qe9" secondAttribute="leading" constant="18" id="58i-kJ-fFj"/>
+                                            <constraint firstItem="Oum-th-nCa" firstAttribute="leading" secondItem="fhC-QJ-Qe9" secondAttribute="leading" constant="2" id="7aZ-BH-nrE"/>
+                                            <constraint firstItem="yeg-aL-nE8" firstAttribute="top" secondItem="Oum-th-nCa" secondAttribute="bottom" constant="1" id="BNZ-5u-Ewd"/>
+                                            <constraint firstItem="yeg-aL-nE8" firstAttribute="top" secondItem="Oum-th-nCa" secondAttribute="bottom" constant="1" id="E1r-fC-On1"/>
+                                            <constraint firstAttribute="trailing" secondItem="Oum-th-nCa" secondAttribute="trailing" constant="2" id="Mb9-Dr-Jr1"/>
+                                            <constraint firstAttribute="trailing" secondItem="yeg-aL-nE8" secondAttribute="trailing" constant="18" id="y2d-Zy-Hoh"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="directoryName" destination="yeg-aL-nE8" id="2hl-rW-CFt"/>
@@ -368,6 +386,10 @@
             <point key="canvasLocation" x="1823" y="512"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="delete3" width="37.5" height="37.5"/>
+        <image name="folder" width="37.5" height="37.5"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="C6c-UZ-BoF"/>
     </inferredMetricsTieBreakers>

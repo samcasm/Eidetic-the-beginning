@@ -505,7 +505,7 @@ extension AssetViewController: UICollectionViewDataSource, UICollectionViewDeleg
             let arrayOfTags = Array(allImagesTagsData[assetIndex!].tags)
             
             cell.tagLabel.text = arrayOfTags[indexPath.item]
-            cell.backgroundColor = UIColor.cyan // make cell more visible in our example project
+//            cell.backgroundColor = UIColor.cyan // make cell more visible in our example project
             
             cell.delegate = self
             
