@@ -320,6 +320,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="directoryName" destination="yeg-aL-nE8" id="2hl-rW-CFt"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="DirectoryDetailsSegue" id="C6c-UZ-BoF"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -367,4 +368,7 @@
             <point key="canvasLocation" x="1823" y="512"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="C6c-UZ-BoF"/>
+    </inferredMetricsTieBreakers>
 </document>

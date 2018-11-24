@@ -39,6 +39,15 @@ class DirectoriesViewController: UIViewController, UICollectionViewDataSource, U
             // handle tap events
             print("You selected cell #\(indexPath.item)!")
         }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "DirectoryDetailsSegue"{
+            if let dest = segue.destination as? ViewController, let index = collectionView.indexPathsForSelectedItems?.first {
+                var allDirectories = try? [Directory]()
+                dest.directoryName = allDirectories?[index.row].id
+            }
+        }
+    }
 }
     
 

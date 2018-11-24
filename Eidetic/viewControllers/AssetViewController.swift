@@ -92,6 +92,11 @@ class AssetViewController: UIViewController {
             var allImagesTagsData = try [Images]()
             let assetId: String = asset.localIdentifier
             let newTag: String = String(addTagTextField.text!)
+            var allDirectories = try [Directory]()
+            
+            if let i = allDirectories.firstIndex(where: { $0.id == newTag }) {
+                allDirectories[i].imageIDs.insert(assetId)
+            }
             
             if let i = allImagesTagsData.firstIndex(where: { $0.id == assetId }) {
                 allImagesTagsData[i].tags.insert(newTag)
@@ -106,7 +111,6 @@ class AssetViewController: UIViewController {
             self.collectionView.reloadData()
             
             if(makeFolderSwitch.isOn){
-                var allDirectories = try [Directory]()
                 var directory: Directory = Directory(id: newTag, imageIDs:[])
                 allImagesTagsData.forEach{
                     if($0.tags.contains(newTag)){
@@ -114,8 +118,8 @@ class AssetViewController: UIViewController {
                     }
                 }
                 allDirectories.append(directory)
-                try allDirectories.save()
             }
+             try allDirectories.save()
             
             
         }catch{

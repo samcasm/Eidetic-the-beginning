@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     
     var fetchResult: PHFetchResult<PHAsset>!
     var assetCollection: PHAssetCollection!
+    var directoryName: String!
     
     @IBOutlet weak var addButtonItem: UIBarButtonItem!
     
@@ -32,6 +33,7 @@ class ViewController: UIViewController {
     
     
     deinit {
+        directoryName = nil
         PHPhotoLibrary.shared().unregisterChangeObserver(self)
     }
     
@@ -64,10 +66,20 @@ class ViewController: UIViewController {
         
         // If we get here without a segue, it's because we're visible at app launch,
         // so match the behavior of segue from the default "All Photos" view.
-        if fetchResult == nil {
-            let allPhotosOptions = PHFetchOptions()
-            allPhotosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
-            fetchResult = PHAsset.fetchAssets(with: allPhotosOptions)
+        if directoryName == nil{
+            if fetchResult == nil {
+                let allPhotosOptions = PHFetchOptions()
+                allPhotosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
+                fetchResult = PHAsset.fetchAssets(with: allPhotosOptions)
+            }
+        }else{
+            do{
+                let allDirectories = try [Directory]()
+                let imageIds = allDirectories.first{$0.id == directoryName}?.imageIDs
+                fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: Array(imageIds!), options: nil)
+            }catch{
+                print("Error while directory details display \(error)")
+            }
         }
         
     }
