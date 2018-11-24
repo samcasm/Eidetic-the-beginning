@@ -19,7 +19,7 @@ struct Directory: Decodable, Encodable {
 }
 
 extension Array where Element == Directory {
-    init() throws {
+    init() throws{
         let url = URL(fileURLWithPath: "directories.json", relativeTo: FileManager.directoriesURL)
         
         let decoder = JSONDecoder()

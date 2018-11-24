@@ -19,6 +19,8 @@
 		AD4E7A1B21A5D1DA0031EB5C /* ImageStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4E7A1A21A5D1DA0031EB5C /* ImageStruct.swift */; };
 		AD62642921A8973C0056337E /* ImagesInDirectoryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD62642821A8973C0056337E /* ImagesInDirectoryInfo.swift */; };
 		AD641C3B219F41AC00DF8CFE /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD641C3A219F41AC00DF8CFE /* PhotoCell.swift */; };
+		ADC3BBF021A8CCCE00C24513 /* DirectoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC3BBEF21A8CCCE00C24513 /* DirectoryCell.swift */; };
+		ADC3BBF421A8D1A700C24513 /* DirectoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC3BBF321A8D1A700C24513 /* DirectoriesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		AD4E7A1A21A5D1DA0031EB5C /* ImageStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStruct.swift; sourceTree = "<group>"; };
 		AD62642821A8973C0056337E /* ImagesInDirectoryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesInDirectoryInfo.swift; sourceTree = "<group>"; };
 		AD641C3A219F41AC00DF8CFE /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		ADC3BBEF21A8CCCE00C24513 /* DirectoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryCell.swift; sourceTree = "<group>"; };
+		ADC3BBF321A8D1A700C24513 /* DirectoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoriesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,7 @@
 			children = (
 				AD641C3A219F41AC00DF8CFE /* PhotoCell.swift */,
 				AD4E7A1A21A5D1DA0031EB5C /* ImageStruct.swift */,
+				ADC3BBEF21A8CCCE00C24513 /* DirectoryCell.swift */,
 				AD11B36321A73260004D352C /* TagCellCollectionView.swift */,
 				AD62642821A8973C0056337E /* ImagesInDirectoryInfo.swift */,
 			);
@@ -74,6 +79,7 @@
 			children = (
 				AD37511B219DE7F7005A577E /* ViewController.swift */,
 				AD38824321A092F6008E59EC /* AssetViewController.swift */,
+				ADC3BBF321A8D1A700C24513 /* DirectoriesViewController.swift */,
 			);
 			path = viewControllers;
 			sourceTree = "<group>";
@@ -181,12 +187,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD4E7A1B21A5D1DA0031EB5C /* ImageStruct.swift in Sources */,
+				ADC3BBF421A8D1A700C24513 /* DirectoriesViewController.swift in Sources */,
 				AD37511C219DE7F7005A577E /* ViewController.swift in Sources */,
 				AD641C3B219F41AC00DF8CFE /* PhotoCell.swift in Sources */,
 				AD1DFE5521A649BD008C0AFF /* FileManager.swift in Sources */,
 				AD11B36421A73260004D352C /* TagCellCollectionView.swift in Sources */,
 				AD62642921A8973C0056337E /* ImagesInDirectoryInfo.swift in Sources */,
 				AD11B36021A72760004D352C /* controls.swift in Sources */,
+				ADC3BBF021A8CCCE00C24513 /* DirectoryCell.swift in Sources */,
 				AD37511A219DE7F7005A577E /* AppDelegate.swift in Sources */,
 				AD38824421A092F6008E59EC /* AssetViewController.swift in Sources */,
 			);

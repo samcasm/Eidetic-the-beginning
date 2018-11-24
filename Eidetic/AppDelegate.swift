@@ -51,20 +51,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let strData = try String(contentsOf: FileManager.tagsFileURL, encoding: .utf8)
                 print("Contents of the tagsFile:\n \(strData)")
             }else{
-                guard FileManager.default.createFile(atPath: FileManager.tagsFileURL.path, contents: nil)else{
-                    print("error: Could not create initial tagsFile")
-                    return false
-                }
+                let initTag: Images = Images(id: "init", tags:[])
+                let encoder = JSONEncoder()
+                let initJSON = try encoder.encode([initTag])
+                try initJSON.write(to: FileManager.tagsFileURL, options: .atomic)
             }
             
             if FileManager.default.fileExists(atPath: FileManager.directoriesURL.path, isDirectory: nil){
+                
                 let strData = try String(contentsOf: FileManager.directoriesURL, encoding: .utf8)
                 print("Contents of the directories:\n \(strData)")
             }else{
-                guard FileManager.default.createFile(atPath: FileManager.directoriesURL.path, contents: nil)else{
-                    print("error: Could not create initial directories file")
-                    return false
-                }
+                let initDirectory: Directory = Directory(id: "init", imageIDs:[])
+                let encoder = JSONEncoder()
+                let initJSON = try encoder.encode([initDirectory])
+                try initJSON.write(to: FileManager.directoriesURL, options: .atomic)
             }
         } catch {
             print(error)

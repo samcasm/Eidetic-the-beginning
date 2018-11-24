@@ -26,12 +26,76 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Eidetic/viewControllers/AssetViewController.swift"
-            timestampString = "564690747.865219"
+            timestampString = "564715853.616876"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "270"
-            endingLineNumber = "270"
-            landmarkName = "updateStaticImage()"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "addTagToAsset(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Eidetic/models/ImagesInDirectoryInfo.swift"
+            timestampString = "564716492.980791"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "init()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(extension in Eidetic):Swift.Array&lt;A where A == Eidetic.Directory&gt;.init() throws -&gt; Swift.Array&lt;Eidetic.Directory&gt;"
+                  moduleName = "Eidetic"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user145467/Documents/Eidetic-the-beginning/Eidetic/models/ImagesInDirectoryInfo.swift"
+                  timestampString = "564715308.4628299"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(extension in Eidetic):Swift.Array&lt;A where A == Eidetic.Directory&gt;.init() throws -&gt; Swift.Array&lt;Eidetic.Directory&gt;"
+                  moduleName = "Eidetic"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user145467/Documents/Eidetic-the-beginning/Eidetic/models/ImagesInDirectoryInfo.swift"
+                  timestampString = "564715308.465704"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "773">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Eidetic/viewControllers/DirectoriesViewController.swift"
+            timestampString = "564716492.9808691"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
