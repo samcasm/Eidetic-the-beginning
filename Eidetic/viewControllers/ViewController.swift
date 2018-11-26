@@ -22,7 +22,9 @@ class ViewController: UIViewController {
     var fetchResult: PHFetchResult<PHAsset>!
     var assetCollection: PHAssetCollection!
     var directoryName: String!
+    var _selectedCells: NSMutableArray = []
     
+    @IBOutlet var addTagButton: UIBarButtonItem!
     @IBOutlet weak var selectButton: UIBarButtonItem!
     @IBOutlet weak var addButtonItem: UIBarButtonItem!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -62,6 +64,9 @@ class ViewController: UIViewController {
         resetCachedAssets()
         searchBar.delegate = self
         self.hideKeyboardWhenTappedAround()
+        navigationController?.isToolbarHidden = true
+        toolbarItems = [addTagButton]
+        addTagButton.isEnabled = false
         
         PHPhotoLibrary.shared().register(self)
         
@@ -158,8 +163,31 @@ class ViewController: UIViewController {
     
     // MARK: UI Actions
     
+   
+    @IBAction func addTagPopOver(_ sender: UIBarButtonItem) {
+        showInputDialog(title: "Add a tag",
+                        subtitle: "Please enter a new tag below",
+                        actionTitle: "Add",
+                        cancelTitle: "Cancel",
+                        inputKeyboardType: .default)
+        { (input:String?) in
+            print("The new number is \(input ?? "")")
+            
+            var selectedCellPaths = self._selectedCells as NSArray as! [IndexPath]
+            var selectedAssets : [String] = []
+//            fetchResult.objects(at: test )
+//            var selectedImages: [String]
+            for cell in selectedCellPaths {
+                let photoAsset = self.fetchResult.object(at: cell.item) as PHAsset
+                selectedAssets.append(photoAsset.localIdentifier)
+            }
+        }
+    }
+    
     @IBAction func multipleSelectToggle(_ sender: Any) {
         let title = collectionView.allowsMultipleSelection == true ? "Select" : "Cancel"
+        
+        navigationController?.isToolbarHidden = collectionView.allowsMultipleSelection
         
         selectButton.title = title
         collectionView.allowsMultipleSelection = !collectionView.allowsMultipleSelection
@@ -258,7 +286,10 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         let selectedCell : UICollectionViewCell = collectionView.cellForItem(at: indexPath)!
         
         if collectionView.allowsMultipleSelection == true {
+            _selectedCells.add(indexPath)
+            navigationController?.isToolbarHidden = false
             selectedCell.layer.borderWidth = 2
+            addTagButton.isEnabled = _selectedCells.count > 1 ? true : false
         }
     }
     
@@ -266,6 +297,8 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         let unselectedCell : UICollectionViewCell = collectionView.cellForItem(at: indexPath)!
         
         if collectionView.allowsMultipleSelection == true {
+            _selectedCells.remove(indexPath)
+            addTagButton.isEnabled = _selectedCells.count < 2 ? false: true
             unselectedCell.layer.borderWidth = 0
         }
     }

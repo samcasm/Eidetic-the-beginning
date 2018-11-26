@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SOZ-58-9tC">
-                                <rect key="frame" x="0.0" y="120" width="375" height="498"/>
+                                <rect key="frame" x="0.0" y="120" width="375" height="454"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fBF-uh-0El">
                                     <size key="itemSize" width="100" height="100"/>
@@ -90,6 +90,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="qMn-3w-7sK">
+                            <connections>
+                                <action selector="addTagPopOver:" destination="BYZ-38-t0r" id="ncY-wM-KVt"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="gkF-03-Vaa">
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="w6m-0j-FyE">
@@ -104,8 +111,10 @@
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addButtonItem" destination="w6m-0j-FyE" id="Wes-tX-QVQ"/>
+                        <outlet property="addTagButton" destination="qMn-3w-7sK" id="jDt-jH-5lT"/>
                         <outlet property="collectionView" destination="SOZ-58-9tC" id="swO-Px-1Vh"/>
                         <outlet property="searchBar" destination="p1I-SR-zjB" id="3cn-s4-ARc"/>
                         <outlet property="selectButton" destination="0Gg-c8-rQq" id="3BJ-os-6Q4"/>
