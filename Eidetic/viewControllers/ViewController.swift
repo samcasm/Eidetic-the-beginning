@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     var directoryName: String!
     
     @IBOutlet weak var addButtonItem: UIBarButtonItem!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     fileprivate let imageManager = PHCachingImageManager()
     fileprivate var thumbnailSize: CGSize!
@@ -44,11 +45,6 @@ class ViewController: UIViewController {
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: width, height: width)
         thumbnailSize = CGSize(width: width, height: width)
- 
-        // Determine the size of the thumbnails to request from the PHCachingImageManager
-//        let scale = UIScreen.main.scale
-//        let cellSize = (collectionView.collectionViewLayout as! UICollectionViewFlowLayout).itemSize
-//        thumbnailSize = CGSize(width: cellSize.width * scale, height: cellSize.height * scale)
         
         // Add button to the navigation bar if the asset collection supports adding content.
         if assetCollection == nil || assetCollection.canPerform(.addContent) {
@@ -62,6 +58,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         resetCachedAssets()
+        searchBar.delegate = self
+        self.hideKeyboardWhenTappedAround()
         PHPhotoLibrary.shared().register(self)
         
         // If we get here without a segue, it's because we're visible at app launch,
@@ -189,7 +187,13 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     // MARK: UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return fetchResult.count
+        if (fetchResult == nil) {
+            self.collectionView.setEmptyMessage("Nothing to show :(")
+            return 0
+        } else {
+            self.collectionView.restore()
+            return fetchResult.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -274,6 +278,60 @@ extension ViewController: PHPhotoLibraryChangeObserver {
             }
             resetCachedAssets()
         }
+    }
+}
+
+extension ViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if !searchText.isEmpty {
+            do{
+                var allImages = try [Images]()
+                if directoryName != nil{
+                    let allDirectories = try [Directory]()
+                    let imageIds = allDirectories.first{$0.id == directoryName}?.imageIDs
+                    allImages = allImages.filter{(image: Images) -> Bool in
+                        return imageIds!.contains(image.id)
+                    }
+                }
+                var filteredImages: [Images]
+                filteredImages = allImages.filter { (image: Images) -> Bool in
+                    for imageTag in image.tags{
+                        if imageTag.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil{
+                            return true
+                        }
+                    }
+                    return false
+                }
+                
+                if filteredImages.count == 0 {
+                    fetchResult = nil
+                }else{
+                    let imageIds = filteredImages.map({$0.id})
+                    fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: imageIds, options: nil)
+                }
+            }catch{
+                print("Search error: \(error)")
+            }
+        }else{
+            do{
+                if(directoryName == nil){
+                    let allPhotosOptions = PHFetchOptions()
+                    allPhotosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
+                    fetchResult = PHAsset.fetchAssets(with: allPhotosOptions)
+                }else{
+                    let allDirectories = try [Directory]()
+                    let imageIds = allDirectories.first{$0.id == directoryName}?.imageIDs
+                    fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: Array(imageIds!), options: nil)
+                }
+            }catch{
+                print("Search Error \(error)")
+            }
+        }
+        collectionView.reloadData()
     }
 }
 

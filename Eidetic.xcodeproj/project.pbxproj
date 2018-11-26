@@ -21,6 +21,7 @@
 		AD641C3B219F41AC00DF8CFE /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD641C3A219F41AC00DF8CFE /* PhotoCell.swift */; };
 		ADC3BBF021A8CCCE00C24513 /* DirectoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC3BBEF21A8CCCE00C24513 /* DirectoryCell.swift */; };
 		ADC3BBF421A8D1A700C24513 /* DirectoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC3BBF321A8D1A700C24513 /* DirectoriesViewController.swift */; };
+		ADC9F44A21AB600200A2DA82 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC9F44921AB600100A2DA82 /* UICollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		AD641C3A219F41AC00DF8CFE /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		ADC3BBEF21A8CCCE00C24513 /* DirectoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryCell.swift; sourceTree = "<group>"; };
 		ADC3BBF321A8D1A700C24513 /* DirectoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoriesViewController.swift; sourceTree = "<group>"; };
+		ADC9F44921AB600100A2DA82 /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				AD1DFE5421A649BD008C0AFF /* FileManager.swift */,
 				AD11B35F21A72760004D352C /* controls.swift */,
+				ADC9F44921AB600100A2DA82 /* UICollectionView.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				AD641C3B219F41AC00DF8CFE /* PhotoCell.swift in Sources */,
 				AD1DFE5521A649BD008C0AFF /* FileManager.swift in Sources */,
 				AD11B36421A73260004D352C /* TagCellCollectionView.swift in Sources */,
+				ADC9F44A21AB600200A2DA82 /* UICollectionView.swift in Sources */,
 				AD62642921A8973C0056337E /* ImagesInDirectoryInfo.swift in Sources */,
 				AD11B36021A72760004D352C /* controls.swift in Sources */,
 				ADC3BBF021A8CCCE00C24513 /* DirectoryCell.swift in Sources */,

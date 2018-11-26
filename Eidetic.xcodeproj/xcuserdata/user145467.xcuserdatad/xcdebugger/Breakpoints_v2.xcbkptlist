@@ -9,62 +9,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Eidetic/viewControllers/AssetViewController.swift"
-            timestampString = "564727755.87414"
+            filePath = "Eidetic/viewControllers/ViewController.swift"
+            timestampString = "564887674.165979"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "addTagToAsset(_:)"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
+            landmarkName = "collectionView(_:numberOfItemsInSection:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Eidetic/viewControllers/AssetViewController.swift"
-            timestampString = "564727755.874488"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
-            landmarkName = "addTagToAsset(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Eidetic.AssetViewController.addTagToAsset(Any) -&gt; ()"
-                  moduleName = "Eidetic"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/user145467/Documents/Eidetic-the-beginning/Eidetic/viewControllers/AssetViewController.swift"
-                  timestampString = "564722411.950601"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "97"
-                  endingLineNumber = "97"
-                  offsetFromSymbolStart = "1200">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Eidetic.Directory) -&gt; Swift.Bool in Eidetic.AssetViewController.addTagToAsset(Any) -&gt; ()"
-                  moduleName = "Eidetic"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/user145467/Documents/Eidetic-the-beginning/Eidetic/viewControllers/AssetViewController.swift"
-                  timestampString = "564722411.95287"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "97"
-                  endingLineNumber = "97"
-                  offsetFromSymbolStart = "28">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

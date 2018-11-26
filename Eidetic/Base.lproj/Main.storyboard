@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SOZ-58-9tC">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <rect key="frame" x="0.0" y="120" width="375" height="498"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fBF-uh-0El">
                                     <size key="itemSize" width="100" height="100"/>
@@ -68,13 +68,25 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="FUO-Wn-G2D"/>
                                 </connections>
                             </collectionView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="p1I-SR-zjB">
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <color key="barTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="SOZ-58-9tC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4ml-qM-zvn"/>
-                            <constraint firstItem="SOZ-58-9tC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="9zc-Kc-oet"/>
-                            <constraint firstItem="SOZ-58-9tC" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="KNV-06-hrc"/>
-                            <constraint firstItem="SOZ-58-9tC" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="apf-GI-Zle"/>
+                            <constraint firstItem="SOZ-58-9tC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="06d-S3-dbe"/>
+                            <constraint firstItem="SOZ-58-9tC" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="49i-hq-ch6"/>
+                            <constraint firstItem="SOZ-58-9tC" firstAttribute="top" secondItem="p1I-SR-zjB" secondAttribute="bottom" id="cXa-Sh-IgA"/>
+                            <constraint firstAttribute="trailing" secondItem="SOZ-58-9tC" secondAttribute="trailing" id="j1O-em-r2d"/>
+                            <constraint firstItem="p1I-SR-zjB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="noH-sp-X5c"/>
+                            <constraint firstItem="p1I-SR-zjB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qac-AC-Rcd"/>
+                            <constraint firstItem="p1I-SR-zjB" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="y82-Tq-96p"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -88,6 +100,7 @@
                     <connections>
                         <outlet property="addButtonItem" destination="w6m-0j-FyE" id="Wes-tX-QVQ"/>
                         <outlet property="collectionView" destination="SOZ-58-9tC" id="swO-Px-1Vh"/>
+                        <outlet property="searchBar" destination="p1I-SR-zjB" id="3cn-s4-ARc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
