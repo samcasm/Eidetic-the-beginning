@@ -23,8 +23,10 @@ class ViewController: UIViewController {
     var assetCollection: PHAssetCollection!
     var directoryName: String!
     
+    @IBOutlet weak var selectButton: UIBarButtonItem!
     @IBOutlet weak var addButtonItem: UIBarButtonItem!
     @IBOutlet weak var searchBar: UISearchBar!
+
     
     fileprivate let imageManager = PHCachingImageManager()
     fileprivate var thumbnailSize: CGSize!
@@ -60,6 +62,7 @@ class ViewController: UIViewController {
         resetCachedAssets()
         searchBar.delegate = self
         self.hideKeyboardWhenTappedAround()
+        
         PHPhotoLibrary.shared().register(self)
         
         // If we get here without a segue, it's because we're visible at app launch,
@@ -155,6 +158,13 @@ class ViewController: UIViewController {
     
     // MARK: UI Actions
     
+    @IBAction func multipleSelectToggle(_ sender: Any) {
+        let title = collectionView.allowsMultipleSelection == true ? "Select" : "Cancel"
+        
+        selectButton.title = title
+        collectionView.allowsMultipleSelection = !collectionView.allowsMultipleSelection
+    }
+  
     @IBAction func addAsset(_ sender: AnyObject?) {
         
         // Create a dummy image of a random solid color and random orientation.
@@ -179,8 +189,30 @@ class ViewController: UIViewController {
             if !success { print("error creating asset") }
         })
     }
+    
+    // MARK: UIScrollView
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        updateCachedAssets()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-
+        guard let destination = segue.destination as? AssetViewController
+                else { fatalError("unexpected view controller for segue") }
+            
+        let indexPath = collectionView!.indexPath(for: sender as! UICollectionViewCell)!
+        destination.asset = fetchResult.object(at: indexPath.item)
+        destination.assetCollection = assetCollection
+        
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "assetView", collectionView.allowsMultipleSelection == true {
+            return false
+        }
+        return true
+    }
 }
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -222,19 +254,20 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         
     }
     
-    // MARK: UIScrollView
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        updateCachedAssets()
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedCell : UICollectionViewCell = collectionView.cellForItem(at: indexPath)!
+        
+        if collectionView.allowsMultipleSelection == true {
+            selectedCell.layer.borderWidth = 2
+        }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let destination = segue.destination as? AssetViewController
-            else { fatalError("unexpected view controller for segue") }
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let unselectedCell : UICollectionViewCell = collectionView.cellForItem(at: indexPath)!
         
-        let indexPath = collectionView!.indexPath(for: sender as! UICollectionViewCell)!
-        destination.asset = fetchResult.object(at: indexPath.item)
-        destination.assetCollection = assetCollection
+        if collectionView.allowsMultipleSelection == true {
+            unselectedCell.layer.borderWidth = 0
+        }
     }
     
     

@@ -59,7 +59,7 @@
                                         <connections>
                                             <outlet property="imageView" destination="w4E-kY-Cf1" id="o4Y-0X-7h7"/>
                                             <outlet property="livePhotoBadgeImageView" destination="7VX-SL-Csv" id="OJ1-vS-mzy"/>
-                                            <segue destination="YDA-l8-Lv6" kind="show" id="lVo-6d-6KE"/>
+                                            <segue destination="YDA-l8-Lv6" kind="show" identifier="assetView" id="lVo-6d-6KE"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -91,16 +91,24 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="gkF-03-Vaa">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="w6m-0j-FyE">
-                            <connections>
-                                <action selector="addAsset:" destination="BYZ-38-t0r" id="VEt-rK-59e"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="w6m-0j-FyE">
+                                <connections>
+                                    <action selector="addAsset:" destination="BYZ-38-t0r" id="VEt-rK-59e"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Select" id="0Gg-c8-rQq">
+                                <connections>
+                                    <action selector="multipleSelectToggle:" destination="BYZ-38-t0r" id="6p0-4G-jP6"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="addButtonItem" destination="w6m-0j-FyE" id="Wes-tX-QVQ"/>
                         <outlet property="collectionView" destination="SOZ-58-9tC" id="swO-Px-1Vh"/>
                         <outlet property="searchBar" destination="p1I-SR-zjB" id="3cn-s4-ARc"/>
+                        <outlet property="selectButton" destination="0Gg-c8-rQq" id="3BJ-os-6Q4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
