@@ -204,9 +204,13 @@ class ViewController: UIViewController {
         if collectionView.allowsMultipleSelection {
             selectButton.title = "Cancel"
             navigationController?.isToolbarHidden = false
+            searchBar.isUserInteractionEnabled = false
+            
         }else{
             selectButton.title = "Select"
             navigationController?.isToolbarHidden = true
+            searchBar.isUserInteractionEnabled = true
+            
         }
         
         
