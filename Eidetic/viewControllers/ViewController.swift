@@ -33,6 +33,8 @@ class ViewController: UIViewController {
     fileprivate let imageManager = PHCachingImageManager()
     fileprivate var thumbnailSize: CGSize!
     fileprivate var previousPreheatRect = CGRect.zero
+    @IBOutlet weak var spaceLeft: UIBarButtonItem!
+    @IBOutlet weak var spaceRight: UIBarButtonItem!
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -44,6 +46,7 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.isToolbarHidden = true
         
         let width = (view.frame.size.width - 20) / 3
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
@@ -65,7 +68,7 @@ class ViewController: UIViewController {
         searchBar.delegate = self
         self.hideKeyboardWhenTappedAround()
         navigationController?.isToolbarHidden = true
-        toolbarItems = [addTagButton]
+        toolbarItems = [spaceLeft, addTagButton, spaceRight]
         addTagButton.isEnabled = false
         
         PHPhotoLibrary.shared().register(self)
@@ -205,18 +208,19 @@ class ViewController: UIViewController {
             selectButton.title = "Cancel"
             navigationController?.isToolbarHidden = false
             searchBar.isUserInteractionEnabled = false
-            
+            searchBar.alpha = 0.75
+            searchBar.searchBarStyle = .minimal
+            searchBar.isTranslucent = false
         }else{
             selectButton.title = "Select"
             navigationController?.isToolbarHidden = true
             searchBar.isUserInteractionEnabled = true
+            searchBar.alpha = 1
+            searchBar.searchBarStyle = .default
+            searchBar.isTranslucent = true
             
         }
         
-        
-        navigationController?.isToolbarHidden = collectionView.allowsMultipleSelection
-        
-       
     }
   
     @IBAction func addAsset(_ sender: AnyObject?) {
@@ -322,7 +326,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
          let unselectedCell : UICollectionViewCell = collectionView.cellForItem(at: indexPath)!
         if collectionView.allowsMultipleSelection == true {
             _selectedCells.remove(indexPath)
-            addTagButton.isEnabled = _selectedCells.count < 2 ? false: true
+            addTagButton.isEnabled = _selectedCells.count < 1 ? false: true
             unselectedCell.layer.borderWidth = 0
         }
     }

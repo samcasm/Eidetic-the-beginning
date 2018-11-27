@@ -111,13 +111,23 @@ class AssetViewController: UIViewController {
             self.collectionView.reloadData()
             
             if(makeFolderSwitch.isOn){
-                var directory: Directory = Directory(id: newTag, imageIDs:[])
+                let isDirectoryExists = allDirectories.map{ $0.id }.contains(newTag) == true
+                var directory: Directory
+                let directoryIndex: Int
+                
+                if isDirectoryExists {
+                    directoryIndex = allDirectories.firstIndex(where: { $0.id == newTag })!
+                }else{
+                    directory = Directory(id: newTag, imageIDs:[])
+                    allDirectories.append(directory)
+                    directoryIndex = allDirectories.count - 1
+                }
                 allImagesTagsData.forEach{
                     if($0.tags.contains(newTag)){
-                        directory.imageIDs.insert($0.id)
+                        isDirectoryExists ? allDirectories[directoryIndex].imageIDs.insert($0.id) : allDirectories[directoryIndex].imageIDs.insert($0.id)
                     }
                 }
-                allDirectories.append(directory)
+                
             }
              try allDirectories.save()
             
