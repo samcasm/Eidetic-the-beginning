@@ -191,12 +191,28 @@ class ViewController: UIViewController {
     }
     
     @IBAction func multipleSelectToggle(_ sender: Any) {
-        let title = collectionView.allowsMultipleSelection == true ? "Select" : "Cancel"
+        collectionView.allowsMultipleSelection = !collectionView.allowsMultipleSelection
+       
+        
+        let selectedCells: NSArray = _selectedCells
+        for cellPath in selectedCells {
+            let selectedCell : UICollectionViewCell = collectionView.cellForItem(at: cellPath as! IndexPath)!
+            selectedCell.layer.borderWidth = 0
+        }
+         _selectedCells.removeAllObjects()
+        
+        if collectionView.allowsMultipleSelection {
+            selectButton.title = "Cancel"
+            navigationController?.isToolbarHidden = false
+        }else{
+            selectButton.title = "Select"
+            navigationController?.isToolbarHidden = true
+        }
+        
         
         navigationController?.isToolbarHidden = collectionView.allowsMultipleSelection
         
-        selectButton.title = title
-        collectionView.allowsMultipleSelection = !collectionView.allowsMultipleSelection
+       
     }
   
     @IBAction func addAsset(_ sender: AnyObject?) {
@@ -290,18 +306,16 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedCell : UICollectionViewCell = collectionView.cellForItem(at: indexPath)!
-        
         if collectionView.allowsMultipleSelection == true {
             _selectedCells.add(indexPath)
             navigationController?.isToolbarHidden = false
+            addTagButton.isEnabled = _selectedCells.count > 0 ? true : false
             selectedCell.layer.borderWidth = 2
-            addTagButton.isEnabled = _selectedCells.count > 1 ? true : false
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        let unselectedCell : UICollectionViewCell = collectionView.cellForItem(at: indexPath)!
-        
+         let unselectedCell : UICollectionViewCell = collectionView.cellForItem(at: indexPath)!
         if collectionView.allowsMultipleSelection == true {
             _selectedCells.remove(indexPath)
             addTagButton.isEnabled = _selectedCells.count < 2 ? false: true
