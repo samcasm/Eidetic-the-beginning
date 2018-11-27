@@ -170,17 +170,23 @@ class ViewController: UIViewController {
                         actionTitle: "Add",
                         cancelTitle: "Cancel",
                         inputKeyboardType: .default)
-        { (input:String?) in
-            print("The new number is \(input ?? "")")
+        { (inputTag:String?) in
+            print("The new number is \(inputTag ?? "")")
             
-            var selectedCellPaths = self._selectedCells as NSArray as! [IndexPath]
-            var selectedAssets : [String] = []
-//            fetchResult.objects(at: test )
-//            var selectedImages: [String]
+            var allImagesWithTags = try? [Images]()
+            let selectedCellPaths = self._selectedCells as NSArray as! [IndexPath]
+            var selectedAssetsIds : [String] = []
+
             for cell in selectedCellPaths {
                 let photoAsset = self.fetchResult.object(at: cell.item) as PHAsset
-                selectedAssets.append(photoAsset.localIdentifier)
+                selectedAssetsIds.append(photoAsset.localIdentifier)
             }
+            for (i, image) in allImagesWithTags!.enumerated() {
+                if selectedAssetsIds.contains(image.id) {
+                    allImagesWithTags?[i].tags.insert(inputTag!)
+                }
+            }
+            try? allImagesWithTags?.save()
         }
     }
     
