@@ -28,7 +28,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var selectButton: UIBarButtonItem!
     @IBOutlet weak var addButtonItem: UIBarButtonItem!
     @IBOutlet weak var searchBar: UISearchBar!
-
     
     fileprivate let imageManager = PHCachingImageManager()
     fileprivate var thumbnailSize: CGSize!
@@ -48,7 +47,7 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.isToolbarHidden = true
         
-        let width = (view.frame.size.width - 20) / 3
+        let width = (view.frame.size.width - 4) / 3
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: width, height: width)
         thumbnailSize = CGSize(width: width, height: width)
@@ -200,7 +199,9 @@ class ViewController: UIViewController {
         let selectedCells: NSArray = _selectedCells
         for cellPath in selectedCells {
             let selectedCell : UICollectionViewCell = collectionView.cellForItem(at: cellPath as! IndexPath)!
-            selectedCell.layer.borderWidth = 0
+            let checkmarkImage = selectedCell.viewWithTag(12) as? UIImageView
+            selectedCell.alpha = 1
+            checkmarkImage?.isHidden = true
         }
          _selectedCells.removeAllObjects()
         
@@ -211,6 +212,7 @@ class ViewController: UIViewController {
             searchBar.alpha = 0.75
             searchBar.searchBarStyle = .minimal
             searchBar.isTranslucent = false
+            addTagButton.isEnabled = _selectedCells.count > 0 ? true : false
         }else{
             selectButton.title = "Select"
             navigationController?.isToolbarHidden = true
@@ -314,20 +316,24 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedCell : UICollectionViewCell = collectionView.cellForItem(at: indexPath)!
+        let checkmarkImage = selectedCell.viewWithTag(12) as? UIImageView
         if collectionView.allowsMultipleSelection == true {
             _selectedCells.add(indexPath)
             navigationController?.isToolbarHidden = false
             addTagButton.isEnabled = _selectedCells.count > 0 ? true : false
-            selectedCell.layer.borderWidth = 2
+            selectedCell.alpha = 0.75
+            checkmarkImage?.isHidden = false
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-         let unselectedCell : UICollectionViewCell = collectionView.cellForItem(at: indexPath)!
+        let unselectedCell : UICollectionViewCell = collectionView.cellForItem(at: indexPath)!
+        let checkmarkImage = unselectedCell.viewWithTag(12) as? UIImageView
         if collectionView.allowsMultipleSelection == true {
             _selectedCells.remove(indexPath)
             addTagButton.isEnabled = _selectedCells.count < 1 ? false: true
-            unselectedCell.layer.borderWidth = 0
+            unselectedCell.alpha = 1
+            checkmarkImage?.isHidden = true
         }
     }
     
@@ -376,9 +382,18 @@ extension ViewController: PHPhotoLibraryChangeObserver {
 }
 
 extension ViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(false, animated: true)
+    }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         if !searchText.isEmpty {

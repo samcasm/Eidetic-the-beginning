@@ -21,7 +21,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SOZ-58-9tC">
                                 <rect key="frame" x="0.0" y="120" width="375" height="454"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fBF-uh-0El">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="fBF-uh-0El">
                                     <size key="itemSize" width="100" height="100"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -45,13 +45,18 @@
                                                         <constraint firstAttribute="height" constant="28" id="5m5-Ul-ugf"/>
                                                     </constraints>
                                                 </imageView>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" tag="12" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark1" translatesAutoresizingMaskIntoConstraints="NO" id="cg9-dP-PfK" userLabel="Checkmark">
+                                                    <rect key="frame" x="37.5" y="37.5" width="25" height="25"/>
+                                                </imageView>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="cg9-dP-PfK" firstAttribute="centerX" secondItem="cd0-Hv-Rda" secondAttribute="centerX" id="Acf-JS-DTL"/>
                                             <constraint firstItem="w4E-kY-Cf1" firstAttribute="top" secondItem="cd0-Hv-Rda" secondAttribute="top" id="PC4-Ax-BtB"/>
                                             <constraint firstItem="7VX-SL-Csv" firstAttribute="top" secondItem="cd0-Hv-Rda" secondAttribute="top" id="d91-Kc-bf5"/>
                                             <constraint firstItem="7VX-SL-Csv" firstAttribute="leading" secondItem="cd0-Hv-Rda" secondAttribute="leading" id="myY-qD-aac"/>
+                                            <constraint firstItem="cg9-dP-PfK" firstAttribute="centerY" secondItem="cd0-Hv-Rda" secondAttribute="centerY" id="qGM-Zp-S0q"/>
                                             <constraint firstAttribute="bottom" secondItem="w4E-kY-Cf1" secondAttribute="bottom" id="sig-Wm-RqH"/>
                                             <constraint firstItem="w4E-kY-Cf1" firstAttribute="leading" secondItem="cd0-Hv-Rda" secondAttribute="leading" id="zCI-NP-TX4"/>
                                             <constraint firstAttribute="trailing" secondItem="w4E-kY-Cf1" secondAttribute="trailing" id="zEm-vN-1ZJ"/>
@@ -71,7 +76,7 @@
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="p1I-SR-zjB">
                                 <rect key="frame" x="0.0" y="64" width="375" height="56"/>
                                 <color key="barTintColor" red="0.77918781725888331" green="0.77918781725888331" blue="0.77918781725888331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
                                 <scopeButtonTitles>
                                     <string>Title</string>
                                     <string>Title</string>
@@ -421,6 +426,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="checkmark1" width="25.600000381469727" height="25.600000381469727"/>
         <image name="delete3" width="37.5" height="37.5"/>
         <image name="folder" width="37.5" height="37.5"/>
     </resources>
