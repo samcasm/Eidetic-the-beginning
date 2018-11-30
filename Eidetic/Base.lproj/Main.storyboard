@@ -103,7 +103,7 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="vs4-Fs-VFK"/>
                         <barButtonItem title="Add tag" id="qMn-3w-7sK">
                             <connections>
-                                <action selector="addTagPopOver:" destination="BYZ-38-t0r" id="ncY-wM-KVt"/>
+                                <segue destination="1oV-w1-wSd" kind="presentation" modalPresentationStyle="overCurrentContext" id="a2P-Cs-6e5"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="ORe-Ye-kVW"/>
@@ -293,7 +293,7 @@
                 </barButtonItem>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X4S-un-qKP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4728.8000000000002" y="102.99850074962519"/>
+            <point key="canvasLocation" x="4826" y="-145"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pot-eM-N1F">
@@ -409,6 +409,119 @@
             </objects>
             <point key="canvasLocation" x="3816.8000000000002" y="939.58020989505258"/>
         </scene>
+        <!--Add tag popup-->
+        <scene sceneID="4HN-3x-GnX">
+            <objects>
+                <viewController modalPresentationStyle="overCurrentContext" id="1oV-w1-wSd" userLabel="Add tag popup" customClass="AddTagModalController" customModule="Eidetic" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="T1N-14-HEA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GfU-Xq-hSu" userLabel="Popup">
+                                <rect key="frame" x="55" y="105" width="264" height="208"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Tag" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k9l-QI-Bea">
+                                        <rect key="frame" x="0.0" y="0.0" width="264" height="47"/>
+                                        <color key="backgroundColor" red="0.0" green="0.573641179" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" red="0.0" green="0.573641179" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="47" id="jTc-zL-r4e"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="highlightedColor" cocoaTouchSystemColor="lightTextColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Mk7-23-L2J">
+                                        <rect key="frame" x="0.0" y="168" width="264" height="42"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WcF-GN-9As">
+                                                <rect key="frame" x="0.0" y="0.0" width="132" height="42"/>
+                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" red="0.0" green="0.573641179" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Cancel">
+                                                    <color key="titleColor" red="0.0" green="0.573641179" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="closeModal:" destination="1oV-w1-wSd" eventType="touchUpInside" id="MeK-fb-uwE"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1j-dF-VMu">
+                                                <rect key="frame" x="132" y="0.0" width="132" height="42"/>
+                                                <state key="normal" title="Add">
+                                                    <color key="titleColor" red="0.0" green="0.573641179" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="iot-cV-bdF"/>
+                                        </constraints>
+                                    </stackView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add your tag here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0T5-FW-UoZ">
+                                        <rect key="frame" x="16" y="117" width="232" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="93s-Y7-23O">
+                                        <rect key="frame" x="50" y="73" width="164.5" height="28"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vsi-Fy-0sK" userLabel="checkmark">
+                                                <rect key="frame" x="0.0" y="0.0" width="49" height="28"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="28" id="Mon-dA-LzO"/>
+                                                    <constraint firstAttribute="width" constant="49" id="PUF-wL-4Nm"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" image="uncheckbox"/>
+                                                <state key="selected" image="checkbox"/>
+                                                <connections>
+                                                    <action selector="toggleCheckmark:" destination="1oV-w1-wSd" eventType="touchUpInside" id="h4y-dL-J3I"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="254" verticalHuggingPriority="251" text="Make folder" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIu-3H-96S">
+                                                <rect key="frame" x="74" y="0.0" width="90.5" height="28"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Mk7-23-L2J" secondAttribute="trailing" id="97w-Ce-R7B"/>
+                                    <constraint firstAttribute="bottom" secondItem="Mk7-23-L2J" secondAttribute="bottom" constant="-2" id="Et9-PB-gLE"/>
+                                    <constraint firstItem="k9l-QI-Bea" firstAttribute="top" secondItem="GfU-Xq-hSu" secondAttribute="top" id="Jy1-Yu-AbR"/>
+                                    <constraint firstItem="0T5-FW-UoZ" firstAttribute="leading" secondItem="GfU-Xq-hSu" secondAttribute="leading" constant="16" id="Mn0-Pi-lin"/>
+                                    <constraint firstItem="0T5-FW-UoZ" firstAttribute="top" secondItem="93s-Y7-23O" secondAttribute="bottom" constant="16" id="OK8-6C-SB2"/>
+                                    <constraint firstAttribute="trailing" secondItem="0T5-FW-UoZ" secondAttribute="trailing" constant="16" id="OoT-gK-Yhq"/>
+                                    <constraint firstAttribute="height" constant="208" id="VfY-Y2-pIW"/>
+                                    <constraint firstItem="Mk7-23-L2J" firstAttribute="leading" secondItem="GfU-Xq-hSu" secondAttribute="leading" id="aAk-EB-Hda"/>
+                                    <constraint firstAttribute="trailing" secondItem="k9l-QI-Bea" secondAttribute="trailing" id="aAm-an-91M"/>
+                                    <constraint firstItem="k9l-QI-Bea" firstAttribute="leading" secondItem="GfU-Xq-hSu" secondAttribute="leading" id="mHG-28-gD1"/>
+                                    <constraint firstItem="93s-Y7-23O" firstAttribute="centerX" secondItem="GfU-Xq-hSu" secondAttribute="centerX" id="q8W-C1-wtB"/>
+                                    <constraint firstItem="Mk7-23-L2J" firstAttribute="top" secondItem="0T5-FW-UoZ" secondAttribute="bottom" constant="21" id="s2K-bc-jfE"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="0.48972602739726029" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="GfU-Xq-hSu" firstAttribute="top" secondItem="BYB-c2-IAR" secondAttribute="top" constant="85" id="9Ww-Rv-RC5"/>
+                            <constraint firstItem="GfU-Xq-hSu" firstAttribute="leading" secondItem="BYB-c2-IAR" secondAttribute="leading" constant="55" id="ZuN-Up-fSS"/>
+                            <constraint firstItem="BYB-c2-IAR" firstAttribute="trailing" secondItem="GfU-Xq-hSu" secondAttribute="trailing" constant="56" id="met-Dg-mEs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="BYB-c2-IAR"/>
+                    </view>
+                    <connections>
+                        <outlet property="addTagTextField" destination="0T5-FW-UoZ" id="OIC-kE-BCJ"/>
+                        <outlet property="addtagButton" destination="j1j-dF-VMu" id="Oia-gA-PFa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hfc-ni-2Ri" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4821.6000000000004" y="584.25787106446785"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="LJK-Dg-ET3">
             <objects>
@@ -430,11 +543,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="checkbox" width="37.5" height="37.5"/>
         <image name="checkmark" width="203.29411315917969" height="203.29411315917969"/>
         <image name="delete3" width="37.5" height="37.5"/>
         <image name="folder" width="37.5" height="37.5"/>
+        <image name="uncheckbox" width="37.5" height="37.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="C6c-UZ-BoF"/>
+        <segue reference="Uut-ve-IMy"/>
     </inferredMetricsTieBreakers>
 </document>

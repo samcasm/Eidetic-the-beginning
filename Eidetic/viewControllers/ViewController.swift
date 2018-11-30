@@ -165,47 +165,14 @@ class ViewController: UIViewController {
     
     // MARK: UI Actions
     
-   
-    @IBAction func addTagPopOver(_ sender: UIBarButtonItem) {
-        showInputDialog(title: "Add a tag",
-                        subtitle: "Please enter a new tag below",
-                        actionTitle: "Add",
-                        cancelTitle: "Cancel",
-                        inputKeyboardType: .default)
-        { (inputTag:String?) in
-            print("The new number is \(inputTag ?? "")")
-            
-            var allImagesWithTags = try? [Images]()
-            let selectedCellPaths = self._selectedCells as NSArray as! [IndexPath]
-            var selectedAssetsIds : [String] = []
-
-            for cellPath in selectedCellPaths {
-                guard let selectedCell = self.collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: PhotoCell.self), for: cellPath) as? PhotoCell
-                    else { fatalError("unexpected cell in collection view") }
-                let photoAsset = self.fetchResult.object(at: cellPath.item) as PHAsset
-                selectedAssetsIds.append(photoAsset.localIdentifier)
-                selectedCell.isSelected = false
-                self.collectionView.reloadData()
-            }
-            for (i, image) in allImagesWithTags!.enumerated() {
-                if selectedAssetsIds.contains(image.id) {
-                    allImagesWithTags?[i].tags.insert(inputTag!)
-                }
-            }
-            try? allImagesWithTags?.save()
-        }
-    }
-    
-    @IBAction func multipleSelectToggle(_ sender: Any) {
-        collectionView.allowsMultipleSelection = !collectionView.allowsMultipleSelection
-        
+    func clearSelections()  {
         let selectedCells: NSArray = _selectedCells
         for cellPath in selectedCells {
             guard let selectedCell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: PhotoCell.self), for: cellPath as! IndexPath) as? PhotoCell
                 else { fatalError("unexpected cell in collection view") }
             selectedCell.isSelected = false
         }
-         _selectedCells.removeAllObjects()
+        _selectedCells.removeAllObjects()
         
         if collectionView.allowsMultipleSelection {
             selectButton.title = "Cancel"
@@ -224,6 +191,45 @@ class ViewController: UIViewController {
             searchBar.isTranslucent = true
             
         }
+        collectionView.reloadData()
+    }
+    
+   
+    @IBAction func addTagPopOver(_ sender: UIBarButtonItem) {
+        showInputDialog(title: "Add a tag",
+                        subtitle: "Please enter a new tag below",
+                        actionTitle: "Add",
+                        cancelTitle: "Cancel",
+                        inputKeyboardType: .default)
+        { (inputTag:String?) in
+            print("The new number is \(inputTag ?? "")")
+            
+            self.collectionView.allowsMultipleSelection = false
+            var allImagesWithTags = try? [Images]()
+            let selectedCellPaths = self._selectedCells as NSArray as! [IndexPath]
+            var selectedAssetsIds : [String] = []
+            
+            self.clearSelections()
+
+            for cellPath in selectedCellPaths {
+                let photoAsset = self.fetchResult.object(at: cellPath.item) as PHAsset
+                selectedAssetsIds.append(photoAsset.localIdentifier)
+            }
+            if inputTag != nil {
+                for (i, image) in allImagesWithTags!.enumerated() {
+                    if selectedAssetsIds.contains(image.id) {
+                        allImagesWithTags?[i].tags.insert(inputTag!)
+                    }
+                }
+                try? allImagesWithTags?.save()
+            }
+        }
+    }
+    
+    @IBAction func multipleSelectToggle(_ sender: Any) {
+        collectionView.allowsMultipleSelection = !collectionView.allowsMultipleSelection
+        
+        clearSelections()
         
     }
   
@@ -259,13 +265,15 @@ class ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-        guard let destination = segue.destination as? AssetViewController
-                else { fatalError("unexpected view controller for segue") }
-            
-        let indexPath = collectionView!.indexPath(for: sender as! UICollectionViewCell)!
-        destination.asset = fetchResult.object(at: indexPath.item)
-        destination.assetCollection = assetCollection
+        
+        if segue.identifier == "assetView"{
+            guard let destination = segue.destination as? AssetViewController
+                    else { fatalError("unexpected view controller for segue") }
+                
+            let indexPath = collectionView!.indexPath(for: sender as! UICollectionViewCell)!
+            destination.asset = fetchResult.object(at: indexPath.item)
+            destination.assetCollection = assetCollection
+        }
         
     }
     
