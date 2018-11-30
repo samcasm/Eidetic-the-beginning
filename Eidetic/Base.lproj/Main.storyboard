@@ -140,7 +140,7 @@
         <!--Asset View Controller-->
         <scene sceneID="IbI-F5-dVk">
             <objects>
-                <viewController id="YDA-l8-Lv6" customClass="AssetViewController" customModule="Eidetic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="assetViewStoryboard" id="YDA-l8-Lv6" customClass="AssetViewController" customModule="Eidetic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IYM-4d-7sr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -412,7 +412,7 @@
         <!--Add tag popup-->
         <scene sceneID="4HN-3x-GnX">
             <objects>
-                <viewController storyboardIdentifier="AddTagModalStoryboard" modalPresentationStyle="overCurrentContext" id="1oV-w1-wSd" userLabel="Add tag popup" customClass="AddTagModalController" customModule="Eidetic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="modalStoryBoard" modalPresentationStyle="overCurrentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1oV-w1-wSd" userLabel="Add tag popup" customClass="AddTagModalController" customModule="Eidetic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T1N-14-HEA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -524,7 +524,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hfc-ni-2Ri" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4821.6000000000004" y="584.25787106446785"/>
+            <point key="canvasLocation" x="4825" y="681"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="LJK-Dg-ET3">
@@ -554,6 +554,6 @@
         <image name="uncheckbox" width="37.5" height="37.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Uut-ve-IMy"/>
+        <segue reference="C6c-UZ-BoF"/>
     </inferredMetricsTieBreakers>
 </document>

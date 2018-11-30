@@ -465,9 +465,10 @@ extension ViewController: UISearchBarDelegate {
 extension ViewController: AddTagModalControllerDelegate{
     
     @IBAction func presentAddtagModal() {
-        let storyboard = UIStoryboard(name: "AddTagModalStoryboard", bundle: nil)
-        let presentedMC = storyboard.instantiateViewController(withIdentifier: "AddTagModalController")
-        presentedMC.
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let presentedMC = storyboard.instantiateViewController(withIdentifier: "modalStoryBoard") as! AddTagModalController
+        print(presentedMC)
+        presentedMC.delegate = self
         present(presentedMC, animated: true, completion: nil)
     }
     
