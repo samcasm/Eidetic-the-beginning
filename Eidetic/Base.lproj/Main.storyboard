@@ -45,18 +45,22 @@
                                                         <constraint firstAttribute="height" constant="28" id="5m5-Ul-ugf"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" tag="12" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark1" translatesAutoresizingMaskIntoConstraints="NO" id="cg9-dP-PfK" userLabel="Checkmark">
-                                                    <rect key="frame" x="37.5" y="37.5" width="25" height="25"/>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" tag="12" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="cg9-dP-PfK" userLabel="Checkmark">
+                                                    <rect key="frame" x="55" y="55" width="35" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="35" id="2qH-gQ-R6R"/>
+                                                        <constraint firstAttribute="height" constant="35" id="Wfm-xN-fcT"/>
+                                                    </constraints>
                                                 </imageView>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="cg9-dP-PfK" firstAttribute="centerX" secondItem="cd0-Hv-Rda" secondAttribute="centerX" id="Acf-JS-DTL"/>
+                                            <constraint firstAttribute="trailing" secondItem="cg9-dP-PfK" secondAttribute="trailing" constant="10" id="0hg-tD-lpy"/>
+                                            <constraint firstAttribute="bottom" secondItem="cg9-dP-PfK" secondAttribute="bottom" constant="10" id="6gS-JY-68g"/>
                                             <constraint firstItem="w4E-kY-Cf1" firstAttribute="top" secondItem="cd0-Hv-Rda" secondAttribute="top" id="PC4-Ax-BtB"/>
                                             <constraint firstItem="7VX-SL-Csv" firstAttribute="top" secondItem="cd0-Hv-Rda" secondAttribute="top" id="d91-Kc-bf5"/>
                                             <constraint firstItem="7VX-SL-Csv" firstAttribute="leading" secondItem="cd0-Hv-Rda" secondAttribute="leading" id="myY-qD-aac"/>
-                                            <constraint firstItem="cg9-dP-PfK" firstAttribute="centerY" secondItem="cd0-Hv-Rda" secondAttribute="centerY" id="qGM-Zp-S0q"/>
                                             <constraint firstAttribute="bottom" secondItem="w4E-kY-Cf1" secondAttribute="bottom" id="sig-Wm-RqH"/>
                                             <constraint firstItem="w4E-kY-Cf1" firstAttribute="leading" secondItem="cd0-Hv-Rda" secondAttribute="leading" id="zCI-NP-TX4"/>
                                             <constraint firstAttribute="trailing" secondItem="w4E-kY-Cf1" secondAttribute="trailing" id="zEm-vN-1ZJ"/>
@@ -426,7 +430,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="checkmark1" width="25.600000381469727" height="25.600000381469727"/>
+        <image name="checkmark" width="203.29411315917969" height="203.29411315917969"/>
         <image name="delete3" width="37.5" height="37.5"/>
         <image name="folder" width="37.5" height="37.5"/>
     </resources>

@@ -179,9 +179,13 @@ class ViewController: UIViewController {
             let selectedCellPaths = self._selectedCells as NSArray as! [IndexPath]
             var selectedAssetsIds : [String] = []
 
-            for cell in selectedCellPaths {
-                let photoAsset = self.fetchResult.object(at: cell.item) as PHAsset
+            for cellPath in selectedCellPaths {
+                guard let selectedCell = self.collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: PhotoCell.self), for: cellPath) as? PhotoCell
+                    else { fatalError("unexpected cell in collection view") }
+                let photoAsset = self.fetchResult.object(at: cellPath.item) as PHAsset
                 selectedAssetsIds.append(photoAsset.localIdentifier)
+                selectedCell.isSelected = false
+                self.collectionView.reloadData()
             }
             for (i, image) in allImagesWithTags!.enumerated() {
                 if selectedAssetsIds.contains(image.id) {
@@ -194,14 +198,12 @@ class ViewController: UIViewController {
     
     @IBAction func multipleSelectToggle(_ sender: Any) {
         collectionView.allowsMultipleSelection = !collectionView.allowsMultipleSelection
-       
         
         let selectedCells: NSArray = _selectedCells
         for cellPath in selectedCells {
-            let selectedCell : UICollectionViewCell = collectionView.cellForItem(at: cellPath as! IndexPath)!
-            let checkmarkImage = selectedCell.viewWithTag(12) as? UIImageView
-            selectedCell.alpha = 1
-            checkmarkImage?.isHidden = true
+            guard let selectedCell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: PhotoCell.self), for: cellPath as! IndexPath) as? PhotoCell
+                else { fatalError("unexpected cell in collection view") }
+            selectedCell.isSelected = false
         }
          _selectedCells.removeAllObjects()
         
@@ -295,6 +297,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: PhotoCell.self), for: indexPath) as? PhotoCell
             else { fatalError("unexpected cell in collection view") }
         
+        
         // Add a badge to the cell if the PHAsset represents a Live Photo.
         if asset.mediaSubtypes.contains(.photoLive) {
             cell.livePhotoBadgeImage = PHLivePhotoView.livePhotoBadgeImage(options: .overContent)
@@ -315,25 +318,27 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedCell : UICollectionViewCell = collectionView.cellForItem(at: indexPath)!
-        let checkmarkImage = selectedCell.viewWithTag(12) as? UIImageView
+        guard let selectedCell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: PhotoCell.self), for: indexPath ) as? PhotoCell
+            else { fatalError("unexpected cell in collection view") }
+        let checkmarkOnCell = selectedCell.viewWithTag(12) as? UIImageView
+       
+        
         if collectionView.allowsMultipleSelection == true {
             _selectedCells.add(indexPath)
             navigationController?.isToolbarHidden = false
             addTagButton.isEnabled = _selectedCells.count > 0 ? true : false
-            selectedCell.alpha = 0.75
-            checkmarkImage?.isHidden = false
+
+        }else{
+            selectedCell.isSelected = false
+            collectionView.reloadData()
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        let unselectedCell : UICollectionViewCell = collectionView.cellForItem(at: indexPath)!
-        let checkmarkImage = unselectedCell.viewWithTag(12) as? UIImageView
+        
         if collectionView.allowsMultipleSelection == true {
             _selectedCells.remove(indexPath)
             addTagButton.isEnabled = _selectedCells.count < 1 ? false: true
-            unselectedCell.alpha = 1
-            checkmarkImage?.isHidden = true
         }
     }
     

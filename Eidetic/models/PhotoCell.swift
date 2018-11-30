@@ -11,7 +11,6 @@ import UIKit
 class PhotoCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
-   
     @IBOutlet weak var livePhotoBadgeImageView: UIImageView!
     
     var representedAssetIdentifier: String!
@@ -31,6 +30,24 @@ class PhotoCell: UICollectionViewCell {
         super.prepareForReuse()
         imageView.image = nil
         livePhotoBadgeImageView.image = nil
+    }
+    
+    override var isSelected: Bool{
+        didSet{
+            let checkmarkOnCell = self.viewWithTag(12) as? UIImageView
+            if self.isSelected
+            {
+                checkmarkOnCell?.isHidden = false
+                self.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
+                
+            }
+            else
+            {
+                checkmarkOnCell?.isHidden = true
+                self.transform = CGAffineTransform.identity
+                
+            }
+        }
     }
 
 }
