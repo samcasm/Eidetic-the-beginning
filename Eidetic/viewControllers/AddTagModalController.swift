@@ -12,6 +12,8 @@ class AddTagModalController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var addTagTextField: UITextField!
     @IBOutlet weak var addtagButton: UIButton!
+    @IBOutlet weak var makeFolderCheckmark: UIButton!
+    var delegate: AddTagModalControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,12 @@ class AddTagModalController: UIViewController, UITextFieldDelegate {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func returnTagValue(_ sender: UIButton) {
+        if let delegate = self.delegate {
+            delegate.sendValue(value: addTagTextField.text!, makeFolder: makeFolderCheckmark.isSelected)
+        }
+        dismiss(animated: true, completion: nil)
+    }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let newString = (textField.text! as NSString).replacingCharacters(in: range, with: string)

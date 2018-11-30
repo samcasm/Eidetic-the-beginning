@@ -10,6 +10,11 @@ import UIKit
 import Photos
 import PhotosUI
 
+protocol AddTagModalControllerDelegate
+{
+    func sendValue(value : String, makeFolder: Bool)
+}
+
 private extension UICollectionView {
     func indexPathsForElements(in rect: CGRect) -> [IndexPath] {
         let allLayoutAttributes = collectionViewLayout.layoutAttributesForElements(in: rect)!
@@ -23,6 +28,7 @@ class ViewController: UIViewController {
     var assetCollection: PHAssetCollection!
     var directoryName: String!
     var _selectedCells: NSMutableArray = []
+    var tagName: String = ""
     
     @IBOutlet var addTagButton: UIBarButtonItem!
     @IBOutlet weak var selectButton: UIBarButtonItem!
@@ -328,7 +334,6 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let selectedCell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: PhotoCell.self), for: indexPath ) as? PhotoCell
             else { fatalError("unexpected cell in collection view") }
-        let checkmarkOnCell = selectedCell.viewWithTag(12) as? UIImageView
        
         
         if collectionView.allowsMultipleSelection == true {
@@ -455,6 +460,22 @@ extension ViewController: UISearchBarDelegate {
         }
         collectionView.reloadData()
     }
+}
+
+extension ViewController: AddTagModalControllerDelegate{
+    
+    @IBAction func presentAddtagModal() {
+        let storyboard = UIStoryboard(name: "AddTagModalStoryboard", bundle: nil)
+        let presentedMC = storyboard.instantiateViewController(withIdentifier: "AddTagModalController")
+        presentedMC.
+        present(presentedMC, animated: true, completion: nil)
+    }
+    
+    func sendValue(value: String, makeFolder: Bool) {
+        clearSelections()
+    }
+    
+    
 }
 
 
