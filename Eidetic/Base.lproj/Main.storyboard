@@ -146,39 +146,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="289" translatesAutoresizingMaskIntoConstraints="NO" id="e4d-cc-Os4">
-                                <rect key="frame" x="0.0" y="119" width="375" height="363"/>
+                                <rect key="frame" x="0.0" y="118" width="375" height="363"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="375" id="qSz-uf-qA7"/>
                                     <constraint firstAttribute="height" constant="363" id="xid-Ps-hLD"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="cI4-kf-NVd">
-                                <rect key="frame" x="56" y="80" width="263" height="31"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add tags here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WX0-SQ-oqn">
-                                        <rect key="frame" x="0.0" y="0.0" width="144" height="31"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EL4-PO-xGJ">
-                                        <rect key="frame" x="164" y="0.0" width="51" height="31"/>
-                                    </switch>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPS-gg-F0s">
-                                        <rect key="frame" x="233" y="0.0" width="30" height="31"/>
-                                        <state key="normal" title="Add"/>
-                                        <connections>
-                                            <action selector="addTagToAsset:" destination="YDA-l8-Lv6" eventType="touchUpInside" id="UHd-RR-vxp"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
                             <view contentMode="scaleToFill" verticalCompressionResistancePriority="751" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="289" translatesAutoresizingMaskIntoConstraints="NO" id="nJO-Kq-Vay" customClass="PHLivePhotoView">
-                                <rect key="frame" x="0.0" y="119" width="375" height="289"/>
+                                <rect key="frame" x="0.0" y="118" width="375" height="289"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vZN-fw-KwI">
-                                <rect key="frame" x="24" y="490" width="335" height="84"/>
+                                <rect key="frame" x="24" y="489" width="335" height="85"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="F1W-HR-88r">
                                     <size key="itemSize" width="109" height="50"/>
@@ -234,21 +213,64 @@
                                     <outlet property="delegate" destination="YDA-l8-Lv6" id="vJ9-Ir-7da"/>
                                 </connections>
                             </collectionView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="MuU-6d-mz5">
+                                <rect key="frame" x="34" y="85" width="131" height="21"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zGQ-Um-rsg">
+                                        <rect key="frame" x="0.0" y="0.0" width="24" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="24" id="Ay3-CM-3GR"/>
+                                            <constraint firstAttribute="height" constant="21" id="rsV-I3-SE9"/>
+                                        </constraints>
+                                        <state key="normal" image="uncheckbox"/>
+                                        <state key="selected" image="checkbox"/>
+                                        <connections>
+                                            <action selector="makeFolderToggle:" destination="YDA-l8-Lv6" eventType="touchUpInside" id="A7p-Rj-w8H"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make folder?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FqX-dm-LVG">
+                                        <rect key="frame" x="32" y="0.0" width="99" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cI4-kf-NVd">
+                                <rect key="frame" x="173" y="80" width="163.5" height="30"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add tags here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WX0-SQ-oqn">
+                                        <rect key="frame" x="0.0" y="0.0" width="123.5" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPS-gg-F0s">
+                                        <rect key="frame" x="133.5" y="0.0" width="30" height="30"/>
+                                        <state key="normal" title="Add"/>
+                                        <connections>
+                                            <action selector="addTagToAsset:" destination="YDA-l8-Lv6" eventType="touchUpInside" id="UHd-RR-vxp"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="nJO-Kq-Vay" firstAttribute="leading" secondItem="LGZ-BE-6zd" secondAttribute="leading" id="3Ld-BJ-TiC"/>
                             <constraint firstItem="vZN-fw-KwI" firstAttribute="bottom" secondItem="LGZ-BE-6zd" secondAttribute="bottom" id="Az1-hN-Y0m"/>
                             <constraint firstItem="e4d-cc-Os4" firstAttribute="trailing" secondItem="LGZ-BE-6zd" secondAttribute="trailing" id="Bss-S2-VZL"/>
-                            <constraint firstItem="cI4-kf-NVd" firstAttribute="leading" secondItem="IYM-4d-7sr" secondAttribute="leadingMargin" constant="40" id="Du5-Li-1tS"/>
+                            <constraint firstItem="cI4-kf-NVd" firstAttribute="leading" secondItem="MuU-6d-mz5" secondAttribute="trailing" constant="8" id="KYs-ar-gS2"/>
+                            <constraint firstItem="MuU-6d-mz5" firstAttribute="leading" secondItem="LGZ-BE-6zd" secondAttribute="leading" constant="34" id="M8q-rm-H2S"/>
                             <constraint firstItem="vZN-fw-KwI" firstAttribute="leading" secondItem="LGZ-BE-6zd" secondAttribute="leading" constant="24" id="NdB-Yw-FLD"/>
                             <constraint firstItem="e4d-cc-Os4" firstAttribute="top" secondItem="cI4-kf-NVd" secondAttribute="bottom" constant="8" id="XgO-7s-rS0"/>
+                            <constraint firstItem="e4d-cc-Os4" firstAttribute="top" secondItem="MuU-6d-mz5" secondAttribute="bottom" constant="12" id="Xq1-w8-zBX"/>
+                            <constraint firstItem="cI4-kf-NVd" firstAttribute="top" secondItem="LGZ-BE-6zd" secondAttribute="top" constant="16" id="b6H-f8-J9Q"/>
+                            <constraint firstItem="LGZ-BE-6zd" firstAttribute="trailing" secondItem="cI4-kf-NVd" secondAttribute="trailing" constant="38.5" id="bYO-Kb-BS6"/>
                             <constraint firstItem="vZN-fw-KwI" firstAttribute="top" secondItem="e4d-cc-Os4" secondAttribute="bottom" constant="8" id="csS-OT-rKv"/>
-                            <constraint firstItem="cI4-kf-NVd" firstAttribute="top" secondItem="IYM-4d-7sr" secondAttribute="topMargin" constant="16" id="f7V-Tu-Frg"/>
                             <constraint firstItem="nJO-Kq-Vay" firstAttribute="top" secondItem="cI4-kf-NVd" secondAttribute="bottom" constant="8" id="hBV-EZ-Hn8"/>
                             <constraint firstItem="e4d-cc-Os4" firstAttribute="leading" secondItem="LGZ-BE-6zd" secondAttribute="leading" id="ja6-TE-tPX"/>
                             <constraint firstItem="vZN-fw-KwI" firstAttribute="trailing" secondItem="IYM-4d-7sr" secondAttribute="trailingMargin" id="mjd-x4-VO0"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="cI4-kf-NVd" secondAttribute="trailing" constant="40" id="pbg-F3-ckK"/>
                             <constraint firstItem="nJO-Kq-Vay" firstAttribute="trailing" secondItem="LGZ-BE-6zd" secondAttribute="trailing" id="scn-Iq-97d"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LGZ-BE-6zd"/>
@@ -269,12 +291,13 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addTagTextField" destination="WX0-SQ-oqn" id="0xl-F7-zeJ"/>
+                        <outlet property="addtagButton" destination="tPS-gg-F0s" id="pR2-GQ-q3i"/>
                         <outlet property="collectionView" destination="vZN-fw-KwI" id="hLa-uN-s9R"/>
                         <outlet property="editButton" destination="9am-ty-13V" id="LRh-sE-pUm"/>
                         <outlet property="favoriteButton" destination="8Yp-WQ-pwd" id="lcP-cJ-Hxa"/>
                         <outlet property="imageView" destination="e4d-cc-Os4" id="6Vn-jr-Q2U"/>
                         <outlet property="livePhotoView" destination="nJO-Kq-Vay" id="WgB-2y-KqH"/>
-                        <outlet property="makeFolderSwitch" destination="EL4-PO-xGJ" id="p6w-SK-2CJ"/>
+                        <outlet property="makeFolderCheckbox" destination="zGQ-Um-rsg" id="KLe-MN-Jqd"/>
                         <outlet property="progressView" destination="mdp-8h-RYf" id="Xck-ba-9I2"/>
                         <outlet property="space" destination="mpt-ak-bMs" id="cDB-No-uHq"/>
                         <outlet property="trashButton" destination="CL7-RW-TvL" id="sHW-8x-f54"/>
@@ -293,7 +316,7 @@
                 </barButtonItem>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X4S-un-qKP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4826" y="-145"/>
+            <point key="canvasLocation" x="4824.8000000000002" y="-145.27736131934034"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pot-eM-N1F">

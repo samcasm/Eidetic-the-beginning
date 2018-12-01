@@ -16,13 +16,14 @@ class AssetViewController: UIViewController {
     var asset: PHAsset!
     var assetCollection: PHAssetCollection!
     
-    @IBOutlet weak var makeFolderSwitch: UISwitch!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var addTagTextField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var livePhotoView: PHLivePhotoView!
     @IBOutlet weak var editButton: UIBarButtonItem!
     @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var addtagButton: UIButton!
+    @IBOutlet weak var makeFolderCheckbox: UIButton!
     
     
     @IBOutlet var playButton: UIBarButtonItem!
@@ -42,6 +43,8 @@ class AssetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         livePhotoView.delegate = self
+        addTagTextField.delegate = self
+        self.hideKeyboardWhenTappedAround()
         PHPhotoLibrary.shared().register(self)
     }
     
@@ -52,7 +55,7 @@ class AssetViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        makeFolderSwitch.isOn = false
+        addtagButton.isEnabled = false
         
         // Set the appropriate toolbarItems based on the mediaType of the asset.
         if asset.mediaType == .video {
@@ -86,6 +89,9 @@ class AssetViewController: UIViewController {
     
     // MARK: UI Actions
     
+    @IBAction func makeFolderToggle(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+    }
     
     @IBAction func addTagToAsset(_ sender: Any){
         do {
@@ -110,7 +116,8 @@ class AssetViewController: UIViewController {
             self.hideKeyboardWhenTappedAround()
             self.collectionView.reloadData()
             
-            if(makeFolderSwitch.isOn){
+            if(makeFolderCheckbox.isSelected){
+               
                 let isDirectoryExists = allDirectories.map{ $0.id }.contains(newTag) == true
                 var directory: Directory
                 let directoryIndex: Int
@@ -130,6 +137,7 @@ class AssetViewController: UIViewController {
                 
             }
              try allDirectories.save()
+             makeFolderCheckbox.isSelected = false
             
             
         }catch{
@@ -481,7 +489,7 @@ extension AssetViewController: UICollectionViewDataSource, UICollectionViewDeleg
                 try allImagesTagsData.save()
                 collectionView.reloadData()
             }
-            
+           
         }catch{
             print("CollectionView Delete Tag Error: \(error)")
         }
@@ -566,6 +574,24 @@ extension AssetViewController: PHLivePhotoViewDelegate {
     
     func livePhotoView(_ livePhotoView: PHLivePhotoView, didEndPlaybackWith playbackStyle: PHLivePhotoViewPlaybackStyle) {
         isPlayingHint = (playbackStyle == .hint)
+    }
+}
+
+extension AssetViewController: UITextFieldDelegate{
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let newString = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+        if newString.count > 0 {
+            addtagButton.isEnabled = true
+        }else{
+            addtagButton.isEnabled = false
+        }
+        
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        addTagTextField.resignFirstResponder()
+        return true
     }
 }
 
