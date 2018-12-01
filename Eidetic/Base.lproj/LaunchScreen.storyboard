@@ -19,10 +19,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="249" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="sMV-ez-eYF">
-                                <rect key="frame" x="0.0" y="205" width="375" height="161.5"/>
+                                <rect key="frame" x="0.0" y="253.5" width="375" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="ZOL-rq-5uW"/>
+                                </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EIDETIC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3MM-nF-Cuy">
-                                <rect key="frame" x="124" y="374" width="126" height="38.5"/>
+                                <rect key="frame" x="124" y="439.5" width="126" height="38.5"/>
                                 <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="33"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -30,13 +33,13 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="sMV-ez-eYF" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="7kV-QQ-ETK"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3MM-nF-Cuy" secondAttribute="trailing" constant="125" id="JoR-Lt-941"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3MM-nF-Cuy" secondAttribute="bottom" constant="254.5" id="Mxp-eG-gCY"/>
-                            <constraint firstItem="3MM-nF-Cuy" firstAttribute="top" secondItem="sMV-ez-eYF" secondAttribute="bottom" constant="7.5" id="NFk-XA-9G0"/>
-                            <constraint firstItem="sMV-ez-eYF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="V7W-4h-jBs"/>
-                            <constraint firstItem="3MM-nF-Cuy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="124" id="fmz-ko-B5z"/>
-                            <constraint firstItem="sMV-ez-eYF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="185" id="gP2-oi-sJp"/>
+                            <constraint firstItem="3MM-nF-Cuy" firstAttribute="top" secondItem="sMV-ez-eYF" secondAttribute="bottom" constant="26" id="0Mo-2K-2IG"/>
+                            <constraint firstItem="3MM-nF-Cuy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="124" id="7aP-Y0-PcZ"/>
+                            <constraint firstItem="3MM-nF-Cuy" firstAttribute="top" secondItem="sMV-ez-eYF" secondAttribute="bottom" constant="26" id="O34-e3-UU0"/>
+                            <constraint firstItem="sMV-ez-eYF" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Rtv-Iv-0S6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3MM-nF-Cuy" secondAttribute="trailing" constant="125" id="YTc-E1-Bxj"/>
+                            <constraint firstItem="sMV-ez-eYF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lgb-Nh-tAb"/>
+                            <constraint firstItem="sMV-ez-eYF" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="soX-AD-4Mk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
