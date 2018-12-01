@@ -337,11 +337,11 @@
             </objects>
             <point key="canvasLocation" x="2954.4000000000001" y="98.50074962518741"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Folders-->
         <scene sceneID="wj5-l1-Cwj">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hlY-r9-L32" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="featured" id="xgQ-fj-tt7"/>
+                    <tabBarItem key="tabBarItem" title="Folders" image="folder-glyph" selectedImage="folder-glyph" id="xgQ-fj-tt7"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Q9M-jB-TeB">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -574,6 +574,7 @@
         <image name="checkmark" width="203.29411315917969" height="203.29411315917969"/>
         <image name="delete3" width="37.5" height="37.5"/>
         <image name="folder" width="37.5" height="37.5"/>
+        <image name="folder-glyph" width="22.5" height="22.5"/>
         <image name="uncheckbox" width="37.5" height="37.5"/>
     </resources>
     <inferredMetricsTieBreakers>
