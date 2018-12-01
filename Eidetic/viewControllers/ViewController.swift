@@ -171,71 +171,10 @@ class ViewController: UIViewController {
     
     // MARK: UI Actions
     
-    func clearSelections()  {
-        let selectedCells: NSArray = _selectedCells
-        for cellPath in selectedCells {
-            guard let selectedCell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: PhotoCell.self), for: cellPath as! IndexPath) as? PhotoCell
-                else { fatalError("unexpected cell in collection view") }
-            selectedCell.isSelected = false
-        }
-        _selectedCells.removeAllObjects()
-        
-        if collectionView.allowsMultipleSelection {
-            selectButton.title = "Cancel"
-            navigationController?.isToolbarHidden = false
-            searchBar.isUserInteractionEnabled = false
-            searchBar.alpha = 0.75
-            searchBar.searchBarStyle = .minimal
-            searchBar.isTranslucent = false
-            addTagButton.isEnabled = _selectedCells.count > 0 ? true : false
-        }else{
-            selectButton.title = "Select"
-            navigationController?.isToolbarHidden = true
-            searchBar.isUserInteractionEnabled = true
-            searchBar.alpha = 1
-            searchBar.searchBarStyle = .default
-            searchBar.isTranslucent = true
-            
-        }
-        collectionView.reloadData()
-    }
-    
-   
-    @IBAction func addTagPopOver(_ sender: UIBarButtonItem) {
-        showInputDialog(title: "Add a tag",
-                        subtitle: "Please enter a new tag below",
-                        actionTitle: "Add",
-                        cancelTitle: "Cancel",
-                        inputKeyboardType: .default)
-        { (inputTag:String?) in
-            print("The new number is \(inputTag ?? "")")
-            
-            self.collectionView.allowsMultipleSelection = false
-            var allImagesWithTags = try? [Images]()
-            let selectedCellPaths = self._selectedCells as NSArray as! [IndexPath]
-            var selectedAssetsIds : [String] = []
-            
-            self.clearSelections()
-
-            for cellPath in selectedCellPaths {
-                let photoAsset = self.fetchResult.object(at: cellPath.item) as PHAsset
-                selectedAssetsIds.append(photoAsset.localIdentifier)
-            }
-            if inputTag != nil {
-                for (i, image) in allImagesWithTags!.enumerated() {
-                    if selectedAssetsIds.contains(image.id) {
-                        allImagesWithTags?[i].tags.insert(inputTag!)
-                    }
-                }
-                try? allImagesWithTags?.save()
-            }
-        }
-    }
-    
     @IBAction func multipleSelectToggle(_ sender: Any) {
         collectionView.allowsMultipleSelection = !collectionView.allowsMultipleSelection
         
-        clearSelections()
+        self.clearSelections(allowsMultipleSelection: collectionView.allowsMultipleSelection)
         
     }
   
@@ -473,7 +412,12 @@ extension ViewController: AddTagModalControllerDelegate{
     }
     
     func sendValue(value: String, makeFolder: Bool) {
-        clearSelections()
+        let assetIds: [String] = self.fetchLocalIdsFromCellPaths(selectedCells: _selectedCells, fetchResult: fetchResult)
+        
+        for assetId in assetIds {
+            addTagToAsset(assetId: assetId, newTag: value, makeFolder: makeFolder)
+        }
+        self.clearSelections(allowsMultipleSelection: false)
     }
     
     

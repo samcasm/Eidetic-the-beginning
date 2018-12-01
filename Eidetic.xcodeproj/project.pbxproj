@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AD11B36021A72760004D352C /* controls.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD11B35F21A72760004D352C /* controls.swift */; };
+		AD11B36021A72760004D352C /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD11B35F21A72760004D352C /* UIViewController.swift */; };
 		AD11B36421A73260004D352C /* TagCellCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD11B36321A73260004D352C /* TagCellCollectionView.swift */; };
 		AD1DFE5521A649BD008C0AFF /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1DFE5421A649BD008C0AFF /* FileManager.swift */; };
 		AD37511A219DE7F7005A577E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD375119219DE7F7005A577E /* AppDelegate.swift */; };
@@ -20,13 +20,14 @@
 		AD62642921A8973C0056337E /* ImagesInDirectoryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD62642821A8973C0056337E /* ImagesInDirectoryInfo.swift */; };
 		AD641C3B219F41AC00DF8CFE /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD641C3A219F41AC00DF8CFE /* PhotoCell.swift */; };
 		AD98379421B105E200BF3B28 /* AddTagModalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD98379321B105E200BF3B28 /* AddTagModalController.swift */; };
+		ADA75EF321B20D3C00818B0B /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA75EF221B20D3C00818B0B /* ViewControllerExtension.swift */; };
 		ADC3BBF021A8CCCE00C24513 /* DirectoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC3BBEF21A8CCCE00C24513 /* DirectoryCell.swift */; };
 		ADC3BBF421A8D1A700C24513 /* DirectoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC3BBF321A8D1A700C24513 /* DirectoriesViewController.swift */; };
 		ADC9F44A21AB600200A2DA82 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC9F44921AB600100A2DA82 /* UICollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AD11B35F21A72760004D352C /* controls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = controls.swift; sourceTree = "<group>"; };
+		AD11B35F21A72760004D352C /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		AD11B36321A73260004D352C /* TagCellCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCellCollectionView.swift; sourceTree = "<group>"; };
 		AD1DFE5421A649BD008C0AFF /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		AD375116219DE7F7005A577E /* Eidetic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eidetic.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,6 +42,7 @@
 		AD62642821A8973C0056337E /* ImagesInDirectoryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesInDirectoryInfo.swift; sourceTree = "<group>"; };
 		AD641C3A219F41AC00DF8CFE /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		AD98379321B105E200BF3B28 /* AddTagModalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagModalController.swift; sourceTree = "<group>"; };
+		ADA75EF221B20D3C00818B0B /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		ADC3BBEF21A8CCCE00C24513 /* DirectoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryCell.swift; sourceTree = "<group>"; };
 		ADC3BBF321A8D1A700C24513 /* DirectoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoriesViewController.swift; sourceTree = "<group>"; };
 		ADC9F44921AB600100A2DA82 /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
@@ -61,8 +63,9 @@
 			isa = PBXGroup;
 			children = (
 				AD1DFE5421A649BD008C0AFF /* FileManager.swift */,
-				AD11B35F21A72760004D352C /* controls.swift */,
+				AD11B35F21A72760004D352C /* UIViewController.swift */,
 				ADC9F44921AB600100A2DA82 /* UICollectionView.swift */,
+				ADA75EF221B20D3C00818B0B /* ViewControllerExtension.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -196,11 +199,12 @@
 				ADC3BBF421A8D1A700C24513 /* DirectoriesViewController.swift in Sources */,
 				AD37511C219DE7F7005A577E /* ViewController.swift in Sources */,
 				AD641C3B219F41AC00DF8CFE /* PhotoCell.swift in Sources */,
+				ADA75EF321B20D3C00818B0B /* ViewControllerExtension.swift in Sources */,
 				AD1DFE5521A649BD008C0AFF /* FileManager.swift in Sources */,
 				AD11B36421A73260004D352C /* TagCellCollectionView.swift in Sources */,
 				ADC9F44A21AB600200A2DA82 /* UICollectionView.swift in Sources */,
 				AD62642921A8973C0056337E /* ImagesInDirectoryInfo.swift in Sources */,
-				AD11B36021A72760004D352C /* controls.swift in Sources */,
+				AD11B36021A72760004D352C /* UIViewController.swift in Sources */,
 				ADC3BBF021A8CCCE00C24513 /* DirectoryCell.swift in Sources */,
 				AD37511A219DE7F7005A577E /* AppDelegate.swift in Sources */,
 				AD98379421B105E200BF3B28 /* AddTagModalController.swift in Sources */,
