@@ -483,12 +483,18 @@ extension AssetViewController: UICollectionViewDataSource, UICollectionViewDeleg
         do{
             let assetId = asset.localIdentifier
             var allImagesTagsData = try [Images]()
+            var allDirectories = try [Directory]()
             
             if let i = allImagesTagsData.firstIndex(where: { $0.id == assetId }) {
                 allImagesTagsData[i].tags.remove(cell.tagLabel.text!)
                 try allImagesTagsData.save()
-                collectionView.reloadData()
             }
+            
+            if let i = allDirectories.firstIndex(where: { $0.id == cell.tagLabel.text }) {
+                allDirectories[i].imageIDs.remove(assetId)
+                try allDirectories.save()
+            }
+            collectionView.reloadData()
            
         }catch{
             print("CollectionView Delete Tag Error: \(error)")
