@@ -62,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let strData = try String(contentsOf: FileManager.directoriesURL, encoding: .utf8)
                 print("Contents of the directories:\n \(strData)")
             }else{
-                let initDirectory: Directory = Directory(id: "init", imageIDs:[])
+                let initDirectory: Directory = Directory(id: "favorites", imageIDs:[])
                 let encoder = JSONEncoder()
                 let initJSON = try encoder.encode([initDirectory])
                 try initJSON.write(to: FileManager.directoriesURL, options: .atomic)
