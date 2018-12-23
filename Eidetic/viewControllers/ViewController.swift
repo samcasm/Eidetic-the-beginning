@@ -2,9 +2,7 @@
 //  ViewController.swift
 //  Eidetic
 //
-//  Created by user145467 on 11/15/18.
-//  Copyright © 2018 user145467. All rights reserved.
-//
+
 
 import UIKit
 import Photos

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6CD8A7FF21CF8C7200FA8DFC /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD8A7FE21CF8C7200FA8DFC /* CameraViewController.swift */; };
 		AD11B36021A72760004D352C /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD11B35F21A72760004D352C /* UIViewController.swift */; };
 		AD11B36421A73260004D352C /* TagCellCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD11B36321A73260004D352C /* TagCellCollectionView.swift */; };
 		AD1DFE5521A649BD008C0AFF /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1DFE5421A649BD008C0AFF /* FileManager.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6CD8A7FE21CF8C7200FA8DFC /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		AD11B35F21A72760004D352C /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		AD11B36321A73260004D352C /* TagCellCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCellCollectionView.swift; sourceTree = "<group>"; };
 		AD1DFE5421A649BD008C0AFF /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				AD38824321A092F6008E59EC /* AssetViewController.swift */,
 				ADC3BBF321A8D1A700C24513 /* DirectoriesViewController.swift */,
 				AD98379321B105E200BF3B28 /* AddTagModalController.swift */,
+				6CD8A7FE21CF8C7200FA8DFC /* CameraViewController.swift */,
 			);
 			path = viewControllers;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 				AD62642921A8973C0056337E /* ImagesInDirectoryInfo.swift in Sources */,
 				AD11B36021A72760004D352C /* UIViewController.swift in Sources */,
 				ADC3BBF021A8CCCE00C24513 /* DirectoryCell.swift in Sources */,
+				6CD8A7FF21CF8C7200FA8DFC /* CameraViewController.swift in Sources */,
 				AD37511A219DE7F7005A577E /* AppDelegate.swift in Sources */,
 				AD98379421B105E200BF3B28 /* AddTagModalController.swift in Sources */,
 				AD38824421A092F6008E59EC /* AssetViewController.swift in Sources */,
