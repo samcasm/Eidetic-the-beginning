@@ -146,10 +146,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="289" translatesAutoresizingMaskIntoConstraints="NO" id="e4d-cc-Os4">
-                                <rect key="frame" x="0.0" y="118" width="375" height="416"/>
+                                <rect key="frame" x="0.0" y="118" width="375" height="432"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="375" id="qSz-uf-qA7"/>
-                                    <constraint firstAttribute="height" constant="416" id="xid-Ps-hLD"/>
+                                    <constraint firstAttribute="height" constant="432" id="xid-Ps-hLD"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" verticalCompressionResistancePriority="751" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="289" translatesAutoresizingMaskIntoConstraints="NO" id="nJO-Kq-Vay" customClass="PHLivePhotoView">
@@ -157,7 +157,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vZN-fw-KwI">
-                                <rect key="frame" x="24" y="542" width="335" height="76"/>
+                                <rect key="frame" x="24" y="558" width="335" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="F1W-HR-88r">
                                     <size key="itemSize" width="109" height="50"/>
@@ -439,14 +439,50 @@
                     <view key="view" contentMode="scaleToFill" id="e1q-Fq-4T2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NPf-fk-Aea">
+                                <rect key="frame" x="0.0" y="64" width="375" height="419"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ObK-BE-jBB">
+                                <rect key="frame" x="261" y="490" width="98" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="98" id="RTZ-Y9-FvS"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="njp-B8-vnh">
+                                <rect key="frame" x="89" y="539" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="didTakePhoto:" destination="9Aj-hg-lmy" eventType="touchUpInside" id="qWe-iX-950"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ObK-BE-jBB" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="njp-B8-vnh" secondAttribute="trailing" constant="8" symbolic="YES" id="Wa4-56-f9G"/>
+                            <constraint firstItem="u5F-eu-WIj" firstAttribute="bottom" secondItem="njp-B8-vnh" secondAttribute="bottom" constant="49" id="Xy7-MA-rqm"/>
+                            <constraint firstItem="NPf-fk-Aea" firstAttribute="leading" secondItem="e1q-Fq-4T2" secondAttribute="leading" id="bAf-mW-qyN"/>
+                            <constraint firstItem="njp-B8-vnh" firstAttribute="top" secondItem="NPf-fk-Aea" secondAttribute="bottom" constant="56" id="gS8-uf-bAU"/>
+                            <constraint firstItem="njp-B8-vnh" firstAttribute="leading" secondItem="u5F-eu-WIj" secondAttribute="leading" constant="89" id="ghj-ja-AA3"/>
+                            <constraint firstItem="ObK-BE-jBB" firstAttribute="top" secondItem="NPf-fk-Aea" secondAttribute="bottom" constant="7" id="h9s-vI-OHF"/>
+                            <constraint firstItem="ObK-BE-jBB" firstAttribute="trailing" secondItem="e1q-Fq-4T2" secondAttribute="trailingMargin" id="qfu-0N-3PK"/>
+                            <constraint firstAttribute="trailing" secondItem="NPf-fk-Aea" secondAttribute="trailing" id="t4b-yn-qJ1"/>
+                            <constraint firstItem="NPf-fk-Aea" firstAttribute="top" secondItem="u5F-eu-WIj" secondAttribute="top" id="tyG-U2-hd5"/>
+                            <constraint firstItem="njp-B8-vnh" firstAttribute="centerY" secondItem="ObK-BE-jBB" secondAttribute="centerY" id="vpN-hy-BMY"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="u5F-eu-WIj"/>
                     </view>
                     <navigationItem key="navigationItem" id="ZVj-Ym-lJR"/>
+                    <connections>
+                        <outlet property="captureImageView" destination="ObK-BE-jBB" id="wz4-hF-qSm"/>
+                        <outlet property="didTakePhoto" destination="njp-B8-vnh" id="0qX-ly-Div"/>
+                        <outlet property="previewView" destination="NPf-fk-Aea" id="8eY-Rh-Rgc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pfE-zO-VW4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3817" y="1674"/>
+            <point key="canvasLocation" x="3816.8000000000002" y="1673.6131934032985"/>
         </scene>
         <!--Add tag popup-->
         <scene sceneID="4HN-3x-GnX">
