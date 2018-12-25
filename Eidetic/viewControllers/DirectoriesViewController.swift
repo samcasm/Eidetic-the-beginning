@@ -5,6 +5,9 @@ class DirectoriesViewController: UIViewController, UICollectionViewDataSource, U
     
     override func viewWillAppear(_ animated: Bool) {
         collectionView.reloadData()
+        let width = (view.frame.size.width - 4) / 3
+        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.itemSize = CGSize(width: width, height: width)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
