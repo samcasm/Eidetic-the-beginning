@@ -454,7 +454,7 @@
                                 <rect key="frame" x="89" y="539" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="didTakePhoto:" destination="9Aj-hg-lmy" eventType="touchUpInside" id="qWe-iX-950"/>
+                                    <action selector="didTakePhoto:" destination="9Aj-hg-lmy" eventType="touchUpInside" id="msE-R6-1IV"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -476,7 +476,6 @@
                     <navigationItem key="navigationItem" id="ZVj-Ym-lJR"/>
                     <connections>
                         <outlet property="captureImageView" destination="ObK-BE-jBB" id="wz4-hF-qSm"/>
-                        <outlet property="didTakePhoto" destination="njp-B8-vnh" id="0qX-ly-Div"/>
                         <outlet property="previewView" destination="NPf-fk-Aea" id="8eY-Rh-Rgc"/>
                     </connections>
                 </viewController>
