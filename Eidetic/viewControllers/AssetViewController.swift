@@ -47,6 +47,7 @@ class AssetViewController: UIViewController {
         super.viewDidLoad()
         livePhotoView.delegate = self
         addTagTextField.delegate = self
+        tagListView.delegate = self
         self.hideKeyboardWhenTappedAround()
         PHPhotoLibrary.shared().register(self)
         
@@ -497,6 +498,7 @@ class AssetViewController: UIViewController {
     }
 }
 
+//TagListView delegate methods
 extension AssetViewController: TagListViewDelegate {
     
     func tagRemoveButtonPressed(_ title: String, tagView: TagView, sender: TagListView) {
@@ -523,79 +525,6 @@ extension AssetViewController: TagListViewDelegate {
     }
 }
 
-
-//MARK: CollectionViewDelegate
-extension AssetViewController: UICollectionViewDataSource, UICollectionViewDelegate, TagCellDelegate{
-    func deleteTag(cell: TagCellCollectionView) {
-        do{
-            let assetId = asset.localIdentifier
-            var allImagesTagsData = try [Images]()
-            var allDirectories = try [Directory]()
-            
-            if let i = allImagesTagsData.firstIndex(where: { $0.id == assetId }) {
-                allImagesTagsData[i].tags.remove(cell.tagLabel.text!)
-                try allImagesTagsData.save()
-            }
-            
-            if let i = allDirectories.firstIndex(where: { $0.id == cell.tagLabel.text }) {
-                allDirectories[i].imageIDs.remove(assetId)
-                try allDirectories.save()
-            }
-            collectionView.reloadData()
-           
-        }catch{
-            print("CollectionView Delete Tag Error: \(error)")
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        do{
-            let assetId = asset.localIdentifier
-            let allImagesTagsData = try [Images]()
-            
-            if let i = allImagesTagsData.firstIndex(where: { $0.id == assetId }) {
-                return allImagesTagsData[i].tags.count
-            }else{
-                return 0
-            }
-            
-        }catch{
-            print("CollectionView Error: \(error)")
-            return 0
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tagCell", for: indexPath as IndexPath) as! TagCellCollectionView
-        do{
-            let assetId = asset.localIdentifier
-            let allImagesTagsData = try [Images]()
-            let assetIndex = allImagesTagsData.firstIndex(where: { $0.id == assetId })
-            
-            
-            let arrayOfTags = Array(allImagesTagsData[assetIndex!].tags)
-            
-            cell.tagLabel.text = arrayOfTags[indexPath.item]
-//            cell.backgroundColor = UIColor.cyan // make cell more visible in our example project
-            
-            cell.delegate = self
-            
-            return cell
-                
-            
-        }catch{
-            print("CollectionView Error: \(error)")
-            return cell
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // handle tap events
-        print("You selected cell #\(indexPath.item)!")
-    }
-    
-    
-}
 
 // MARK: PHPhotoLibraryChangeObserver
 extension AssetViewController: PHPhotoLibraryChangeObserver {
