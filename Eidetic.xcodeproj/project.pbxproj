@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A6C1F691751D473B4D9F6C1 /* Pods_Eidetic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 486E5C8FEBCFC5CC379F6FBB /* Pods_Eidetic.framework */; };
+		6C9A94CB21D34549006D3202 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9A94C721D34549006D3202 /* CloseButton.swift */; };
+		6C9A94CC21D34549006D3202 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9A94C821D34549006D3202 /* TagView.swift */; };
+		6C9A94CD21D34549006D3202 /* TagListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9A94C921D34549006D3202 /* TagListView.swift */; };
 		6CD8A7FF21CF8C7200FA8DFC /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD8A7FE21CF8C7200FA8DFC /* CameraViewController.swift */; };
 		AD11B36021A72760004D352C /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD11B35F21A72760004D352C /* UIViewController.swift */; };
 		AD11B36421A73260004D352C /* TagCellCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD11B36321A73260004D352C /* TagCellCollectionView.swift */; };
@@ -28,6 +32,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		486E5C8FEBCFC5CC379F6FBB /* Pods_Eidetic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Eidetic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5153A76E3061264B2501B1BB /* Pods-Eidetic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eidetic.release.xcconfig"; path = "Pods/Target Support Files/Pods-Eidetic/Pods-Eidetic.release.xcconfig"; sourceTree = "<group>"; };
+		6C9A94C621D34549006D3202 /* TagListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagListView.h; sourceTree = "<group>"; };
+		6C9A94C721D34549006D3202 /* CloseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
+		6C9A94C821D34549006D3202 /* TagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		6C9A94C921D34549006D3202 /* TagListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagListView.swift; sourceTree = "<group>"; };
+		6C9A94CA21D34549006D3202 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CD8A7FE21CF8C7200FA8DFC /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		AD11B35F21A72760004D352C /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		AD11B36321A73260004D352C /* TagCellCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCellCollectionView.swift; sourceTree = "<group>"; };
@@ -48,6 +59,7 @@
 		ADC3BBEF21A8CCCE00C24513 /* DirectoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryCell.swift; sourceTree = "<group>"; };
 		ADC3BBF321A8D1A700C24513 /* DirectoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoriesViewController.swift; sourceTree = "<group>"; };
 		ADC9F44921AB600100A2DA82 /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
+		E60EAC8864E7113D21D34DC9 /* Pods-Eidetic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eidetic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Eidetic/Pods-Eidetic.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,12 +67,42 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A6C1F691751D473B4D9F6C1 /* Pods_Eidetic.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		12AF247ED5FD4AA71FD170CA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E60EAC8864E7113D21D34DC9 /* Pods-Eidetic.debug.xcconfig */,
+				5153A76E3061264B2501B1BB /* Pods-Eidetic.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6C9A94C521D34548006D3202 /* TagListView */ = {
+			isa = PBXGroup;
+			children = (
+				6C9A94C621D34549006D3202 /* TagListView.h */,
+				6C9A94C721D34549006D3202 /* CloseButton.swift */,
+				6C9A94C821D34549006D3202 /* TagView.swift */,
+				6C9A94C921D34549006D3202 /* TagListView.swift */,
+				6C9A94CA21D34549006D3202 /* Info.plist */,
+			);
+			path = TagListView;
+			sourceTree = SOURCE_ROOT;
+		};
+		778E42CE8CD8323C69B92713 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				486E5C8FEBCFC5CC379F6FBB /* Pods_Eidetic.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AD11B35E21A7273E004D352C /* extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +143,8 @@
 			children = (
 				AD375118219DE7F7005A577E /* Eidetic */,
 				AD375117219DE7F7005A577E /* Products */,
+				12AF247ED5FD4AA71FD170CA /* Pods */,
+				778E42CE8CD8323C69B92713 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,6 +159,7 @@
 		AD375118219DE7F7005A577E /* Eidetic */ = {
 			isa = PBXGroup;
 			children = (
+				6C9A94C521D34548006D3202 /* TagListView */,
 				AD11B36221A72E67004D352C /* viewControllers */,
 				AD11B36121A72DF8004D352C /* models */,
 				AD11B35E21A7273E004D352C /* extensions */,
@@ -134,9 +179,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AD375128219DE7F9005A577E /* Build configuration list for PBXNativeTarget "Eidetic" */;
 			buildPhases = (
+				E096BF342A7A4FC0810B6DEE /* [CP] Check Pods Manifest.lock */,
 				AD375112219DE7F7005A577E /* Sources */,
 				AD375113219DE7F7005A577E /* Frameworks */,
 				AD375114219DE7F7005A577E /* Resources */,
+				41989F7986F35E93B598703C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -193,17 +240,58 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		41989F7986F35E93B598703C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Eidetic/Pods-Eidetic-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/TagListView/TagListView.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TagListView.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Eidetic/Pods-Eidetic-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E096BF342A7A4FC0810B6DEE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Eidetic-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AD375112219DE7F7005A577E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C9A94CC21D34549006D3202 /* TagView.swift in Sources */,
 				AD4E7A1B21A5D1DA0031EB5C /* ImageStruct.swift in Sources */,
 				ADC3BBF421A8D1A700C24513 /* DirectoriesViewController.swift in Sources */,
 				AD37511C219DE7F7005A577E /* ViewController.swift in Sources */,
 				AD641C3B219F41AC00DF8CFE /* PhotoCell.swift in Sources */,
 				ADA75EF321B20D3C00818B0B /* ViewControllerExtension.swift in Sources */,
 				AD1DFE5521A649BD008C0AFF /* FileManager.swift in Sources */,
+				6C9A94CD21D34549006D3202 /* TagListView.swift in Sources */,
 				AD11B36421A73260004D352C /* TagCellCollectionView.swift in Sources */,
 				ADC9F44A21AB600200A2DA82 /* UICollectionView.swift in Sources */,
 				AD62642921A8973C0056337E /* ImagesInDirectoryInfo.swift in Sources */,
@@ -212,6 +300,7 @@
 				6CD8A7FF21CF8C7200FA8DFC /* CameraViewController.swift in Sources */,
 				AD37511A219DE7F7005A577E /* AppDelegate.swift in Sources */,
 				AD98379421B105E200BF3B28 /* AddTagModalController.swift in Sources */,
+				6C9A94CB21D34549006D3202 /* CloseButton.swift in Sources */,
 				AD38824421A092F6008E59EC /* AssetViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -356,6 +445,7 @@
 		};
 		AD375129219DE7F9005A577E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E60EAC8864E7113D21D34DC9 /* Pods-Eidetic.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -376,6 +466,7 @@
 		};
 		AD37512A219DE7F9005A577E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5153A76E3061264B2501B1BB /* Pods-Eidetic.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

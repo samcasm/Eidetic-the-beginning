@@ -11,7 +11,7 @@ import UIKit
 import Photos
 import PhotosUI
 
-class AssetViewController: UIViewController {
+class AssetViewController: UIViewController, TagListViewDelegate {
     
     var asset: PHAsset!
     var assetCollection: PHAssetCollection!
@@ -38,6 +38,8 @@ class AssetViewController: UIViewController {
     fileprivate let formatVersion = "1.0"
     fileprivate lazy var ciContext = CIContext()
     
+    @IBOutlet weak var tagListView: TagListView!
+    
     // MARK: UIViewController / Lifecycle
     
     override func viewDidLoad() {
@@ -46,6 +48,25 @@ class AssetViewController: UIViewController {
         addTagTextField.delegate = self
         self.hideKeyboardWhenTappedAround()
         PHPhotoLibrary.shared().register(self)
+        
+        tagListView.delegate = self
+        tagListView.addTag("TagListView")
+        tagListView.addTag("TEAChart")
+        tagListView.addTag("To Be Removed")
+        tagListView.addTag("To Be Removed")
+        tagListView.addTag("Quark Shell")
+        tagListView.removeTag("To Be Removed")
+        tagListView.addTag("On tap will be removed").onTap = { [weak self] tagView in
+            self?.tagListView.removeTagView(tagView)
+        }
+        
+        let tagView = tagListView.addTag("gray")
+        tagView.tagBackgroundColor = UIColor.gray
+        tagView.onTap = { tagView in
+            print("Don’t tap me!")
+        }
+        
+        tagListView.insertTag("This should be the third tag", at: 2)
     }
     
     deinit {

@@ -154,6 +154,13 @@
                             </imageView>
                             <view contentMode="scaleToFill" verticalCompressionResistancePriority="751" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="289" translatesAutoresizingMaskIntoConstraints="NO" id="nJO-Kq-Vay" customClass="PHLivePhotoView">
                                 <rect key="frame" x="0.0" y="118" width="375" height="289"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nFK-wb-UKX" customClass="TagListView" customModule="TagListView">
+                                        <rect key="frame" x="67" y="80" width="240" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vZN-fw-KwI">
@@ -300,6 +307,7 @@
                         <outlet property="makeFolderCheckbox" destination="zGQ-Um-rsg" id="KLe-MN-Jqd"/>
                         <outlet property="progressView" destination="mdp-8h-RYf" id="Xck-ba-9I2"/>
                         <outlet property="space" destination="mpt-ak-bMs" id="cDB-No-uHq"/>
+                        <outlet property="tagListView" destination="nFK-wb-UKX" id="ZAh-ng-WeS"/>
                         <outlet property="trashButton" destination="CL7-RW-TvL" id="sHW-8x-f54"/>
                     </connections>
                 </viewController>
