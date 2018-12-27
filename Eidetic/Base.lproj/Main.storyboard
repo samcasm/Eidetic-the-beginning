@@ -154,72 +154,8 @@
                             </imageView>
                             <view contentMode="scaleToFill" verticalCompressionResistancePriority="751" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="289" translatesAutoresizingMaskIntoConstraints="NO" id="nJO-Kq-Vay" customClass="PHLivePhotoView">
                                 <rect key="frame" x="0.0" y="118" width="375" height="289"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nFK-wb-UKX" customClass="TagListView" customModule="TagListView">
-                                        <rect key="frame" x="67" y="80" width="240" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
-                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vZN-fw-KwI">
-                                <rect key="frame" x="24" y="558" width="335" height="60"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="F1W-HR-88r">
-                                    <size key="itemSize" width="109" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="tagCell" id="Z6y-cj-WsS" customClass="TagCellCollectionView" customModule="Eidetic" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="109" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="109" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tag" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zvt-kt-6mY">
-                                                    <rect key="frame" x="8" y="16" width="91" height="20"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bpf-ib-RIZ">
-                                                    <rect key="frame" x="87" y="0.0" width="22" height="23"/>
-                                                    <state key="normal" image="delete3">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="deleteTagWithSender:" destination="Z6y-cj-WsS" eventType="touchUpInside" id="0La-tO-mF0"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                        </view>
-                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstItem="Bpf-ib-RIZ" firstAttribute="top" secondItem="Z6y-cj-WsS" secondAttribute="top" id="0z5-2n-xgR"/>
-                                            <constraint firstItem="Zvt-kt-6mY" firstAttribute="top" secondItem="Z6y-cj-WsS" secondAttribute="top" constant="16" id="5Ta-PL-0v4"/>
-                                            <constraint firstAttribute="trailing" secondItem="Bpf-ib-RIZ" secondAttribute="trailing" id="LG2-dD-D4e"/>
-                                            <constraint firstAttribute="bottom" secondItem="Zvt-kt-6mY" secondAttribute="bottom" constant="14" id="LGg-w0-Gm5"/>
-                                            <constraint firstItem="Zvt-kt-6mY" firstAttribute="leading" secondItem="Z6y-cj-WsS" secondAttribute="leading" constant="8" id="Tok-g5-utg"/>
-                                            <constraint firstItem="Bpf-ib-RIZ" firstAttribute="leading" secondItem="Z6y-cj-WsS" secondAttribute="leading" constant="87" id="aGd-cs-Huz"/>
-                                            <constraint firstAttribute="trailing" secondItem="Zvt-kt-6mY" secondAttribute="trailing" constant="10" id="cYk-5F-up8"/>
-                                            <constraint firstAttribute="bottom" secondItem="Bpf-ib-RIZ" secondAttribute="bottom" constant="27" id="uaX-Eo-rtF"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="deleteTagButton" destination="Bpf-ib-RIZ" id="JLp-Mx-90E"/>
-                                            <outlet property="tagLabel" destination="Zvt-kt-6mY" id="S24-hr-51q"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="YDA-l8-Lv6" id="UL4-KZ-JZg"/>
-                                    <outlet property="delegate" destination="YDA-l8-Lv6" id="vJ9-Ir-7da"/>
-                                </connections>
-                            </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="MuU-6d-mz5">
                                 <rect key="frame" x="34" y="85" width="131" height="21"/>
                                 <subviews>
@@ -261,23 +197,66 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KeL-6N-GGE" customClass="TagListView" customModule="Eidetic" customModuleProvider="target">
+                                <rect key="frame" x="16" y="558" width="343" height="109"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" red="0.34138366936986531" green="0.51265784718536955" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="tagBackgroundColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="paddingY">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="paddingX">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="marginX">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="enableRemoveButton" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="removeButtonIconSize">
+                                        <real key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="removeIconLineWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="removeIconLineColor">
+                                        <color key="value" red="0.29635465145111084" green="0.48353606462478638" blue="0.99939852952957153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="marginY">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.29979132019999999" green="0.4814635712" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="nJO-Kq-Vay" firstAttribute="leading" secondItem="LGZ-BE-6zd" secondAttribute="leading" id="3Ld-BJ-TiC"/>
-                            <constraint firstItem="vZN-fw-KwI" firstAttribute="bottom" secondItem="LGZ-BE-6zd" secondAttribute="bottom" id="Az1-hN-Y0m"/>
+                            <constraint firstItem="LGZ-BE-6zd" firstAttribute="trailing" secondItem="KeL-6N-GGE" secondAttribute="trailing" constant="16" id="57u-tP-bjd"/>
                             <constraint firstItem="e4d-cc-Os4" firstAttribute="trailing" secondItem="LGZ-BE-6zd" secondAttribute="trailing" id="Bss-S2-VZL"/>
+                            <constraint firstAttribute="bottom" secondItem="KeL-6N-GGE" secondAttribute="bottom" id="K1L-76-e4s"/>
                             <constraint firstItem="cI4-kf-NVd" firstAttribute="leading" secondItem="MuU-6d-mz5" secondAttribute="trailing" constant="8" id="KYs-ar-gS2"/>
                             <constraint firstItem="MuU-6d-mz5" firstAttribute="leading" secondItem="LGZ-BE-6zd" secondAttribute="leading" constant="34" id="M8q-rm-H2S"/>
-                            <constraint firstItem="vZN-fw-KwI" firstAttribute="leading" secondItem="LGZ-BE-6zd" secondAttribute="leading" constant="24" id="NdB-Yw-FLD"/>
+                            <constraint firstItem="KeL-6N-GGE" firstAttribute="top" secondItem="e4d-cc-Os4" secondAttribute="bottom" constant="8" id="N3Q-YF-heZ"/>
                             <constraint firstItem="e4d-cc-Os4" firstAttribute="top" secondItem="cI4-kf-NVd" secondAttribute="bottom" constant="8" id="XgO-7s-rS0"/>
                             <constraint firstItem="e4d-cc-Os4" firstAttribute="top" secondItem="MuU-6d-mz5" secondAttribute="bottom" constant="12" id="Xq1-w8-zBX"/>
                             <constraint firstItem="cI4-kf-NVd" firstAttribute="top" secondItem="LGZ-BE-6zd" secondAttribute="top" constant="16" id="b6H-f8-J9Q"/>
                             <constraint firstItem="LGZ-BE-6zd" firstAttribute="trailing" secondItem="cI4-kf-NVd" secondAttribute="trailing" constant="38.5" id="bYO-Kb-BS6"/>
-                            <constraint firstItem="vZN-fw-KwI" firstAttribute="top" secondItem="e4d-cc-Os4" secondAttribute="bottom" constant="8" id="csS-OT-rKv"/>
+                            <constraint firstItem="KeL-6N-GGE" firstAttribute="leading" secondItem="LGZ-BE-6zd" secondAttribute="leading" constant="16" id="gmq-GL-2gs"/>
                             <constraint firstItem="nJO-Kq-Vay" firstAttribute="top" secondItem="cI4-kf-NVd" secondAttribute="bottom" constant="8" id="hBV-EZ-Hn8"/>
                             <constraint firstItem="e4d-cc-Os4" firstAttribute="leading" secondItem="LGZ-BE-6zd" secondAttribute="leading" id="ja6-TE-tPX"/>
-                            <constraint firstItem="vZN-fw-KwI" firstAttribute="trailing" secondItem="IYM-4d-7sr" secondAttribute="trailingMargin" id="mjd-x4-VO0"/>
                             <constraint firstItem="nJO-Kq-Vay" firstAttribute="trailing" secondItem="LGZ-BE-6zd" secondAttribute="trailing" id="scn-Iq-97d"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LGZ-BE-6zd"/>
@@ -299,7 +278,6 @@
                     <connections>
                         <outlet property="addTagTextField" destination="WX0-SQ-oqn" id="0xl-F7-zeJ"/>
                         <outlet property="addtagButton" destination="tPS-gg-F0s" id="pR2-GQ-q3i"/>
-                        <outlet property="collectionView" destination="vZN-fw-KwI" id="hLa-uN-s9R"/>
                         <outlet property="editButton" destination="9am-ty-13V" id="LRh-sE-pUm"/>
                         <outlet property="favoriteButton" destination="8Yp-WQ-pwd" id="lcP-cJ-Hxa"/>
                         <outlet property="imageView" destination="e4d-cc-Os4" id="6Vn-jr-Q2U"/>
@@ -307,7 +285,7 @@
                         <outlet property="makeFolderCheckbox" destination="zGQ-Um-rsg" id="KLe-MN-Jqd"/>
                         <outlet property="progressView" destination="mdp-8h-RYf" id="Xck-ba-9I2"/>
                         <outlet property="space" destination="mpt-ak-bMs" id="cDB-No-uHq"/>
-                        <outlet property="tagListView" destination="nFK-wb-UKX" id="ZAh-ng-WeS"/>
+                        <outlet property="tagListView" destination="KeL-6N-GGE" id="uo9-Xt-RO7"/>
                         <outlet property="trashButton" destination="CL7-RW-TvL" id="sHW-8x-f54"/>
                     </connections>
                 </viewController>
@@ -652,7 +630,6 @@
     <resources>
         <image name="checkbox" width="37.5" height="37.5"/>
         <image name="checkmark" width="203.29411315917969" height="203.29411315917969"/>
-        <image name="delete3" width="37.5" height="37.5"/>
         <image name="folder" width="37.5" height="37.5"/>
         <image name="folder-glyph" width="22.5" height="22.5"/>
         <image name="uncheckbox" width="37.5" height="37.5"/>

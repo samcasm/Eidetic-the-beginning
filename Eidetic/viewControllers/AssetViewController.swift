@@ -11,7 +11,7 @@ import UIKit
 import Photos
 import PhotosUI
 
-class AssetViewController: UIViewController, TagListViewDelegate {
+class AssetViewController: UIViewController {
     
     var asset: PHAsset!
     var assetCollection: PHAssetCollection!
@@ -42,6 +42,7 @@ class AssetViewController: UIViewController, TagListViewDelegate {
     
     // MARK: UIViewController / Lifecycle
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         livePhotoView.delegate = self
@@ -49,24 +50,22 @@ class AssetViewController: UIViewController, TagListViewDelegate {
         self.hideKeyboardWhenTappedAround()
         PHPhotoLibrary.shared().register(self)
         
-        tagListView.delegate = self
-        tagListView.addTag("TagListView")
-        tagListView.addTag("TEAChart")
-        tagListView.addTag("To Be Removed")
-        tagListView.addTag("To Be Removed")
-        tagListView.addTag("Quark Shell")
-        tagListView.removeTag("To Be Removed")
-        tagListView.addTag("On tap will be removed").onTap = { [weak self] tagView in
-            self?.tagListView.removeTagView(tagView)
+        do{
+            let assetId = asset.localIdentifier
+            let allImagesTagsData = try [Images]()
+            let assetIndex = allImagesTagsData.firstIndex(where: { $0.id == assetId })
+            
+            if assetIndex != nil{
+                let arrayOfTags = Array(allImagesTagsData[assetIndex!].tags)
+                tagListView.addTags(arrayOfTags)
+                tagListView.textFont = UIFont.systemFont(ofSize: 20)
+            }
+            
+            
+        }catch{
+            print("Tag Display View Error: \(error)")
         }
         
-        let tagView = tagListView.addTag("gray")
-        tagView.tagBackgroundColor = UIColor.gray
-        tagView.onTap = { tagView in
-            print("Don’t tap me!")
-        }
-        
-        tagListView.insertTag("This should be the third tag", at: 2)
     }
     
     deinit {
@@ -135,7 +134,6 @@ class AssetViewController: UIViewController, TagListViewDelegate {
             try allImagesTagsData.save()
             addTagTextField.text = ""
             self.hideKeyboardWhenTappedAround()
-            self.collectionView.reloadData()
             
             if(makeFolderCheckbox.isSelected){
                
@@ -159,6 +157,8 @@ class AssetViewController: UIViewController, TagListViewDelegate {
             }
              try allDirectories.save()
              makeFolderCheckbox.isSelected = false
+            
+            tagListView.addTag(newTag)
             
             
         }catch{
@@ -494,6 +494,32 @@ class AssetViewController: UIViewController, TagListViewDelegate {
         export.videoComposition = composition
         export.exportAsynchronously(completionHandler: completion)
         
+    }
+}
+
+extension AssetViewController: TagListViewDelegate {
+    
+    func tagRemoveButtonPressed(_ title: String, tagView: TagView, sender: TagListView) {
+        
+        do{
+            let assetId = asset.localIdentifier
+            var allImagesTagsData = try [Images]()
+            var allDirectories = try [Directory]()
+            
+            if let i = allImagesTagsData.firstIndex(where: { $0.id == assetId }) {
+                allImagesTagsData[i].tags.remove(title)
+                try allImagesTagsData.save()
+            }
+            
+            if let i = allDirectories.firstIndex(where: { $0.id == title }) {
+                allDirectories[i].imageIDs.remove(assetId)
+                try allDirectories.save()
+            }
+            sender.removeTagView(tagView)
+            
+        }catch{
+            print("Delete Tag Error: \(error)")
+        }
     }
 }
 
