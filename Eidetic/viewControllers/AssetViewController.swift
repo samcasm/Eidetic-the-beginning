@@ -51,21 +51,7 @@ class AssetViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
         PHPhotoLibrary.shared().register(self)
         
-        do{
-            let assetId = asset.localIdentifier
-            let allImagesTagsData = try [Images]()
-            let assetIndex = allImagesTagsData.firstIndex(where: { $0.id == assetId })
-            
-            if assetIndex != nil{
-                let arrayOfTags = Array(allImagesTagsData[assetIndex!].tags)
-                tagListView.addTags(arrayOfTags)
-                tagListView.textFont = UIFont.systemFont(ofSize: 20)
-            }
-            
-            
-        }catch{
-            print("Tag Display View Error: \(error)")
-        }
+        displayTags()
         
     }
     
@@ -108,13 +94,26 @@ class AssetViewController: UIViewController {
         updateImage()
     }
     
-    // MARK: UI Actions
-    
-    @IBAction func makeFolderToggle(_ sender: UIButton) {
-        sender.isSelected = !sender.isSelected
+    func displayTags(){
+        tagListView.removeAllTags()
+        do{
+            let assetId = asset.localIdentifier
+            let allImagesTagsData = try [Images]()
+            let assetIndex = allImagesTagsData.firstIndex(where: { $0.id == assetId })
+            
+            if assetIndex != nil{
+                let arrayOfTags = Array(allImagesTagsData[assetIndex!].tags)
+                tagListView.addTags(arrayOfTags)
+                tagListView.textFont = UIFont.systemFont(ofSize: 20)
+            }
+            
+            
+        }catch{
+            print("Tag Display View Error: \(error)")
+        }
     }
     
-    @IBAction func addTagToAsset(_ sender: Any){
+    func addTag(){
         do {
             var allImagesTagsData = try [Images]()
             let assetId: String = asset.localIdentifier
@@ -137,7 +136,7 @@ class AssetViewController: UIViewController {
             self.hideKeyboardWhenTappedAround()
             
             if(makeFolderCheckbox.isSelected){
-               
+                
                 let isDirectoryExists = allDirectories.map{ $0.id }.contains(newTag) == true
                 var directory: Directory
                 let directoryIndex: Int
@@ -156,15 +155,26 @@ class AssetViewController: UIViewController {
                 }
                 
             }
-             try allDirectories.save()
-             makeFolderCheckbox.isSelected = false
+            try allDirectories.save()
+            makeFolderCheckbox.isSelected = false
             
-            tagListView.addTag(newTag)
+            displayTags()
             
             
         }catch{
             print("Could not add tag to asset: \(error)")
         }
+    }
+    
+    // MARK: UI Actions
+    
+    
+    @IBAction func makeFolderToggle(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+    }
+    
+    @IBAction func addTagToAsset(_ sender: Any){
+        addTag()
     }
     
     @IBAction func editAsset(_ sender: UIBarButtonItem) {
@@ -573,6 +583,7 @@ extension AssetViewController: UITextFieldDelegate{
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         addTagTextField.resignFirstResponder()
+        addTag()
         return true
     }
 }
