@@ -618,11 +618,11 @@
             </objects>
             <point key="canvasLocation" x="1823" y="512"/>
         </scene>
-        <!--Item-->
+        <!--Camera-->
         <scene sceneID="NOY-hm-86d">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JXi-8S-4Eu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="8yu-A4-CTz"/>
+                    <tabBarItem key="tabBarItem" title="Camera" image="camera" selectedImage="camera" id="8yu-A4-CTz"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Pxf-HL-pUX">
@@ -640,6 +640,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera" width="22.5" height="22.5"/>
         <image name="checkbox" width="37.5" height="37.5"/>
         <image name="checkmark" width="203.29411315917969" height="203.29411315917969"/>
         <image name="folder" width="37.5" height="37.5"/>
