@@ -200,10 +200,10 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qYS-ft-r0m">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qYS-ft-r0m">
                                 <rect key="frame" x="-4" y="474" width="383" height="164"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KeL-6N-GGE" customClass="TagListView" customModule="Eidetic" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KeL-6N-GGE" customClass="TagListView" customModule="Eidetic" customModuleProvider="target">
                                         <rect key="frame" x="8" y="0.0" width="367" height="164"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
@@ -281,10 +281,6 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="g7p-kd-bP6">
                         <nil key="title"/>
-                        <progressView key="titleView" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" id="mdp-8h-RYf">
-                            <rect key="frame" x="8" y="21" width="315.5" height="2.5"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </progressView>
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="9am-ty-13V">
                             <connections>
                                 <action selector="editAsset:" destination="YDA-l8-Lv6" id="4q3-QL-5hL"/>
@@ -300,7 +296,6 @@
                         <outlet property="imageView" destination="e4d-cc-Os4" id="6Vn-jr-Q2U"/>
                         <outlet property="livePhotoView" destination="nJO-Kq-Vay" id="WgB-2y-KqH"/>
                         <outlet property="makeFolderCheckbox" destination="zGQ-Um-rsg" id="KLe-MN-Jqd"/>
-                        <outlet property="progressView" destination="mdp-8h-RYf" id="Xck-ba-9I2"/>
                         <outlet property="space" destination="mpt-ak-bMs" id="cDB-No-uHq"/>
                         <outlet property="tagListView" destination="KeL-6N-GGE" id="uo9-Xt-RO7"/>
                         <outlet property="trashButton" destination="CL7-RW-TvL" id="sHW-8x-f54"/>
@@ -385,7 +380,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="folder" translatesAutoresizingMaskIntoConstraints="NO" id="Oum-th-nCa">
-                                                    <rect key="frame" x="2" y="2" width="116" height="72"/>
+                                                    <rect key="frame" x="20" y="2" width="80" height="72"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yeg-aL-nE8">
                                                     <rect key="frame" x="18" y="75" width="84" height="21"/>
@@ -399,10 +394,10 @@
                                             <constraint firstAttribute="bottom" secondItem="yeg-aL-nE8" secondAttribute="bottom" constant="2" id="1sZ-Tn-K9d"/>
                                             <constraint firstItem="Oum-th-nCa" firstAttribute="top" secondItem="fhC-QJ-Qe9" secondAttribute="top" constant="2" id="2Km-z5-mjE"/>
                                             <constraint firstItem="yeg-aL-nE8" firstAttribute="leading" secondItem="fhC-QJ-Qe9" secondAttribute="leading" constant="18" id="58i-kJ-fFj"/>
-                                            <constraint firstItem="Oum-th-nCa" firstAttribute="leading" secondItem="fhC-QJ-Qe9" secondAttribute="leading" constant="2" id="7aZ-BH-nrE"/>
+                                            <constraint firstItem="Oum-th-nCa" firstAttribute="leading" secondItem="fhC-QJ-Qe9" secondAttribute="leading" constant="20" id="7aZ-BH-nrE"/>
                                             <constraint firstItem="yeg-aL-nE8" firstAttribute="top" secondItem="Oum-th-nCa" secondAttribute="bottom" constant="1" id="BNZ-5u-Ewd"/>
                                             <constraint firstItem="yeg-aL-nE8" firstAttribute="top" secondItem="Oum-th-nCa" secondAttribute="bottom" constant="1" id="E1r-fC-On1"/>
-                                            <constraint firstAttribute="trailing" secondItem="Oum-th-nCa" secondAttribute="trailing" constant="2" id="Mb9-Dr-Jr1"/>
+                                            <constraint firstAttribute="trailing" secondItem="Oum-th-nCa" secondAttribute="trailing" constant="20" id="Mb9-Dr-Jr1"/>
                                             <constraint firstAttribute="trailing" secondItem="yeg-aL-nE8" secondAttribute="trailing" constant="18" id="y2d-Zy-Hoh"/>
                                         </constraints>
                                         <connections>

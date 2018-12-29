@@ -21,7 +21,6 @@ class AssetViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var livePhotoView: PHLivePhotoView!
     @IBOutlet weak var editButton: UIBarButtonItem!
-    @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var addtagButton: UIButton!
     @IBOutlet weak var makeFolderCheckbox: UIButton!
     
@@ -50,6 +49,10 @@ class AssetViewController: UIViewController {
         tagListView.delegate = self
         self.hideKeyboardWhenTappedAround()
         PHPhotoLibrary.shared().register(self)
+        
+        let dateString = asset.creationDate?.toString(format: "dd MMMM, YYYY")
+        
+        self.navigationItem.title = dateString
         
         displayTags()
         
@@ -246,7 +249,7 @@ class AssetViewController: UIViewController {
                     sender.title = self.asset.isFavorite ? "♥︎" : "♡"
                 }
             } else {
-                print("can't set favorite: \(error)")
+                print("can't set favorite")
             }
         })
     }
@@ -274,16 +277,11 @@ class AssetViewController: UIViewController {
         options.deliveryMode = .highQualityFormat
         options.isNetworkAccessAllowed = true
         options.progressHandler = { progress, _, _, _ in
-            // Handler might not be called on the main queue, so re-dispatch for UI work.
-            DispatchQueue.main.sync {
-                self.progressView.progress = Float(progress)
-            }
+            
         }
         
         // Request the live photo for the asset from the default PHImageManager.
         PHImageManager.default().requestLivePhoto(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: options, resultHandler: { livePhoto, info in
-            // Hide the progress view now the request has completed.
-            self.progressView.isHidden = true
             
             // If successful, show the live photo view and display the live photo.
             guard let livePhoto = livePhoto else { return }
@@ -308,15 +306,10 @@ class AssetViewController: UIViewController {
         options.deliveryMode = .highQualityFormat
         options.isNetworkAccessAllowed = true
         options.progressHandler = { progress, _, _, _ in
-            // Handler might not be called on the main queue, so re-dispatch for UI work.
-            DispatchQueue.main.sync {
-                self.progressView.progress = Float(progress)
-            }
+            
         }
         
         PHImageManager.default().requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: options, resultHandler: { image, _ in
-            // Hide the progress view now the request has completed.
-            self.progressView.isHidden = true
             
             // If successful, show the image view and display the image.
             guard let image = image else { return }
