@@ -7,7 +7,14 @@
 //
 
 import Foundation
+//String checks
+extension String {
+    var hasAlphanumeric: Bool {
+        return !isEmpty && range(of: "[a-zA-Z0-9]+", options: .regularExpression) != nil
+    }
+}
 
+//Date Formatters
 extension DateFormatter {
     
     convenience init (format: String) {
