@@ -74,6 +74,8 @@ class ViewController: UIViewController {
         toolbarItems = [spaceLeft, addTagButton, spaceRight]
         addTagButton.isEnabled = false
         
+        imageManager.allowsCachingHighQualityImages = true
+        
         PHPhotoLibrary.shared().register(self)
         
         // If we get here without a segue, it's because we're visible at app launch,
