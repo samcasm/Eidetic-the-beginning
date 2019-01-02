@@ -118,6 +118,7 @@ class AssetViewController: UIViewController {
     
     func addTag(){
         do {
+            addtagButton.isEnabled = false
             var allImagesTagsData = try [Images]()
             let assetId: String = asset.localIdentifier
             let newTag: String = String(addTagTextField.text!)
