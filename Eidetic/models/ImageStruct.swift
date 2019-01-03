@@ -12,6 +12,7 @@ import UIKit
 struct Images: Decodable, Encodable {
     var id: String
     var tags: Set<String>
+    var isFavorite: Bool
     
     enum DecodingError: Error {
         case missingFile

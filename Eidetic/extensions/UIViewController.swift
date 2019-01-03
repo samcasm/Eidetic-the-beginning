@@ -64,7 +64,7 @@ extension UIViewController {
             if let i = allImagesTagsData.firstIndex(where: { $0.id == assetId }) {
                 allImagesTagsData[i].tags.insert(newTag)
             }else{
-                let newAsset: Images = Images(id: assetId, tags: [newTag])
+                let newAsset: Images = Images(id: assetId, tags: [newTag], isFavorite: false)
                 allImagesTagsData.append(newAsset)
             }
             

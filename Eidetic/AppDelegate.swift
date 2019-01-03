@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let strData = try String(contentsOf: FileManager.tagsFileURL, encoding: .utf8)
                 print("Contents of the tagsFile:\n \(strData)")
             }else{
-                let initTag: Images = Images(id: "init", tags:[])
+                let initTag: Images = Images(id: "init", tags:[], isFavorite: false)
                 let encoder = JSONEncoder()
                 let initJSON = try encoder.encode([initTag])
                 try initJSON.write(to: FileManager.tagsFileURL, options: .atomic)

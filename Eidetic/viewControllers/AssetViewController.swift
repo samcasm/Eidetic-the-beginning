@@ -83,7 +83,7 @@ class AssetViewController: UIViewController {
         // Enable editing buttons if the asset can be edited.
         editButton.isEnabled = asset.canPerform(.content)
         favoriteButton.isEnabled = asset.canPerform(.properties)
-        favoriteButton.title = asset.isFavorite ? "♥︎" : "♡"
+        setFavoriteButton()
         
         // Enable the trash button if the asset can be deleted.
         if assetCollection != nil {
@@ -131,7 +131,7 @@ class AssetViewController: UIViewController {
             if let i = allImagesTagsData.firstIndex(where: { $0.id == assetId }) {
                 allImagesTagsData[i].tags.insert(newTag)
             }else{
-                let newAsset: Images = Images(id: assetId, tags: [newTag])
+                let newAsset: Images = Images(id: assetId, tags: [newTag], isFavorite: false)
                 allImagesTagsData.append(newAsset)
             }
             
@@ -240,19 +240,55 @@ class AssetViewController: UIViewController {
         
     }
     
-    @IBAction func toggleFavorite(_ sender: UIBarButtonItem) {
-        PHPhotoLibrary.shared().performChanges({
-            let request = PHAssetChangeRequest(for: self.asset)
-            request.isFavorite = !self.asset.isFavorite
-        }, completionHandler: { success, error in
-            if success {
-                DispatchQueue.main.sync {
-                    sender.title = self.asset.isFavorite ? "♥︎" : "♡"
-                }
-            } else {
-                print("can't set favorite")
+    func toggleFavoriteButton(){
+        do{
+            let assetId = asset.localIdentifier
+            var allImagesTagsData = try [Images]()
+            
+            if let i = allImagesTagsData.firstIndex(where: { $0.id == assetId }) {
+                allImagesTagsData[i].isFavorite = !allImagesTagsData[i].isFavorite
+                try allImagesTagsData.save()
+                favoriteButton.image = allImagesTagsData[i].isFavorite ? UIImage(named: "favorite") : UIImage(named: "unfavorite")
+            }else{
+                let newAsset: Images = Images(id: assetId, tags: [], isFavorite: true)
+                allImagesTagsData.append(newAsset)
+                try allImagesTagsData.save()
+                favoriteButton.image = UIImage(named: "favorite")
             }
-        })
+        }catch{
+            print("Failed to set favorite toggle")
+        }
+    }
+    
+    func setFavoriteButton(){
+        do{
+            let assetId = asset.localIdentifier
+            var allImagesTagsData = try [Images]()
+            
+            if let i = allImagesTagsData.firstIndex(where: { $0.id == assetId }) {
+                favoriteButton.image = allImagesTagsData[i].isFavorite ? UIImage(named: "favorite") : UIImage(named: "unfavorite")
+            }else{
+                favoriteButton.image = UIImage(named: "unfavorite")
+            }
+        }catch{
+            print("Failed to set favorite toggle")
+        }
+    }
+    
+    @IBAction func toggleFavorite(_ sender: UIBarButtonItem) {
+        toggleFavoriteButton()
+//        PHPhotoLibrary.shared().performChanges({
+//            let request = PHAssetChangeRequest(for: self.asset)
+//            request.isFavorite = !self.asset.isFavorite
+//        }, completionHandler: { success, error in
+//            if success {
+//                DispatchQueue.main.sync {
+//                    sender.title = self.asset.isFavorite ? "♥︎" : "♡"
+//                }
+//            } else {
+//                print("can't set favorite")
+//            }
+//        })
     }
     
     // MARK: Image display
