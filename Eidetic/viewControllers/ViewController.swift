@@ -63,6 +63,34 @@ class ViewController: UIViewController {
             navigationItem.rightBarButtonItem = nil
         }
         
+        // If we get here without a segue, it's because we're visible at app launch,
+        // so match the behavior of segue from the default "All Photos" view.
+        if directoryName == nil{
+            if fetchResult == nil {
+                let allPhotosOptions = PHFetchOptions()
+                allPhotosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+                fetchResult = PHAsset.fetchAssets(with: allPhotosOptions)
+            }
+        }else if directoryName == "favorites" {
+            do {
+                let allImages = try [Images]()
+                let imageIds = allImages.filter{$0.isFavorite == true}.map({$0.id})
+                fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: Array(imageIds), options: nil)
+                collectionView.reloadData()
+            }catch{
+                print("Favorites folder display error. ViewController")
+            }
+        }else{
+            do{
+                let allDirectories = try [Directory]()
+                let imageIds = allDirectories.first{$0.id == directoryName}?.imageIDs
+                fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: Array(imageIds!), options: nil)
+                collectionView.reloadData()
+            }catch{
+                print("Error while directory details display \(error)")
+            }
+        }
+        
     }
 
     override func viewDidLoad() {
@@ -78,23 +106,7 @@ class ViewController: UIViewController {
         
         PHPhotoLibrary.shared().register(self)
         
-        // If we get here without a segue, it's because we're visible at app launch,
-        // so match the behavior of segue from the default "All Photos" view.
-        if directoryName == nil{
-            if fetchResult == nil {
-                let allPhotosOptions = PHFetchOptions()
-                allPhotosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-                fetchResult = PHAsset.fetchAssets(with: allPhotosOptions)
-            }
-        }else{
-            do{
-                let allDirectories = try [Directory]()
-                let imageIds = allDirectories.first{$0.id == directoryName}?.imageIDs
-                fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: Array(imageIds!), options: nil)
-            }catch{
-                print("Error while directory details display \(error)")
-            }
-        }
+        
         
     }
     
