@@ -56,6 +56,12 @@ class ViewController: UIViewController {
         layout.itemSize = CGSize(width: width, height: width)
         thumbnailSize = CGSize(width: width, height: width)
         
+//         Determine the size of the thumbnails to request from the PHCachingImageManager.
+//        let scale = UIScreen.main.scale
+//        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+//        let cellSize = layout.itemSize
+//        thumbnailSize = CGSize(width: cellSize.width * scale, height: cellSize.height * scale)
+        
         // Add button to the navigation bar if the asset collection supports adding content.
         if assetCollection == nil || assetCollection.canPerform(.addContent) {
             navigationItem.rightBarButtonItem = addButtonItem
@@ -147,9 +153,9 @@ class ViewController: UIViewController {
         
         // Update the assets the PHCachingImageManager is caching.
         imageManager.startCachingImages(for: addedAssets,
-                                        targetSize: thumbnailSize, contentMode: .aspectFill, options: nil)
+                                        targetSize: thumbnailSize, contentMode: .aspectFit, options: nil)
         imageManager.stopCachingImages(for: removedAssets,
-                                       targetSize: thumbnailSize, contentMode: .aspectFill, options: nil)
+                                       targetSize: thumbnailSize, contentMode: .aspectFit, options: nil)
         
         // Store the preheat rect to compare against in the future.
         previousPreheatRect = preheatRect
@@ -270,7 +276,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         
         // Request an image for the asset from the PHCachingImageManager.
         cell.representedAssetIdentifier = asset.localIdentifier
-        imageManager.requestImage(for: asset, targetSize: thumbnailSize, contentMode: .aspectFill, options: nil, resultHandler: { image, _ in
+        imageManager.requestImage(for: asset, targetSize: thumbnailSize, contentMode: .aspectFit, options: nil, resultHandler: { image, _ in
             // The cell may have been recycled by the time this handler gets called;
             // set the cell's thumbnail image only if it's still showing the same asset.
             if cell.representedAssetIdentifier == asset.localIdentifier {

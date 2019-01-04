@@ -35,7 +35,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" tag="101" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w4E-kY-Cf1">
+                                                <imageView userInteractionEnabled="NO" tag="101" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w4E-kY-Cf1">
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7VX-SL-Csv" userLabel="Live Photo Badge">
@@ -296,6 +296,7 @@
                         <outlet property="imageView" destination="e4d-cc-Os4" id="6Vn-jr-Q2U"/>
                         <outlet property="livePhotoView" destination="nJO-Kq-Vay" id="WgB-2y-KqH"/>
                         <outlet property="makeFolderCheckbox" destination="zGQ-Um-rsg" id="KLe-MN-Jqd"/>
+                        <outlet property="playButton" destination="rj0-8E-urN" id="71C-Fb-iIl"/>
                         <outlet property="space" destination="mpt-ak-bMs" id="cDB-No-uHq"/>
                         <outlet property="tagListView" destination="KeL-6N-GGE" id="uo9-Xt-RO7"/>
                         <outlet property="trashButton" destination="CL7-RW-TvL" id="sHW-8x-f54"/>
@@ -307,6 +308,7 @@
                         <action selector="removeAsset:" destination="YDA-l8-Lv6" id="uTi-k1-DFS"/>
                     </connections>
                 </barButtonItem>
+                <barButtonItem systemItem="play" id="rj0-8E-urN" userLabel="Play Button"/>
                 <barButtonItem title="♡" id="8Yp-WQ-pwd">
                     <connections>
                         <action selector="toggleFavorite:" destination="YDA-l8-Lv6" id="1Ec-Ju-ZBM"/>
