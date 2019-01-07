@@ -111,9 +111,7 @@ class ViewController: UIViewController {
         imageManager.allowsCachingHighQualityImages = true
         
         PHPhotoLibrary.shared().register(self)
-        
-        
-        
+       
     }
     
     override func viewDidAppear(_ animated: Bool) {

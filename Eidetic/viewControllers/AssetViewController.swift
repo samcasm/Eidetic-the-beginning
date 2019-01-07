@@ -56,6 +56,12 @@ class AssetViewController: UIViewController {
         
         displayTags()
         
+        let pictureTap = UITapGestureRecognizer(target: self, action: #selector(AssetViewController.imageTapped))
+        imageView.addGestureRecognizer(pictureTap)
+        imageView.isUserInteractionEnabled = true
+        
+        
+        
     }
     
     deinit {
@@ -95,6 +101,50 @@ class AssetViewController: UIViewController {
         // Make sure the view layout happens before requesting an image sized to fit the view.
         view.layoutIfNeeded()
         updateImage()
+    }
+    
+    @objc func pinchGesture(sender: UIPinchGestureRecognizer){
+        sender.view?.transform = (sender.view?.transform.scaledBy(x: sender.scale, y: sender.scale))!
+        sender.scale = 1.0
+    }
+    
+    @objc func getSwipeAction( _ recognizer : UISwipeGestureRecognizer){
+        
+        if recognizer.direction == .right{
+            print("Right Swiped")
+        } else if recognizer.direction == .left {
+            print("Left Swiped")
+        }
+    }
+    
+    @IBAction func imageTapped(_ sender: UITapGestureRecognizer) {
+        let imageView = sender.view as! UIImageView
+        let newImageView = UIImageView(image: imageView.image)
+        newImageView.frame = UIScreen.main.bounds
+        newImageView.backgroundColor = .black
+        newImageView.contentMode = .scaleAspectFit
+        newImageView.isUserInteractionEnabled = true
+        
+        let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(self.pinchGesture))
+        newImageView.addGestureRecognizer(pinchGesture)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
+        newImageView.addGestureRecognizer(tap)
+        
+        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.getSwipeAction))
+        newImageView.addGestureRecognizer(swipeGesture)
+        
+        self.view.addSubview(newImageView)
+        self.navigationController?.isNavigationBarHidden = true
+        self.tabBarController?.tabBar.isHidden = true
+        navigationController?.isToolbarHidden = true
+    }
+    
+    @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
+        self.navigationController?.isNavigationBarHidden = false
+        self.tabBarController?.tabBar.isHidden = false
+        navigationController?.isToolbarHidden = false
+        sender.view?.removeFromSuperview()
     }
     
     func displayTags(){
