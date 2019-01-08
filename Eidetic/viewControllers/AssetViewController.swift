@@ -103,19 +103,33 @@ class AssetViewController: UIViewController {
         updateImage()
     }
     
-    @objc func pinchGesture(sender: UIPinchGestureRecognizer){
-        sender.view?.transform = (sender.view?.transform.scaledBy(x: sender.scale, y: sender.scale))!
-        sender.scale = 1.0
-    }
-    
-    @objc func getSwipeAction( _ recognizer : UISwipeGestureRecognizer){
+    @objc func pinchGesture(gesture: UIPinchGestureRecognizer){
         
-        if recognizer.direction == .right{
-            print("Right Swiped")
-        } else if recognizer.direction == .left {
-            print("Left Swiped")
+        if let view = gesture.view {
+            
+            switch gesture.state {
+            case .changed:
+                let pinchCenter = CGPoint(x: gesture.location(in: view).x - view.bounds.midX,
+                                          y: gesture.location(in: view).y - view.bounds.midY)
+                let transform = view.transform.translatedBy(x: pinchCenter.x, y: pinchCenter.y)
+                    .scaledBy(x: gesture.scale, y: gesture.scale)
+                    .translatedBy(x: -pinchCenter.x, y: -pinchCenter.y)
+                view.transform = transform
+                gesture.scale = 1
+            case .ended:
+                // Nice animation to scale down when releasing the pinch.
+                // OPTIONAL
+                UIView.animate(withDuration: 0.2, animations: {
+                    view.transform = CGAffineTransform.identity
+                })
+            default:
+                return
+            }
+            
+            
         }
     }
+    
     
     @IBAction func imageTapped(_ sender: UITapGestureRecognizer) {
         let imageView = sender.view as! UIImageView
@@ -130,9 +144,6 @@ class AssetViewController: UIViewController {
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
         newImageView.addGestureRecognizer(tap)
-        
-        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.getSwipeAction))
-        newImageView.addGestureRecognizer(swipeGesture)
         
         self.view.addSubview(newImageView)
         self.navigationController?.isNavigationBarHidden = true
