@@ -67,6 +67,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     //MARK: Recent Search Table View
+    
+    func removeRecentSearchesView(){
+        if let viewWithTag = self.view.viewWithTag(202) {
+            viewWithTag.removeFromSuperview()
+        }
+    }
+    
     func restoreDefaultsOnEmptySearch() {
         do{
             if(directoryName == nil){

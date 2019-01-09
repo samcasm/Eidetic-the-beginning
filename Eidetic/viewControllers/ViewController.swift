@@ -227,13 +227,6 @@ class ViewController: UIViewController {
         })
     }
     
-    //MARK: Recent Searches Table View
-    
-    func removeRecentSearchesView(){
-        if let viewWithTag = self.view.viewWithTag(202) {
-            viewWithTag.removeFromSuperview()
-        }
-    }
     
     // MARK: UIScrollView
     
