@@ -67,6 +67,23 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     //MARK: Recent Search Table View
+    func restoreDefaultsOnEmptySearch() {
+        do{
+            if(directoryName == nil){
+                let allPhotosOptions = PHFetchOptions()
+                allPhotosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
+                fetchResult = PHAsset.fetchAssets(with: allPhotosOptions)
+            }else{
+                let allDirectories = try [Directory]()
+                let imageIds = allDirectories.first{$0.id == directoryName}?.imageIDs
+                fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: Array(imageIds!), options: nil)
+            }
+            collectionView.reloadData()
+        }catch{
+            print("Search Error \(error)")
+        }
+    }
+    
     func searchForTag(searchText: String){
         do{
             var allImages = try [Images]()

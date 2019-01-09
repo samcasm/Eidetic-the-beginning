@@ -371,6 +371,12 @@ extension ViewController: PHPhotoLibraryChangeObserver {
 }
 
 extension ViewController: UISearchBarDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        removeRecentSearchesView()
+        searchBar.text = ""
+        restoreDefaultsOnEmptySearch()
+    }
+    
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(true, animated: true)
         self.view.addSubview(recentSearchesTableView)
@@ -391,21 +397,8 @@ extension ViewController: UISearchBarDelegate {
             searchForTag(searchText: searchText)
         }else{
             self.view.addSubview(recentSearchesTableView)
-            do{
-                if(directoryName == nil){
-                    let allPhotosOptions = PHFetchOptions()
-                    allPhotosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
-                    fetchResult = PHAsset.fetchAssets(with: allPhotosOptions)
-                }else{
-                    let allDirectories = try [Directory]()
-                    let imageIds = allDirectories.first{$0.id == directoryName}?.imageIDs
-                    fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: Array(imageIds!), options: nil)
-                }
-            }catch{
-                print("Search Error \(error)")
-            }
+            restoreDefaultsOnEmptySearch()
         }
-        collectionView.reloadData()
     }
 }
 
