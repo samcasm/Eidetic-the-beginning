@@ -378,7 +378,6 @@ extension ViewController: UISearchBarDelegate {
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(false, animated: true)
-        removeRecentSearchesView()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -389,34 +388,7 @@ extension ViewController: UISearchBarDelegate {
         
         if !searchText.isEmpty {
             removeRecentSearchesView()
-            do{
-                var allImages = try [Images]()
-                if directoryName != nil{
-                    let allDirectories = try [Directory]()
-                    let imageIds = allDirectories.first{$0.id == directoryName}?.imageIDs
-                    allImages = allImages.filter{(image: Images) -> Bool in
-                        return imageIds!.contains(image.id)
-                    }
-                }
-                var filteredImages: [Images]
-                filteredImages = allImages.filter { (image: Images) -> Bool in
-                    for imageTag in image.tags{
-                        if imageTag.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil{
-                            return true
-                        }
-                    }
-                    return false
-                }
-                
-                if filteredImages.count == 0 {
-                    fetchResult = nil
-                }else{
-                    let imageIds = filteredImages.map({$0.id})
-                    fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: imageIds, options: nil)
-                }
-            }catch{
-                print("Search error: \(error)")
-            }
+            searchForTag(searchText: searchText)
         }else{
             self.view.addSubview(recentSearchesTableView)
             do{

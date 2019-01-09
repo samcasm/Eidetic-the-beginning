@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import Photos
+import PhotosUI
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -24,7 +26,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        searchBar.text = self.recentSearches[indexPath.row]
+        let searchText = self.recentSearches[indexPath.row]
+        searchBar.text = searchText
+        searchForTag(searchText: searchText)
+        removeRecentSearchesView()
         print("You tapped cell number \(indexPath.row).")
     }
     
@@ -59,5 +64,38 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             
         }
         collectionView.reloadData()
+    }
+    
+    //MARK: Recent Search Table View
+    func searchForTag(searchText: String){
+        do{
+            var allImages = try [Images]()
+            if directoryName != nil{
+                let allDirectories = try [Directory]()
+                let imageIds = allDirectories.first{$0.id == directoryName}?.imageIDs
+                allImages = allImages.filter{(image: Images) -> Bool in
+                    return imageIds!.contains(image.id)
+                }
+            }
+            var filteredImages: [Images]
+            filteredImages = allImages.filter { (image: Images) -> Bool in
+                for imageTag in image.tags{
+                    if imageTag.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil{
+                        return true
+                    }
+                }
+                return false
+            }
+            
+            if filteredImages.count == 0 {
+                fetchResult = nil
+            }else{
+                let imageIds = filteredImages.map({$0.id})
+                fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: imageIds, options: nil)
+            }
+            collectionView.reloadData()
+        }catch{
+            print("Search error: \(error)")
+        }
     }
 }
