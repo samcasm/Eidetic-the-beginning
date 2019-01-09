@@ -73,6 +73,18 @@ extension UIViewController {
             self.hideKeyboardWhenTappedAround()
 //            self.collectionView.reloadData()
             
+            //Mark: Recently Added Tags
+            let defaults = UserDefaults.standard
+            var recentlyAddedTags = defaults.object(forKey:"recentlyAddedTags") as? [String] ?? [String]()
+            
+            if recentlyAddedTags.count > 10 {
+                recentlyAddedTags.removeFirst()
+                recentlyAddedTags.append(newTag)
+            }else{
+                recentlyAddedTags.append(newTag)
+            }
+            defaults.set(recentlyAddedTags, forKey: "recentlyAddedTags")
+            
             if(makeFolder){
                 let isDirectoryExists = allDirectories.map{ $0.id }.contains(newTag) == true
                 var directory: Directory

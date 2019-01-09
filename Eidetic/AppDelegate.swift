@@ -17,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let defaults = UserDefaults.standard
+        let recentlyAddedTagsArray = defaults.object(forKey:"recentlyAddedTags") as? [String] ?? [String]()
+        defaults.set(recentlyAddedTagsArray, forKey: "recentlyAddedTags")
         return true
     }
 

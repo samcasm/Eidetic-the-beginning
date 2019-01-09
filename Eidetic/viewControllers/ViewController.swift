@@ -28,6 +28,9 @@ class ViewController: UIViewController {
     var _selectedCells: NSMutableArray = []
     var tagName: String = ""
     
+    var recentSearches = [] as [String]
+    @IBOutlet weak var recentSearchesTableView: UITableView!
+    
     @IBOutlet var addTagButton: UIBarButtonItem!
     @IBOutlet weak var selectButton: UIBarButtonItem!
     @IBOutlet weak var addButtonItem: UIBarButtonItem!
@@ -56,11 +59,6 @@ class ViewController: UIViewController {
         layout.itemSize = CGSize(width: width, height: width)
         thumbnailSize = CGSize(width: width, height: width)
         
-//         Determine the size of the thumbnails to request from the PHCachingImageManager.
-//        let scale = UIScreen.main.scale
-//        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-//        let cellSize = layout.itemSize
-//        thumbnailSize = CGSize(width: cellSize.width * scale, height: cellSize.height * scale)
         
         // Add button to the navigation bar if the asset collection supports adding content.
         if assetCollection == nil || assetCollection.canPerform(.addContent) {
@@ -111,6 +109,12 @@ class ViewController: UIViewController {
         imageManager.allowsCachingHighQualityImages = true
         
         PHPhotoLibrary.shared().register(self)
+        
+        recentSearchesTableView.isHidden = true
+        recentSearchesTableView.delegate = self
+        recentSearchesTableView.dataSource = self
+        let defaults = UserDefaults.standard
+        recentSearches = defaults.object(forKey:"recentlyAddedTags") as? [String] ?? [String]()
        
     }
     
@@ -357,10 +361,14 @@ extension ViewController: PHPhotoLibraryChangeObserver {
 extension ViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(true, animated: true)
+        collectionView.isHidden = true
+        recentSearchesTableView.isHidden = false
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(false, animated: true)
+        collectionView.isHidden = false
+        recentSearchesTableView.isHidden = true
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -370,6 +378,8 @@ extension ViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         if !searchText.isEmpty {
+            collectionView.isHidden = false
+            recentSearchesTableView.isHidden = true
             do{
                 var allImages = try [Images]()
                 if directoryName != nil{
@@ -399,6 +409,8 @@ extension ViewController: UISearchBarDelegate {
                 print("Search error: \(error)")
             }
         }else{
+            collectionView.isHidden = true
+            recentSearchesTableView.isHidden = false
             do{
                 if(directoryName == nil){
                     let allPhotosOptions = PHFetchOptions()

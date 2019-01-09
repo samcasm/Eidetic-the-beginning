@@ -18,6 +18,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="65j-IV-VRJ">
+                                <rect key="frame" x="0.0" y="120" width="375" height="454"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecentSearchCell" id="uMg-ta-TYc">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uMg-ta-TYc" id="Dlb-mL-9m7">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SOZ-58-9tC">
                                 <rect key="frame" x="0.0" y="120" width="375" height="454"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -91,8 +105,12 @@
                         <constraints>
                             <constraint firstItem="SOZ-58-9tC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="06d-S3-dbe"/>
                             <constraint firstItem="SOZ-58-9tC" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="49i-hq-ch6"/>
+                            <constraint firstItem="65j-IV-VRJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="KGc-Ln-uh7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="65j-IV-VRJ" secondAttribute="bottom" id="LKc-fk-Hga"/>
                             <constraint firstItem="SOZ-58-9tC" firstAttribute="top" secondItem="p1I-SR-zjB" secondAttribute="bottom" id="cXa-Sh-IgA"/>
+                            <constraint firstItem="65j-IV-VRJ" firstAttribute="top" secondItem="p1I-SR-zjB" secondAttribute="bottom" id="gtA-v8-ocl"/>
                             <constraint firstAttribute="trailing" secondItem="SOZ-58-9tC" secondAttribute="trailing" id="j1O-em-r2d"/>
+                            <constraint firstAttribute="trailing" secondItem="65j-IV-VRJ" secondAttribute="trailing" id="k3l-L4-uQB"/>
                             <constraint firstItem="p1I-SR-zjB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="noH-sp-X5c"/>
                             <constraint firstItem="p1I-SR-zjB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qac-AC-Rcd"/>
                             <constraint firstItem="p1I-SR-zjB" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="y82-Tq-96p"/>
@@ -127,6 +145,7 @@
                         <outlet property="addButtonItem" destination="w6m-0j-FyE" id="Wes-tX-QVQ"/>
                         <outlet property="addTagButton" destination="qMn-3w-7sK" id="dqo-O4-kt8"/>
                         <outlet property="collectionView" destination="SOZ-58-9tC" id="swO-Px-1Vh"/>
+                        <outlet property="recentSearchesTableView" destination="65j-IV-VRJ" id="eoD-x0-c2y"/>
                         <outlet property="searchBar" destination="p1I-SR-zjB" id="3cn-s4-ARc"/>
                         <outlet property="selectButton" destination="0Gg-c8-rQq" id="3BJ-os-6Q4"/>
                         <outlet property="spaceLeft" destination="ORe-Ye-kVW" id="7Kc-x2-Y2A"/>
