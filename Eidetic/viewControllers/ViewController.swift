@@ -22,6 +22,8 @@ private extension UICollectionView {
 
 class ViewController: UIViewController {
     
+    var recentSearchesTableView: UITableView = UITableView()
+    
     var fetchResult: PHFetchResult<PHAsset>!
     var assetCollection: PHAssetCollection!
     var directoryName: String!
@@ -29,7 +31,6 @@ class ViewController: UIViewController {
     var tagName: String = ""
     
     var recentSearches = [] as [String]
-    @IBOutlet weak var recentSearchesTableView: UITableView!
     
     @IBOutlet var addTagButton: UIBarButtonItem!
     @IBOutlet weak var selectButton: UIBarButtonItem!
@@ -110,9 +111,13 @@ class ViewController: UIViewController {
         
         PHPhotoLibrary.shared().register(self)
         
-        recentSearchesTableView.isHidden = true
+        recentSearchesTableView.frame = CGRect(x: 10, y: 200, width: view.frame.width-20, height: view.frame.height-200)
         recentSearchesTableView.delegate = self
         recentSearchesTableView.dataSource = self
+        recentSearchesTableView.register(UITableViewCell.self, forCellReuseIdentifier: "RecentSearchCell")
+        recentSearchesTableView.tag = 202
+        recentSearchesTableView.isUserInteractionEnabled = true
+        
         let defaults = UserDefaults.standard
         recentSearches = defaults.object(forKey:"recentlyAddedTags") as? [String] ?? [String]()
        
@@ -121,7 +126,6 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         updateCachedAssets()
-        
     }
     
     
@@ -221,6 +225,14 @@ class ViewController: UIViewController {
         }, completionHandler: {success, error in
             if !success { print("error creating asset") }
         })
+    }
+    
+    //MARK: Recent Searches Table View
+    
+    func removeRecentSearchesView(){
+        if let viewWithTag = self.view.viewWithTag(202) {
+            viewWithTag.removeFromSuperview()
+        }
     }
     
     // MARK: UIScrollView
@@ -361,14 +373,12 @@ extension ViewController: PHPhotoLibraryChangeObserver {
 extension ViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(true, animated: true)
-        collectionView.isHidden = true
-        recentSearchesTableView.isHidden = false
+        self.view.addSubview(recentSearchesTableView)
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(false, animated: true)
-        collectionView.isHidden = false
-        recentSearchesTableView.isHidden = true
+        removeRecentSearchesView()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -378,8 +388,7 @@ extension ViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         if !searchText.isEmpty {
-            collectionView.isHidden = false
-            recentSearchesTableView.isHidden = true
+            removeRecentSearchesView()
             do{
                 var allImages = try [Images]()
                 if directoryName != nil{
@@ -409,8 +418,7 @@ extension ViewController: UISearchBarDelegate {
                 print("Search error: \(error)")
             }
         }else{
-            collectionView.isHidden = true
-            recentSearchesTableView.isHidden = false
+            self.view.addSubview(recentSearchesTableView)
             do{
                 if(directoryName == nil){
                     let allPhotosOptions = PHFetchOptions()
