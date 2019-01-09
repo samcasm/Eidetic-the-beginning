@@ -117,6 +117,7 @@ class ViewController: UIViewController {
         recentSearchesTableView.register(UITableViewCell.self, forCellReuseIdentifier: "RecentSearchCell")
         recentSearchesTableView.tag = 202
         recentSearchesTableView.isUserInteractionEnabled = true
+        recentSearchesTableView.tableFooterView = UIView()
         
         let defaults = UserDefaults.standard
         recentSearches = defaults.object(forKey:"recentlyAddedTags") as? [String] ?? [String]()

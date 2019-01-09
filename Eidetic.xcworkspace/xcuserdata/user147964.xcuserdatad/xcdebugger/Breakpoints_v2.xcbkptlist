@@ -26,13 +26,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Eidetic/viewControllers/ViewController.swift"
-            timestampString = "568713851.9116811"
+            timestampString = "568715812.290713"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "395"
-            endingLineNumber = "395"
-            landmarkName = "searchBar(_:textDidChange:)"
-            landmarkType = "7">
+            startingLineNumber = "398"
+            endingLineNumber = "398"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -42,12 +42,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Eidetic/extensions/ViewControllerExtension.swift"
-            timestampString = "568713851.911777"
+            timestampString = "568715812.2911071"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
-            landmarkName = "restoreDefaultsOnEmptySearch()"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "searchForTag(searchText:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
