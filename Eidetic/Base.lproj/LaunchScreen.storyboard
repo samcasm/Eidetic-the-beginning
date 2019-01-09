@@ -18,28 +18,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="249" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="sMV-ez-eYF">
-                                <rect key="frame" x="0.0" y="253.5" width="375" height="160"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="160" id="ZOL-rq-5uW"/>
-                                </constraints>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchImage" translatesAutoresizingMaskIntoConstraints="NO" id="mD7-if-MfF">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EIDETIC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3MM-nF-Cuy">
-                                <rect key="frame" x="124" y="439.5" width="126" height="38.5"/>
-                                <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="33"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="3MM-nF-Cuy" firstAttribute="top" secondItem="sMV-ez-eYF" secondAttribute="bottom" constant="26" id="0Mo-2K-2IG"/>
-                            <constraint firstItem="3MM-nF-Cuy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="124" id="7aP-Y0-PcZ"/>
-                            <constraint firstItem="3MM-nF-Cuy" firstAttribute="top" secondItem="sMV-ez-eYF" secondAttribute="bottom" constant="26" id="O34-e3-UU0"/>
-                            <constraint firstItem="sMV-ez-eYF" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Rtv-Iv-0S6"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3MM-nF-Cuy" secondAttribute="trailing" constant="125" id="YTc-E1-Bxj"/>
-                            <constraint firstItem="sMV-ez-eYF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lgb-Nh-tAb"/>
-                            <constraint firstItem="sMV-ez-eYF" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="soX-AD-4Mk"/>
+                            <constraint firstItem="mD7-if-MfF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="CxO-gW-H4K"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mD7-if-MfF" secondAttribute="trailing" id="K9g-hA-DeT"/>
+                            <constraint firstItem="mD7-if-MfF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="la7-dM-A1w"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mD7-if-MfF" secondAttribute="bottom" id="yb4-qr-ohJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -50,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="75" height="75"/>
+        <image name="LaunchImage" width="16" height="16"/>
     </resources>
 </document>

@@ -48,14 +48,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func restoreDefaultsOnEmptySearch() {
         do{
+            let allPhotosOptions = PHFetchOptions()
+            allPhotosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
             if(directoryName == nil){
-                let allPhotosOptions = PHFetchOptions()
-                allPhotosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
                 fetchResult = PHAsset.fetchAssets(with: allPhotosOptions)
             }else{
                 let allDirectories = try [Directory]()
                 let imageIds = allDirectories.first{$0.id == directoryName}?.imageIDs
-                fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: Array(imageIds!), options: nil)
+                fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: Array(imageIds!), options: allPhotosOptions)
             }
             collectionView.reloadData()
         }catch{

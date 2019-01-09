@@ -313,13 +313,17 @@ class AssetViewController: UIViewController {
         
     }
     
+    //MARK: Favorites functionality
     func toggleFavoriteButton(){
         do{
             let assetId = asset.localIdentifier
             var allImagesTagsData = try [Images]()
+            var allDirectories = try [Directory]()
+            var isFav: Bool = true
             
             if let i = allImagesTagsData.firstIndex(where: { $0.id == assetId }) {
                 allImagesTagsData[i].isFavorite = !allImagesTagsData[i].isFavorite
+                isFav = allImagesTagsData[i].isFavorite
                 try allImagesTagsData.save()
                 favoriteButton.image = allImagesTagsData[i].isFavorite ? UIImage(named: "favorite") : UIImage(named: "unfavorite")
             }else{
@@ -327,6 +331,17 @@ class AssetViewController: UIViewController {
                 allImagesTagsData.append(newAsset)
                 try allImagesTagsData.save()
                 favoriteButton.image = UIImage(named: "favorite")
+            }
+            
+            if let i = allDirectories.firstIndex(where: { $0.id == "favorites" }) {
+                if isFav == true{
+                    allDirectories[i].imageIDs.insert(assetId)
+                    try allDirectories.save()
+                }else{
+                    allDirectories[i].imageIDs.remove(assetId)
+                    try allDirectories.save()
+                }
+                
             }
         }catch{
             print("Failed to set favorite toggle")
@@ -350,18 +365,6 @@ class AssetViewController: UIViewController {
     
     @IBAction func toggleFavorite(_ sender: UIBarButtonItem) {
         toggleFavoriteButton()
-//        PHPhotoLibrary.shared().performChanges({
-//            let request = PHAssetChangeRequest(for: self.asset)
-//            request.isFavorite = !self.asset.isFavorite
-//        }, completionHandler: { success, error in
-//            if success {
-//                DispatchQueue.main.sync {
-//                    sender.title = self.asset.isFavorite ? "♥︎" : "♡"
-//                }
-//            } else {
-//                print("can't set favorite")
-//            }
-//        })
     }
     
     // MARK: Image display
