@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import PhotosUI
 
 
 class CameraViewController : UIViewController, AVCapturePhotoCaptureDelegate  {
@@ -22,6 +23,7 @@ class CameraViewController : UIViewController, AVCapturePhotoCaptureDelegate  {
     @IBAction func didTakePhoto(_ sender: Any) {
         let settings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
         stillImageOutput.capturePhoto(with: settings, delegate: self)
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {

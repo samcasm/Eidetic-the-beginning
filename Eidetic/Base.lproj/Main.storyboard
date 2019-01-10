@@ -442,18 +442,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NPf-fk-Aea">
-                                <rect key="frame" x="0.0" y="64" width="375" height="419"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="412"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ObK-BE-jBB">
-                                <rect key="frame" x="261" y="490" width="98" height="128"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ObK-BE-jBB">
+                                <rect key="frame" x="259" y="501" width="100" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="98" id="RTZ-Y9-FvS"/>
+                                    <constraint firstAttribute="height" constant="100" id="OSf-1t-n0y"/>
+                                    <constraint firstAttribute="width" constant="100" id="RTZ-Y9-FvS"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="njp-B8-vnh">
-                                <rect key="frame" x="89" y="539" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="njp-B8-vnh">
+                                <rect key="frame" x="116" y="533" width="110" height="37"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" image="camera-button"/>
                                 <connections>
                                     <action selector="didTakePhoto:" destination="9Aj-hg-lmy" eventType="touchUpInside" id="msE-R6-1IV"/>
                                 </connections>
@@ -461,16 +463,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ObK-BE-jBB" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="njp-B8-vnh" secondAttribute="trailing" constant="8" symbolic="YES" id="Wa4-56-f9G"/>
-                            <constraint firstItem="u5F-eu-WIj" firstAttribute="bottom" secondItem="njp-B8-vnh" secondAttribute="bottom" constant="49" id="Xy7-MA-rqm"/>
-                            <constraint firstItem="NPf-fk-Aea" firstAttribute="leading" secondItem="e1q-Fq-4T2" secondAttribute="leading" id="bAf-mW-qyN"/>
-                            <constraint firstItem="njp-B8-vnh" firstAttribute="top" secondItem="NPf-fk-Aea" secondAttribute="bottom" constant="56" id="gS8-uf-bAU"/>
-                            <constraint firstItem="njp-B8-vnh" firstAttribute="leading" secondItem="u5F-eu-WIj" secondAttribute="leading" constant="89" id="ghj-ja-AA3"/>
-                            <constraint firstItem="ObK-BE-jBB" firstAttribute="top" secondItem="NPf-fk-Aea" secondAttribute="bottom" constant="7" id="h9s-vI-OHF"/>
-                            <constraint firstItem="ObK-BE-jBB" firstAttribute="trailing" secondItem="e1q-Fq-4T2" secondAttribute="trailingMargin" id="qfu-0N-3PK"/>
-                            <constraint firstAttribute="trailing" secondItem="NPf-fk-Aea" secondAttribute="trailing" id="t4b-yn-qJ1"/>
-                            <constraint firstItem="NPf-fk-Aea" firstAttribute="top" secondItem="u5F-eu-WIj" secondAttribute="top" id="tyG-U2-hd5"/>
-                            <constraint firstItem="njp-B8-vnh" firstAttribute="centerY" secondItem="ObK-BE-jBB" secondAttribute="centerY" id="vpN-hy-BMY"/>
+                            <constraint firstItem="NPf-fk-Aea" firstAttribute="leading" secondItem="u5F-eu-WIj" secondAttribute="leading" id="GcP-Ia-Hes"/>
+                            <constraint firstItem="u5F-eu-WIj" firstAttribute="trailing" secondItem="ObK-BE-jBB" secondAttribute="trailing" constant="16" id="GyJ-Wl-XaH"/>
+                            <constraint firstItem="njp-B8-vnh" firstAttribute="top" secondItem="NPf-fk-Aea" secondAttribute="bottom" constant="57" id="Z1F-9m-8vk"/>
+                            <constraint firstItem="u5F-eu-WIj" firstAttribute="bottom" secondItem="ObK-BE-jBB" secondAttribute="bottom" constant="17" id="bVv-ln-yFD"/>
+                            <constraint firstItem="NPf-fk-Aea" firstAttribute="top" secondItem="u5F-eu-WIj" secondAttribute="top" id="gA4-Q8-ulI"/>
+                            <constraint firstItem="ObK-BE-jBB" firstAttribute="leading" secondItem="njp-B8-vnh" secondAttribute="trailing" constant="33" id="jrp-Cr-chl"/>
+                            <constraint firstItem="njp-B8-vnh" firstAttribute="leading" secondItem="u5F-eu-WIj" secondAttribute="leading" constant="116" id="quK-9F-K9C"/>
+                            <constraint firstItem="NPf-fk-Aea" firstAttribute="trailing" secondItem="u5F-eu-WIj" secondAttribute="trailing" id="s6m-Gi-TzP"/>
+                            <constraint firstItem="u5F-eu-WIj" firstAttribute="bottom" secondItem="NPf-fk-Aea" secondAttribute="bottom" constant="142" id="v3t-X2-zzK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="u5F-eu-WIj"/>
                     </view>
@@ -644,6 +645,7 @@
     </scenes>
     <resources>
         <image name="camera" width="22.5" height="22.5"/>
+        <image name="camera-button" width="37.5" height="37.5"/>
         <image name="checkbox" width="37.5" height="37.5"/>
         <image name="checkmark" width="203.29411315917969" height="203.29411315917969"/>
         <image name="folder" width="37.5" height="37.5"/>
