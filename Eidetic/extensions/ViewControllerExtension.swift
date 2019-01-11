@@ -13,20 +13,16 @@ import PhotosUI
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let defaults = UserDefaults.standard
-        let recents = defaults.object(forKey:"recentlyAddedTags") as? [String] ?? [String]()
         
-        return recents.count
+        return self.recentSearches.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let defaults = UserDefaults.standard
-        let recents = defaults.object(forKey:"recentlyAddedTags") as? [String] ?? [String]()
         
         let cell:UITableViewCell = self.recentSearchesTableView.dequeueReusableCell(withIdentifier: "RecentSearchCell") as UITableViewCell!
         
         // set the text from the data model
-        cell.textLabel?.text = recents[indexPath.row]
+        cell.textLabel?.text = self.recentSearches[indexPath.row]
         
         return cell
     }

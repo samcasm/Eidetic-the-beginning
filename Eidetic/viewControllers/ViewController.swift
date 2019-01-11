@@ -55,6 +55,8 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isToolbarHidden = true
+        let defaults = UserDefaults.standard
+        recentSearches = defaults.object(forKey:"recentlyAddedTags") as? [String] ?? [String]()
         recentSearchesTableView.reloadData()
         
         let width = (view.frame.size.width - 4) / 3
