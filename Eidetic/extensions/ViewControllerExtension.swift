@@ -13,14 +13,20 @@ import PhotosUI
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.recentSearches.count
+        let defaults = UserDefaults.standard
+        let recents = defaults.object(forKey:"recentlyAddedTags") as? [String] ?? [String]()
+        
+        return recents.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let defaults = UserDefaults.standard
+        let recents = defaults.object(forKey:"recentlyAddedTags") as? [String] ?? [String]()
+        
         let cell:UITableViewCell = self.recentSearchesTableView.dequeueReusableCell(withIdentifier: "RecentSearchCell") as UITableViewCell!
         
         // set the text from the data model
-        cell.textLabel?.text = self.recentSearches[indexPath.row]
+        cell.textLabel?.text = recents[indexPath.row]
         
         return cell
     }
@@ -29,7 +35,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let searchText = self.recentSearches[indexPath.row]
         searchBar.text = searchText
         searchForTag(searchText: searchText)
-        removeRecentSearchesView()
+        recentSearchesTableView.isHidden = true
         print("You tapped cell number \(indexPath.row).")
     }
     
@@ -39,12 +45,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     //MARK: Recent Search Table View
-    
-    func removeRecentSearchesView(){
-        if let viewWithTag = self.view.viewWithTag(202) {
-            viewWithTag.removeFromSuperview()
-        }
-    }
     
     func restoreDefaultsOnEmptySearch() {
         do{

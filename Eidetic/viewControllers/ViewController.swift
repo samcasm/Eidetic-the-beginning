@@ -55,6 +55,7 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isToolbarHidden = true
+        recentSearchesTableView.reloadData()
         
         let width = (view.frame.size.width - 4) / 3
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
@@ -104,13 +105,18 @@ class ViewController: UIViewController {
         
         PHPhotoLibrary.shared().register(self)
         
-        recentSearchesTableView.frame = CGRect(x: 0, y: 200, width: view.frame.width, height: view.frame.height)
+        recentSearchesTableView.frame = CGRect(x: 0, y: searchBar.frame.maxY, width: view.frame.width, height: view.frame.height)
         recentSearchesTableView.delegate = self
         recentSearchesTableView.dataSource = self
         recentSearchesTableView.register(UITableViewCell.self, forCellReuseIdentifier: "RecentSearchCell")
         recentSearchesTableView.tag = 202
         recentSearchesTableView.isUserInteractionEnabled = true
         recentSearchesTableView.tableFooterView = UIView()
+        
+        self.view.addSubview(recentSearchesTableView)
+        
+        recentSearchesTableView.frame.origin.y = searchBar.frame.origin.y + searchBar.frame.height
+        recentSearchesTableView.isHidden = true
         
         let defaults = UserDefaults.standard
         recentSearches = defaults.object(forKey:"recentlyAddedTags") as? [String] ?? [String]()
@@ -348,14 +354,18 @@ extension ViewController: PHPhotoLibraryChangeObserver {
 
 extension ViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        removeRecentSearchesView()
+        recentSearchesTableView.isHidden = true
         searchBar.text = ""
         restoreDefaultsOnEmptySearch()
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        let defaults = UserDefaults.standard
+        let recents = defaults.object(forKey:"recentlyAddedTags") as? [String] ?? [String]()
         searchBar.setShowsCancelButton(true, animated: true)
-        self.view.addSubview(recentSearchesTableView)
+        if recents.count != 0{
+            recentSearchesTableView.isHidden = false
+        }
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
@@ -367,12 +377,16 @@ extension ViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let defaults = UserDefaults.standard
+        let recents = defaults.object(forKey:"recentlyAddedTags") as? [String] ?? [String]()
         
         if !searchText.isEmpty {
-            removeRecentSearchesView()
             searchForTag(searchText: searchText)
+            recentSearchesTableView.isHidden = true
         }else{
-            self.view.addSubview(recentSearchesTableView)
+            if recents.count != 0{
+                recentSearchesTableView.isHidden = false
+            }
             restoreDefaultsOnEmptySearch()
         }
     }
