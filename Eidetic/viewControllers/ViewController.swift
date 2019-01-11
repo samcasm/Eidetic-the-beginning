@@ -384,10 +384,11 @@ extension ViewController: UISearchBarDelegate {
         
         if !searchText.isEmpty {
             searchForTag(searchText: searchText)
-            recentSearchesTableView.isHidden = true
         }else{
             if recents.count != 0{
                 recentSearchesTableView.isHidden = false
+                recentSearches = recents
+                recentSearchesTableView.reloadData()
             }
             restoreDefaultsOnEmptySearch()
         }

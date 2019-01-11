@@ -36,7 +36,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Recently added tags"
+        return "Suggestions"
     }
     
     
@@ -69,6 +69,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
                     return imageIds!.contains(image.id)
                 }
             }
+            
             var filteredImages: [Images]
             filteredImages = allImages.filter { (image: Images) -> Bool in
                 for imageTag in image.tags{
@@ -78,6 +79,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
                 }
                 return false
             }
+            var filteredTags: [String] = Array()
+            allImages.forEach { (image: Images) -> Void in
+                for imageTag in image.tags{
+                    if imageTag.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil{
+                        filteredTags.append(imageTag)
+                    }
+                }
+            }
+            recentSearches = filteredTags
+            recentSearchesTableView.reloadData()
             
             if filteredImages.count == 0 {
                 fetchResult = nil
