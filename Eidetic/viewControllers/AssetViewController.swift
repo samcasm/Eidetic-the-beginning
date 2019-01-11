@@ -378,7 +378,8 @@ class AssetViewController: UIViewController {
     
     func updateImage() {
         if asset.mediaSubtypes.contains(.photoLive) {
-            updateLivePhoto()
+//            updateLivePhoto()
+            updateStaticImage()
         } else {
             updateStaticImage()
         }
