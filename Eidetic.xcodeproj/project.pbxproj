@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1A6C1F691751D473B4D9F6C1 /* Pods_Eidetic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 486E5C8FEBCFC5CC379F6FBB /* Pods_Eidetic.framework */; };
+		6C5D1AFA21E817AE00A51545 /* CameraExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D1AF921E817AE00A51545 /* CameraExtensionViewController.swift */; };
 		6C9A94CB21D34549006D3202 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9A94C721D34549006D3202 /* CloseButton.swift */; };
 		6C9A94CC21D34549006D3202 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9A94C821D34549006D3202 /* TagView.swift */; };
 		6C9A94CD21D34549006D3202 /* TagListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9A94C921D34549006D3202 /* TagListView.swift */; };
-		6CD8A7FF21CF8C7200FA8DFC /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD8A7FE21CF8C7200FA8DFC /* CameraViewController.swift */; };
 		6CE184D721D710E8004D9C22 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE184D621D710E8004D9C22 /* Helpers.swift */; };
 		AD11B36021A72760004D352C /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD11B35F21A72760004D352C /* UIViewController.swift */; };
 		AD11B36421A73260004D352C /* TagCellCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD11B36321A73260004D352C /* TagCellCollectionView.swift */; };
@@ -35,12 +35,12 @@
 /* Begin PBXFileReference section */
 		486E5C8FEBCFC5CC379F6FBB /* Pods_Eidetic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Eidetic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5153A76E3061264B2501B1BB /* Pods-Eidetic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eidetic.release.xcconfig"; path = "Pods/Target Support Files/Pods-Eidetic/Pods-Eidetic.release.xcconfig"; sourceTree = "<group>"; };
+		6C5D1AF921E817AE00A51545 /* CameraExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraExtensionViewController.swift; sourceTree = "<group>"; };
 		6C9A94C621D34549006D3202 /* TagListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagListView.h; sourceTree = "<group>"; };
 		6C9A94C721D34549006D3202 /* CloseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		6C9A94C821D34549006D3202 /* TagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		6C9A94C921D34549006D3202 /* TagListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagListView.swift; sourceTree = "<group>"; };
 		6C9A94CA21D34549006D3202 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6CD8A7FE21CF8C7200FA8DFC /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		6CE184D621D710E8004D9C22 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		AD11B35F21A72760004D352C /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		AD11B36321A73260004D352C /* TagCellCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCellCollectionView.swift; sourceTree = "<group>"; };
@@ -113,6 +113,7 @@
 				ADC9F44921AB600100A2DA82 /* UICollectionView.swift */,
 				ADA75EF221B20D3C00818B0B /* ViewControllerExtension.swift */,
 				6CE184D621D710E8004D9C22 /* Helpers.swift */,
+				6C5D1AF921E817AE00A51545 /* CameraExtensionViewController.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -136,7 +137,6 @@
 				AD38824321A092F6008E59EC /* AssetViewController.swift */,
 				ADC3BBF321A8D1A700C24513 /* DirectoriesViewController.swift */,
 				AD98379321B105E200BF3B28 /* AddTagModalController.swift */,
-				6CD8A7FE21CF8C7200FA8DFC /* CameraViewController.swift */,
 			);
 			path = viewControllers;
 			sourceTree = "<group>";
@@ -251,12 +251,10 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Eidetic/Pods-Eidetic-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/TagListView/TagListView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TagListView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,10 +298,10 @@
 				6C9A94CD21D34549006D3202 /* TagListView.swift in Sources */,
 				AD11B36421A73260004D352C /* TagCellCollectionView.swift in Sources */,
 				ADC9F44A21AB600200A2DA82 /* UICollectionView.swift in Sources */,
+				6C5D1AFA21E817AE00A51545 /* CameraExtensionViewController.swift in Sources */,
 				AD62642921A8973C0056337E /* ImagesInDirectoryInfo.swift in Sources */,
 				AD11B36021A72760004D352C /* UIViewController.swift in Sources */,
 				ADC3BBF021A8CCCE00C24513 /* DirectoryCell.swift in Sources */,
-				6CD8A7FF21CF8C7200FA8DFC /* CameraViewController.swift in Sources */,
 				AD37511A219DE7F7005A577E /* AppDelegate.swift in Sources */,
 				AD98379421B105E200BF3B28 /* AddTagModalController.swift in Sources */,
 				6C9A94CB21D34549006D3202 /* CloseButton.swift in Sources */,

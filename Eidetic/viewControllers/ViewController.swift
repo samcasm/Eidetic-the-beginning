@@ -23,6 +23,8 @@ private extension UICollectionView {
 class ViewController: UIViewController {
     
     var recentSearchesTableView: UITableView = UITableView()
+    var imagePicker: UIImagePickerController!
+    var lastImageAsset: PHAsset!
     
     var fetchResult: PHFetchResult<PHAsset>!
     var assetCollection: PHAssetCollection!
@@ -34,7 +36,6 @@ class ViewController: UIViewController {
     
     @IBOutlet var addTagButton: UIBarButtonItem!
     @IBOutlet weak var selectButton: UIBarButtonItem!
-    @IBOutlet weak var addButtonItem: UIBarButtonItem!
     @IBOutlet weak var searchBar: UISearchBar!
     
     fileprivate let imageManager = PHCachingImageManager()
@@ -59,14 +60,6 @@ class ViewController: UIViewController {
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: width, height: width)
         thumbnailSize = CGSize(width: width, height: width)
-        
-        
-        // Add button to the navigation bar if the asset collection supports adding content.
-        if assetCollection == nil || assetCollection.canPerform(.addContent) {
-            navigationItem.rightBarButtonItem = addButtonItem
-        } else {
-            navigationItem.rightBarButtonItem = nil
-        }
         
         // If we get here without a segue, it's because we're visible at app launch,
         // so match the behavior of segue from the default "All Photos" view.
@@ -196,36 +189,20 @@ class ViewController: UIViewController {
     
     // MARK: UI Actions
     
+    
+    @IBAction func cameraClicked(_ sender: Any) {
+        guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
+            selectImageFrom(.photoLibrary)
+            return
+        }
+        selectImageFrom(.camera)
+    }
+    
     @IBAction func multipleSelectToggle(_ sender: Any) {
         collectionView.allowsMultipleSelection = !collectionView.allowsMultipleSelection
         
         self.clearSelections(allowsMultipleSelection: collectionView.allowsMultipleSelection)
         
-    }
-  
-    @IBAction func addAsset(_ sender: AnyObject?) {
-        
-        // Create a dummy image of a random solid color and random orientation.
-        let size = (arc4random_uniform(2) == 0) ?
-            CGSize(width: 400, height: 300) :
-            CGSize(width: 300, height: 400)
-        let renderer = UIGraphicsImageRenderer(size: size)
-        let image = renderer.image { context in
-            UIColor(hue: CGFloat(arc4random_uniform(100))/100,
-                    saturation: 1, brightness: 1, alpha: 1).setFill()
-            context.fill(context.format.bounds)
-        }
-        
-        // Add it to the photo library.
-        PHPhotoLibrary.shared().performChanges({
-            let creationRequest = PHAssetChangeRequest.creationRequestForAsset(from: image)
-            if let assetCollection = self.assetCollection {
-                let addAssetRequest = PHAssetCollectionChangeRequest(for: assetCollection)
-                addAssetRequest?.addAssets([creationRequest.placeholderForCreatedAsset!] as NSArray)
-            }
-        }, completionHandler: {success, error in
-            if !success { print("error creating asset") }
-        })
     }
     
     
@@ -244,6 +221,11 @@ class ViewController: UIViewController {
             let indexPath = collectionView!.indexPath(for: sender as! UICollectionViewCell)!
             destination.asset = fetchResult.object(at: indexPath.item)
             destination.assetCollection = assetCollection
+        }else if segue.identifier == "cameraPhotoDetailsSegue"{
+            guard let destination = segue.destination as? AssetViewController
+                else { fatalError("unexpected view controller for segue") }
+            
+            destination.asset = lastImageAsset
         }
         
     }

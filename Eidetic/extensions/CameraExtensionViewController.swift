@@ -9,26 +9,12 @@
 import UIKit
 import Photos
 
-class CameraViewController : UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate  {
-    
-    @IBOutlet weak var captureImageView: UIImageView!
-    var imagePicker: UIImagePickerController!
-    var lastImageAsset: PHAsset!
+extension ViewController : UINavigationControllerDelegate, UIImagePickerControllerDelegate  {
     
     enum ImageSource {
         case photoLibrary
         case camera
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
-            selectImageFrom(.photoLibrary)
-            return
-        }
-        selectImageFrom(.camera)
-    }
-    
     
     func selectImageFrom(_ source: ImageSource){
         imagePicker =  UIImagePickerController()
@@ -79,20 +65,8 @@ class CameraViewController : UIViewController, UINavigationControllerDelegate, U
             return
         }
         UIImageWriteToSavedPhotosAlbum(selectedImage, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
-        
-        
     }
- 
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "cameraPhotoDetailsSegue"{
-            guard let destination = segue.destination as? AssetViewController
-                else { fatalError("unexpected view controller for segue") }
-            
-            destination.asset = lastImageAsset
-        }
-        
-    }
     
 }
+
