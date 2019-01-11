@@ -12,6 +12,7 @@ class PhotoCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var livePhotoBadgeImageView: UIImageView!
+    @IBOutlet weak var videoTimeStamp: UILabel!
     
     var representedAssetIdentifier: String!
     

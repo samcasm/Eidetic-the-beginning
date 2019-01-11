@@ -38,13 +38,6 @@
                                                 <imageView userInteractionEnabled="NO" tag="101" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w4E-kY-Cf1">
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7VX-SL-Csv" userLabel="Live Photo Badge">
-                                                    <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="28" id="3ky-An-xGH"/>
-                                                        <constraint firstAttribute="height" constant="28" id="5m5-Ul-ugf"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <imageView hidden="YES" userInteractionEnabled="NO" tag="12" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="cg9-dP-PfK" userLabel="Checkmark">
                                                     <rect key="frame" x="55" y="55" width="35" height="35"/>
                                                     <constraints>
@@ -52,22 +45,34 @@
                                                         <constraint firstAttribute="height" constant="35" id="Wfm-xN-fcT"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Tn-CX-QwP" userLabel="Video Time Stamp">
+                                                    <rect key="frame" x="5" y="67" width="42" height="28"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="28" id="arx-cx-TUj"/>
+                                                        <constraint firstAttribute="width" constant="42" id="cCY-R6-Dla"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="cg9-dP-PfK" secondAttribute="trailing" constant="10" id="0hg-tD-lpy"/>
                                             <constraint firstAttribute="bottom" secondItem="cg9-dP-PfK" secondAttribute="bottom" constant="10" id="6gS-JY-68g"/>
+                                            <constraint firstAttribute="bottom" secondItem="0Tn-CX-QwP" secondAttribute="bottom" constant="5" id="JVc-jG-BpU"/>
                                             <constraint firstItem="w4E-kY-Cf1" firstAttribute="top" secondItem="cd0-Hv-Rda" secondAttribute="top" id="PC4-Ax-BtB"/>
-                                            <constraint firstItem="7VX-SL-Csv" firstAttribute="top" secondItem="cd0-Hv-Rda" secondAttribute="top" id="d91-Kc-bf5"/>
-                                            <constraint firstItem="7VX-SL-Csv" firstAttribute="leading" secondItem="cd0-Hv-Rda" secondAttribute="leading" id="myY-qD-aac"/>
+                                            <constraint firstItem="0Tn-CX-QwP" firstAttribute="leading" secondItem="cd0-Hv-Rda" secondAttribute="leading" constant="5" id="hBg-Za-PxT"/>
+                                            <constraint firstItem="0Tn-CX-QwP" firstAttribute="leading" secondItem="cd0-Hv-Rda" secondAttribute="leading" constant="5" id="kHk-Jf-3HL"/>
                                             <constraint firstAttribute="bottom" secondItem="w4E-kY-Cf1" secondAttribute="bottom" id="sig-Wm-RqH"/>
+                                            <constraint firstAttribute="bottom" secondItem="0Tn-CX-QwP" secondAttribute="bottom" constant="5" id="xSA-nv-zwn"/>
                                             <constraint firstItem="w4E-kY-Cf1" firstAttribute="leading" secondItem="cd0-Hv-Rda" secondAttribute="leading" id="zCI-NP-TX4"/>
                                             <constraint firstAttribute="trailing" secondItem="w4E-kY-Cf1" secondAttribute="trailing" id="zEm-vN-1ZJ"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="w4E-kY-Cf1" id="o4Y-0X-7h7"/>
-                                            <outlet property="livePhotoBadgeImageView" destination="7VX-SL-Csv" id="OJ1-vS-mzy"/>
+                                            <outlet property="videoTimeStamp" destination="0Tn-CX-QwP" id="Uo8-Rn-qOO"/>
                                             <segue destination="YDA-l8-Lv6" kind="show" identifier="assetView" id="lVo-6d-6KE"/>
                                         </connections>
                                     </collectionViewCell>
