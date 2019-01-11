@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Eidetic/extensions/ViewControllerExtension.swift"
-            timestampString = "568893747.781075"
+            filePath = "Eidetic/viewControllers/AssetViewController.swift"
+            timestampString = "568894584.793471"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "207"
+            endingLineNumber = "207"
+            landmarkName = "addTag()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

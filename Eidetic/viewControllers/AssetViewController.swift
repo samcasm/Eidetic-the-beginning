@@ -204,11 +204,11 @@ class AssetViewController: UIViewController {
             let defaults = UserDefaults.standard
             var recentlyAddedTags = defaults.object(forKey:"recentlyAddedTags") as? [String] ?? [String]()
             
-            if recentlyAddedTags.count > 10 {
-                recentlyAddedTags.removeFirst()
-                recentlyAddedTags.append(newTag)
+            if recentlyAddedTags.count > 7{
+                recentlyAddedTags.removeLast()
+                recentlyAddedTags.insert(newTag, at: 0)
             }else{
-                recentlyAddedTags.append(newTag)
+                recentlyAddedTags.insert(newTag, at: 0)
             }
             defaults.set(recentlyAddedTags, forKey: "recentlyAddedTags")
             
