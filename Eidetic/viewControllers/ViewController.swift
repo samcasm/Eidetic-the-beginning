@@ -268,10 +268,12 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         
         
         // Add a badge to the cell if the PHAsset represents a Live Photo.
-        if asset.mediaSubtypes.contains(.videoStreamed) {
+        if asset.mediaType == .video {
             let duration = asset.duration.stringFromTimeInterval()
+            cell.videoTimeStamp.isHidden = false
             cell.videoTimeStamp.text = duration
-            
+        }else{
+            cell.videoTimeStamp.isHidden = true
         }
         
         // Request an image for the asset from the PHCachingImageManager.
