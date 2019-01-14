@@ -10,6 +10,7 @@
 import UIKit
 import Photos
 import PhotosUI
+import AVKit
 
 class AssetViewController: UIViewController {
     
@@ -38,6 +39,7 @@ class AssetViewController: UIViewController {
     fileprivate lazy var ciContext = CIContext()
     
     @IBOutlet weak var tagListView: TagListView!
+    @IBOutlet var assetViewController: UIView!
     
     // MARK: UIViewController / Lifecycle
     
@@ -59,8 +61,6 @@ class AssetViewController: UIViewController {
         let pictureTap = UITapGestureRecognizer(target: self, action: #selector(AssetViewController.imageTapped))
         imageView.addGestureRecognizer(pictureTap)
         imageView.isUserInteractionEnabled = true
-        
-        
         
     }
     
@@ -244,6 +244,26 @@ class AssetViewController: UIViewController {
     }
     
     // MARK: UI Actions
+    
+    @IBAction func playVideoOnTap(_ sender: UIBarButtonItem) {
+        guard (asset.mediaType == .video) else {
+            print("Not a valid video media type")
+            return
+        }
+        
+        PHCachingImageManager().requestAVAsset(forVideo: asset, options: nil) { (asset, audioMix, args) in
+            let asset = asset as! AVURLAsset
+            
+            DispatchQueue.main.async {
+                let player = AVPlayer(url: asset.url)
+                let playerViewController = AVPlayerViewController()
+                playerViewController.player = player
+                self.present(playerViewController, animated: true) {
+                    playerViewController.player!.play()
+                }
+            }
+        }
+    }
     
     
     @IBAction func makeFolderToggle(_ sender: UIButton) {

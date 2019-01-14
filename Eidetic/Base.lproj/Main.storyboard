@@ -313,7 +313,11 @@
                         <action selector="removeAsset:" destination="YDA-l8-Lv6" id="uTi-k1-DFS"/>
                     </connections>
                 </barButtonItem>
-                <barButtonItem systemItem="play" id="rj0-8E-urN" userLabel="Play Button"/>
+                <barButtonItem systemItem="play" id="rj0-8E-urN" userLabel="Play Button">
+                    <connections>
+                        <action selector="playVideoOnTap:" destination="YDA-l8-Lv6" id="YzL-QX-bA5"/>
+                    </connections>
+                </barButtonItem>
                 <barButtonItem title="♡" id="8Yp-WQ-pwd">
                     <connections>
                         <action selector="toggleFavorite:" destination="YDA-l8-Lv6" id="1Ec-Ju-ZBM"/>
