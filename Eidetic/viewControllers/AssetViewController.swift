@@ -39,7 +39,6 @@ class AssetViewController: UIViewController {
     fileprivate lazy var ciContext = CIContext()
     
     @IBOutlet weak var tagListView: TagListView!
-    @IBOutlet var assetViewController: UIView!
     
     // MARK: UIViewController / Lifecycle
     
