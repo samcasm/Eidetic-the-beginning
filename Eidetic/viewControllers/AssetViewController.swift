@@ -132,22 +132,26 @@ class AssetViewController: UIViewController {
     
     
     @IBAction func imageTapped(_ sender: UITapGestureRecognizer) {
-        let imageView = sender.view as! UIImageView
-        let newImageView = UIImageView(image: imageView.image)
-        newImageView.frame = UIScreen.main.bounds
-        newImageView.backgroundColor = .black
-        newImageView.contentMode = .scaleAspectFit
-        newImageView.isUserInteractionEnabled = true
-        
-        let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(self.pinchGesture))
-        newImageView.addGestureRecognizer(pinchGesture)
-        
-        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
-        newImageView.addGestureRecognizer(tap)
-        
-        self.view.addSubview(newImageView)
-        self.navigationController?.isNavigationBarHidden = true
-        navigationController?.isToolbarHidden = true
+        if asset.mediaType == .video {
+            playVideo()
+        }else{
+            let imageView = sender.view as! UIImageView
+            let newImageView = UIImageView(image: imageView.image)
+            newImageView.frame = UIScreen.main.bounds
+            newImageView.backgroundColor = .black
+            newImageView.contentMode = .scaleAspectFit
+            newImageView.isUserInteractionEnabled = true
+            
+            let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(self.pinchGesture))
+            newImageView.addGestureRecognizer(pinchGesture)
+            
+            let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
+            newImageView.addGestureRecognizer(tap)
+            
+            self.view.addSubview(newImageView)
+            self.navigationController?.isNavigationBarHidden = true
+            navigationController?.isToolbarHidden = true
+        }
     }
     
     @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
@@ -241,14 +245,7 @@ class AssetViewController: UIViewController {
         }
     }
     
-    // MARK: UI Actions
-    
-    @IBAction func playVideoOnTap(_ sender: UIBarButtonItem) {
-        guard (asset.mediaType == .video) else {
-            print("Not a valid video media type")
-            return
-        }
-        
+    func playVideo(){
         PHCachingImageManager().requestAVAsset(forVideo: asset, options: nil) { (asset, audioMix, args) in
             let asset = asset as! AVURLAsset
             
@@ -261,6 +258,17 @@ class AssetViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    // MARK: UI Actions
+    
+    @IBAction func playVideoOnTap(_ sender: UIBarButtonItem) {
+        guard (asset.mediaType == .video) else {
+            print("Not a valid video media type")
+            return
+        }
+        
+        playVideo()
     }
     
     
