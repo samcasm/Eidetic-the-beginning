@@ -45,7 +45,6 @@ class AssetViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        livePhotoView.delegate = self
         addTagTextField.delegate = self
         tagListView.delegate = self
         self.hideKeyboardWhenTappedAround()
@@ -77,12 +76,14 @@ class AssetViewController: UIViewController {
             
             toolbarItems = [favoriteButton, space, playButton, space, trashButton]
             navigationController?.isToolbarHidden = false
+            imageView.isUserInteractionEnabled = false
            
         } else {
             // In iOS, present both stills and Live Photos the same way, because
             // PHLivePhotoView provides the same gesture-based UI as in Photos app.
             toolbarItems = [favoriteButton, space, trashButton]
             navigationController?.isToolbarHidden = false
+            imageView.isUserInteractionEnabled = true
         }
         
         // Enable editing buttons if the asset can be edited.
@@ -98,7 +99,7 @@ class AssetViewController: UIViewController {
         }
         
         // Make sure the view layout happens before requesting an image sized to fit the view.
-        view.layoutIfNeeded()
+//        view.layoutIfNeeded()
         updateImage()
     }
     
@@ -394,41 +395,7 @@ class AssetViewController: UIViewController {
     }
     
     func updateImage() {
-        if asset.mediaSubtypes.contains(.photoLive) {
-//            updateLivePhoto()
-            updateStaticImage()
-        } else {
-            updateStaticImage()
-        }
-    }
-    
-    func updateLivePhoto() {
-        // Prepare the options to pass when fetching the live photo.
-        let options = PHLivePhotoRequestOptions()
-        options.deliveryMode = .highQualityFormat
-        options.isNetworkAccessAllowed = true
-        options.progressHandler = { progress, _, _, _ in
-            
-        }
-        
-        // Request the live photo for the asset from the default PHImageManager.
-        PHImageManager.default().requestLivePhoto(for: asset, targetSize: targetSize, contentMode: .aspectFit, options: options, resultHandler: { livePhoto, info in
-            
-            // If successful, show the live photo view and display the live photo.
-            guard let livePhoto = livePhoto else { return }
-            
-            // Now that we have the Live Photo, show it.
-            self.imageView.isHidden = true
-            self.livePhotoView.isHidden = false
-            self.livePhotoView.livePhoto = livePhoto
-            
-            if !self.isPlayingHint {
-                // Playback a short section of the live photo; similar to the Photos share sheet.
-                self.isPlayingHint = true
-                self.livePhotoView.startPlayback(with: .hint)
-            }
-            
-        })
+        updateStaticImage()
     }
     
     func updateStaticImage() {
@@ -446,7 +413,6 @@ class AssetViewController: UIViewController {
             guard let image = image else { return }
             
             // Now that we have the image, show it.
-            self.livePhotoView.isHidden = true
             self.imageView.isHidden = false
             self.imageView.image = image
             
@@ -482,7 +448,7 @@ class AssetViewController: UIViewController {
         let properScale = min(scale, maxScale)
         
         let imageWidth = properScale * imageView.image!.size.width
-        let imageHeight = properScale * imageView.image!.size.height
+        let imageHeight = properScale * imageView.image!.size.height 
         print("\(imageWidth) - \(imageHeight)")
         
         imageView.frame = CGRect(x: 0,
@@ -682,16 +648,6 @@ extension AssetViewController: PHPhotoLibraryChangeObserver {
     }
 }
 
-// MARK: PHLivePhotoViewDelegate
-extension AssetViewController: PHLivePhotoViewDelegate {
-    func livePhotoView(_ livePhotoView: PHLivePhotoView, willBeginPlaybackWith playbackStyle: PHLivePhotoViewPlaybackStyle) {
-        isPlayingHint = (playbackStyle == .hint)
-    }
-    
-    func livePhotoView(_ livePhotoView: PHLivePhotoView, didEndPlaybackWith playbackStyle: PHLivePhotoViewPlaybackStyle) {
-        isPlayingHint = (playbackStyle == .hint)
-    }
-}
 
 extension AssetViewController: UITextFieldDelegate{
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
