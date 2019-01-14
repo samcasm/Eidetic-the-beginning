@@ -146,13 +146,11 @@ class AssetViewController: UIViewController {
         
         self.view.addSubview(newImageView)
         self.navigationController?.isNavigationBarHidden = true
-        self.tabBarController?.tabBar.isHidden = true
         navigationController?.isToolbarHidden = true
     }
     
     @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
         self.navigationController?.isNavigationBarHidden = false
-        self.tabBarController?.tabBar.isHidden = false
         navigationController?.isToolbarHidden = false
         sender.view?.removeFromSuperview()
     }
