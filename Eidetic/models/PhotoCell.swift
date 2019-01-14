@@ -30,7 +30,6 @@ class PhotoCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         imageView.image = nil
-        livePhotoBadgeImageView.image = nil
     }
     
     override var isSelected: Bool{
@@ -39,7 +38,7 @@ class PhotoCell: UICollectionViewCell {
             if self.isSelected
             {
                 checkmarkOnCell?.isHidden = false
-                self.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
+                self.transform = CGAffineTransform(scaleX: 0.90, y: 0.90)
                 
             }
             else

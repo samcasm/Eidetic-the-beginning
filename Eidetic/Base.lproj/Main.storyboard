@@ -45,14 +45,14 @@
                                                         <constraint firstAttribute="height" constant="35" id="Wfm-xN-fcT"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Tn-CX-QwP" userLabel="Video Time Stamp">
-                                                    <rect key="frame" x="5" y="67" width="42" height="28"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Tn-CX-QwP" userLabel="Video Time Stamp">
+                                                    <rect key="frame" x="5" y="67" width="50" height="28"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="28" id="arx-cx-TUj"/>
-                                                        <constraint firstAttribute="width" constant="42" id="cCY-R6-Dla"/>
+                                                        <constraint firstAttribute="height" constant="28" id="1HC-Dh-d3z"/>
+                                                        <constraint firstAttribute="width" constant="50" id="xV5-v9-eyo"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -63,10 +63,9 @@
                                             <constraint firstAttribute="bottom" secondItem="cg9-dP-PfK" secondAttribute="bottom" constant="10" id="6gS-JY-68g"/>
                                             <constraint firstAttribute="bottom" secondItem="0Tn-CX-QwP" secondAttribute="bottom" constant="5" id="JVc-jG-BpU"/>
                                             <constraint firstItem="w4E-kY-Cf1" firstAttribute="top" secondItem="cd0-Hv-Rda" secondAttribute="top" id="PC4-Ax-BtB"/>
-                                            <constraint firstItem="0Tn-CX-QwP" firstAttribute="leading" secondItem="cd0-Hv-Rda" secondAttribute="leading" constant="5" id="hBg-Za-PxT"/>
-                                            <constraint firstItem="0Tn-CX-QwP" firstAttribute="leading" secondItem="cd0-Hv-Rda" secondAttribute="leading" constant="5" id="kHk-Jf-3HL"/>
+                                            <constraint firstItem="0Tn-CX-QwP" firstAttribute="leading" secondItem="cd0-Hv-Rda" secondAttribute="leading" constant="5" id="biD-lL-4L2"/>
+                                            <constraint firstAttribute="bottom" secondItem="0Tn-CX-QwP" secondAttribute="bottom" constant="5" id="rHB-Sh-BhI"/>
                                             <constraint firstAttribute="bottom" secondItem="w4E-kY-Cf1" secondAttribute="bottom" id="sig-Wm-RqH"/>
-                                            <constraint firstAttribute="bottom" secondItem="0Tn-CX-QwP" secondAttribute="bottom" constant="5" id="xSA-nv-zwn"/>
                                             <constraint firstItem="w4E-kY-Cf1" firstAttribute="leading" secondItem="cd0-Hv-Rda" secondAttribute="leading" id="zCI-NP-TX4"/>
                                             <constraint firstAttribute="trailing" secondItem="w4E-kY-Cf1" secondAttribute="trailing" id="zEm-vN-1ZJ"/>
                                         </constraints>
