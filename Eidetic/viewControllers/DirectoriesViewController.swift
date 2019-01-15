@@ -2,6 +2,9 @@ import UIKit
 
 class DirectoriesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var selectButton: UIBarButtonItem!
+    @IBOutlet weak var deleteFoldersButton: UIBarButtonItem!
+    var _selectedCells: NSMutableArray = []
     
     override func viewWillAppear(_ animated: Bool) {
         collectionView.reloadData()
@@ -37,11 +40,71 @@ class DirectoriesViewController: UIViewController, UICollectionViewDataSource, U
         }
         
         // MARK: - UICollectionViewDelegate protocol
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        do{
+            var allDirectories = try [Directory]()
+            let cellLabel = allDirectories[indexPath.item].id
+            if collectionView.allowsMultipleSelection == true {
+                _selectedCells.remove(cellLabel)
+                deleteFoldersButton.isEnabled = _selectedCells.count < 1 ? false: true
+            }
+        }catch{
+            print("Error while assigning directories: \(error)")
+        }
+    }
         
         func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            // handle tap events
-            print("You selected cell #\(indexPath.item)!")
+            do{
+                let selectedCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DirectoryCell", for: indexPath as IndexPath) as! DirectoryCell
+                var allDirectories = try [Directory]()
+                let cellLabel = allDirectories[indexPath.item].id
+                
+                if collectionView.allowsMultipleSelection == true {
+                    _selectedCells.add(cellLabel)
+                    navigationController?.isToolbarHidden = false
+                    deleteFoldersButton.isEnabled = _selectedCells.count > 0 ? true : false
+                    
+                }else{
+                    selectedCell.isSelected = false
+                    collectionView.reloadData()
+                }
+            }catch{
+                print("Error while assigning directories: \(error)")
+            }
         }
+    
+    func clearSelections(allowsMultipleSelection: Bool)  {
+        collectionView.allowsMultipleSelection = allowsMultipleSelection
+        let selectedCells: NSArray = _selectedCells
+        for cellPath in selectedCells {
+            guard let selectedCell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: PhotoCell.self), for: cellPath as! IndexPath) as? PhotoCell
+                else { fatalError("unexpected cell in collection view") }
+            selectedCell.isSelected = false
+        }
+        _selectedCells.removeAllObjects()
+        
+        if allowsMultipleSelection {
+            selectButton.title = "Cancel"
+            navigationController?.isToolbarHidden = false
+            self.navigationItem.title = "Select Folders"
+            deleteFoldersButton.isEnabled = _selectedCells.count > 0 ? true : false
+        }else{
+            selectButton.title = "Select"
+            navigationController?.isToolbarHidden = true
+            self.navigationItem.title = ""
+            
+        }
+        collectionView.reloadData()
+    }
+    
+    //MARK: Actions
+    
+    @IBAction func toggleMultiSelect(_ sender: Any) {
+        collectionView.allowsMultipleSelection = !collectionView.allowsMultipleSelection
+        
+        self.clearSelections(allowsMultipleSelection: collectionView.allowsMultipleSelection)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DirectoryDetailsSegue"{
@@ -50,6 +113,13 @@ class DirectoriesViewController: UIViewController, UICollectionViewDataSource, U
                 dest.directoryName = allDirectories?[index.row].id
             }
         }
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "DirectoryDetailsSegue", collectionView.allowsMultipleSelection == true {
+            return false
+        }
+        return true
     }
 }
     

@@ -10,4 +10,17 @@ import UIKit
 
 class DirectoryCell: UICollectionViewCell {
     @IBOutlet weak var directoryName: UILabel!
+    
+    override var isSelected: Bool{
+        didSet{
+            if self.isSelected
+            {
+                self.transform = CGAffineTransform(scaleX: 0.90, y: 0.90)
+            }
+            else
+            {
+                self.transform = CGAffineTransform.identity
+            }
+        }
+    }
 }

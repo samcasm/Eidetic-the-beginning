@@ -104,13 +104,13 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <toolbarItems>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="vs4-Fs-VFK"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="vs4-Fs-VFK" userLabel="Space Left"/>
                         <barButtonItem title="Add tag" id="qMn-3w-7sK">
                             <connections>
                                 <action selector="presentAddtagModal" destination="BYZ-38-t0r" id="rQD-HO-JYA"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="ORe-Ye-kVW"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="ORe-Ye-kVW" userLabel="Space Right"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="gkF-03-Vaa">
                         <rightBarButtonItems>
@@ -374,7 +374,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ypr-6U-NiV">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="510"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="4i5-Cj-9U2">
                                     <size key="itemSize" width="120" height="98"/>
@@ -432,9 +432,23 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="v4M-xE-M3i"/>
                     </view>
-                    <navigationItem key="navigationItem" id="cu4-cE-s90"/>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="wwP-rD-cVf"/>
+                        <barButtonItem title="Delete Folders" id="fm8-YA-Z3n"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="qcm-gc-xGw"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="cu4-cE-s90">
+                        <barButtonItem key="rightBarButtonItem" title="Select" style="plain" id="d4c-s4-gHu" userLabel="Delete">
+                            <connections>
+                                <action selector="toggleMultiSelect:" destination="MgY-gY-c7a" id="gDm-uE-wAl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="ypr-6U-NiV" id="mdK-1t-3JI"/>
+                        <outlet property="deleteFoldersButton" destination="fm8-YA-Z3n" id="jms-nC-fh8"/>
+                        <outlet property="selectButton" destination="d4c-s4-gHu" id="qdB-el-Cf7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZaT-rb-SOQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
