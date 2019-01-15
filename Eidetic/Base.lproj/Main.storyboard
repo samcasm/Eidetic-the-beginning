@@ -434,7 +434,11 @@
                     </view>
                     <toolbarItems>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="wwP-rD-cVf"/>
-                        <barButtonItem title="Delete Folders" id="fm8-YA-Z3n"/>
+                        <barButtonItem title="Delete Folders" id="fm8-YA-Z3n">
+                            <connections>
+                                <action selector="deleteFolders:" destination="MgY-gY-c7a" id="DiZ-w6-Xh0"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="qcm-gc-xGw"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="cu4-cE-s90">

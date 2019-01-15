@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Eidetic/viewControllers/DirectoriesViewController.swift"
-            timestampString = "569214778.600199"
+            timestampString = "569221757.213082"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "toggleMultiSelect(_:)"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "deleteFolders(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Eidetic/viewControllers/DirectoriesViewController.swift"
-            timestampString = "569214778.601199"
+            timestampString = "569221859.47593"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "collectionView(_:cellForItemAt:)"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "deleteFolders(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

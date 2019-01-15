@@ -24,22 +24,22 @@ class DirectoriesViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DirectoryCell", for: indexPath as IndexPath) as! DirectoryCell
-            do{
-                var allDirectories = try [Directory]()
-                // get a reference to our storyboard cell
-                
-                // Use the outlet in our custom class to get a reference to the UILabel in the cell
-                cell.directoryName.text = allDirectories[indexPath.item].id
-//                cell.backgroundColor = UIColor.green // make cell more visible in our example project
-                
-            }catch{
-                print("Error while assigning directories: \(error)")
-            }
-        return cell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DirectoryCell", for: indexPath as IndexPath) as! DirectoryCell
+        do{
+            var allDirectories = try [Directory]()
+            // get a reference to our storyboard cell
+            
+            // Use the outlet in our custom class to get a reference to the UILabel in the cell
+            cell.directoryName.text = allDirectories[indexPath.item].id
+            //                cell.backgroundColor = UIColor.green // make cell more visible in our example project
+            
+        }catch{
+            print("Error while assigning directories: \(error)")
         }
-        
-        // MARK: - UICollectionViewDelegate protocol
+        return cell
+    }
+    
+    // MARK: - UICollectionViewDelegate protocol
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         do{
@@ -53,35 +53,29 @@ class DirectoriesViewController: UIViewController, UICollectionViewDataSource, U
             print("Error while assigning directories: \(error)")
         }
     }
-        
-        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            do{
-                let selectedCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DirectoryCell", for: indexPath as IndexPath) as! DirectoryCell
-                var allDirectories = try [Directory]()
-                let cellLabel = allDirectories[indexPath.item].id
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        do{
+            let selectedCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DirectoryCell", for: indexPath as IndexPath) as! DirectoryCell
+            var allDirectories = try [Directory]()
+            let cellLabel = allDirectories[indexPath.item].id
+            
+            if collectionView.allowsMultipleSelection == true {
+                _selectedCells.add(cellLabel)
+                navigationController?.isToolbarHidden = false
+                deleteFoldersButton.isEnabled = _selectedCells.count > 0 ? true : false
                 
-                if collectionView.allowsMultipleSelection == true {
-                    _selectedCells.add(cellLabel)
-                    navigationController?.isToolbarHidden = false
-                    deleteFoldersButton.isEnabled = _selectedCells.count > 0 ? true : false
-                    
-                }else{
-                    selectedCell.isSelected = false
-                    collectionView.reloadData()
-                }
-            }catch{
-                print("Error while assigning directories: \(error)")
+            }else{
+                selectedCell.isSelected = false
+                collectionView.reloadData()
             }
+        }catch{
+            print("Error while assigning directories: \(error)")
         }
+    }
     
     func clearSelections(allowsMultipleSelection: Bool)  {
         collectionView.allowsMultipleSelection = allowsMultipleSelection
-        let selectedCells: NSArray = _selectedCells
-        for cellPath in selectedCells {
-            guard let selectedCell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: PhotoCell.self), for: cellPath as! IndexPath) as? PhotoCell
-                else { fatalError("unexpected cell in collection view") }
-            selectedCell.isSelected = false
-        }
         _selectedCells.removeAllObjects()
         
         if allowsMultipleSelection {
@@ -99,6 +93,38 @@ class DirectoriesViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     //MARK: Actions
+    
+    @IBAction func deleteFolders(_ sender: Any) {
+        // create the alert
+        let alert = UIAlertController(title: "Delete Folders?", message: "This will not delete any photos from your phone", preferredStyle: UIAlertController.Style.alert)
+        
+        // add the actions (buttons)
+        alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.default, handler:{ action in
+            do{
+                var allDirectories = try [Directory]()
+                let copyOfAllDirectories = allDirectories
+                
+                for (index, directory) in copyOfAllDirectories.enumerated() {
+                    if self._selectedCells.contains(directory.id), directory.id != "favorites" {
+                        allDirectories.remove(at: index)
+                    }
+                    print("Item \(index): \(directory)")
+                }
+                try allDirectories.save()
+                self.clearSelections(allowsMultipleSelection: false)
+                
+            }catch{
+                print("Error while assigning directories: \(error)")
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler:{ action in
+            self.clearSelections(allowsMultipleSelection: false)
+        }))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+        
+    }
     
     @IBAction func toggleMultiSelect(_ sender: Any) {
         collectionView.allowsMultipleSelection = !collectionView.allowsMultipleSelection
@@ -122,5 +148,5 @@ class DirectoriesViewController: UIViewController, UICollectionViewDataSource, U
         return true
     }
 }
-    
+
 
