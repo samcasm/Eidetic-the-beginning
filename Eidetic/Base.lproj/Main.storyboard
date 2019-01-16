@@ -391,23 +391,23 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="folder" translatesAutoresizingMaskIntoConstraints="NO" id="Oum-th-nCa">
-                                                    <rect key="frame" x="20" y="2" width="80" height="72"/>
+                                                    <rect key="frame" x="20" y="2" width="80" height="63"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yeg-aL-nE8">
-                                                    <rect key="frame" x="18" y="75" width="84" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="18" y="64" width="84" height="23"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="yeg-aL-nE8" secondAttribute="bottom" constant="2" id="1sZ-Tn-K9d"/>
+                                            <constraint firstAttribute="bottom" secondItem="yeg-aL-nE8" secondAttribute="bottom" constant="11" id="1sZ-Tn-K9d"/>
                                             <constraint firstItem="Oum-th-nCa" firstAttribute="top" secondItem="fhC-QJ-Qe9" secondAttribute="top" constant="2" id="2Km-z5-mjE"/>
                                             <constraint firstItem="yeg-aL-nE8" firstAttribute="leading" secondItem="fhC-QJ-Qe9" secondAttribute="leading" constant="18" id="58i-kJ-fFj"/>
                                             <constraint firstItem="Oum-th-nCa" firstAttribute="leading" secondItem="fhC-QJ-Qe9" secondAttribute="leading" constant="20" id="7aZ-BH-nrE"/>
-                                            <constraint firstItem="yeg-aL-nE8" firstAttribute="top" secondItem="Oum-th-nCa" secondAttribute="bottom" constant="1" id="BNZ-5u-Ewd"/>
-                                            <constraint firstItem="yeg-aL-nE8" firstAttribute="top" secondItem="Oum-th-nCa" secondAttribute="bottom" constant="1" id="E1r-fC-On1"/>
+                                            <constraint firstItem="yeg-aL-nE8" firstAttribute="top" secondItem="Oum-th-nCa" secondAttribute="bottom" constant="-1" id="BNZ-5u-Ewd"/>
+                                            <constraint firstItem="yeg-aL-nE8" firstAttribute="top" secondItem="Oum-th-nCa" secondAttribute="bottom" constant="-1" id="E1r-fC-On1"/>
                                             <constraint firstAttribute="trailing" secondItem="Oum-th-nCa" secondAttribute="trailing" constant="20" id="Mb9-Dr-Jr1"/>
                                             <constraint firstAttribute="trailing" secondItem="yeg-aL-nE8" secondAttribute="trailing" constant="18" id="y2d-Zy-Hoh"/>
                                         </constraints>
@@ -511,6 +511,7 @@
                                     </stackView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add your tag here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0T5-FW-UoZ">
                                         <rect key="frame" x="16" y="117" width="232" height="30"/>
+                                        <color key="tintColor" red="0.0028559705239999999" green="0.47971159219999998" blue="0.99941664929999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
