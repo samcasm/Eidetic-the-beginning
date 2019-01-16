@@ -59,7 +59,7 @@ class ViewController: UIViewController {
         recentSearches = defaults.object(forKey:"recentlyAddedTags") as? [String] ?? [String]()
         recentSearchesTableView.reloadData()
         
-        let width = (view.frame.size.width - 4) / 3
+        let width = (view.frame.size.width - 6) / 4
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: width, height: width)
         thumbnailSize = CGSize(width: width, height: width)
