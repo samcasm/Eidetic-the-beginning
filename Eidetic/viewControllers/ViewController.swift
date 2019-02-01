@@ -59,10 +59,15 @@ class ViewController: UIViewController {
         recentSearches = defaults.object(forKey:"recentlyAddedTags") as? [String] ?? [String]()
         recentSearchesTableView.reloadData()
         
+        
         let width = (view.frame.size.width - 6) / 4
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: width, height: width)
-        thumbnailSize = CGSize(width: width, height: width)
+//        thumbnailSize = CGSize(width: width, height: width)
+        
+        let scale = UIScreen.main.scale
+//        let cellSize = collectionViewFlowLayout.itemSize
+        thumbnailSize = CGSize(width: width * scale, height: width * scale)
         
         // If we get here without a segue, it's because we're visible at app launch,
         // so match the behavior of segue from the default "All Photos" view.
@@ -76,7 +81,8 @@ class ViewController: UIViewController {
             do {
                 let allImages = try [Images]()
                 let imageIds = allImages.filter{$0.isFavorite == true}.map({$0.id})
-                fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: Array(imageIds), options: nil)
+                let allPhotosOptions = PHFetchOptions()
+                fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: Array(imageIds), options: allPhotosOptions)
                 collectionView.reloadData()
             }catch{
                 print("Favorites folder display error. ViewController")
@@ -85,7 +91,8 @@ class ViewController: UIViewController {
             do{
                 let allDirectories = try [Directory]()
                 let imageIds = allDirectories.first{$0.id == directoryName}?.imageIDs
-                fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: Array(imageIds!), options: nil)
+                let allPhotosOptions = PHFetchOptions()
+                fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: Array(imageIds!), options: allPhotosOptions)
                 collectionView.reloadData()
             }catch{
                 print("Error while directory details display \(error)")
