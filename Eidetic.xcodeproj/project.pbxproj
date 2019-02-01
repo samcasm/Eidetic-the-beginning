@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1A6C1F691751D473B4D9F6C1 /* Pods_Eidetic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 486E5C8FEBCFC5CC379F6FBB /* Pods_Eidetic.framework */; };
+		6C10D79C21FE2209005E091A /* DetailedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C10D79B21FE2209005E091A /* DetailedCollectionViewCell.swift */; };
+		6C10D79E21FE2254005E091A /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C10D79D21FE2254005E091A /* DetailedViewController.swift */; };
+		6C10D7A221FEB059005E091A /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C10D7A121FEB059005E091A /* TagCell.swift */; };
+		6C10D7A421FEB136005E091A /* TagsCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C10D7A321FEB136005E091A /* TagsCollection.swift */; };
 		6C5D1AFA21E817AE00A51545 /* CameraExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D1AF921E817AE00A51545 /* CameraExtensionViewController.swift */; };
 		6C9A94CB21D34549006D3202 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9A94C721D34549006D3202 /* CloseButton.swift */; };
 		6C9A94CC21D34549006D3202 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9A94C821D34549006D3202 /* TagView.swift */; };
@@ -35,6 +39,10 @@
 /* Begin PBXFileReference section */
 		486E5C8FEBCFC5CC379F6FBB /* Pods_Eidetic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Eidetic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5153A76E3061264B2501B1BB /* Pods-Eidetic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eidetic.release.xcconfig"; path = "Pods/Target Support Files/Pods-Eidetic/Pods-Eidetic.release.xcconfig"; sourceTree = "<group>"; };
+		6C10D79B21FE2209005E091A /* DetailedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedCollectionViewCell.swift; sourceTree = "<group>"; };
+		6C10D79D21FE2254005E091A /* DetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
+		6C10D7A121FEB059005E091A /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
+		6C10D7A321FEB136005E091A /* TagsCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCollection.swift; sourceTree = "<group>"; };
 		6C5D1AF921E817AE00A51545 /* CameraExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraExtensionViewController.swift; sourceTree = "<group>"; };
 		6C9A94C621D34549006D3202 /* TagListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagListView.h; sourceTree = "<group>"; };
 		6C9A94C721D34549006D3202 /* CloseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
@@ -126,6 +134,9 @@
 				ADC3BBEF21A8CCCE00C24513 /* DirectoryCell.swift */,
 				AD11B36321A73260004D352C /* TagCellCollectionView.swift */,
 				AD62642821A8973C0056337E /* ImagesInDirectoryInfo.swift */,
+				6C10D79B21FE2209005E091A /* DetailedCollectionViewCell.swift */,
+				6C10D7A121FEB059005E091A /* TagCell.swift */,
+				6C10D7A321FEB136005E091A /* TagsCollection.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -137,6 +148,7 @@
 				AD38824321A092F6008E59EC /* AssetViewController.swift */,
 				ADC3BBF321A8D1A700C24513 /* DirectoriesViewController.swift */,
 				AD98379321B105E200BF3B28 /* AddTagModalController.swift */,
+				6C10D79D21FE2254005E091A /* DetailedViewController.swift */,
 			);
 			path = viewControllers;
 			sourceTree = "<group>";
@@ -251,11 +263,17 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Eidetic/Pods-Eidetic-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/EEZoomableImageView/EEZoomableImageView.framework",
+				"${BUILT_PRODUCTS_DIR}/INSPhotoGallery/INSPhotoGallery.framework",
 				"${BUILT_PRODUCTS_DIR}/TagListView/TagListView.framework",
+				"${BUILT_PRODUCTS_DIR}/UICollectionViewLeftAlignedLayout/UICollectionViewLeftAlignedLayout.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EEZoomableImageView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/INSPhotoGallery.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TagListView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICollectionViewLeftAlignedLayout.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -287,19 +305,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C10D7A221FEB059005E091A /* TagCell.swift in Sources */,
 				6C9A94CC21D34549006D3202 /* TagView.swift in Sources */,
 				AD4E7A1B21A5D1DA0031EB5C /* ImageStruct.swift in Sources */,
 				ADC3BBF421A8D1A700C24513 /* DirectoriesViewController.swift in Sources */,
 				AD37511C219DE7F7005A577E /* ViewController.swift in Sources */,
+				6C10D79C21FE2209005E091A /* DetailedCollectionViewCell.swift in Sources */,
 				AD641C3B219F41AC00DF8CFE /* PhotoCell.swift in Sources */,
 				6CE184D721D710E8004D9C22 /* Helpers.swift in Sources */,
 				ADA75EF321B20D3C00818B0B /* ViewControllerExtension.swift in Sources */,
 				AD1DFE5521A649BD008C0AFF /* FileManager.swift in Sources */,
 				6C9A94CD21D34549006D3202 /* TagListView.swift in Sources */,
 				AD11B36421A73260004D352C /* TagCellCollectionView.swift in Sources */,
+				6C10D7A421FEB136005E091A /* TagsCollection.swift in Sources */,
 				ADC9F44A21AB600200A2DA82 /* UICollectionView.swift in Sources */,
 				6C5D1AFA21E817AE00A51545 /* CameraExtensionViewController.swift in Sources */,
 				AD62642921A8973C0056337E /* ImagesInDirectoryInfo.swift in Sources */,
+				6C10D79E21FE2254005E091A /* DetailedViewController.swift in Sources */,
 				AD11B36021A72760004D352C /* UIViewController.swift in Sources */,
 				ADC3BBF021A8CCCE00C24513 /* DirectoryCell.swift in Sources */,
 				AD37511A219DE7F7005A577E /* AppDelegate.swift in Sources */,

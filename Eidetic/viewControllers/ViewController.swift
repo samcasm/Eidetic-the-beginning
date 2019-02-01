@@ -223,17 +223,17 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "assetView"{
-            guard let destination = segue.destination as? AssetViewController
+            guard let destination = segue.destination as? DetailedViewController
                     else { fatalError("unexpected view controller for segue") }
                 
             let indexPath = collectionView!.indexPath(for: sender as! UICollectionViewCell)!
-            destination.asset = fetchResult.object(at: indexPath.item)
-            destination.assetCollection = assetCollection
+            destination.indexForCell = indexPath
+            destination.phasset = fetchResult.object(at: indexPath.item)
         }else if segue.identifier == "cameraPhotoDetailsSegue"{
-            guard let destination = segue.destination as? AssetViewController
+            guard let destination = segue.destination as? DetailedViewController
                 else { fatalError("unexpected view controller for segue") }
             
-            destination.asset = lastImageAsset
+            destination.phasset = lastImageAsset
         }
         
     }

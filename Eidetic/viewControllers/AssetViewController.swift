@@ -16,6 +16,7 @@ class AssetViewController: UIViewController {
     
     var asset: PHAsset!
     var assetCollection: PHAssetCollection!
+    var indexForCell: IndexPath!
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var addTagTextField: UITextField!
@@ -71,12 +72,13 @@ class AssetViewController: UIViewController {
         
         addtagButton.isEnabled = false
         
-        // Set the appropriate toolbarItems based on the mediaType of the asset.
+        // Set the appropriate barItems based on the mediaType of the asset.
         if asset.mediaType == .video {
             
             toolbarItems = [favoriteButton, space, playButton, space, trashButton]
             navigationController?.isToolbarHidden = false
             imageView.isUserInteractionEnabled = false
+            
            
         } else {
             // In iOS, present both stills and Live Photos the same way, because
@@ -389,6 +391,19 @@ class AssetViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "cellView"{
+            guard let destination = segue.destination as? DetailedViewController
+                else { fatalError("unexpected view controller for segue") }
+            
+            destination.indexForCell = indexForCell
+            destination.phasset = asset
+        }
+        
+    }
+
+    
     @IBAction func toggleFavorite(_ sender: UIBarButtonItem) {
         toggleFavoriteButton()
     }
@@ -405,7 +420,7 @@ class AssetViewController: UIViewController {
     func updateImage() {
         updateStaticImage()
     }
-    
+
     func updateStaticImage() {
         // Prepare the options to pass when fetching the (photo, or video preview) image.
         let options = PHImageRequestOptions()
