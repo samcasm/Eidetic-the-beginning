@@ -114,7 +114,7 @@ class ViewController: UIViewController {
         
         PHPhotoLibrary.shared().register(self)
         
-        recentSearchesTableView.frame = CGRect(x: 0, y: searchBar.frame.maxY, width: view.frame.width, height: view.frame.height)
+        recentSearchesTableView.frame = setRecentSearchesTable()
         recentSearchesTableView.delegate = self
         recentSearchesTableView.dataSource = self
         recentSearchesTableView.register(UITableViewCell.self, forCellReuseIdentifier: "RecentSearchCell")
