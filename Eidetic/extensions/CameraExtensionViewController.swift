@@ -53,18 +53,15 @@ extension ViewController : UINavigationControllerDelegate, UIImagePickerControll
         }
     }
     
-    func showAlertWith(title: String, message: String){
-        let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default))
-        present(ac, animated: true)
-    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let selectedImage = info[.originalImage] as? UIImage else {
             print("Image not found!")
             return
         }
-        UIImageWriteToSavedPhotosAlbum(selectedImage, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+        if picker.sourceType == UIImagePickerController.SourceType.camera{
+            UIImageWriteToSavedPhotosAlbum(selectedImage, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+        }
     }
     
     

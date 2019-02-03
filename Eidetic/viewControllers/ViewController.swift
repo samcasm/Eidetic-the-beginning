@@ -206,11 +206,12 @@ class ViewController: UIViewController {
     
     
     @IBAction func cameraClicked(_ sender: Any) {
-        guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
-            selectImageFrom(.photoLibrary)
-            return
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            selectImageFrom(.camera)
+        }else{
+            showAlertWith(title: "Camera not working", message: "Something's went wrong while trying to load the camera")
         }
-        selectImageFrom(.camera)
+        
     }
     
     @IBAction func multipleSelectToggle(_ sender: Any) {
@@ -240,6 +241,10 @@ class ViewController: UIViewController {
             guard let destination = segue.destination as? DetailedViewController
                 else { fatalError("unexpected view controller for segue") }
             
+            let arrayOfVisibleItems = collectionView.indexPathsForVisibleItems
+            let lastIndexPath = arrayOfVisibleItems.last
+//            let indexPath = collectionView!.indexPath(for: sender as! UICollectionViewCell)!
+            destination.indexForCell = lastIndexPath
             destination.phasset = lastImageAsset
         }
         

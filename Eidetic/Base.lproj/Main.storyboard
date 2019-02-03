@@ -134,6 +134,7 @@
                         <outlet property="selectButton" destination="0Gg-c8-rQq" id="3BJ-os-6Q4"/>
                         <outlet property="spaceLeft" destination="ORe-Ye-kVW" id="7Kc-x2-Y2A"/>
                         <outlet property="spaceRight" destination="ORe-Ye-kVW" id="dAD-y8-Xcr"/>
+                        <segue destination="b5k-6f-cbX" kind="show" identifier="cameraPhotoDetailsSegue" id="vZY-vd-2FC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -795,6 +796,7 @@
         <image name="uncheckbox" width="37.5" height="37.5"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="vZY-vd-2FC"/>
         <segue reference="C6c-UZ-BoF"/>
     </inferredMetricsTieBreakers>
 </document>
