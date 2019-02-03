@@ -388,13 +388,13 @@
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add your tags here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LBi-bD-f0E">
                                                                     <rect key="frame" x="0.0" y="0.0" width="166.5" height="30"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="166.5" id="vV5-CE-Evb"/>
+                                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="166.5" id="vV5-CE-Evb"/>
                                                                     </constraints>
                                                                     <nil key="textColor"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no"/>
                                                                 </textField>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s5u-YM-FnB">
+                                                                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="755" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s5u-YM-FnB">
                                                                     <rect key="frame" x="171.5" y="0.0" width="30" height="30"/>
                                                                     <state key="normal" title="Add"/>
                                                                 </button>
@@ -465,6 +465,7 @@
                                             </subviews>
                                         </view>
                                         <constraints>
+                                            <constraint firstItem="PGl-3H-L6s" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WPW-4X-dxD" secondAttribute="leading" constant="12" id="0nO-mf-R5h"/>
                                             <constraint firstAttribute="bottom" secondItem="Vw9-lJ-Wwl" secondAttribute="bottom" constant="35.5" id="3IG-SW-HHm"/>
                                             <constraint firstItem="PGl-3H-L6s" firstAttribute="top" secondItem="WPW-4X-dxD" secondAttribute="topMargin" constant="57" id="6wP-Jd-5MV"/>
                                             <constraint firstAttribute="trailing" secondItem="Okt-zT-uwf" secondAttribute="trailing" id="7Jl-cB-B0k"/>
@@ -477,6 +478,7 @@
                                             <constraint firstAttribute="trailing" secondItem="Vw9-lJ-Wwl" secondAttribute="trailing" id="hKm-2B-bP6"/>
                                             <constraint firstItem="Vw9-lJ-Wwl" firstAttribute="centerX" secondItem="WPW-4X-dxD" secondAttribute="centerX" id="o6y-01-wDG"/>
                                             <constraint firstItem="Okt-zT-uwf" firstAttribute="leading" secondItem="WPW-4X-dxD" secondAttribute="leading" id="oQ0-2i-gmE"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PGl-3H-L6s" secondAttribute="trailing" constant="12" id="raT-YC-uyz"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="addTagButton" destination="s5u-YM-FnB" id="FqS-vd-lv1"/>
