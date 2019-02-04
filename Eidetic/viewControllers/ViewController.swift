@@ -124,7 +124,6 @@ class ViewController: UIViewController {
         
         self.view.addSubview(recentSearchesTableView)
         
-        recentSearchesTableView.frame.origin.y = searchBar.frame.origin.y + searchBar.frame.height
         recentSearchesTableView.isHidden = true
         
         let defaults = UserDefaults.standard

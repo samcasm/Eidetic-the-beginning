@@ -25,12 +25,15 @@ extension ViewController {
                 
             case 2436:
                 print("iPhone X, XS")
+                return CGRect(x: 0, y: CGFloat(integerLiteral: 144) , width: view.frame.width, height: view.frame.height)
                 
             case 2688:
                 print("iPhone XS Max")
+                return CGRect(x: 0, y: CGFloat(integerLiteral: 144) , width: view.frame.width, height: view.frame.height)
                 
             case 1792:
                 print("iPhone XR")
+                return CGRect(x: 0, y: CGFloat(integerLiteral: 144) , width: view.frame.width, height: view.frame.height)
                 
             default:
                 print("Unknown")
