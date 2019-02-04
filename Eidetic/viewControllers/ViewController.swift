@@ -105,7 +105,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         resetCachedAssets()
         searchBar.delegate = self
-        self.hideKeyboardWhenTappedAround()
         navigationController?.isToolbarHidden = true
         toolbarItems = [spaceLeft, addTagButton, spaceRight]
         addTagButton.isEnabled = false

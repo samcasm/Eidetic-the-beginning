@@ -49,6 +49,7 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
         resetCachedAssets()
         imageManager.allowsCachingHighQualityImages = true
         PHPhotoLibrary.shared().register(self)
+        self.hideKeyboardWhenTappedAround()
         
         if fetchResult == nil {
             let allPhotosOptions = PHFetchOptions()

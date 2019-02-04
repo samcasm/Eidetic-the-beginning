@@ -26,10 +26,21 @@ class DetailedCollectionViewCell: UICollectionViewCell, UITextFieldDelegate{
         addTagButton.addTarget(self, action: #selector(self.addTag), for: .touchUpInside)
         addTagTextField.delegate = self
         
+        let myColor : UIColor = UIColor( red: 128.0/255.0, green: 128.0/255.0, blue:128.0/255.0, alpha: 1.0 )
+        addTagTextField.layer.borderWidth = 2
+        addTagTextField.layer.borderColor = myColor.cgColor
+        addTagTextField.layer.cornerRadius = 5.0
         self.tagsCollectionView.collectionViewLayout = UICollectionViewLeftAlignedLayout()
       
     }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let maxLength = 17
+        let currentString: NSString = textField.text! as NSString
+        let newString: NSString =
+            currentString.replacingCharacters(in: range, with: string) as NSString
+        return newString.length <= maxLength
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         addTagToCollection()
@@ -116,7 +127,7 @@ class DetailedCollectionViewCell: UICollectionViewCell, UITextFieldDelegate{
                 try allDirectories.save()
                 makeFolderCheckBox.isSelected = false
                 tagsCollectionView.reloadData()
-                
+                addTagTextField.resignFirstResponder()
             }catch{
                 print("Could not add tag to asset: \(error)")
             }
