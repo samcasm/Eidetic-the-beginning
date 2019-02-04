@@ -42,11 +42,6 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
         })
         
         return allPhotos
-//        return [
-//            INSPhoto(imageURL: NSURL(string: "http://inspace.io/assets/portfolio/thumb/13-3f15416ddd11d38619289335fafd498d.jpg"), thumbnailImage: UIImage(named: "thumbnailImage")!),
-//            INSPhoto(imageURL: NSURL(string: "http://inspace.io/assets/portfolio/thumb/13-3f15416ddd11d38619289335fafd498d.jpg"), thumbnailImage: UIImage(named: "thumbnailImage")!),
-//            INSPhoto(image: UIImage(named: "fullSizeImage")!, thumbnailImage: UIImage(named: "thumbnailImage")!),
-//            ]
     }()
     
     override func viewDidLoad() {
@@ -403,6 +398,8 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
         let cell = collectionView.cellForItem(at: indexPath) as! DetailedCollectionViewCell
         let currentPhoto = photos[indexPath.row]
         let galleryPreview = INSPhotosViewController(photos: photos, initialPhoto: currentPhoto, referenceView: cell)
+        
+        galleryPreview.overlayView.photosViewController?.singleTapGestureRecognizer.isEnabled = false
         
         galleryPreview.referenceViewForPhotoWhenDismissingHandler = { [weak self] photo in
             if let index = self?.photos.index(where: {$0 === photo}) {
