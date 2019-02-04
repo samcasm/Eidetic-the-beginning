@@ -357,7 +357,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleAspectFit" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PGl-3H-L6s">
-                                                    <rect key="frame" x="18.5" y="65" width="338.5" height="30"/>
+                                                    <rect key="frame" x="18.5" y="28" width="338.5" height="30"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Brp-2B-rvM">
                                                             <rect key="frame" x="0.0" y="3" width="127" height="24"/>
@@ -402,8 +402,15 @@
                                                         </stackView>
                                                     </subviews>
                                                 </stackView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Okt-zT-uwf" customClass="EEZoomableImageView" customModule="EEZoomableImageView">
+                                                    <rect key="frame" x="0.0" y="65" width="375" height="338"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="338" id="4vQ-0N-qzW"/>
+                                                        <constraint firstAttribute="width" constant="375" id="hod-FR-2dU"/>
+                                                    </constraints>
+                                                </imageView>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Vw9-lJ-Wwl" customClass="TagsCollection" customModule="Eidetic" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="508" width="375" height="59"/>
+                                                    <rect key="frame" x="0.0" y="407" width="375" height="144"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="Ia2-Ex-8yM">
                                                         <size key="itemSize" width="107" height="72"/>
@@ -455,22 +462,15 @@
                                                         </collectionViewCell>
                                                     </cells>
                                                 </collectionView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Okt-zT-uwf" customClass="EEZoomableImageView" customModule="EEZoomableImageView">
-                                                    <rect key="frame" x="0.0" y="102" width="375" height="394"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="394" id="4vQ-0N-qzW"/>
-                                                        <constraint firstAttribute="width" constant="375" id="hod-FR-2dU"/>
-                                                    </constraints>
-                                                </imageView>
                                             </subviews>
                                         </view>
                                         <constraints>
                                             <constraint firstItem="PGl-3H-L6s" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WPW-4X-dxD" secondAttribute="leading" constant="12" id="0nO-mf-R5h"/>
-                                            <constraint firstAttribute="bottom" secondItem="Vw9-lJ-Wwl" secondAttribute="bottom" constant="35.5" id="3IG-SW-HHm"/>
-                                            <constraint firstItem="PGl-3H-L6s" firstAttribute="top" secondItem="WPW-4X-dxD" secondAttribute="topMargin" constant="57" id="6wP-Jd-5MV"/>
+                                            <constraint firstAttribute="bottom" secondItem="Vw9-lJ-Wwl" secondAttribute="bottom" constant="51.5" id="3IG-SW-HHm"/>
+                                            <constraint firstItem="PGl-3H-L6s" firstAttribute="top" secondItem="WPW-4X-dxD" secondAttribute="topMargin" constant="20" id="6wP-Jd-5MV"/>
                                             <constraint firstAttribute="trailing" secondItem="Okt-zT-uwf" secondAttribute="trailing" id="7Jl-cB-B0k"/>
                                             <constraint firstItem="Vw9-lJ-Wwl" firstAttribute="leading" secondItem="WPW-4X-dxD" secondAttribute="leading" id="Db4-aZ-2F9"/>
-                                            <constraint firstItem="Vw9-lJ-Wwl" firstAttribute="top" secondItem="Okt-zT-uwf" secondAttribute="bottom" constant="12" id="Dea-Qq-z2A"/>
+                                            <constraint firstItem="Vw9-lJ-Wwl" firstAttribute="top" secondItem="Okt-zT-uwf" secondAttribute="bottom" constant="4" id="Dea-Qq-z2A"/>
                                             <constraint firstAttribute="trailing" secondItem="Vw9-lJ-Wwl" secondAttribute="trailing" id="F59-PH-Sfc"/>
                                             <constraint firstItem="Okt-zT-uwf" firstAttribute="top" secondItem="PGl-3H-L6s" secondAttribute="bottom" constant="7" id="F7e-3c-fuO"/>
                                             <constraint firstItem="PGl-3H-L6s" firstAttribute="centerX" secondItem="WPW-4X-dxD" secondAttribute="centerX" id="IsY-PI-fMh"/>
