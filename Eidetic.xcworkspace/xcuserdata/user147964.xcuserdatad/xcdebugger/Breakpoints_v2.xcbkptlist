@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Eidetic/viewControllers/ViewController.swift"
-            timestampString = "570992471.470837"
+            timestampString = "571101417.181947"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "114"
@@ -56,12 +56,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Eidetic/viewControllers/DetailedViewController.swift"
-            timestampString = "571098798.0374351"
+            timestampString = "571101417.18242"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "406"
-            endingLineNumber = "406"
-            landmarkName = "collectionView(_:didSelectItemAt:)"
+            startingLineNumber = "434"
+            endingLineNumber = "434"
+            landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -72,11 +72,11 @@
                   moduleName = "Eidetic"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/user147964/Desktop/Eidetic/Eidetic/viewControllers/DetailedViewController.swift"
-                  timestampString = "571098798.1670949"
+                  timestampString = "571101417.359704"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "406"
-                  endingLineNumber = "406"
+                  startingLineNumber = "434"
+                  endingLineNumber = "434"
                   offsetFromSymbolStart = "91">
                </Location>
                <Location
@@ -87,11 +87,11 @@
                   moduleName = "Eidetic"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/user147964/Desktop/Eidetic/Eidetic/viewControllers/DetailedViewController.swift"
-                  timestampString = "571098798.169488"
+                  timestampString = "571101417.36185"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "406"
-                  endingLineNumber = "406"
+                  startingLineNumber = "434"
+                  endingLineNumber = "434"
                   offsetFromSymbolStart = "32">
                </Location>
             </Locations>
@@ -104,12 +104,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Eidetic/viewControllers/DetailedViewController.swift"
-            timestampString = "571098798.037918"
+            timestampString = "571101417.182483"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "212"
-            endingLineNumber = "212"
-            landmarkName = "favouriteButtonAction(_:)"
+            startingLineNumber = "240"
+            endingLineNumber = "240"
+            landmarkName = "createFullscreenImageView(imageView:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Eidetic/viewControllers/ViewController.swift"
+            timestampString = "571101417.182544"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "235"
+            endingLineNumber = "235"
+            landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

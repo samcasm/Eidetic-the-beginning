@@ -30,6 +30,7 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
     var indexForCell: IndexPath!
     var phasset: PHAsset!
     @IBOutlet weak var favoriteButton: UIBarButtonItem!
+    var directoryName: String!
     
     @IBOutlet weak var detailedCollectionView: UICollectionView!
     let reuseIdentifier = "cell" // also enter this string as the cell identifier in the storyboard
@@ -44,6 +45,11 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
         return allPhotos
     }()
     
+    deinit {
+        directoryName = nil
+        PHPhotoLibrary.shared().unregisterChangeObserver(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         resetCachedAssets()
@@ -51,11 +57,33 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
         PHPhotoLibrary.shared().register(self)
         self.hideKeyboardWhenTappedAround()
         
-        if fetchResult == nil {
-            let allPhotosOptions = PHFetchOptions()
-            allPhotosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-            fetchResult = PHAsset.fetchAssets(with: allPhotosOptions)
+        if directoryName == nil {
+            if fetchResult == nil {
+                let allPhotosOptions = PHFetchOptions()
+                allPhotosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+                fetchResult = PHAsset.fetchAssets(with: allPhotosOptions)
+                }
             
+        }else if directoryName == "favorites" {
+            do {
+                let allImages = try [Images]()
+                let imageIds = allImages.filter{$0.isFavorite == true}.map({$0.id})
+                let allPhotosOptions = PHFetchOptions()
+                fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: Array(imageIds), options: allPhotosOptions)
+                detailedCollectionView.reloadData()
+            }catch{
+                print("Favorites folder display error. ViewController")
+            }
+        }else{
+            do{
+                let allDirectories = try [Directory]()
+                let imageIds = allDirectories.first{$0.id == directoryName}?.imageIDs
+                let allPhotosOptions = PHFetchOptions()
+                fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: Array(imageIds!), options: allPhotosOptions)
+                detailedCollectionView.reloadData()
+            }catch{
+                print("Error while directory details display \(error)")
+            }
         }
         navigationController?.isToolbarHidden = false
     }

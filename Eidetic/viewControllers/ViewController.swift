@@ -235,6 +235,7 @@ class ViewController: UIViewController {
             let indexPath = collectionView!.indexPath(for: sender as! UICollectionViewCell)!
             destination.indexForCell = indexPath
             destination.phasset = fetchResult.object(at: indexPath.item)
+            destination.directoryName = directoryName
         }else if segue.identifier == "cameraPhotoDetailsSegue"{
             guard let destination = segue.destination as? DetailedViewController
                 else { fatalError("unexpected view controller for segue") }
