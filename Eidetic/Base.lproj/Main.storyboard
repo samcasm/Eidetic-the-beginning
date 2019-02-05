@@ -193,6 +193,7 @@
                                         </constraints>
                                         <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                         <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPS-gg-F0s">
@@ -508,7 +509,11 @@
                         <viewLayoutGuide key="safeArea" id="KRp-KE-zpE"/>
                     </view>
                     <toolbarItems>
-                        <barButtonItem title="Item" id="5sq-3U-UHZ"/>
+                        <barButtonItem title="Item" id="5sq-3U-UHZ">
+                            <connections>
+                                <action selector="favouriteButtonAction:" destination="b5k-6f-cbX" id="I30-bl-RUy"/>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>

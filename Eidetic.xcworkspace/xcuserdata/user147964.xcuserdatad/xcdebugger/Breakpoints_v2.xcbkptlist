@@ -56,7 +56,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Eidetic/viewControllers/DetailedViewController.swift"
-            timestampString = "570992471.470955"
+            timestampString = "571098798.0374351"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "406"
@@ -72,11 +72,11 @@
                   moduleName = "Eidetic"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/user147964/Desktop/Eidetic/Eidetic/viewControllers/DetailedViewController.swift"
-                  timestampString = "570991458.365715"
+                  timestampString = "571098798.1670949"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "405"
-                  endingLineNumber = "405"
+                  startingLineNumber = "406"
+                  endingLineNumber = "406"
                   offsetFromSymbolStart = "91">
                </Location>
                <Location
@@ -87,11 +87,11 @@
                   moduleName = "Eidetic"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/user147964/Desktop/Eidetic/Eidetic/viewControllers/DetailedViewController.swift"
-                  timestampString = "570991458.367937"
+                  timestampString = "571098798.169488"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "405"
-                  endingLineNumber = "405"
+                  startingLineNumber = "406"
+                  endingLineNumber = "406"
                   offsetFromSymbolStart = "32">
                </Location>
             </Locations>
@@ -103,13 +103,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Eidetic/models/DetailedCollectionViewCell.swift"
-            timestampString = "570992471.471016"
+            filePath = "Eidetic/viewControllers/DetailedViewController.swift"
+            timestampString = "571098798.037918"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "awakeFromNib()"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
+            landmarkName = "favouriteButtonAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
