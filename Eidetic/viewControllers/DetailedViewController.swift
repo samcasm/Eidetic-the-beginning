@@ -41,7 +41,7 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
 //            let image = self.requestImageForPHAsset(asset: asset)
 //            allPhotos.append(INSPhoto(image: image, thumbnailImage: nil))
 //        })
-//        
+//
 //        return allPhotos
 //    }()
     
@@ -425,7 +425,7 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
         // handle tap events
         print("You selected cell #\(indexPath.item)!")
         let cell = collectionView.cellForItem(at: indexPath) as! DetailedCollectionViewCell
-        let currentPhoto = photos[indexPath.row]
+//        let currentPhoto = photos[indexPath.row]
 //        let galleryPreview = INSPhotosViewController(photos: photos, initialPhoto: currentPhoto, referenceView: cell)
 //
 //        galleryPreview.overlayView.photosViewController?.singleTapGestureRecognizer.isEnabled = false

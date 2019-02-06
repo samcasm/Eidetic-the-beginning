@@ -31,7 +31,6 @@ class DetailedCollectionViewCell: UICollectionViewCell, UITextFieldDelegate{
         addTagTextField.layer.borderColor = myColor.cgColor
         addTagTextField.layer.cornerRadius = 5.0
         self.tagsCollectionView.collectionViewLayout = UICollectionViewLeftAlignedLayout()
-        self.tagsCollectionView.reloadData()
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
