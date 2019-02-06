@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Eidetic/viewControllers/ViewController.swift"
-            timestampString = "571101417.181947"
+            timestampString = "571101604.310218"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "114"
@@ -56,60 +56,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Eidetic/viewControllers/DetailedViewController.swift"
-            timestampString = "571101417.18242"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "434"
-            endingLineNumber = "434"
-            landmarkName = "collectionView(_:cellForItemAt:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (INSPhotoGallery.INSPhotoViewable) -&gt; Swift.Optional&lt;__C.UIView&gt; in Eidetic.DetailedViewController.collectionView(_: __C.UICollectionView, didSelectItemAt: Foundation.IndexPath) -&gt; ()"
-                  moduleName = "Eidetic"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/user147964/Desktop/Eidetic/Eidetic/viewControllers/DetailedViewController.swift"
-                  timestampString = "571101417.359704"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "434"
-                  endingLineNumber = "434"
-                  offsetFromSymbolStart = "91">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (INSPhotoGallery.INSPhotoViewable) -&gt; Swift.Bool in closure #1 (INSPhotoGallery.INSPhotoViewable) -&gt; Swift.Optional&lt;__C.UIView&gt; in Eidetic.DetailedViewController.collectionView(_: __C.UICollectionView, didSelectItemAt: Foundation.IndexPath) -&gt; ()"
-                  moduleName = "Eidetic"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/user147964/Desktop/Eidetic/Eidetic/viewControllers/DetailedViewController.swift"
-                  timestampString = "571101417.36185"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "434"
-                  endingLineNumber = "434"
-                  offsetFromSymbolStart = "32">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Eidetic/viewControllers/DetailedViewController.swift"
-            timestampString = "571101417.182483"
+            timestampString = "571164032.26397"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "240"
             endingLineNumber = "240"
-            landmarkName = "createFullscreenImageView(imageView:)"
+            landmarkName = "favouriteButtonAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -119,13 +71,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Eidetic/viewControllers/ViewController.swift"
-            timestampString = "571101417.182544"
+            filePath = "Eidetic/models/DetailedCollectionViewCell.swift"
+            timestampString = "571164992.914307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "235"
-            endingLineNumber = "235"
-            landmarkName = "prepare(for:sender:)"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "awakeFromNib()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

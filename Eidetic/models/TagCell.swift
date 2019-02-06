@@ -18,4 +18,8 @@ class TagCell: UICollectionViewCell {
         self.myLabel.textColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1)
         self.layer.cornerRadius = 4
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+    }
 }

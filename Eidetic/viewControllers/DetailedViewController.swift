@@ -35,15 +35,15 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
     @IBOutlet weak var detailedCollectionView: UICollectionView!
     let reuseIdentifier = "cell" // also enter this string as the cell identifier in the storyboard
     
-    lazy var photos: [INSPhotoViewable] = {
-        var allPhotos: [INSPhoto] = Array()
-        fetchResult.enumerateObjects({ (asset, index, stop) in
-            let image = self.requestImageForPHAsset(asset: asset)
-            allPhotos.append(INSPhoto(image: image, thumbnailImage: nil))
-        })
-        
-        return allPhotos
-    }()
+//    lazy var photos: [INSPhotoViewable] = {
+//        var allPhotos: [INSPhoto] = Array()
+//        fetchResult.enumerateObjects({ (asset, index, stop) in
+//            let image = self.requestImageForPHAsset(asset: asset)
+//            allPhotos.append(INSPhoto(image: image, thumbnailImage: nil))
+//        })
+//        
+//        return allPhotos
+//    }()
     
     deinit {
         directoryName = nil
@@ -426,18 +426,18 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
         print("You selected cell #\(indexPath.item)!")
         let cell = collectionView.cellForItem(at: indexPath) as! DetailedCollectionViewCell
         let currentPhoto = photos[indexPath.row]
-        let galleryPreview = INSPhotosViewController(photos: photos, initialPhoto: currentPhoto, referenceView: cell)
-        
-        galleryPreview.overlayView.photosViewController?.singleTapGestureRecognizer.isEnabled = false
-        
-        galleryPreview.referenceViewForPhotoWhenDismissingHandler = { [weak self] photo in
-            if let index = self?.photos.index(where: {$0 === photo}) {
-                let indexPath = IndexPath(item: index, section: 0)
-                return collectionView.cellForItem(at: indexPath) as? DetailedCollectionViewCell
-            }
-            return nil
-        }
-        present(galleryPreview, animated: true, completion: nil)
+//        let galleryPreview = INSPhotosViewController(photos: photos, initialPhoto: currentPhoto, referenceView: cell)
+//
+//        galleryPreview.overlayView.photosViewController?.singleTapGestureRecognizer.isEnabled = false
+//
+//        galleryPreview.referenceViewForPhotoWhenDismissingHandler = { [weak self] photo in
+//            if let index = self?.photos.index(where: {$0 === photo}) {
+//                let indexPath = IndexPath(item: index, section: 0)
+//                return collectionView.cellForItem(at: indexPath) as? DetailedCollectionViewCell
+//            }
+//            return nil
+//        }
+//        present(galleryPreview, animated: true, completion: nil)
     }
     
 }

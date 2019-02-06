@@ -24,7 +24,7 @@ class TagsCollection: UICollectionView, UICollectionViewDataSource, UICollection
                 arrayOfTags = Array(allImagesTagsData[assetIndex!].tags)
             }
         }catch{
-        print("Tag Display View Error: \(error)")
+            print("Tag Display View Error: \(error)")
         }
     }
     
