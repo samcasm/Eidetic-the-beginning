@@ -407,6 +407,7 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
 
             }
         })
+        cell.tagsCollectionView.reloadData()
         
 //        let pictureTap = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))
 //        cell.imageView.addGestureRecognizer(pictureTap)
