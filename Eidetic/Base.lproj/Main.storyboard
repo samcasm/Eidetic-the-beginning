@@ -515,11 +515,19 @@
                                 <action selector="favouriteButtonAction:" destination="b5k-6f-cbX" id="I30-bl-RUy"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="ZvD-fK-2E0" userLabel="Space"/>
+                        <barButtonItem title="Item" image="reminder" id="Fx4-m4-YJV" userLabel="Reminder Button">
+                            <connections>
+                                <action selector="addReminderAction:" destination="b5k-6f-cbX" id="fcm-Cb-HYY"/>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="detailedCollectionView" destination="6O3-8g-r6H" id="Y5C-7J-YM8"/>
                         <outlet property="favoriteButton" destination="5sq-3U-UHZ" id="Qat-5b-Qnx"/>
+                        <outlet property="reminderButton" destination="Fx4-m4-YJV" id="OQY-CO-tdh"/>
+                        <outlet property="space" destination="ZvD-fK-2E0" id="l4O-pf-QRb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xiM-Eb-Jgd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -803,6 +811,7 @@
         <image name="cross" width="180" height="180"/>
         <image name="folder" width="37.5" height="37.5"/>
         <image name="folder-glyph" width="22.5" height="22.5"/>
+        <image name="reminder" width="22.5" height="22.5"/>
         <image name="uncheckbox" width="37.5" height="37.5"/>
     </resources>
     <inferredMetricsTieBreakers>

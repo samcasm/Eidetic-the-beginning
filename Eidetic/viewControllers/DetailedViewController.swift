@@ -12,6 +12,7 @@ import PhotosUI
 import AVKit
 import EEZoomableImageView
 import INSPhotoGallery
+import EventKit
 
 private extension UICollectionView {
     func indexPathsForElements(in rect: CGRect) -> [IndexPath] {
@@ -29,8 +30,11 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
     var startIndex: Int = 0
     var indexForCell: IndexPath!
     var phasset: PHAsset!
+    @IBOutlet weak var reminderButton: UIBarButtonItem!
+    @IBOutlet weak var space: UIBarButtonItem!
     @IBOutlet weak var favoriteButton: UIBarButtonItem!
     var directoryName: String!
+    let eventStore = EKEventStore()
     
     @IBOutlet weak var detailedCollectionView: UICollectionView!
     let reuseIdentifier = "cell" // also enter this string as the cell identifier in the storyboard
@@ -103,7 +107,7 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
         super.viewDidAppear(animated)
         updateCachedAssets()
         
-        toolbarItems = [favoriteButton]
+        toolbarItems = [favoriteButton, space, reminderButton]
         navigationController?.isToolbarHidden = false
         
         self.detailedCollectionView.scrollToItem(at:IndexPath(item: indexForCell.item, section: 0), at: .centeredHorizontally, animated: false)
@@ -232,6 +236,71 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
         self.navigationController?.isNavigationBarHidden = false
         navigationController?.isToolbarHidden = false
         sender.view?.removeFromSuperview()
+    }
+    
+    //Reminders functionality
+    
+    
+    @IBAction func addReminderAction(_ sender: UIBarButtonItem) {
+//        AddReminder()
+        let alert = UIAlertController(title: "Remind me", message: "About this picture", preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Later today", style: .default , handler:{ (UIAlertAction)in
+            print("User click Approve button")
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Tomorrow", style: .default , handler:{ (UIAlertAction)in
+            print("User click Edit button")
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Set Date", style: .default , handler:{ (UIAlertAction)in
+            print("User click Delete button")
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler:{ (UIAlertAction)in
+            print("User click Dismiss button")
+        }))
+        
+        self.present(alert, animated: true, completion: {
+            print("completion block")
+        })
+    }
+    
+    func AddReminder() {
+        
+        eventStore.requestAccess(to: EKEntityType.reminder, completion: {
+            granted, error in
+            if (granted) && (error == nil) {
+                print("granted \(granted)")
+                
+                
+                let reminder:EKReminder = EKReminder(eventStore: self.eventStore)
+                reminder.title = "Must do this!"
+                reminder.priority = 2
+                
+                //  How to show completed
+                //reminder.completionDate = Date()
+                
+                reminder.notes = "...this is a note"
+                
+                
+                let alarmTime = Date().addingTimeInterval(1*60*24*3)
+                let alarm = EKAlarm(absoluteDate: alarmTime)
+                reminder.addAlarm(alarm)
+                
+                reminder.calendar = self.eventStore.defaultCalendarForNewReminders()
+                
+                
+                do {
+                    try self.eventStore.save(reminder, commit: true)
+                } catch {
+                    print("Cannot save")
+                    return
+                }
+                print("Reminder saved")
+            }
+        })
+        
     }
     
     
