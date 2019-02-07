@@ -129,6 +129,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addTagButton" destination="qMn-3w-7sK" id="dqo-O4-kt8"/>
+                        <outlet property="cameraButton" destination="geh-fS-2Ud" id="fqm-nr-LJd"/>
                         <outlet property="collectionView" destination="SOZ-58-9tC" id="swO-Px-1Vh"/>
                         <outlet property="searchBar" destination="p1I-SR-zjB" id="3cn-s4-ARc"/>
                         <outlet property="selectButton" destination="0Gg-c8-rQq" id="3BJ-os-6Q4"/>

@@ -79,7 +79,7 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
                 let allDirectories = try [Directory]()
                 let imageIds = allDirectories.first{$0.id == directoryName}?.imageIDs
                 let allPhotosOptions = PHFetchOptions()
-                fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: Array(imageIds!), options: allPhotosOptions)
+                 fetchResult = PHAsset.fetchAssets(withLocalIdentifiers: Array(imageIds!), options: allPhotosOptions)
                 detailedCollectionView.reloadData()
             }catch{
                 print("Error while directory details display \(error)")

@@ -34,6 +34,7 @@ class ViewController: UIViewController {
     
     var recentSearches = [] as [String]
     
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet var addTagButton: UIBarButtonItem!
     @IBOutlet weak var selectButton: UIBarButtonItem!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -87,7 +88,7 @@ class ViewController: UIViewController {
             }catch{
                 print("Favorites folder display error. ViewController")
             }
-        }else{
+        } else{
             do{
                 let allDirectories = try [Directory]()
                 let imageIds = allDirectories.first{$0.id == directoryName}?.imageIDs
@@ -372,11 +373,15 @@ extension ViewController: PHPhotoLibraryChangeObserver {
 extension ViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         recentSearchesTableView.isHidden = true
+        selectButton.isEnabled = true
+        cameraButton.isEnabled = true
         searchBar.text = ""
         restoreDefaultsOnEmptySearch()
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        selectButton.isEnabled = false
+        cameraButton.isEnabled = false
         let defaults = UserDefaults.standard
         let recents = defaults.object(forKey:"recentlyAddedTags") as? [String] ?? [String]()
         searchBar.setShowsCancelButton(true, animated: true)
