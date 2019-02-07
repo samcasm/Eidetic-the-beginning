@@ -237,6 +237,7 @@ class ViewController: UIViewController {
             destination.indexForCell = indexPath
             destination.phasset = fetchResult.object(at: indexPath.item)
             destination.directoryName = directoryName
+            destination.fetchResult = fetchResult
         }else if segue.identifier == "cameraPhotoDetailsSegue"{
             guard let destination = segue.destination as? DetailedViewController
                 else { fatalError("unexpected view controller for segue") }
@@ -376,6 +377,7 @@ extension ViewController: UISearchBarDelegate {
         selectButton.isEnabled = true
         cameraButton.isEnabled = true
         searchBar.text = ""
+        searchBar.resignFirstResponder()
         restoreDefaultsOnEmptySearch()
     }
     
