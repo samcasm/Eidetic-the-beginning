@@ -11,7 +11,6 @@ import Photos
 import PhotosUI
 import AVKit
 import EEZoomableImageView
-import INSPhotoGallery
 import EventKit
 
 private extension UICollectionView {
@@ -35,19 +34,10 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
     @IBOutlet weak var favoriteButton: UIBarButtonItem!
     var directoryName: String!
     let eventStore = EKEventStore()
+    var imageCellIndex : IndexPath = IndexPath(item: 0, section: 0)
     
     @IBOutlet weak var detailedCollectionView: UICollectionView!
     let reuseIdentifier = "cell" // also enter this string as the cell identifier in the storyboard
-    
-//    lazy var photos: [INSPhotoViewable] = {
-//        var allPhotos: [INSPhoto] = Array()
-//        fetchResult.enumerateObjects({ (asset, index, stop) in
-//            let image = self.requestImageForPHAsset(asset: asset)
-//            allPhotos.append(INSPhoto(image: image, thumbnailImage: nil))
-//        })
-//
-//        return allPhotos
-//    }()
     
     deinit {
         directoryName = nil
@@ -187,17 +177,27 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
         print(sender.direction)
             switch sender.direction {
             case UISwipeGestureRecognizer.Direction.right:
-                let imageView = sender.view as! UIImageView
-                let cell = fetchCurrentCellFromCollectionView()
-                let cellIndex = detailedCollectionView.indexPath(for: cell) as! IndexPath
-                if cellIndex.item > 0 && cellIndex.item < fetchResult.count {
-                    let prevCellImage = requestImageForPHAsset(asset: fetchResult[cellIndex.item - 1])
+                imageCellIndex = IndexPath(item: imageCellIndex.item - 1, section: 0)
+                if imageCellIndex.item >= 0 && imageCellIndex.item < fetchResult.count {
+                    
+                    let imageView = sender.view as! UIImageView
+                    let prevCellImage = requestImageForPHAsset(asset: fetchResult[imageCellIndex.item])
                     imageView.image = prevCellImage
+                }else{
+                    imageCellIndex = IndexPath(item: imageCellIndex.item + 1, section: 0)
                 }
             case UISwipeGestureRecognizer.Direction.down:
                 dismissFullscreenImage(sender)
             case UISwipeGestureRecognizer.Direction.left:
-                print("Swiped left")
+                
+                imageCellIndex = IndexPath(item: imageCellIndex.item + 1, section: 0)
+                if imageCellIndex.item >= 0 && imageCellIndex.item < fetchResult.count {
+                    let imageView = sender.view as! UIImageView
+                    let prevCellImage = requestImageForPHAsset(asset: fetchResult[imageCellIndex.item])
+                    imageView.image = prevCellImage
+                }else{
+                    imageCellIndex = IndexPath(item: imageCellIndex.item - 1, section: 0)
+                }
             default:
                 break
             }
@@ -224,6 +224,10 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
     }
     
     @objc func imageTapped(_ sender: UITapGestureRecognizer) {
+        let imageView = sender.view as! UIImageView
+        let cell = fetchCurrentCellFromCollectionView()
+        imageCellIndex = detailedCollectionView.indexPath(for: cell) as! IndexPath
+        
         if phasset.mediaType == .video {
             playVideo()
         }else{
@@ -233,6 +237,7 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
     }
     
     @objc func dismissFullscreenImage(_ sender: UIGestureRecognizer) {
+        imageCellIndex = IndexPath(item: 0, section: 0)
         self.navigationController?.isNavigationBarHidden = false
         navigationController?.isToolbarHidden = false
         sender.view?.removeFromSuperview()
@@ -478,9 +483,9 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
         })
         cell.tagsCollectionView.reloadData()
         
-//        let pictureTap = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))
-//        cell.imageView.addGestureRecognizer(pictureTap)
-//        cell.imageView.isUserInteractionEnabled = true
+        let pictureTap = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))
+        cell.imageView.addGestureRecognizer(pictureTap)
+        cell.imageView.isUserInteractionEnabled = true
         
         let stackViewTopConstraint = NSLayoutConstraint(item: cell.addTagStackView, attribute: NSLayoutConstraint.Attribute.top, relatedBy: NSLayoutConstraint.Relation.equal, toItem: cell, attribute: NSLayoutConstraint.Attribute.top, multiplier: 1, constant: 30)
         let tagsCollectionViewBottomConstraint = NSLayoutConstraint(item: cell.tagsCollectionView, attribute: NSLayoutConstraint.Attribute.bottom, relatedBy: NSLayoutConstraint.Relation.equal, toItem: cell, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1, constant: 10)
@@ -494,20 +499,6 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // handle tap events
         print("You selected cell #\(indexPath.item)!")
-        let cell = collectionView.cellForItem(at: indexPath) as! DetailedCollectionViewCell
-//        let currentPhoto = photos[indexPath.row]
-//        let galleryPreview = INSPhotosViewController(photos: photos, initialPhoto: currentPhoto, referenceView: cell)
-//
-//        galleryPreview.overlayView.photosViewController?.singleTapGestureRecognizer.isEnabled = false
-//
-//        galleryPreview.referenceViewForPhotoWhenDismissingHandler = { [weak self] photo in
-//            if let index = self?.photos.index(where: {$0 === photo}) {
-//                let indexPath = IndexPath(item: index, section: 0)
-//                return collectionView.cellForItem(at: indexPath) as? DetailedCollectionViewCell
-//            }
-//            return nil
-//        }
-//        present(galleryPreview, animated: true, completion: nil)
     }
     
 }
