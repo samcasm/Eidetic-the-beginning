@@ -28,7 +28,8 @@ class DirectoriesViewController: UIViewController, UICollectionViewDataSource, U
         do{
             var allDirectories = try [Directory]()
             // get a reference to our storyboard cell
-            
+            let checkmarkOnCell = cell.viewWithTag(37) as? UIImageView
+            checkmarkOnCell?.isHidden = true
             // Use the outlet in our custom class to get a reference to the UILabel in the cell
             cell.directoryName.text = allDirectories[indexPath.item].id
             //                cell.backgroundColor = UIColor.green // make cell more visible in our example project
@@ -61,9 +62,11 @@ class DirectoriesViewController: UIViewController, UICollectionViewDataSource, U
             let cellLabel = allDirectories[indexPath.item].id
             
             if collectionView.allowsMultipleSelection == true {
-                _selectedCells.add(cellLabel)
-                navigationController?.isToolbarHidden = false
-                deleteFoldersButton.isEnabled = _selectedCells.count > 0 ? true : false
+                if cellLabel != "favorites"{
+                    _selectedCells.add(cellLabel)
+                    navigationController?.isToolbarHidden = false
+                    deleteFoldersButton.isEnabled = _selectedCells.count > 0 ? true : false
+                }
                 
             }else{
                 selectedCell.isSelected = false
@@ -102,14 +105,8 @@ class DirectoriesViewController: UIViewController, UICollectionViewDataSource, U
         alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.default, handler:{ action in
             do{
                 var allDirectories = try [Directory]()
-                let copyOfAllDirectories = allDirectories
                 
-                for (index, directory) in copyOfAllDirectories.enumerated() {
-                    if self._selectedCells.contains(directory.id), directory.id != "favorites" {
-                        allDirectories.remove(at: index)
-                    }
-                    print("Item \(index): \(directory)")
-                }
+                allDirectories = allDirectories.filter {!self._selectedCells.contains($0.id)}
                 try allDirectories.save()
                 self.clearSelections(allowsMultipleSelection: false)
                 

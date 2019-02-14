@@ -140,7 +140,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3839.1999999999998" y="102.99850074962519"/>
+            <point key="canvasLocation" x="3916" y="103"/>
         </scene>
         <!--Asset View Controller-->
         <scene sceneID="IbI-F5-dVk">
@@ -551,7 +551,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Zh-JN-Hjc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2954.4000000000001" y="98.50074962518741"/>
+            <point key="canvasLocation" x="2890" y="103"/>
         </scene>
         <!--Folders-->
         <scene sceneID="wj5-l1-Cwj">
@@ -606,6 +606,10 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" tag="37" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="f9Z-61-6Or">
+                                                    <rect key="frame" x="73" y="10" width="35" height="35"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </view>
                                         <constraints>

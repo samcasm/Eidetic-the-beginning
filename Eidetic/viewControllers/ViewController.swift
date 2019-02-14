@@ -112,6 +112,8 @@ class ViewController: UIViewController {
         
         imageManager.allowsCachingHighQualityImages = true
         
+
+
         PHPhotoLibrary.shared().register(self)
         
         recentSearchesTableView.frame = setRecentSearchesTable()

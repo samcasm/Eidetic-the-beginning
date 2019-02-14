@@ -13,12 +13,15 @@ class DirectoryCell: UICollectionViewCell {
     
     override var isSelected: Bool{
         didSet{
+            let checkmarkOnCell = self.viewWithTag(37) as? UIImageView
             if self.isSelected
             {
+                checkmarkOnCell?.isHidden = false
                 self.transform = CGAffineTransform(scaleX: 0.90, y: 0.90)
             }
             else
             {
+                checkmarkOnCell?.isHidden = true
                 self.transform = CGAffineTransform.identity
             }
         }

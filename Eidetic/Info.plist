@@ -4,6 +4,8 @@
 <dict>
 	<key>NSRemindersUsageDescription</key>
 	<string>Permission is required to access your reminders</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Eidetic would like to access you photo library</string>
 	<key>NSCalendarsUsageDescription</key>
 	<string>Permission is required to access your calendar</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
@@ -30,8 +32,6 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>Eidetic would like to access your camera</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Eidetic would like to access your photo library</string>
 	<key>UIFileSharingEnabled</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
