@@ -67,6 +67,7 @@ class DetailedCollectionViewCell: UICollectionViewCell, UITextFieldDelegate{
     override func prepareForReuse() {
         super.prepareForReuse()
         imageView.image = nil
+        tagsCollectionView.isHidden = true
     }
     
     func addTagToCollection(){
@@ -124,6 +125,7 @@ class DetailedCollectionViewCell: UICollectionViewCell, UITextFieldDelegate{
                     
                 }
                 try allDirectories.save()
+                tagsCollectionView.isHidden = false
                 makeFolderCheckBox.isSelected = false
                 tagsCollectionView.reloadData()
                 addTagTextField.resignFirstResponder()

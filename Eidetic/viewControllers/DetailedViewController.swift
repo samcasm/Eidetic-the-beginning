@@ -441,6 +441,22 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
         self.navigationItem.title = dateString
     }
     
+    func returnTagsFromImagesArray(assetID: String) -> [String]{
+        do{
+            let assetId = assetID
+            let allImagesTagsData = try [Images]()
+            let assetIndex = allImagesTagsData.firstIndex(where: { $0.id == assetId })
+            
+            
+            if assetIndex != nil{
+                return Array(allImagesTagsData[assetIndex!].tags)
+            }
+        }catch{
+            print("Tag Display View Error: \(error)")
+        }
+        return []
+    }
+    
     
     // MARK: - UICollectionViewDataSource protocol
     
@@ -467,6 +483,13 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
                           height: cell.imageView.bounds.height * scale)
         }
         
+        cell.tagsCollectionView.reloadData()
+        
+        if( returnTagsFromImagesArray(assetID: asset.localIdentifier).count != 0) {
+            cell.tagsCollectionView.isHidden = false
+        }
+
+        
         // Request an image for the asset from the PHCachingImageManager.
         cell.assetIdentifier = asset.localIdentifier
         let options = PHImageRequestOptions()
@@ -481,7 +504,6 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
 
             }
         })
-        cell.tagsCollectionView.reloadData()
         
         let pictureTap = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))
         cell.imageView.addGestureRecognizer(pictureTap)

@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     
     var recentSearchesTableView: UITableView = UITableView()
     var imagePicker: UIImagePickerController!
-    var lastImageAsset: PHAsset!
+    var cameraImageAsset: PHAsset!
     
     var fetchResult: PHFetchResult<PHAsset>!
     var assetCollection: PHAssetCollection!
@@ -243,12 +243,8 @@ class ViewController: UIViewController {
         }else if segue.identifier == "cameraPhotoDetailsSegue"{
             guard let destination = segue.destination as? DetailedViewController
                 else { fatalError("unexpected view controller for segue") }
-            
-            let arrayOfVisibleItems = collectionView.indexPathsForVisibleItems
-            let lastIndexPath = arrayOfVisibleItems.last
-//            let indexPath = collectionView!.indexPath(for: sender as! UICollectionViewCell)!
-            destination.indexForCell = lastIndexPath
-            destination.phasset = lastImageAsset
+            destination.indexForCell = IndexPath(item: 0, section: 0)
+            destination.phasset = cameraImageAsset
         }
         
     }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pd1-kX-eJ8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4KB-yr-Ulx">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -553,6 +553,32 @@
             </objects>
             <point key="canvasLocation" x="2890" y="103"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="KIv-v7-zr8">
+            <objects>
+                <viewController id="4KB-yr-Ulx" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LJ6-xI-7dt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aku-aS-YgY">
+                                <rect key="frame" x="138" y="302" width="98" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="Pd1-kX-eJ8" kind="show" id="dgC-a4-xNG"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="HRM-hZ-zSq"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e88-c0-eJi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1845.5999999999999" y="1255.3223388305848"/>
+        </scene>
         <!--Folders-->
         <scene sceneID="wj5-l1-Cwj">
             <objects>
@@ -598,10 +624,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="folder" translatesAutoresizingMaskIntoConstraints="NO" id="Oum-th-nCa">
-                                                    <rect key="frame" x="20" y="2" width="76" height="60"/>
+                                                    <rect key="frame" x="20" y="2" width="76" height="63"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yeg-aL-nE8">
-                                                    <rect key="frame" x="18" y="59" width="80" height="24"/>
+                                                    <rect key="frame" x="5" y="62" width="106" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -613,14 +639,14 @@
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="yeg-aL-nE8" secondAttribute="bottom" constant="11" id="1sZ-Tn-K9d"/>
+                                            <constraint firstAttribute="bottom" secondItem="yeg-aL-nE8" secondAttribute="bottom" constant="8" id="1sZ-Tn-K9d"/>
                                             <constraint firstItem="Oum-th-nCa" firstAttribute="top" secondItem="fhC-QJ-Qe9" secondAttribute="top" constant="2" id="2Km-z5-mjE"/>
-                                            <constraint firstItem="yeg-aL-nE8" firstAttribute="leading" secondItem="fhC-QJ-Qe9" secondAttribute="leading" constant="18" id="58i-kJ-fFj"/>
+                                            <constraint firstItem="yeg-aL-nE8" firstAttribute="leading" secondItem="fhC-QJ-Qe9" secondAttribute="leading" constant="5" id="58i-kJ-fFj"/>
                                             <constraint firstItem="Oum-th-nCa" firstAttribute="leading" secondItem="fhC-QJ-Qe9" secondAttribute="leading" constant="20" id="7aZ-BH-nrE"/>
                                             <constraint firstItem="yeg-aL-nE8" firstAttribute="top" secondItem="Oum-th-nCa" secondAttribute="bottom" constant="-3" id="BNZ-5u-Ewd"/>
                                             <constraint firstItem="yeg-aL-nE8" firstAttribute="top" secondItem="Oum-th-nCa" secondAttribute="bottom" constant="-3" id="E1r-fC-On1"/>
                                             <constraint firstAttribute="trailing" secondItem="Oum-th-nCa" secondAttribute="trailing" constant="20" id="Mb9-Dr-Jr1"/>
-                                            <constraint firstAttribute="trailing" secondItem="yeg-aL-nE8" secondAttribute="trailing" constant="18" id="y2d-Zy-Hoh"/>
+                                            <constraint firstAttribute="trailing" secondItem="yeg-aL-nE8" secondAttribute="trailing" constant="5" id="y2d-Zy-Hoh"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="directoryName" destination="yeg-aL-nE8" id="2hl-rW-CFt"/>

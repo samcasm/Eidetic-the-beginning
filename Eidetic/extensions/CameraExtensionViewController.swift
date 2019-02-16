@@ -39,12 +39,12 @@ extension ViewController : UINavigationControllerDelegate, UIImagePickerControll
             fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
             fetchOptions.fetchLimit = 1
             
-            let fetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
-            if (fetchResult.firstObject != nil)
+            let assetsArray = PHAsset.fetchAssets(with: .image, options: fetchOptions)
+            if (assetsArray.firstObject != nil)
             {
-                lastImageAsset = fetchResult.firstObject
+                cameraImageAsset = fetchResult.firstObject
             }else{
-                lastImageAsset = nil
+                cameraImageAsset = nil
             }
             
             imagePicker.dismiss(animated: true, completion: nil)
