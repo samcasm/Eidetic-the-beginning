@@ -140,7 +140,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3916" y="103"/>
+            <point key="canvasLocation" x="4855.1999999999998" y="102.99850074962519"/>
         </scene>
         <!--Asset View Controller-->
         <scene sceneID="IbI-F5-dVk">
@@ -532,7 +532,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xiM-Eb-Jgd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4824.8000000000002" y="-5.8470764617691158"/>
+            <point key="canvasLocation" x="5764" y="-5.8470764617691158"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pot-eM-N1F">
@@ -551,12 +551,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Zh-JN-Hjc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2890" y="103"/>
+            <point key="canvasLocation" x="3828" y="102.99850074962519"/>
         </scene>
-        <!--View Controller-->
+        <!--Authorization Screen-->
         <scene sceneID="KIv-v7-zr8">
             <objects>
-                <viewController id="4KB-yr-Ulx" sceneMemberID="viewController">
+                <viewController id="4KB-yr-Ulx" customClass="AuthorizationScreen" customModule="Eidetic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LJ6-xI-7dt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -567,17 +567,21 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="Pd1-kX-eJ8" kind="show" id="dgC-a4-xNG"/>
+                                    <action selector="settingsSegue:" destination="4KB-yr-Ulx" eventType="touchUpInside" id="eZQ-Ca-zLT"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="HRM-hZ-zSq"/>
                     </view>
+                    <navigationItem key="navigationItem" id="T1x-00-hzm"/>
+                    <connections>
+                        <segue destination="Pd1-kX-eJ8" kind="show" identifier="accessGrantedSegue" id="Swl-cm-enP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e88-c0-eJi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1845.5999999999999" y="1255.3223388305848"/>
+            <point key="canvasLocation" x="2761" y="1219"/>
         </scene>
         <!--Folders-->
         <scene sceneID="wj5-l1-Cwj">
@@ -596,7 +600,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1kt-Zd-h5e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2954" y="940"/>
+            <point key="canvasLocation" x="3892" y="939.58020989505258"/>
         </scene>
         <!--Directory View Controller Scene-->
         <scene sceneID="55v-DI-xIy">
@@ -694,7 +698,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZaT-rb-SOQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3816.8000000000002" y="939.58020989505258"/>
+            <point key="canvasLocation" x="4756" y="939.58020989505258"/>
         </scene>
         <!--Add tag popup-->
         <scene sceneID="4HN-3x-GnX">
@@ -812,7 +816,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hfc-ni-2Ri" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4825" y="681"/>
+            <point key="canvasLocation" x="5764" y="680.5097451274363"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="LJK-Dg-ET3">
@@ -831,7 +835,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6xo-PB-oYW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1823" y="512"/>
+            <point key="canvasLocation" x="2760.8000000000002" y="511.39430284857576"/>
         </scene>
     </scenes>
     <resources>
