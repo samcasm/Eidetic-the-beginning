@@ -111,6 +111,7 @@ class ViewController: UIViewController {
         addTagButton.isEnabled = false
         
         imageManager.allowsCachingHighQualityImages = true
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
         
 
 

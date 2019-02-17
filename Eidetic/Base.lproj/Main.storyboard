@@ -561,17 +561,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aku-aS-YgY">
-                                <rect key="frame" x="138" y="302" width="98" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aku-aS-YgY">
+                                <rect key="frame" x="106.5" y="416" width="162" height="62"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                <state key="normal" title="Go to settings -&gt;"/>
                                 <connections>
                                     <action selector="settingsSegue:" destination="4KB-yr-Ulx" eventType="touchUpInside" id="eZQ-Ca-zLT"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EIDETIC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4K-qi-8VV">
+                                <rect key="frame" x="133.5" y="108" width="108" height="36"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Permissions Required. Go to settings to grant access to the photo library manually" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="WvT-ul-GsY">
+                                <rect key="frame" x="67" y="227" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="aku-aS-YgY" firstAttribute="centerX" secondItem="HRM-hZ-zSq" secondAttribute="centerX" id="1mx-l8-zoi"/>
+                            <constraint firstItem="HRM-hZ-zSq" firstAttribute="bottom" secondItem="aku-aS-YgY" secondAttribute="bottom" constant="189" id="5NW-2e-Jo7"/>
+                            <constraint firstItem="WvT-ul-GsY" firstAttribute="top" secondItem="c4K-qi-8VV" secondAttribute="bottom" constant="83" id="JTi-IQ-y0q"/>
+                            <constraint firstItem="c4K-qi-8VV" firstAttribute="centerX" secondItem="HRM-hZ-zSq" secondAttribute="centerX" id="MSS-lF-sDa"/>
+                            <constraint firstItem="c4K-qi-8VV" firstAttribute="top" secondItem="HRM-hZ-zSq" secondAttribute="top" constant="88" id="biV-1T-0Ff"/>
+                            <constraint firstItem="aku-aS-YgY" firstAttribute="top" secondItem="HRM-hZ-zSq" secondAttribute="top" constant="396" id="fO3-37-HUA"/>
+                            <constraint firstItem="aku-aS-YgY" firstAttribute="top" secondItem="WvT-ul-GsY" secondAttribute="bottom" constant="61" id="lQq-6Q-cnh"/>
+                            <constraint firstItem="HRM-hZ-zSq" firstAttribute="trailing" secondItem="WvT-ul-GsY" secondAttribute="trailing" constant="68" id="vZE-3C-aGP"/>
+                            <constraint firstItem="WvT-ul-GsY" firstAttribute="leading" secondItem="HRM-hZ-zSq" secondAttribute="leading" constant="67" id="wLW-Qa-ozp"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="HRM-hZ-zSq"/>
                     </view>
                     <navigationItem key="navigationItem" id="T1x-00-hzm"/>
@@ -581,7 +603,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e88-c0-eJi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2761" y="1219"/>
+            <point key="canvasLocation" x="2760.8000000000002" y="1218.440779610195"/>
         </scene>
         <!--Folders-->
         <scene sceneID="wj5-l1-Cwj">
