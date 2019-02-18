@@ -556,7 +556,7 @@
         <!--Authorization Screen-->
         <scene sceneID="KIv-v7-zr8">
             <objects>
-                <viewController id="4KB-yr-Ulx" customClass="AuthorizationScreen" customModule="Eidetic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="authScreen" id="4KB-yr-Ulx" customClass="AuthorizationScreen" customModule="Eidetic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LJ6-xI-7dt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -577,12 +577,12 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Permissions Required. Go to settings to grant access to the photo library manually" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="WvT-ul-GsY">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Permissions required. Go to settings to grant access manually to camera/photo library" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="WvT-ul-GsY">
                                 <rect key="frame" x="67" y="227" width="240" height="128"/>
                                 <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.41026464451030487" green="0.70400872965503769" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>

@@ -205,13 +205,48 @@ class ViewController: UIViewController {
     }
     
     // MARK: UI Actions
-    
+    func displayAuthScreen(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let presentedMC = storyboard.instantiateViewController(withIdentifier: "authScreen") as! AddTagModalController
+        print(presentedMC)
+        presentedMC.delegate = self
+        self.present(presentedMC, animated: true, completion: nil)
+    }
     
     @IBAction func cameraClicked(_ sender: Any) {
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            selectImageFrom(.camera)
-        }else{
-            showAlertWith(title: "Camera not working", message: "Something's went wrong while trying to load the camera")
+        let status = AVCaptureDevice.authorizationStatus(for: .video)
+        
+        switch status {
+        case .authorized:
+            print("authorized")
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                selectImageFrom(.camera)
+            }else{
+                showAlertWith(title: "Camera not working", message: "Something's went wrong while trying to load the camera")
+            }
+            
+        case .denied:
+            print("denied") // it is denied
+            showAlertWith(title: "Camera not authorized", message: "Go to settings and enable camera permissions for Eidetic")
+            
+        case .notDetermined:
+            print("notDetermined")
+            AVCaptureDevice.requestAccess(for: AVMediaType.video) { response in
+                if response {
+                    //access granted
+                    if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                        self.selectImageFrom(.camera)
+                    }else{
+                        self.showAlertWith(title: "Camera not working", message: "Something's went wrong while trying to load the camera")
+                    }
+                } else {
+                    self.showAlertWith(title: "Camera not authorized", message: "Go to settings and enable camera permissions for Eidetic")
+                }
+            }
+            
+        case .restricted:
+            print("restricted")
+            showAlertWith(title: "Camera restricted access", message: "Go to settings and change camera restrictions for Eidetic")
         }
         
     }
