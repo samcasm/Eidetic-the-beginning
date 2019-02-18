@@ -12,6 +12,7 @@ import PhotosUI
 import AVKit
 import EEZoomableImageView
 import EventKit
+import UserNotifications
 
 private extension UICollectionView {
     func indexPathsForElements(in rect: CGRect) -> [IndexPath] {
@@ -244,10 +245,47 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
     }
     
     //Reminders functionality
+    func application(
+        _ application: UIApplication,
+        didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data
+        ) {
+        let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
+        let token = tokenParts.joined()
+        print("Device Token: \(token)")
+    }
     
+    func application(
+        _ application: UIApplication,
+        didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Failed to register: \(error)")
+    }
+    
+    func registerForPushNotifications() {
+        UNUserNotificationCenter.current() // 1
+            .requestAuthorization(options: [.alert, .sound, .badge]) { // 2
+                granted, error in
+                
+                print("Permission granted: \(granted)")
+                guard granted else { return }
+                self.getNotificationSettings()
+        }
+    }
+    
+    func getNotificationSettings() {
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
+            print("Notification settings: \(settings)")
+            guard settings.authorizationStatus == .authorized else { return }
+            DispatchQueue.main.async {
+                UIApplication.shared.registerForRemoteNotifications()
+            }
+            
+        }
+    }
     
     @IBAction func addReminderAction(_ sender: UIBarButtonItem) {
 //        AddReminder()
+        registerForPushNotifications()
+        
         let alert = UIAlertController(title: "Remind me", message: "About this picture", preferredStyle: .actionSheet)
         
         alert.addAction(UIAlertAction(title: "Later today", style: .default , handler:{ (UIAlertAction)in

@@ -2,14 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSRemindersUsageDescription</key>
-	<string>Permission is required to access your reminders</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Eidetic would like to access you photo library</string>
-	<key>NSCalendarsUsageDescription</key>
-	<string>Permission is required to access your calendar</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Eidetic would like to save in the photo library</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -30,8 +22,16 @@
 	<true/>
 	<key>LSSupportsOpeningDocumentsInPlace</key>
 	<true/>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Permission is required to access your calendar</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Eidetic would like to access your camera</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Eidetic would like to save in the photo library</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Eidetic would like to access you photo library</string>
+	<key>NSRemindersUsageDescription</key>
+	<string>Permission is required to access your reminders</string>
 	<key>UIFileSharingEnabled</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>

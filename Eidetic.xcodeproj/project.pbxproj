@@ -47,6 +47,7 @@
 		6C10D7A321FEB136005E091A /* TagsCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCollection.swift; sourceTree = "<group>"; };
 		6C5D1AF921E817AE00A51545 /* CameraExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraExtensionViewController.swift; sourceTree = "<group>"; };
 		6C6FBCE72219EDEB00572783 /* AuthorizationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationScreen.swift; sourceTree = "<group>"; };
+		6C866BEA221B308D00ACDA4B /* Eidetic.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Eidetic.entitlements; sourceTree = "<group>"; };
 		6C9A94C621D34549006D3202 /* TagListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagListView.h; sourceTree = "<group>"; };
 		6C9A94C721D34549006D3202 /* CloseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		6C9A94C821D34549006D3202 /* TagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
@@ -180,6 +181,7 @@
 		AD375118219DE7F7005A577E /* Eidetic */ = {
 			isa = PBXGroup;
 			children = (
+				6C866BEA221B308D00ACDA4B /* Eidetic.entitlements */,
 				6C9A94C521D34548006D3202 /* TagListView */,
 				AD11B36221A72E67004D352C /* viewControllers */,
 				AD11B36121A72DF8004D352C /* models */,
@@ -227,6 +229,14 @@
 				TargetAttributes = {
 					AD375115219DE7F7005A577E = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -481,6 +491,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = Eidetic/Eidetic.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z3J5U4F9F8;
@@ -489,7 +500,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = someBigCompany.Eidetic;
+				PRODUCT_BUNDLE_IDENTIFIER = lookNoFurther.Eidetic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -503,6 +514,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = Eidetic/Eidetic.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z3J5U4F9F8;
@@ -511,7 +523,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = someBigCompany.Eidetic;
+				PRODUCT_BUNDLE_IDENTIFIER = lookNoFurther.Eidetic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
