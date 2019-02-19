@@ -30,28 +30,80 @@ class BackupScreen: UIViewController {
         retrieveDataFromiCloudLabel.addGestureRecognizer(retrieveTap)
     }
     
+    func overwriteTagsDataInDatabase(allTags: String){
+
+        let recordID = CKRecord.ID(recordName: "TagsDataString")
+        
+        database.fetch(withRecordID: recordID) { record, error in
+            
+            if let record = record, error == nil {
+                
+                //update your record here
+                record.setValue(allTags, forKey: "Tags")
+                
+                self.database.save(record) { (record, error) in
+                    if error != nil {
+                        self.showAlertWith(title: "Failed!", message: "Something went wrong while saving your data to iCloud")
+                    }
+                    guard record != nil else {return}
+                    print("record saved!")
+                    self.showAlertWith(title: "Success!", message: "Your data is now backed up")
+                }
+            }else{
+                let newTagsRecord = CKRecord(recordType: "TagsDataString", recordID: CKRecord.ID(recordName: "TagsDataString"))
+                newTagsRecord.setValue(allTags, forKey: "Tags")
+                
+                self.database.save(newTagsRecord) { (record, error) in
+                    if error != nil {
+                        self.showAlertWith(title: "Failed!", message: "Something went wrong while saving your data to iCloud")
+                    }
+                    guard record != nil else {return}
+                    print("record saved!")
+                }
+            }
+        }
+    }
+    
+    func overwriteDirectoriesDataInDatabase(allDirectories: String){
+        
+        let recordID = CKRecord.ID(recordName: "DirectoriesDataString")
+        
+        database.fetch(withRecordID: recordID) { record, error in
+            
+            if let record = record, error == nil {
+                
+                //update your record here
+                record.setValue(allDirectories, forKey: "Tags")
+                
+                self.database.save(record) { (record, error) in
+                    if error != nil {
+                        self.showAlertWith(title: "Failed!", message: "Something went wrong while saving your data to iCloud")
+                    }
+                    guard record != nil else {return}
+                    print("record saved!")
+                }
+            }else{
+                let newTagsRecord = CKRecord(recordType: "DirectoriesDataString", recordID: CKRecord.ID(recordName: "DirectoriesDataString"))
+                newTagsRecord.setValue(allDirectories, forKey: "Directories")
+                
+                self.database.save(newTagsRecord) { (record, error) in
+                    if error != nil {
+                        self.showAlertWith(title: "Failed!", message: "Something went wrong while saving your data to iCloud")
+                    }
+                    guard record != nil else {return}
+                    print("record saved!")
+                }
+            }
+        }
+    }
+    
     @objc func saveDataToiCloud(){
         do{
             let allTagsData = try String(contentsOf: FileManager.tagsFileURL, encoding: .utf8)
             let allDirectoriesData = try String(contentsOf: FileManager.directoriesURL, encoding: .utf8)
-        
-            let newTagsRecord = CKRecord(recordType: "TagsDataString", recordID: CKRecord.ID(recordName: "TagsDataString"))
-            newTagsRecord.setValue(allTagsData, forKey: "Tags")
             
-            let newDirectoriesRecord = CKRecord(recordType: "DirectoriesDataString", recordID: CKRecord.ID(recordName: "DirectoriesDataString"))
-            newDirectoriesRecord.setValue(allDirectoriesData, forKey: "Directories")
-            
-            database.save(newTagsRecord) { (record, error) in
-                print(error, "error")
-                guard record != nil else {return}
-                print("record saved!")
-            }
-            
-            database.save(newDirectoriesRecord) { (record, error) in
-                print(error, "error")
-                guard record != nil else {return}
-                print("record saved!")
-            }
+            overwriteTagsDataInDatabase(allTags: allTagsData)
+            overwriteDirectoriesDataInDatabase(allDirectories: allDirectoriesData)
             
         }catch{
             print("Couldn't fetch data to save")

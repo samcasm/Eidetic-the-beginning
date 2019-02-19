@@ -700,13 +700,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="116" height="94"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="folder" translatesAutoresizingMaskIntoConstraints="NO" id="Oum-th-nCa">
-                                                    <rect key="frame" x="20" y="2" width="76" height="63"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" image="folder1" translatesAutoresizingMaskIntoConstraints="NO" id="Oum-th-nCa">
+                                                    <rect key="frame" x="20" y="2" width="76" height="60.5"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yeg-aL-nE8">
-                                                    <rect key="frame" x="5" y="62" width="106" height="24"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="5" y="59.5" width="106" height="26.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" tag="37" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="f9Z-61-6Or">
@@ -916,8 +916,8 @@
         <image name="checkbox" width="37.5" height="37.5"/>
         <image name="checkmark" width="203.29411315917969" height="203.29411315917969"/>
         <image name="cross" width="180" height="180"/>
-        <image name="folder" width="37.5" height="37.5"/>
         <image name="folder-glyph" width="22.5" height="22.5"/>
+        <image name="folder1" width="180" height="180"/>
         <image name="reminder" width="22.5" height="22.5"/>
         <image name="uncheckbox" width="37.5" height="37.5"/>
     </resources>
