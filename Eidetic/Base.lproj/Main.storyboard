@@ -124,6 +124,11 @@
                                     <action selector="multipleSelectToggle:" destination="BYZ-38-t0r" id="6p0-4G-jP6"/>
                                 </connections>
                             </barButtonItem>
+                            <barButtonItem title="Save" id="VRc-oX-Umj">
+                                <connections>
+                                    <segue destination="eNJ-g3-fB6" kind="show" id="02y-oi-d9K"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -335,6 +340,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X4S-un-qKP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3916" y="-732"/>
+        </scene>
+        <!--Backup Screen-->
+        <scene sceneID="TTr-Rq-G1h">
+            <objects>
+                <viewController id="eNJ-g3-fB6" customClass="BackupScreen" customModule="Eidetic" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ehp-sh-MMf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="jWW-Bn-HSW">
+                                <rect key="frame" x="42" y="289" width="291" height="88"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save your tags to iCloud" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7K6-5O-PZZ">
+                                        <rect key="frame" x="29" y="0.0" width="233.5" height="24"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Retreive your tags from iCloud" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Rj-9p-M5O">
+                                        <rect key="frame" x="0.0" y="64" width="291" height="24"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="jWW-Bn-HSW" firstAttribute="centerY" secondItem="gVy-es-raA" secondAttribute="centerY" constant="14" id="8JF-rf-71s"/>
+                            <constraint firstItem="jWW-Bn-HSW" firstAttribute="centerX" secondItem="gVy-es-raA" secondAttribute="centerX" id="TMq-rq-7Gh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gVy-es-raA"/>
+                    </view>
+                    <connections>
+                        <outlet property="retrieveDataFromiCloudLabel" destination="1Rj-9p-M5O" id="hnf-p3-0BN"/>
+                        <outlet property="saveDataToiCloudLabel" destination="7K6-5O-PZZ" id="wos-yr-hR7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TF6-h4-mfH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4845.6000000000004" y="-593.25337331334333"/>
         </scene>
         <!--Detailed View Controller-->
         <scene sceneID="DmG-8d-dhs">

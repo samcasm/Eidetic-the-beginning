@@ -14,9 +14,13 @@
 		6C10D7A421FEB136005E091A /* TagsCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C10D7A321FEB136005E091A /* TagsCollection.swift */; };
 		6C5D1AFA21E817AE00A51545 /* CameraExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D1AF921E817AE00A51545 /* CameraExtensionViewController.swift */; };
 		6C6FBCE82219EDEB00572783 /* AuthorizationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6FBCE72219EDEB00572783 /* AuthorizationScreen.swift */; };
+		6C866BF2221B834500ACDA4B /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C866BF1221B834500ACDA4B /* NotificationService.swift */; };
+		6C866BF6221B834500ACDA4B /* NotificationService.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6C866BEF221B834500ACDA4B /* NotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6C9A94CB21D34549006D3202 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9A94C721D34549006D3202 /* CloseButton.swift */; };
 		6C9A94CC21D34549006D3202 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9A94C821D34549006D3202 /* TagView.swift */; };
 		6C9A94CD21D34549006D3202 /* TagListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9A94C921D34549006D3202 /* TagListView.swift */; };
+		6CBCB9EF221C729300AC224F /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBCB9EE221C729300AC224F /* CloudKit.framework */; };
+		6CBCB9F1221C866800AC224F /* BackupScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBCB9F0221C866800AC224F /* BackupScreen.swift */; };
 		6CBEADE322079D780054FE02 /* DeviceCompatibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBEADE222079D780054FE02 /* DeviceCompatibility.swift */; };
 		6CE184D721D710E8004D9C22 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE184D621D710E8004D9C22 /* Helpers.swift */; };
 		AD11B36021A72760004D352C /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD11B35F21A72760004D352C /* UIViewController.swift */; };
@@ -38,6 +42,30 @@
 		ADC9F44A21AB600200A2DA82 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC9F44921AB600100A2DA82 /* UICollectionView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		6C866BF4221B834500ACDA4B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AD37510E219DE7F7005A577E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6C866BEE221B834500ACDA4B;
+			remoteInfo = NotificationService;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6C866BFA221B834500ACDA4B /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				6C866BF6221B834500ACDA4B /* NotificationService.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		486E5C8FEBCFC5CC379F6FBB /* Pods_Eidetic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Eidetic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5153A76E3061264B2501B1BB /* Pods-Eidetic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eidetic.release.xcconfig"; path = "Pods/Target Support Files/Pods-Eidetic/Pods-Eidetic.release.xcconfig"; sourceTree = "<group>"; };
@@ -48,11 +76,16 @@
 		6C5D1AF921E817AE00A51545 /* CameraExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraExtensionViewController.swift; sourceTree = "<group>"; };
 		6C6FBCE72219EDEB00572783 /* AuthorizationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationScreen.swift; sourceTree = "<group>"; };
 		6C866BEA221B308D00ACDA4B /* Eidetic.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Eidetic.entitlements; sourceTree = "<group>"; };
+		6C866BEF221B834500ACDA4B /* NotificationService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C866BF1221B834500ACDA4B /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		6C866BF3221B834500ACDA4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C9A94C621D34549006D3202 /* TagListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagListView.h; sourceTree = "<group>"; };
 		6C9A94C721D34549006D3202 /* CloseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		6C9A94C821D34549006D3202 /* TagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		6C9A94C921D34549006D3202 /* TagListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagListView.swift; sourceTree = "<group>"; };
 		6C9A94CA21D34549006D3202 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6CBCB9EE221C729300AC224F /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		6CBCB9F0221C866800AC224F /* BackupScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupScreen.swift; sourceTree = "<group>"; };
 		6CBEADE222079D780054FE02 /* DeviceCompatibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCompatibility.swift; sourceTree = "<group>"; };
 		6CE184D621D710E8004D9C22 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		AD11B35F21A72760004D352C /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
@@ -78,11 +111,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6C866BEC221B834500ACDA4B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AD375113219DE7F7005A577E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				1A6C1F691751D473B4D9F6C1 /* Pods_Eidetic.framework in Frameworks */,
+				6CBCB9EF221C729300AC224F /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +137,15 @@
 				5153A76E3061264B2501B1BB /* Pods-Eidetic.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		6C866BF0221B834500ACDA4B /* NotificationService */ = {
+			isa = PBXGroup;
+			children = (
+				6C866BF1221B834500ACDA4B /* NotificationService.swift */,
+				6C866BF3221B834500ACDA4B /* Info.plist */,
+			);
+			path = NotificationService;
 			sourceTree = "<group>";
 		};
 		6C9A94C521D34548006D3202 /* TagListView */ = {
@@ -113,6 +163,7 @@
 		778E42CE8CD8323C69B92713 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6CBCB9EE221C729300AC224F /* CloudKit.framework */,
 				486E5C8FEBCFC5CC379F6FBB /* Pods_Eidetic.framework */,
 			);
 			name = Frameworks;
@@ -156,6 +207,7 @@
 				AD98379321B105E200BF3B28 /* AddTagModalController.swift */,
 				6C10D79D21FE2254005E091A /* DetailedViewController.swift */,
 				6C6FBCE72219EDEB00572783 /* AuthorizationScreen.swift */,
+				6CBCB9F0221C866800AC224F /* BackupScreen.swift */,
 			);
 			path = viewControllers;
 			sourceTree = "<group>";
@@ -164,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				AD375118219DE7F7005A577E /* Eidetic */,
+				6C866BF0221B834500ACDA4B /* NotificationService */,
 				AD375117219DE7F7005A577E /* Products */,
 				12AF247ED5FD4AA71FD170CA /* Pods */,
 				778E42CE8CD8323C69B92713 /* Frameworks */,
@@ -174,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				AD375116219DE7F7005A577E /* Eidetic.app */,
+				6C866BEF221B834500ACDA4B /* NotificationService.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -198,6 +252,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		6C866BEE221B834500ACDA4B /* NotificationService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6C866BF7221B834500ACDA4B /* Build configuration list for PBXNativeTarget "NotificationService" */;
+			buildPhases = (
+				6C866BEB221B834500ACDA4B /* Sources */,
+				6C866BEC221B834500ACDA4B /* Frameworks */,
+				6C866BED221B834500ACDA4B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NotificationService;
+			productName = NotificationService;
+			productReference = 6C866BEF221B834500ACDA4B /* NotificationService.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		AD375115219DE7F7005A577E /* Eidetic */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AD375128219DE7F9005A577E /* Build configuration list for PBXNativeTarget "Eidetic" */;
@@ -207,10 +278,12 @@
 				AD375113219DE7F7005A577E /* Frameworks */,
 				AD375114219DE7F7005A577E /* Resources */,
 				41989F7986F35E93B598703C /* [CP] Embed Pods Frameworks */,
+				6C866BFA221B834500ACDA4B /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				6C866BF5221B834500ACDA4B /* PBXTargetDependency */,
 			);
 			name = Eidetic;
 			productName = Eidetic;
@@ -227,6 +300,9 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = user145467;
 				TargetAttributes = {
+					6C866BEE221B834500ACDA4B = {
+						CreatedOnToolsVersion = 10.1;
+					};
 					AD375115219DE7F7005A577E = {
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
@@ -234,7 +310,7 @@
 								enabled = 1;
 							};
 							com.apple.iCloud = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -254,11 +330,19 @@
 			projectRoot = "";
 			targets = (
 				AD375115219DE7F7005A577E /* Eidetic */,
+				6C866BEE221B834500ACDA4B /* NotificationService */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		6C866BED221B834500ACDA4B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AD375114219DE7F7005A577E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -315,6 +399,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6C866BEB221B834500ACDA4B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C866BF2221B834500ACDA4B /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AD375112219DE7F7005A577E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -322,6 +414,7 @@
 				6C10D7A221FEB059005E091A /* TagCell.swift in Sources */,
 				6C9A94CC21D34549006D3202 /* TagView.swift in Sources */,
 				AD4E7A1B21A5D1DA0031EB5C /* ImageStruct.swift in Sources */,
+				6CBCB9F1221C866800AC224F /* BackupScreen.swift in Sources */,
 				ADC3BBF421A8D1A700C24513 /* DirectoriesViewController.swift in Sources */,
 				AD37511C219DE7F7005A577E /* ViewController.swift in Sources */,
 				6C10D79C21FE2209005E091A /* DetailedCollectionViewCell.swift in Sources */,
@@ -349,6 +442,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		6C866BF5221B834500ACDA4B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6C866BEE221B834500ACDA4B /* NotificationService */;
+			targetProxy = 6C866BF4221B834500ACDA4B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		AD37511D219DE7F7005A577E /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -369,6 +470,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		6C866BF8221B834500ACDA4B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z3J5U4F9F8;
+				INFOPLIST_FILE = NotificationService/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = lookNoFurther.Eidetic.NotificationService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6C866BF9221B834500ACDA4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z3J5U4F9F8;
+				INFOPLIST_FILE = NotificationService/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = lookNoFurther.Eidetic.NotificationService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		AD375126219DE7F9005A577E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -489,6 +630,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E60EAC8864E7113D21D34DC9 /* Pods-Eidetic.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = Eidetic/Eidetic.entitlements;
@@ -512,6 +654,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5153A76E3061264B2501B1BB /* Pods-Eidetic.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = Eidetic/Eidetic.entitlements;
@@ -534,6 +677,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6C866BF7221B834500ACDA4B /* Build configuration list for PBXNativeTarget "NotificationService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6C866BF8221B834500ACDA4B /* Debug */,
+				6C866BF9221B834500ACDA4B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		AD375111219DE7F7005A577E /* Build configuration list for PBXProject "Eidetic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
