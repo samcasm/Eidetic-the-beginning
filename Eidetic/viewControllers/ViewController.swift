@@ -22,6 +22,8 @@ private extension UICollectionView {
 
 class ViewController: UIViewController {
     
+    
+    @IBOutlet var backButton: UIBarButtonItem!
     var recentSearchesTableView: UITableView = UITableView()
     var imagePicker: UIImagePickerController!
     var cameraImageAsset: PHAsset!

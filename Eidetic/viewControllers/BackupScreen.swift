@@ -20,12 +20,13 @@ class BackupScreen: UIViewController {
     
     override func viewDidLoad() {
         print("View loaded")
+        self.title = "iCloud Backup"
         
         let saveTap = UITapGestureRecognizer(target: self, action: #selector(BackupScreen.saveDataToiCloud))
         saveDataToiCloudLabel.isUserInteractionEnabled = true
         saveDataToiCloudLabel.addGestureRecognizer(saveTap)
         
-        let retrieveTap = UITapGestureRecognizer(target: self, action: #selector(BackupScreen.saveDataToiCloud))
+        let retrieveTap = UITapGestureRecognizer(target: self, action: #selector(BackupScreen.retrieveDataFromiCloud))
         retrieveDataFromiCloudLabel.isUserInteractionEnabled = true
         retrieveDataFromiCloudLabel.addGestureRecognizer(retrieveTap)
     }
@@ -59,6 +60,7 @@ class BackupScreen: UIViewController {
                     }
                     guard record != nil else {return}
                     print("record saved!")
+                    self.showAlertWith(title: "Success!", message: "Your data is now backed up")
                 }
             }
         }
@@ -81,6 +83,7 @@ class BackupScreen: UIViewController {
                     }
                     guard record != nil else {return}
                     print("record saved!")
+                    self.showAlertWith(title: "Success!", message: "Your data is now backed up")
                 }
             }else{
                 let newTagsRecord = CKRecord(recordType: "DirectoriesDataString", recordID: CKRecord.ID(recordName: "DirectoriesDataString"))
@@ -92,6 +95,7 @@ class BackupScreen: UIViewController {
                     }
                     guard record != nil else {return}
                     print("record saved!")
+                    self.showAlertWith(title: "Success!", message: "Your data is now backed up")
                 }
             }
         }
@@ -111,6 +115,31 @@ class BackupScreen: UIViewController {
     }
     
     @objc func retrieveDataFromiCloud(){
+        let recordID = CKRecord.ID(recordName: "TagsDataString")
         
+        database.fetch(withRecordID: recordID) { record, error in
+            
+            if let record = record, error == nil {
+                do{
+                    let tagsRecord = record.object(forKey: "Tags")
+                    let tagsString = tagsRecord as! String
+                    
+                    let tagsData = tagsString.data(using: .utf8) as! Data
+                    let decoder = JSONDecoder()
+                    let decodedJson = try decoder.decode([Images].self, from: tagsData)
+                    let encoder = JSONEncoder()
+                    
+                    let encodedJSON = try encoder.encode(decodedJson)
+                    try encodedJSON.write(to: FileManager.tagsFileURL, options: .atomic)
+                    self.showAlertWith(title: "Success!", message: "Retrieved your data successfully")
+                }catch{
+                    print("Error call")
+                    self.showAlertWith(title: "Failed!", message: "Something went wrong while trying to retrieve data")
+                }
+            }else{
+                self.showAlertWith(title: "Failed", message: "Data not found in iCloud")
+            }
+        }
+
     }
 }
