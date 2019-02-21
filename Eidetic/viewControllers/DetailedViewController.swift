@@ -24,6 +24,7 @@ private extension UICollectionView {
 
 class DetailedViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UNUserNotificationCenterDelegate {
     
+    
     var fetchResult: PHFetchResult<PHAsset>!
     fileprivate let imageManager = PHCachingImageManager()
     fileprivate var previousPreheatRect = CGRect.zero
@@ -81,6 +82,7 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
             }
         }
         navigationController?.isToolbarHidden = false
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -245,33 +247,53 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
     }
     
     //Reminders functionality
+    func sendNotification(){
+        let content = UNMutableNotificationContent()
+        content.title = "Hey!"
+        content.subtitle = "Here's your reminder"
+        content.body = "Content body"
+        
+        // 2
+        let imageName = "mediaThumbnail"
+        
+//        let myImage = requestImageForPHAsset(asset: phasset)
+        PHImageManager.default().requestImage(for: phasset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFit, options: nil, resultHandler: { image, _ in
+            if let attachment = UNNotificationAttachment.create(identifier: imageName, image: image!, options: nil) {
+                // where myImage is any UIImage that follows the
+                content.attachments = [attachment]
+            }
+        })
+
+        
+        // 3
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+        let request = UNNotificationRequest(identifier: "notification.id.01", content: content, trigger: trigger)
+        
+        // 4
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    }
+    
     func registerForPushNotifications() {
         UNUserNotificationCenter.current().delegate = self
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
-            (granted, error) in
-            print("Permission granted: \(granted)")
-            // 1. Check if permission granted
-            guard granted else { return }
-            // 2. Attempt registration for remote notifications on the main thread
-            DispatchQueue.main.async {
-                UIApplication.shared.registerForRemoteNotifications()
-            }
+        UNUserNotificationCenter.current()
+            .requestAuthorization(options: [.alert, .sound, .badge]) {
+                [weak self] granted, error in
+                
+                print("Permission granted: \(granted)")
+                guard granted else { return }
+                self?.getNotificationSettings()
+                self?.sendNotification()
         }
     }
     
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        // 1. Convert device token to string
-        let tokenParts = deviceToken.map { data -> String in
-            return String(format: "%02.2hhx", data)
+    func getNotificationSettings() {
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
+            print("Notification settings: \(settings)")
+            guard settings.authorizationStatus == .authorized else { return }
+//            DispatchQueue.main.async {
+//                UIApplication.shared.registerForRemoteNotifications()
+//            }
         }
-        let token = tokenParts.joined()
-        // 2. Print device token to use for PNs payloads
-        print("Device Token: \(token)")
-    }
-    
-    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        // 1. Print out error if PNs registration not successful
-        print("Failed to register for remote notifications with error: \(error)")
     }
     
     @IBAction func addReminderAction(_ sender: UIBarButtonItem) {
