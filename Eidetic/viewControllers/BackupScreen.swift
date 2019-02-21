@@ -31,9 +31,9 @@ class BackupScreen: UIViewController {
         retrieveDataFromiCloudLabel.addGestureRecognizer(retrieveTap)
     }
     
-    func overwriteTagsDataInDatabase(allTags: String){
+    func overwriteTagsDataInDatabase(allTags: String, allFolders: String){
 
-        let recordID = CKRecord.ID(recordName: "TagsDataString")
+        let recordID = CKRecord.ID(recordName: "EideticData")
         
         database.fetch(withRecordID: recordID) { record, error in
             
@@ -41,6 +41,7 @@ class BackupScreen: UIViewController {
                 
                 //update your record here
                 record.setValue(allTags, forKey: "Tags")
+                record.setValue(allFolders, forKey: "Folders")
                 
                 self.database.save(record) { (record, error) in
                     if error != nil {
@@ -50,52 +51,25 @@ class BackupScreen: UIViewController {
                     print("record saved!")
                     self.showAlertWith(title: "Success!", message: "Your data is now backed up")
                 }
-            }else{
-                let newTagsRecord = CKRecord(recordType: "TagsDataString", recordID: CKRecord.ID(recordName: "TagsDataString"))
-                newTagsRecord.setValue(allTags, forKey: "Tags")
-                
-                self.database.save(newTagsRecord) { (record, error) in
-                    if error != nil {
-                        self.showAlertWith(title: "Failed!", message: "Something went wrong while saving your data to iCloud")
+            }else if error != nil {
+                let ckerror = error as! CKError
+                if ckerror.code == CKError.unknownItem {
+                    let newTagsRecord = CKRecord(recordType: "EideticData", recordID: CKRecord.ID(recordName: "EideticData"))
+                    newTagsRecord.setValue(allTags, forKey: "Tags")
+                    newTagsRecord.setValue(allFolders, forKey: "Folders")
+                    
+                    self.database.save(newTagsRecord) { (record, error) in
+                        if error != nil {
+                            self.showAlertWith(title: "Failed!", message: "Something went wrong while saving your data to iCloud")
+                        }
+                        guard record != nil else {return}
+                        print("record saved!")
+                        self.showAlertWith(title: "Success!", message: "Your data is now backed up")
                     }
-                    guard record != nil else {return}
-                    print("record saved!")
-                    self.showAlertWith(title: "Success!", message: "Your data is now backed up")
-                }
-            }
-        }
-    }
-    
-    func overwriteDirectoriesDataInDatabase(allDirectories: String){
-        
-        let recordID = CKRecord.ID(recordName: "DirectoriesDataString")
-        
-        database.fetch(withRecordID: recordID) { record, error in
-            
-            if let record = record, error == nil {
-                
-                //update your record here
-                record.setValue(allDirectories, forKey: "Tags")
-                
-                self.database.save(record) { (record, error) in
-                    if error != nil {
-                        self.showAlertWith(title: "Failed!", message: "Something went wrong while saving your data to iCloud")
-                    }
-                    guard record != nil else {return}
-                    print("record saved!")
-                    self.showAlertWith(title: "Success!", message: "Your data is now backed up")
-                }
-            }else{
-                let newTagsRecord = CKRecord(recordType: "DirectoriesDataString", recordID: CKRecord.ID(recordName: "DirectoriesDataString"))
-                newTagsRecord.setValue(allDirectories, forKey: "Directories")
-                
-                self.database.save(newTagsRecord) { (record, error) in
-                    if error != nil {
-                        self.showAlertWith(title: "Failed!", message: "Something went wrong while saving your data to iCloud")
-                    }
-                    guard record != nil else {return}
-                    print("record saved!")
-                    self.showAlertWith(title: "Success!", message: "Your data is now backed up")
+                }else if ckerror.code == CKError.notAuthenticated {
+                    self.showAlertWith(title: "Failed!", message: "You are not signed in to your apple account. Sign In in the settings menu")
+                }else{
+                    self.showAlertWith(title: "Failed", message: "Something went wrong trying to retrieve your backup data")
                 }
             }
         }
@@ -104,40 +78,56 @@ class BackupScreen: UIViewController {
     @objc func saveDataToiCloud(){
         do{
             let allTagsData = try String(contentsOf: FileManager.tagsFileURL, encoding: .utf8)
-            let allDirectoriesData = try String(contentsOf: FileManager.directoriesURL, encoding: .utf8)
+            let allFoldersData = try String(contentsOf: FileManager.directoriesURL, encoding: .utf8)
             
-            overwriteTagsDataInDatabase(allTags: allTagsData)
-            overwriteDirectoriesDataInDatabase(allDirectories: allDirectoriesData)
+            overwriteTagsDataInDatabase(allTags: allTagsData, allFolders: allFoldersData)
             
         }catch{
             print("Couldn't fetch data to save")
         }
     }
     
+    func writeRecordDataToAppData(key: String, record: CKRecord) throws {
+        let tagsRecord = record.object(forKey: key)
+        let tagsString = tagsRecord as! String
+        
+        let tagsData = tagsString.data(using: .utf8) as! Data
+        let decoder = JSONDecoder()
+        let encoder = JSONEncoder()
+        
+        if key == "Tags"{
+            let decodedJson = try decoder.decode([Images].self, from: tagsData)
+            let encodedJSON = try encoder.encode(decodedJson)
+            try encodedJSON.write(to: FileManager.tagsFileURL, options: .atomic)
+        }else{
+            let decodedJson = try decoder.decode([Directory].self, from: tagsData)
+            let encodedJSON = try encoder.encode(decodedJson)
+            try encodedJSON.write(to: FileManager.directoriesURL, options: .atomic)
+        }
+    }
+    
     @objc func retrieveDataFromiCloud(){
-        let recordID = CKRecord.ID(recordName: "TagsDataString")
+        let recordID = CKRecord.ID(recordName: "EideticData")
         
         database.fetch(withRecordID: recordID) { record, error in
-            
             if let record = record, error == nil {
                 do{
-                    let tagsRecord = record.object(forKey: "Tags")
-                    let tagsString = tagsRecord as! String
-                    
-                    let tagsData = tagsString.data(using: .utf8) as! Data
-                    let decoder = JSONDecoder()
-                    let decodedJson = try decoder.decode([Images].self, from: tagsData)
-                    let encoder = JSONEncoder()
-                    
-                    let encodedJSON = try encoder.encode(decodedJson)
-                    try encodedJSON.write(to: FileManager.tagsFileURL, options: .atomic)
+                    try self.writeRecordDataToAppData(key: "Tags", record: record)
+                    try self.writeRecordDataToAppData(key: "Folders", record: record)
                     self.showAlertWith(title: "Success!", message: "Retrieved your data successfully")
                 }catch{
                     print("Error call")
                     self.showAlertWith(title: "Failed!", message: "Something went wrong while trying to retrieve data")
                 }
-            }else{
-                self.showAlertWith(title: "Failed", message: "Data not found in iCloud")
+            }else if error != nil{
+                let ckerror = error as! CKError
+                if ckerror.code == CKError.notAuthenticated {
+                    self.showAlertWith(title: "Failed!", message: "You are not signed in to your apple account. Sign In in the settings menu")
+                }else if ckerror.code == CKError.unknownItem{
+                    self.showAlertWith(title: "Failed", message: "No data backup is available in your iCloud")
+                }else{
+                    self.showAlertWith(title: "Failed", message: "Something went wrong trying to retrieve your backup data")
+                }
             }
         }
 

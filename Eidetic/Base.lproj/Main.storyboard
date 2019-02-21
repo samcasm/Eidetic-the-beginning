@@ -124,17 +124,11 @@
                                     <action selector="multipleSelectToggle:" destination="BYZ-38-t0r" id="6p0-4G-jP6"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Backup" id="VRc-oX-Umj">
-                                <connections>
-                                    <segue destination="eNJ-g3-fB6" kind="show" id="02y-oi-d9K"/>
-                                </connections>
-                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addTagButton" destination="qMn-3w-7sK" id="dqo-O4-kt8"/>
-                        <outlet property="backButton" destination="VRc-oX-Umj" id="rzB-5q-ygW"/>
                         <outlet property="cameraButton" destination="geh-fS-2Ud" id="fqm-nr-LJd"/>
                         <outlet property="collectionView" destination="SOZ-58-9tC" id="swO-Px-1Vh"/>
                         <outlet property="searchBar" destination="p1I-SR-zjB" id="3cn-s4-ARc"/>
@@ -342,7 +336,7 @@
             </objects>
             <point key="canvasLocation" x="3916" y="-732"/>
         </scene>
-        <!--Backup Screen-->
+        <!--Backup-->
         <scene sceneID="TTr-Rq-G1h">
             <objects>
                 <viewController id="eNJ-g3-fB6" customClass="BackupScreen" customModule="Eidetic" customModuleProvider="target" sceneMemberID="viewController">
@@ -368,7 +362,7 @@
                                 </subviews>
                             </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icloud" translatesAutoresizingMaskIntoConstraints="NO" id="C1V-Do-hsK">
-                                <rect key="frame" x="67" y="130" width="240" height="128"/>
+                                <rect key="frame" x="67" y="86" width="240" height="172"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -382,6 +376,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gVy-es-raA"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Backup" image="cloud-backup" id="wgf-nf-Kvo"/>
                     <connections>
                         <outlet property="retrieveDataFromiCloudLabel" destination="1Rj-9p-M5O" id="hnf-p3-0BN"/>
                         <outlet property="saveDataToiCloudLabel" destination="7K6-5O-PZZ" id="wos-yr-hR7"/>
@@ -389,7 +384,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TF6-h4-mfH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4845.6000000000004" y="-593.25337331334333"/>
+            <point key="canvasLocation" x="3892" y="1692"/>
         </scene>
         <!--Detailed View Controller-->
         <scene sceneID="DmG-8d-dhs">
@@ -909,6 +904,7 @@
                     <connections>
                         <segue destination="TYh-dk-0Bq" kind="relationship" relationship="viewControllers" id="aV7-P7-2RF"/>
                         <segue destination="hlY-r9-L32" kind="relationship" relationship="viewControllers" id="TbP-AD-dmW"/>
+                        <segue destination="eNJ-g3-fB6" kind="relationship" relationship="viewControllers" id="EjW-if-1be"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6xo-PB-oYW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -920,6 +916,7 @@
         <image name="camera" width="22.5" height="22.5"/>
         <image name="checkbox" width="37.5" height="37.5"/>
         <image name="checkmark" width="203.29411315917969" height="203.29411315917969"/>
+        <image name="cloud-backup" width="22.5" height="22.5"/>
         <image name="cross" width="180" height="180"/>
         <image name="folder-glyph" width="22.5" height="22.5"/>
         <image name="folder1" width="178.28572082519531" height="178.28572082519531"/>
