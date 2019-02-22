@@ -9,13 +9,61 @@
 import UIKit
 import Foundation
 import UserNotifications
+import Photos
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
     
+    
+    @objc func navigateToRootView(sender: UIBarButtonItem){
+          window?.rootViewController?.dismiss(animated: true, completion: nil)
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        print("app delegate")
+        return completionHandler([.alert, .sound])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        print("app delegate")
+        let imageId = response.notification.request.identifier
+        let newFetchResult = PHAsset.fetchAssets(withLocalIdentifiers: [imageId], options: nil)
+        let backBarButton = UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(AppDelegate.navigateToRootView(sender:)))
+        
+        if let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailedViewController") as? DetailedViewController {
+            if let window = self.window, let rootViewController = window.rootViewController {
+                var currentController = rootViewController
+                while let presentedController = currentController.presentedViewController {
+                    currentController = presentedController
+                }
+                controller.fetchResult = newFetchResult
+                controller.phasset = newFetchResult.firstObject
+                controller.indexForCell = IndexPath(item: 0, section: 0)
+                let navController = UINavigationController(rootViewController: controller)
+                controller.navigationItem.rightBarButtonItem = backBarButton
+                currentController.present(navController, animated: true, completion: nil)
+            }
+        }
+        
+        
+//        let notificationMediaView = self.storyboard?.instantiateViewController(withIdentifier: "DetailedViewController") as! DetailedViewController
+//        notificationMediaView.fetchResult = newFetchResult
+//        notificationMediaView.phasset = newFetchResult.firstObject
+//        notificationMediaView.indexForCell = IndexPath(item: 0, section: 0)
+//        let logoutBarButtonItem = UIBarButtonItem(title: "Logout", style: .done, target: self, action: #selector(logoutUser))
+//        notificationMediaView.navigationItem.rightBarButtonItem  = logoutBarButtonItem
+//        let navController = UINavigationController(rootViewController: notificationMediaView)
+//        self.navigationController?.present(navController, animated: true, completion: nil)
+        
+        // the docs say you should execute this asap
+        return completionHandler()
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        UNUserNotificationCenter.current().delegate = self
         
         // Override point for customization after application launch.
         let defaults = UserDefaults.standard

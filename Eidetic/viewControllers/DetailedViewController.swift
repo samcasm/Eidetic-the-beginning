@@ -299,7 +299,7 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
     }
     
     func registerForPushNotifications() {
-        UNUserNotificationCenter.current().delegate = self
+//        UNUserNotificationCenter.current().delegate = self
         UNUserNotificationCenter.current()
             .requestAuthorization(options: [.alert, .sound, .badge]) {
                 [weak self] granted, error in
@@ -315,9 +315,6 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
         UNUserNotificationCenter.current().getNotificationSettings { settings in
             print("Notification settings: \(settings)")
             guard settings.authorizationStatus == .authorized else { return }
-//            DispatchQueue.main.async {
-//                UIApplication.shared.registerForRemoteNotifications()
-//            }
         }
     }
     

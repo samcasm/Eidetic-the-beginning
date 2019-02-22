@@ -26,6 +26,7 @@ extension UIViewController {
         ac.addAction(UIAlertAction(title: "OK", style: .default))
         present(ac, animated: true)
     }
+
     
     func showInputDialog(title:String? = nil,
                          subtitle:String? = nil,
