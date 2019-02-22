@@ -247,6 +247,31 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
     }
     
     //Reminders functionality
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert,.sound])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        let imageId = response.notification.request.identifier
+        let newFetchResult = PHAsset.fetchAssets(withLocalIdentifiers: [imageId], options: nil)
+        
+        let notificationMediaView = self.storyboard?.instantiateViewController(withIdentifier: "DetailedViewController") as! DetailedViewController
+        notificationMediaView.fetchResult = newFetchResult
+        notificationMediaView.phasset = newFetchResult.firstObject
+        notificationMediaView.indexForCell = IndexPath(item: 0, section: 0)
+        let logoutBarButtonItem = UIBarButtonItem(title: "Logout", style: .done, target: self, action: #selector(logoutUser))
+        notificationMediaView.navigationItem.rightBarButtonItem  = logoutBarButtonItem
+        let navController = UINavigationController(rootViewController: notificationMediaView)
+        self.navigationController?.present(navController, animated: true, completion: nil)
+        
+    }
+    
+    @objc func logoutUser(){
+        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     func sendNotification(){
         let content = UNMutableNotificationContent()
         content.title = "Hey!"
@@ -267,7 +292,7 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
         
         // 3
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
-        let request = UNNotificationRequest(identifier: "notification.id.01", content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: phasset.localIdentifier, content: content, trigger: trigger)
         
         // 4
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)

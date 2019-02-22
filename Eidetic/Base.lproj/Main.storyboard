@@ -389,7 +389,7 @@
         <!--Detailed View Controller-->
         <scene sceneID="DmG-8d-dhs">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="b5k-6f-cbX" customClass="DetailedViewController" customModule="Eidetic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailedViewController" hidesBottomBarWhenPushed="YES" id="b5k-6f-cbX" customClass="DetailedViewController" customModule="Eidetic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7IO-E6-TMB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
