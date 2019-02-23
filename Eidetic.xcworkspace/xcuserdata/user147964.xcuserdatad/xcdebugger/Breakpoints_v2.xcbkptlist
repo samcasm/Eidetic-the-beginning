@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Eidetic/viewControllers/DetailedViewController.swift"
-            timestampString = "572554398.454849"
+            filePath = "Eidetic/viewControllers/RemindersViewController.swift"
+            timestampString = "572577187.4624"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "256"
-            endingLineNumber = "256"
-            landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "deleteReminder(cell:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,14 +25,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Eidetic/viewControllers/DetailedViewController.swift"
-            timestampString = "572554398.45518"
+            filePath = "Eidetic/viewControllers/RemindersViewController.swift"
+            timestampString = "572577187.463046"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "251"
-            endingLineNumber = "251"
-            landmarkName = "userNotificationCenter(_:willPresent:withCompletionHandler:)"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Eidetic.RemindersViewController.viewWillAppear(Swift.Bool) -&gt; ()"
+                  moduleName = "Eidetic"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user147964/Desktop/Eidetic-the-beginning/Eidetic/viewControllers/RemindersViewController.swift"
+                  timestampString = "572576979.307144"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;__C.UNNotificationRequest&gt;) -&gt; () in Eidetic.RemindersViewController.viewWillAppear(Swift.Bool) -&gt; ()"
+                  moduleName = "Eidetic"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user147964/Desktop/Eidetic-the-beginning/Eidetic/viewControllers/RemindersViewController.swift"
+                  timestampString = "572576979.309618"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "34">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -41,14 +73,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Eidetic/AppDelegate.swift"
-            timestampString = "572554398.455247"
+            filePath = "Eidetic/viewControllers/RemindersViewController.swift"
+            timestampString = "572577187.463348"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "navigateToRootView(sender:)"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "viewDidAppear(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Eidetic.RemindersViewController.viewDidAppear(Swift.Bool) -&gt; ()"
+                  moduleName = "Eidetic"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user147964/Desktop/Eidetic-the-beginning/Eidetic/viewControllers/RemindersViewController.swift"
+                  timestampString = "572576979.315676"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.UNNotificationRequest) -&gt; Swift.String in Eidetic.RemindersViewController.viewDidAppear(Swift.Bool) -&gt; ()"
+                  moduleName = "Eidetic"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user147964/Desktop/Eidetic-the-beginning/Eidetic/viewControllers/RemindersViewController.swift"
+                  timestampString = "572576979.318166"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
