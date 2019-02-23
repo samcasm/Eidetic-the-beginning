@@ -562,7 +562,14 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
         if( returnTagsFromImagesArray(assetID: asset.localIdentifier).count != 0) {
             cell.tagsCollectionView.isHidden = false
         }
-
+        
+        if asset.mediaType == .video{
+            let playButton = cell.viewWithTag(18) as! UIButton
+            playButton.isHidden = false
+        }else{
+            let playButton = cell.viewWithTag(18) as! UIButton
+            playButton.isHidden = true
+        }
         
         // Request an image for the asset from the PHCachingImageManager.
         cell.assetIdentifier = asset.localIdentifier

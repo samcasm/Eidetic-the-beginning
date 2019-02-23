@@ -540,6 +540,15 @@
                                                         </stackView>
                                                     </subviews>
                                                 </stackView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kJC-Wc-0Gu">
+                                                    <rect key="frame" x="147.5" y="183.5" width="80" height="80"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="80" id="DUG-eR-aHZ"/>
+                                                        <constraint firstAttribute="width" constant="80" id="Ml4-YI-ESl"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <state key="normal" title="Button" image="play"/>
+                                                </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Okt-zT-uwf" customClass="EEZoomableImageView" customModule="EEZoomableImageView">
                                                     <rect key="frame" x="0.0" y="65" width="375" height="338"/>
                                                     <constraints>
@@ -613,6 +622,8 @@
                                             <constraint firstItem="Okt-zT-uwf" firstAttribute="top" secondItem="PGl-3H-L6s" secondAttribute="bottom" constant="7" id="F7e-3c-fuO"/>
                                             <constraint firstItem="PGl-3H-L6s" firstAttribute="centerX" secondItem="WPW-4X-dxD" secondAttribute="centerX" id="IsY-PI-fMh"/>
                                             <constraint firstItem="Vw9-lJ-Wwl" firstAttribute="leading" secondItem="WPW-4X-dxD" secondAttribute="leading" constant="19" id="MUh-Ng-JdW"/>
+                                            <constraint firstItem="kJC-Wc-0Gu" firstAttribute="centerX" secondItem="Okt-zT-uwf" secondAttribute="centerX" id="bUU-Ny-9hX"/>
+                                            <constraint firstItem="kJC-Wc-0Gu" firstAttribute="centerY" secondItem="Okt-zT-uwf" secondAttribute="centerY" constant="-10.5" id="ecK-7y-Oma"/>
                                             <constraint firstAttribute="trailing" secondItem="Vw9-lJ-Wwl" secondAttribute="trailing" constant="18" id="hKm-2B-bP6"/>
                                             <constraint firstItem="Okt-zT-uwf" firstAttribute="leading" secondItem="WPW-4X-dxD" secondAttribute="leading" id="oQ0-2i-gmE"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PGl-3H-L6s" secondAttribute="trailing" constant="12" id="raT-YC-uyz"/>
@@ -665,7 +676,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xiM-Eb-Jgd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5841" y="-595"/>
+            <point key="canvasLocation" x="5840.8000000000002" y="-595.05247376311854"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pot-eM-N1F">
@@ -1006,6 +1017,7 @@
         <image name="folder-glyph" width="22.5" height="22.5"/>
         <image name="folder1" width="178.28572082519531" height="178.28572082519531"/>
         <image name="icloud" width="180" height="180"/>
+        <image name="play" width="180" height="180"/>
         <image name="uncheckbox" width="37.5" height="37.5"/>
     </resources>
     <inferredMetricsTieBreakers>
