@@ -66,7 +66,48 @@ extension String {
     }
 }
 
+extension DateComponents {
+    
+    func toDate() -> Date {
+        let calendar = Calendar.current
+        let dateComponents = DateComponents(calendar: calendar, year: self.year, month: self.month, day: self.day)
+        return calendar.date(from: dateComponents) ?? Date()
+    }
+}
+
 extension Date {
+    func getMonth() -> String {
+        let mdateFormatter = DateFormatter()
+        mdateFormatter.dateFormat = "MMMM"
+        return mdateFormatter.string(from: self)
+    }
+    
+    func getDay() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        return dateFormatter.string(from: self)
+    }
+    
+    func getDate() -> String {
+        let numberFormatter = DateFormatter()
+        numberFormatter.dateFormat = "d"
+        let date = numberFormatter.string(from: self)
+        let dateSuffix = date.suffix(1)
+        
+        if dateSuffix == "1" && date != "11"{
+            return date + "st"
+        }else if dateSuffix == "2" {
+            return date + "nd"
+        }else if dateSuffix == "3"{
+            return date + "rd"
+        }else{
+            return date + "th"
+        }
+    }
+    
+    func getFormattedDateString() -> String {
+        return self.getDay() + ", " + self.getDate() + " " + self.getMonth().prefix(3)
+    }
     
     func toString (format:String) -> String? {
         return DateFormatter(format: format).string(from: self)

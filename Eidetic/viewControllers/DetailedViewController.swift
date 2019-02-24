@@ -276,15 +276,22 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
         let content = UNMutableNotificationContent()
         content.title = "Hey!"
         content.subtitle = "Here's your reminder"
-        content.body = "Content body"
         
-        // 2
+        
+        let timeNow = Date()
+        let calendar = Calendar.current
+        let newTime = calendar.date(byAdding: .second, value: Int(interval), to: timeNow) ?? Date()
+        let hour = calendar.component(.hour, from: newTime)
+        let minutes = calendar.component(.minute, from: newTime)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "a" // "a" prints "pm" or "am"
+        let amPM = formatter.string(from: newTime)
+        content.body = String(hour) + String(minutes) + amPM
+        
         let imageName = "mediaThumbnail"
         
-//        let myImage = requestImageForPHAsset(asset: phasset)
         PHImageManager.default().requestImage(for: phasset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFit, options: nil, resultHandler: { image, _ in
             if let attachment = UNNotificationAttachment.create(identifier: imageName, image: image!, options: nil) {
-                // where myImage is any UIImage that follows the
                 content.attachments = [attachment]
             }
         })
@@ -292,7 +299,8 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
         let request = UNNotificationRequest(identifier: phasset.localIdentifier, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request) { (error) in
             if error != nil {
-                self.showAlertWith(title: "Failed", message: "Reminder for this image already exists")
+                self.showAlertWith(title: "Failed", message: "Something went wrong")
+
             }else{
                 self.showAlertWith(title: "Success", message: "Added a reminder for later")
             }
@@ -305,21 +313,22 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
         content.title = "Hey!"
         content.subtitle = "Here's your reminder. Check it out"
         
-        // 2
+        let dateFormat = date.toDate()
+        content.body = dateFormat.getFormattedDateString()
+        
         let imageName = "mediaThumbnail"
         
-        //        let myImage = requestImageForPHAsset(asset: phasset)
         PHImageManager.default().requestImage(for: phasset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFit, options: nil, resultHandler: { image, _ in
             if let attachment = UNNotificationAttachment.create(identifier: imageName, image: image!, options: nil) {
-                // where myImage is any UIImage that follows the
                 content.attachments = [attachment]
             }
         })
+        
         let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: false)
         let request = UNNotificationRequest(identifier: phasset.localIdentifier, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request) { (error) in
             if error != nil {
-                self.showAlertWith(title: "Failed", message: "Reminder for this image already exists")
+                self.showAlertWith(title: "Failed", message: "Something went wrong")
             }else{
                 self.showAlertWith(title: "Success", message: "Added a reminder for later")
             }
@@ -328,7 +337,6 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
     }
     
     func registerForPushNotifications() {
-//        UNUserNotificationCenter.current().delegate = self
         UNUserNotificationCenter.current()
             .requestAuthorization(options: [.alert, .sound, .badge]) {
                 [weak self] granted, error in
@@ -385,9 +393,11 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
             picker.show()
             
             picker.completionHandler = { date in
-                let formatter = DateFormatter()
-                formatter.dateFormat = "dd/MM/YYYY"
-                self.title = formatter.string(from: date)
+//                let formatter = DateFormatter()
+//                formatter.dateFormat = "dd/MM/YYYY"
+//                self.title = formatter.string(from: date)
+                
+                self.title = date.getFormattedDateString()
                 
                 let calendar = Calendar.current
                 let year = calendar.component(.year, from: date)

@@ -248,12 +248,6 @@
                                                 <constraint firstAttribute="width" secondItem="VLC-ft-dFB" secondAttribute="height" multiplier="1:1" id="xa6-Jn-8qh"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a reminder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cA-qd-rvz">
-                                            <rect key="frame" x="106.5" y="34" width="152.5" height="24"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZoF-HG-DKE">
                                             <rect key="frame" x="306" y="28" width="57" height="36"/>
                                             <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="20"/>
@@ -264,14 +258,32 @@
                                                 <action selector="deleteReminderAction:" destination="lJp-nq-ft7" eventType="touchUpInside" id="cMj-KL-42g"/>
                                             </connections>
                                         </button>
+                                        <stackView opaque="NO" contentMode="scaleAspectFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PiR-5E-n9o">
+                                            <rect key="frame" x="93.5" y="30" width="192.5" height="32"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="754" text="This is a reminder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cA-qd-rvz">
+                                                    <rect key="frame" x="0.0" y="0.0" width="152.5" height="32"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="86y-GK-bGu">
+                                                    <rect key="frame" x="160.5" y="0.0" width="32" height="32"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="32" id="6Jd-hh-xzV"/>
+                                                        <constraint firstAttribute="width" constant="32" id="UlE-t8-aF8"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="5cA-qd-rvz" firstAttribute="leading" secondItem="VLC-ft-dFB" secondAttribute="trailing" constant="23" id="9PL-W2-t9o"/>
+                                        <constraint firstItem="PiR-5E-n9o" firstAttribute="centerY" secondItem="hiH-bZ-XN6" secondAttribute="centerY" id="Cy0-qX-wWF"/>
                                         <constraint firstItem="ZoF-HG-DKE" firstAttribute="centerY" secondItem="hiH-bZ-XN6" secondAttribute="centerY" id="HGP-F1-nI3"/>
                                         <constraint firstAttribute="trailing" secondItem="ZoF-HG-DKE" secondAttribute="trailing" constant="12" id="RGS-fP-qPB"/>
                                         <constraint firstItem="VLC-ft-dFB" firstAttribute="top" secondItem="hiH-bZ-XN6" secondAttribute="top" constant="10" id="Wmm-Wp-Ki0"/>
-                                        <constraint firstItem="5cA-qd-rvz" firstAttribute="centerY" secondItem="hiH-bZ-XN6" secondAttribute="centerY" id="Wnm-IO-7EL"/>
                                         <constraint firstAttribute="bottom" secondItem="VLC-ft-dFB" secondAttribute="bottom" constant="10" id="cCY-El-nMe"/>
+                                        <constraint firstItem="PiR-5E-n9o" firstAttribute="leading" secondItem="VLC-ft-dFB" secondAttribute="trailing" constant="10" id="dgF-mk-Zow"/>
                                         <constraint firstItem="VLC-ft-dFB" firstAttribute="leading" secondItem="hiH-bZ-XN6" secondAttribute="leading" constant="12" id="hBl-TG-FaO"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -290,7 +302,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2TN-uT-KTr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4644" y="920"/>
+            <point key="canvasLocation" x="4644" y="919.79010494752629"/>
         </scene>
         <!--Detailed View Controller-->
         <scene sceneID="DmG-8d-dhs">

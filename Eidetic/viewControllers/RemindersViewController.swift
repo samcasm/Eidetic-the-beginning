@@ -16,6 +16,7 @@ class RemindersViewController: UITableViewController, ReminderCellDelegate {
     var scheduledReminders: [UNNotificationRequest] = []
     var reminderPHAssets: PHFetchResult<PHAsset>!
     var imageIDs: [String] = []
+    var scheduledTimes: [String] = []
     
     func deleteReminder(cell: ReminderCell) {
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [cell.reminderID])
@@ -29,6 +30,7 @@ class RemindersViewController: UITableViewController, ReminderCellDelegate {
             self.scheduledReminders = notifications
             DispatchQueue.main.async {
                 self.imageIDs =  self.scheduledReminders.map { $0.identifier }
+                self.scheduledTimes = self.scheduledReminders.map {$0.content.body}
                 self.reminderPHAssets = PHAsset.fetchAssets(withLocalIdentifiers: self.imageIDs, options: nil)
                 self.tableView.reloadData()
             }
@@ -63,7 +65,7 @@ class RemindersViewController: UITableViewController, ReminderCellDelegate {
         PHImageManager.default().requestImage(for: asset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFit, options: nil) { (image, _) in
             
             cell.thumbnailImage.image = image
-            cell.reminderLabel.text = "Reminder"
+            cell.reminderLabel.text = self.scheduledTimes[indexPath.row] 
             cell.reminderID = asset.localIdentifier
         }
         return cell
