@@ -13,6 +13,7 @@ import AVKit
 import EEZoomableImageView
 import EventKit
 import UserNotifications
+import DateTimePicker
 
 private extension UICollectionView {
     func indexPathsForElements(in rect: CGRect) -> [IndexPath] {
@@ -22,7 +23,7 @@ private extension UICollectionView {
 }
 
 
-class DetailedViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UNUserNotificationCenterDelegate {
+class DetailedViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UNUserNotificationCenterDelegate{
     
     
     var fetchResult: PHFetchResult<PHAsset>!
@@ -272,7 +273,9 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
         self.navigationController?.popViewController(animated: true)
     }
     
-    func sendNotification(){
+
+    
+    func sendNotification(interval: TimeInterval){
         let content = UNMutableNotificationContent()
         content.title = "Hey!"
         content.subtitle = "Here's your reminder"
@@ -288,14 +291,32 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
                 content.attachments = [attachment]
             }
         })
-
-        
-        // 3
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: interval, repeats: false)
         let request = UNNotificationRequest(identifier: phasset.localIdentifier, content: content, trigger: trigger)
-        
-        // 4
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        
+    }
+    
+    func scheduleNotification(date: DateComponents){
+        let content = UNMutableNotificationContent()
+        content.title = "Hey!"
+        content.subtitle = "Here's your reminder"
+        content.body = "Content body"
+        
+        // 2
+        let imageName = "mediaThumbnail"
+        
+        //        let myImage = requestImageForPHAsset(asset: phasset)
+        PHImageManager.default().requestImage(for: phasset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFit, options: nil, resultHandler: { image, _ in
+            if let attachment = UNNotificationAttachment.create(identifier: imageName, image: image!, options: nil) {
+                // where myImage is any UIImage that follows the
+                content.attachments = [attachment]
+            }
+        })
+        let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
+        let request = UNNotificationRequest(identifier: phasset.localIdentifier, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        
     }
     
     func registerForPushNotifications() {
@@ -307,7 +328,6 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
                 print("Permission granted: \(granted)")
                 guard granted else { return }
                 self?.getNotificationSettings()
-                self?.sendNotification()
         }
     }
     
@@ -325,15 +345,24 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
         let alert = UIAlertController(title: "Remind me", message: "About this picture", preferredStyle: .actionSheet)
         
         alert.addAction(UIAlertAction(title: "Later today", style: .default , handler:{ (UIAlertAction)in
-            print("User click Approve button")
+//            self.sendNotification(interval: 7200)
         }))
         
         alert.addAction(UIAlertAction(title: "Tomorrow", style: .default , handler:{ (UIAlertAction)in
-            print("User click Edit button")
+            var date = DateComponents()
+            date.hour = 11
+            date.minute = 30
+            
+//            self.scheduleNotification(date: date)
         }))
         
         alert.addAction(UIAlertAction(title: "Set Date", style: .default , handler:{ (UIAlertAction)in
             print("User click Delete button")
+            let min = Date().addingTimeInterval(-60 * 60 * 24 * 4)
+            let max = Date().addingTimeInterval(60 * 60 * 24 * 4)
+            let picker = DateTimePicker.create(minimumDate: min, maximumDate: max)
+            picker.isDatePickerOnly = true
+            picker.show()
         }))
         
         alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler:{ (UIAlertAction)in
