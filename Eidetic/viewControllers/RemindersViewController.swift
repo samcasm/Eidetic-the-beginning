@@ -14,9 +14,12 @@ import Photos
 class RemindersViewController: UITableViewController, ReminderCellDelegate {
 
     var scheduledReminders: [UNNotificationRequest] = []
-    var reminderPHAssets: PHFetchResult<PHAsset>!
-    var imageIDs: [String] = []
-    var scheduledTimes: [String] = []
+    var reminders: [Reminder] = []
+    
+    struct Reminder {
+        var phasset: PHAsset
+        var scheduledDate: String
+    }
     
     func deleteReminder(cell: ReminderCell) {
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [cell.reminderID])
@@ -29,9 +32,10 @@ class RemindersViewController: UITableViewController, ReminderCellDelegate {
             print(notifications.count)
             self.scheduledReminders = notifications
             DispatchQueue.main.async {
-                self.imageIDs =  self.scheduledReminders.map { $0.identifier }
-                self.scheduledTimes = self.scheduledReminders.map {$0.content.body}
-                self.reminderPHAssets = PHAsset.fetchAssets(withLocalIdentifiers: self.imageIDs, options: nil)
+                self.reminders =  self.scheduledReminders.map {
+                    let asset = PHAsset.fetchAssets(withLocalIdentifiers: [$0.identifier], options: nil).firstObject as! PHAsset
+                    return Reminder(phasset: asset, scheduledDate: $0.content.body)
+                }
                 self.tableView.reloadData()
             }
         }
@@ -53,19 +57,24 @@ class RemindersViewController: UITableViewController, ReminderCellDelegate {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard reminderPHAssets != nil else {return 0}
-        return reminderPHAssets.count
+        if reminders.count == 0 {
+            self.tableView.setEmptyMessage("No reminders set yet")
+            return 0
+        } else {
+            self.tableView.restore()
+            return reminders.count
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let asset = reminderPHAssets.object(at: indexPath.row)
+        let asset = reminders[indexPath.row].phasset
         let cell = tableView.dequeueReusableCell(withIdentifier: "reminderCell", for: indexPath) as! ReminderCell
         cell.delegate = self
         
         PHImageManager.default().requestImage(for: asset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFit, options: nil) { (image, _) in
             
             cell.thumbnailImage.image = image
-            cell.reminderLabel.text = self.scheduledTimes[indexPath.row] 
+            cell.reminderLabel.text = self.reminders[indexPath.row].scheduledDate
             cell.reminderID = asset.localIdentifier
         }
         return cell

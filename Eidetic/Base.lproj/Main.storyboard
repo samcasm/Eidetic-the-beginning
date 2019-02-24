@@ -167,28 +167,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="jWW-Bn-HSW">
-                                <rect key="frame" x="34.5" y="311" width="306" height="88"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="jWW-Bn-HSW">
+                                <rect key="frame" x="34.5" y="306" width="306" height="98"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save your data to iCloud(in Kbs)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7K6-5O-PZZ">
                                         <rect key="frame" x="0.0" y="0.0" width="306" height="24"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
-                                        <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Retrieve your data from iCloud" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Rj-9p-M5O">
-                                        <rect key="frame" x="7" y="64" width="292" height="24"/>
+                                        <rect key="frame" x="7" y="74" width="292" height="24"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
-                                        <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icloud" translatesAutoresizingMaskIntoConstraints="NO" id="C1V-Do-hsK">
-                                <rect key="frame" x="67" y="130" width="240" height="150"/>
+                                <rect key="frame" x="67" y="130" width="240" height="145"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.29814602629999998" green="0.4272327085" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="jWW-Bn-HSW" firstAttribute="top" secondItem="C1V-Do-hsK" secondAttribute="bottom" constant="31" id="5py-xi-NTr"/>
                             <constraint firstItem="jWW-Bn-HSW" firstAttribute="centerY" secondItem="gVy-es-raA" secondAttribute="centerY" constant="14" id="8JF-rf-71s"/>
@@ -551,8 +551,8 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Permissions required" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IjI-eg-BYe">
-                                        <rect key="frame" x="29.5" y="121" width="181" height="71"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <rect key="frame" x="25.5" y="121" width="189.5" height="71"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -568,7 +568,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.58081901069999997" green="0.15211694932818548" blue="0.27351696548949711" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="itg-VO-KEK" firstAttribute="top" secondItem="HRM-hZ-zSq" secondAttribute="top" constant="140" id="E6d-ZG-lqF"/>
                             <constraint firstItem="itg-VO-KEK" firstAttribute="leading" secondItem="HRM-hZ-zSq" secondAttribute="leading" constant="67" id="YfY-kg-hEf"/>
@@ -857,6 +857,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="vZY-vd-2FC"/>
-        <segue reference="Uut-ve-IMy"/>
+        <segue reference="C6c-UZ-BoF"/>
     </inferredMetricsTieBreakers>
 </document>

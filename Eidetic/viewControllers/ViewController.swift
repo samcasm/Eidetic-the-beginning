@@ -299,7 +299,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if (fetchResult == nil) {
-            self.collectionView.setEmptyMessage("Nothing to show :(")
+            self.collectionView.setEmptyMessage("No photos in the media library")
             return 0
         } else {
             self.collectionView.restore()

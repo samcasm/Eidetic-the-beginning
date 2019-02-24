@@ -281,12 +281,12 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
         let timeNow = Date()
         let calendar = Calendar.current
         let newTime = calendar.date(byAdding: .second, value: Int(interval), to: timeNow) ?? Date()
-        let hour = calendar.component(.hour, from: newTime)
-        let minutes = calendar.component(.minute, from: newTime)
+//        calendar.component(.hour, from: newTime)
+//        let minutes = calendar.component(.minute, from: newTime)
         let formatter = DateFormatter()
-        formatter.dateFormat = "a" // "a" prints "pm" or "am"
-        let amPM = formatter.string(from: newTime)
-        content.body = String(hour) + String(minutes) + amPM
+        formatter.dateFormat = "hh:mm a" // "a" prints "pm" or "am"
+        let formattedTime = formatter.string(from: newTime)
+        content.body = "Today, " + formattedTime
         
         let imageName = "mediaThumbnail"
         
@@ -388,14 +388,13 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
             let max = Date().addingTimeInterval(60 * 60 * 24 * 94)
             let picker = DateTimePicker.create(minimumDate: min, maximumDate: max)
             picker.isDatePickerOnly = true
-            picker.dateFormat = "dd/MM/YYYY"
+            picker.dateFormat = "MM/dd/YYYY"
             picker.includeMonth = true
+            picker.doneBackgroundColor = UIColor(red: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 1)
+            picker.highlightColor = UIColor(red: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 1)
             picker.show()
             
             picker.completionHandler = { date in
-//                let formatter = DateFormatter()
-//                formatter.dateFormat = "dd/MM/YYYY"
-//                self.title = formatter.string(from: date)
                 
                 self.title = date.getFormattedDateString()
                 
