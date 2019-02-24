@@ -290,7 +290,13 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
         })
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: interval, repeats: false)
         let request = UNNotificationRequest(identifier: phasset.localIdentifier, content: content, trigger: trigger)
-        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        UNUserNotificationCenter.current().add(request) { (error) in
+            if error != nil {
+                self.showAlertWith(title: "Failed", message: "Reminder for this image already exists")
+            }else{
+                self.showAlertWith(title: "Success", message: "Added a reminder for later")
+            }
+        }
         
     }
     

@@ -113,6 +113,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         _selectedCells.removeAllObjects()
         
         if allowsMultipleSelection {
+            cameraButton.isEnabled = false
             selectButton.title = "Cancel"
             navigationController?.isToolbarHidden = false
             self.navigationItem.title = "Select Items"
@@ -122,6 +123,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             searchBar.isTranslucent = false
             addTagButton.isEnabled = _selectedCells.count > 0 ? true : false
         }else{
+            cameraButton.isEnabled = true
             selectButton.title = "Select"
             navigationController?.isToolbarHidden = true
             self.navigationItem.title = ""
