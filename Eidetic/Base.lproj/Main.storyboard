@@ -167,42 +167,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="jWW-Bn-HSW">
-                                <rect key="frame" x="34.5" y="306" width="306" height="98"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icloud" translatesAutoresizingMaskIntoConstraints="NO" id="C1V-Do-hsK">
+                                <rect key="frame" x="67" y="130" width="240" height="170.5"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" text="Backup your data to your iCloud with a click. The file size will not more one than that of one image" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lH1-IY-jZw">
+                                <rect key="frame" x="30" y="310.5" width="312.5" height="61"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="jdo-hA-tYJ">
+                                <rect key="frame" x="102" y="421.5" width="171" height="109"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save your data to iCloud(in Kbs)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7K6-5O-PZZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="306" height="24"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Retrieve your data from iCloud" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Rj-9p-M5O">
-                                        <rect key="frame" x="7" y="74" width="292" height="24"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Xq-Mc-zSg">
+                                        <rect key="frame" x="0.0" y="0.0" width="171" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Save Data to iCloud">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sendDataToCloudAction:" destination="eNJ-g3-fB6" eventType="touchUpInside" id="nmK-rh-8K6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WTw-c5-Gu3">
+                                        <rect key="frame" x="17.5" y="73" width="136" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Get Saved Data">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="getDataFromCloudAction:" destination="eNJ-g3-fB6" eventType="touchUpInside" id="TG4-8v-vnb"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icloud" translatesAutoresizingMaskIntoConstraints="NO" id="C1V-Do-hsK">
-                                <rect key="frame" x="67" y="130" width="240" height="145"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.29814602629999998" green="0.4272327085" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="jWW-Bn-HSW" firstAttribute="top" secondItem="C1V-Do-hsK" secondAttribute="bottom" constant="31" id="5py-xi-NTr"/>
-                            <constraint firstItem="jWW-Bn-HSW" firstAttribute="centerY" secondItem="gVy-es-raA" secondAttribute="centerY" constant="14" id="8JF-rf-71s"/>
+                            <constraint firstItem="lH1-IY-jZw" firstAttribute="top" secondItem="C1V-Do-hsK" secondAttribute="bottom" constant="10" id="1Eo-HI-6yX"/>
+                            <constraint firstItem="jdo-hA-tYJ" firstAttribute="centerX" secondItem="gVy-es-raA" secondAttribute="centerX" id="2nq-f3-71N"/>
+                            <constraint firstItem="gVy-es-raA" firstAttribute="trailing" secondItem="lH1-IY-jZw" secondAttribute="trailing" priority="749" constant="30" id="LUx-UT-JyI"/>
+                            <constraint firstItem="lH1-IY-jZw" firstAttribute="leading" secondItem="gVy-es-raA" secondAttribute="leading" constant="30" id="NxZ-1N-knc"/>
+                            <constraint firstItem="jdo-hA-tYJ" firstAttribute="top" secondItem="lH1-IY-jZw" secondAttribute="bottom" constant="50" id="ObF-ra-7n0"/>
                             <constraint firstItem="gVy-es-raA" firstAttribute="trailing" secondItem="C1V-Do-hsK" secondAttribute="trailing" constant="68" id="PZM-M0-5oH"/>
-                            <constraint firstItem="jWW-Bn-HSW" firstAttribute="centerX" secondItem="gVy-es-raA" secondAttribute="centerX" id="TMq-rq-7Gh"/>
                             <constraint firstItem="C1V-Do-hsK" firstAttribute="top" secondItem="gVy-es-raA" secondAttribute="top" constant="66" id="ZzS-ee-Thb"/>
+                            <constraint firstItem="lH1-IY-jZw" firstAttribute="centerY" secondItem="gVy-es-raA" secondAttribute="centerY" id="bAy-wC-yGK"/>
                             <constraint firstItem="C1V-Do-hsK" firstAttribute="leading" secondItem="gVy-es-raA" secondAttribute="leading" constant="67" id="wf6-Qh-yhI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gVy-es-raA"/>
                     </view>
                     <navigationItem key="navigationItem" id="Jsu-hY-RA5"/>
                     <connections>
-                        <outlet property="retrieveDataFromiCloudLabel" destination="1Rj-9p-M5O" id="hnf-p3-0BN"/>
-                        <outlet property="saveDataToiCloudLabel" destination="7K6-5O-PZZ" id="wos-yr-hR7"/>
+                        <outlet property="getSavedDataButton" destination="WTw-c5-Gu3" id="83b-70-Tb6"/>
+                        <outlet property="saveDataToiCloudButton" destination="3Xq-Mc-zSg" id="SOV-a5-gXc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TF6-h4-mfH" userLabel="First Responder" sceneMemberID="firstResponder"/>

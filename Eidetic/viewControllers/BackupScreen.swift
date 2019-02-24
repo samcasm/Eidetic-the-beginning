@@ -12,9 +12,9 @@ import CloudKit
 
 class BackupScreen: UIViewController {
     
-    @IBOutlet weak var saveDataToiCloudLabel: UILabel!
     
-    @IBOutlet weak var retrieveDataFromiCloudLabel: UILabel!
+    @IBOutlet weak var saveDataToiCloudButton: UIButton!
+    @IBOutlet weak var getSavedDataButton: UIButton!
     
     let database = CKContainer.default().privateCloudDatabase
     
@@ -22,13 +22,44 @@ class BackupScreen: UIViewController {
         print("View loaded")
         self.title = "iCloud Backup"
         
-        let saveTap = UITapGestureRecognizer(target: self, action: #selector(BackupScreen.saveDataToiCloud))
-        saveDataToiCloudLabel.isUserInteractionEnabled = true
-        saveDataToiCloudLabel.addGestureRecognizer(saveTap)
+    }
+    
+    @IBAction func sendDataToCloudAction(_ sender: UIButton) {
+        do{
+            let allTagsData = try String(contentsOf: FileManager.tagsFileURL, encoding: .utf8)
+            let allFoldersData = try String(contentsOf: FileManager.directoriesURL, encoding: .utf8)
+            
+            overwriteTagsDataInDatabase(allTags: allTagsData, allFolders: allFoldersData)
+            
+        }catch{
+            print("Couldn't fetch data to save")
+        }
+    }
+    
+    @IBAction func getDataFromCloudAction(_ sender: UIButton) {
+        let recordID = CKRecord.ID(recordName: "EideticData")
         
-        let retrieveTap = UITapGestureRecognizer(target: self, action: #selector(BackupScreen.retrieveDataFromiCloud))
-        retrieveDataFromiCloudLabel.isUserInteractionEnabled = true
-        retrieveDataFromiCloudLabel.addGestureRecognizer(retrieveTap)
+        database.fetch(withRecordID: recordID) { record, error in
+            if let record = record, error == nil {
+                do{
+                    try self.writeRecordDataToAppData(key: "Tags", record: record)
+                    try self.writeRecordDataToAppData(key: "Folders", record: record)
+                    self.showAlertWith(title: "Success!", message: "Retrieved your data successfully")
+                }catch{
+                    print("Error call")
+                    self.showAlertWith(title: "Failed!", message: "Something went wrong while trying to retrieve data")
+                }
+            }else if error != nil{
+                let ckerror = error as! CKError
+                if ckerror.code == CKError.notAuthenticated {
+                    self.showAlertWith(title: "Failed!", message: "You are not signed in to your apple account. Sign In in the settings menu")
+                }else if ckerror.code == CKError.unknownItem{
+                    self.showAlertWith(title: "Failed", message: "No data backup is available in your iCloud")
+                }else{
+                    self.showAlertWith(title: "Failed", message: "Something went wrong trying to retrieve your backup data")
+                }
+            }
+        }
     }
     
     func overwriteTagsDataInDatabase(allTags: String, allFolders: String){
@@ -75,18 +106,6 @@ class BackupScreen: UIViewController {
         }
     }
     
-    @objc func saveDataToiCloud(){
-        do{
-            let allTagsData = try String(contentsOf: FileManager.tagsFileURL, encoding: .utf8)
-            let allFoldersData = try String(contentsOf: FileManager.directoriesURL, encoding: .utf8)
-            
-            overwriteTagsDataInDatabase(allTags: allTagsData, allFolders: allFoldersData)
-            
-        }catch{
-            print("Couldn't fetch data to save")
-        }
-    }
-    
     func writeRecordDataToAppData(key: String, record: CKRecord) throws {
         let tagsRecord = record.object(forKey: key)
         let tagsString = tagsRecord as! String
@@ -106,30 +125,5 @@ class BackupScreen: UIViewController {
         }
     }
     
-    @objc func retrieveDataFromiCloud(){
-        let recordID = CKRecord.ID(recordName: "EideticData")
-        
-        database.fetch(withRecordID: recordID) { record, error in
-            if let record = record, error == nil {
-                do{
-                    try self.writeRecordDataToAppData(key: "Tags", record: record)
-                    try self.writeRecordDataToAppData(key: "Folders", record: record)
-                    self.showAlertWith(title: "Success!", message: "Retrieved your data successfully")
-                }catch{
-                    print("Error call")
-                    self.showAlertWith(title: "Failed!", message: "Something went wrong while trying to retrieve data")
-                }
-            }else if error != nil{
-                let ckerror = error as! CKError
-                if ckerror.code == CKError.notAuthenticated {
-                    self.showAlertWith(title: "Failed!", message: "You are not signed in to your apple account. Sign In in the settings menu")
-                }else if ckerror.code == CKError.unknownItem{
-                    self.showAlertWith(title: "Failed", message: "No data backup is available in your iCloud")
-                }else{
-                    self.showAlertWith(title: "Failed", message: "Something went wrong trying to retrieve your backup data")
-                }
-            }
-        }
-
-    }
+    
 }
