@@ -25,7 +25,6 @@ private extension UICollectionView {
 
 class DetailedViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UNUserNotificationCenterDelegate{
     
-    
     var fetchResult: PHFetchResult<PHAsset>!
     fileprivate let imageManager = PHCachingImageManager()
     fileprivate var previousPreheatRect = CGRect.zero
@@ -273,8 +272,6 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
         self.navigationController?.popViewController(animated: true)
     }
     
-
-    
     func sendNotification(interval: TimeInterval){
         let content = UNMutableNotificationContent()
         content.title = "Hey!"
@@ -338,6 +335,13 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
         }
     }
     
+    @objc func dueDateChanged(sender:UIDatePicker){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .none
+//        dobButton.setTitle(dateFormatter.string(from: sender.date), for: .normal)
+    }
+    
     @IBAction func addReminderAction(_ sender: UIBarButtonItem) {
 //        AddReminder()
         registerForPushNotifications()
@@ -345,24 +349,47 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
         let alert = UIAlertController(title: "Remind me", message: "About this picture", preferredStyle: .actionSheet)
         
         alert.addAction(UIAlertAction(title: "Later today", style: .default , handler:{ (UIAlertAction)in
-//            self.sendNotification(interval: 7200)
+            self.sendNotification(interval: 10800)
         }))
         
         alert.addAction(UIAlertAction(title: "Tomorrow", style: .default , handler:{ (UIAlertAction)in
-            var date = DateComponents()
-            date.hour = 11
-            date.minute = 30
+            // Get right now as it's `DateComponents`.
+            let now = Calendar.current.dateComponents(in: .current, from: Date())
+           
+            var tomorrow = DateComponents(year: now.year, month: now.month, day: now.day! + 1)
+            tomorrow.hour = 10
+            tomorrow.minute = 30
             
-//            self.scheduleNotification(date: date)
+            self.scheduleNotification(date: tomorrow)
         }))
         
         alert.addAction(UIAlertAction(title: "Set Date", style: .default , handler:{ (UIAlertAction)in
             print("User click Delete button")
-            let min = Date().addingTimeInterval(-60 * 60 * 24 * 4)
-            let max = Date().addingTimeInterval(60 * 60 * 24 * 4)
+            let min = Date()
+            let max = Date().addingTimeInterval(60 * 60 * 24 * 94)
             let picker = DateTimePicker.create(minimumDate: min, maximumDate: max)
             picker.isDatePickerOnly = true
+            picker.dateFormat = "dd/MM/YYYY"
+            picker.includeMonth = true
             picker.show()
+            
+            picker.completionHandler = { date in
+                let formatter = DateFormatter()
+                formatter.dateFormat = "dd/MM/YYYY"
+                self.title = formatter.string(from: date)
+                
+                let calendar = Calendar.current
+                let year = calendar.component(.year, from: date)
+                let month = calendar.component(.month, from: date)
+                let day = calendar.component(.day, from: date)
+                
+                var scheduledDate = DateComponents(year: year, month: month, day: day)
+                scheduledDate.hour = 10
+                scheduledDate.minute = 30
+                
+                self.scheduleNotification(date: scheduledDate)
+            }
+            
         }))
         
         alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler:{ (UIAlertAction)in
@@ -595,6 +622,7 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
         if asset.mediaType == .video{
             let playButton = cell.viewWithTag(18) as! UIButton
             playButton.isHidden = false
+            playButton.bringSubviewToFront(self.view)
         }else{
             let playButton = cell.viewWithTag(18) as! UIButton
             playButton.isHidden = true
