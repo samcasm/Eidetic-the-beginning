@@ -12,40 +12,35 @@ import UserNotifications
 import Photos
 
 class RemindersViewController: UITableViewController, ReminderCellDelegate {
-    func deleteReminder(cell: ReminderCell) {
-        let indexPath = tableView.indexPath(for: cell)
-        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [cell.reminderID])
-        self.imageIDs.remove(at: (indexPath?.item)!)
-        self.reminderPHAssets = PHAsset.fetchAssets(withLocalIdentifiers: self.imageIDs, options: nil)
-        tableView.reloadData()
-    }
-    
-    
+
     var scheduledReminders: [UNNotificationRequest] = []
     var reminderPHAssets: PHFetchResult<PHAsset>!
     var imageIDs: [String] = []
     
-    override func viewWillAppear(_ animated: Bool) {
-        
+    func deleteReminder(cell: ReminderCell) {
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [cell.reminderID])
+        fetchCurrentUserNotifications()
+    }
+    
+    func fetchCurrentUserNotifications(){
         UNUserNotificationCenter.current().getPendingNotificationRequests { (notifications) in
-        
-            print(notifications)
-            self.scheduledReminders = notifications
             
+            print(notifications.count)
+            self.scheduledReminders = notifications
+            DispatchQueue.main.async {
+                self.imageIDs =  self.scheduledReminders.map { $0.identifier }
+                self.reminderPHAssets = PHAsset.fetchAssets(withLocalIdentifiers: self.imageIDs, options: nil)
+                self.tableView.reloadData()
+            }
         }
-        
     }
     
-    override func viewDidLoad() {
-        print("viewDidLoad")
-        self.title = "Reminders"
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.title = "Reminders List"
+        fetchCurrentUserNotifications()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        self.imageIDs =  scheduledReminders.map { $0.identifier }
-        self.reminderPHAssets = PHAsset.fetchAssets(withLocalIdentifiers: self.imageIDs, options: nil)
-        tableView.reloadData()
-    }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1

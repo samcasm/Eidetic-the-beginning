@@ -297,8 +297,7 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
     func scheduleNotification(date: DateComponents){
         let content = UNMutableNotificationContent()
         content.title = "Hey!"
-        content.subtitle = "Here's your reminder"
-        content.body = "Content body"
+        content.subtitle = "Here's your reminder. Check it out"
         
         // 2
         let imageName = "mediaThumbnail"
@@ -310,9 +309,15 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
                 content.attachments = [attachment]
             }
         })
-        let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: false)
         let request = UNNotificationRequest(identifier: phasset.localIdentifier, content: content, trigger: trigger)
-        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        UNUserNotificationCenter.current().add(request) { (error) in
+            if error != nil {
+                self.showAlertWith(title: "Failed", message: "Reminder for this image already exists")
+            }else{
+                self.showAlertWith(title: "Success", message: "Added a reminder for later")
+            }
+        }
         
     }
     
