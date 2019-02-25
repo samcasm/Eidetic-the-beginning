@@ -16,7 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     var window: UIWindow?
     
-    
     @objc func navigateToRootView(sender: UIBarButtonItem){
           window?.rootViewController?.dismiss(animated: true, completion: nil)
     }
@@ -47,24 +46,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
         }
         
-        
-//        let notificationMediaView = self.storyboard?.instantiateViewController(withIdentifier: "DetailedViewController") as! DetailedViewController
-//        notificationMediaView.fetchResult = newFetchResult
-//        notificationMediaView.phasset = newFetchResult.firstObject
-//        notificationMediaView.indexForCell = IndexPath(item: 0, section: 0)
-//        let logoutBarButtonItem = UIBarButtonItem(title: "Logout", style: .done, target: self, action: #selector(logoutUser))
-//        notificationMediaView.navigationItem.rightBarButtonItem  = logoutBarButtonItem
-//        let navController = UINavigationController(rootViewController: notificationMediaView)
-//        self.navigationController?.present(navController, animated: true, completion: nil)
-        
-        // the docs say you should execute this asap
         return completionHandler()
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         UNUserNotificationCenter.current().delegate = self
-        
         // Override point for customization after application launch.
         let defaults = UserDefaults.standard
         let recentlyAddedTagsArray = defaults.object(forKey:"recentlyAddedTags") as? [String] ?? [String]()

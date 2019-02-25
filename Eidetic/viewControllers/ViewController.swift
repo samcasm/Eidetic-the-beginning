@@ -7,6 +7,7 @@
 import UIKit
 import Photos
 import PhotosUI
+import MaterialShowcase
 
 protocol AddTagModalControllerDelegate
 {
@@ -105,6 +106,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         resetCachedAssets()
         searchBar.delegate = self
         navigationController?.isToolbarHidden = true
@@ -114,8 +116,6 @@ class ViewController: UIViewController {
         imageManager.allowsCachingHighQualityImages = true
         UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
         
-
-
         PHPhotoLibrary.shared().register(self)
         
         recentSearchesTableView.frame = setRecentSearchesTable()
@@ -138,6 +138,31 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         updateCachedAssets()
+        
+        if isAppsFirstLaunch() == "ViewController" {
+            let showcase = MaterialShowcase()
+            let numberOfPictures = collectionView.numberOfItems(inSection: 0)
+            if (numberOfPictures == 0){
+                showcase.setTargetView(barButtonItem: cameraButton)
+                showcase.backgroundPromptColorAlpha = 0.4
+                showcase.targetHolderRadius = 7
+                showcase.primaryText = "To get started, click a picture. Then tag it. That's it"
+                showcase.secondaryText = "Tap here to open the camera"
+                showcase.show(completion: {
+                    // You can save showcase state here
+                    // Later you can check and do not show it again
+                })
+            }else{
+                let cell = collectionView.cellForItem(at: IndexPath(item: 0, section: 0)) as! UICollectionViewCell
+                showcase.setTargetView(view: cell)
+                showcase.primaryText = "To get started, click on an image. Then tag it. That's it"
+                showcase.secondaryText = "Once tagged. You can search for it using the search bar on top of this screen"
+                showcase.show(completion: {
+                    // You can save showcase state here
+                    // Later you can check and do not show it again
+                })
+            }
+        }
     }
     
     

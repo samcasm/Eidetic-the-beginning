@@ -1,4 +1,5 @@
 import UIKit
+import MaterialShowcase
 
 class DirectoriesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     @IBOutlet weak var collectionView: UICollectionView!
@@ -11,6 +12,27 @@ class DirectoriesViewController: UIViewController, UICollectionViewDataSource, U
         let width = (view.frame.size.width - 4) / 3
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: width, height: width)
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if isAppsFirstLaunch() == "DirectoriesViewController" {
+            let showcase = MaterialShowcase()
+            let cell = collectionView.cellForItem(at: IndexPath(item: 0, section: 0)) as! UICollectionViewCell
+            showcase.setTargetView(view: cell)
+            showcase.backgroundPromptColor = UIColor.black
+            showcase.backgroundPromptColorAlpha = 0.8
+            showcase.targetHolderRadius = 7
+            showcase.primaryText = "Create your own folders"
+            showcase.secondaryText = "Tick the Make folder checkbox while tagging an image. Fun Fact: All images with tagnames that match with the folder will automatically move to that folder"
+            showcase.show(completion: {
+                // You can save showcase state here
+                // Later you can check and do not show it again
+            })
+            
+        }else{
+            print("what")
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
