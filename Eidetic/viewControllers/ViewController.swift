@@ -82,6 +82,7 @@ class ViewController: UIViewController {
             }
         }else if directoryName == "favorites" {
             do {
+                self.title = "Favorites"
                 let allImages = try [Images]()
                 let imageIds = allImages.filter{$0.isFavorite == true}.map({$0.id})
                 let allPhotosOptions = PHFetchOptions()
@@ -92,6 +93,7 @@ class ViewController: UIViewController {
             }
         } else{
             do{
+                self.title = directoryName
                 let allDirectories = try [Directory]()
                 let imageIds = allDirectories.first{$0.id == directoryName}?.imageIDs
                 let allPhotosOptions = PHFetchOptions()
