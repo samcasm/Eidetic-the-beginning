@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AD375115219DE7F7005A577E"
-               BuildableName = "Eidetic.app"
-               BlueprintName = "Eidetic"
-               ReferencedContainer = "container:Eidetic.xcodeproj">
+               BuildableName = "PicTag.app"
+               BlueprintName = "PicTag"
+               ReferencedContainer = "container:PicTag.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AD375115219DE7F7005A577E"
-            BuildableName = "Eidetic.app"
-            BlueprintName = "Eidetic"
-            ReferencedContainer = "container:Eidetic.xcodeproj">
+            BuildableName = "PicTag.app"
+            BlueprintName = "PicTag"
+            ReferencedContainer = "container:PicTag.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AD375115219DE7F7005A577E"
-            BuildableName = "Eidetic.app"
-            BlueprintName = "Eidetic"
-            ReferencedContainer = "container:Eidetic.xcodeproj">
+            BuildableName = "PicTag.app"
+            BlueprintName = "PicTag"
+            ReferencedContainer = "container:PicTag.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AD375115219DE7F7005A577E"
-            BuildableName = "Eidetic.app"
-            BlueprintName = "Eidetic"
-            ReferencedContainer = "container:Eidetic.xcodeproj">
+            BuildableName = "PicTag.app"
+            BlueprintName = "PicTag"
+            ReferencedContainer = "container:PicTag.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

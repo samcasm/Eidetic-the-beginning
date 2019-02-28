@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Eidetic.xcodeproj">
+      location = "group:/Users/user147964/Desktop/Eidetic-the-beginning/PicTag.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

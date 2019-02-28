@@ -86,7 +86,7 @@
 		AD11B35F21A72760004D352C /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		AD11B36321A73260004D352C /* TagCellCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCellCollectionView.swift; sourceTree = "<group>"; };
 		AD1DFE5421A649BD008C0AFF /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
-		AD375116219DE7F7005A577E /* Eidetic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eidetic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD375116219DE7F7005A577E /* PicTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD375119219DE7F7005A577E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD37511B219DE7F7005A577E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AD37511E219DE7F7005A577E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -209,7 +209,7 @@
 		AD375117219DE7F7005A577E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AD375116219DE7F7005A577E /* Eidetic.app */,
+				AD375116219DE7F7005A577E /* PicTag.app */,
 				6C866BEF221B834500ACDA4B /* NotificationService.appex */,
 			);
 			name = Products;
@@ -251,9 +251,9 @@
 			productReference = 6C866BEF221B834500ACDA4B /* NotificationService.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		AD375115219DE7F7005A577E /* Eidetic */ = {
+		AD375115219DE7F7005A577E /* PicTag */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AD375128219DE7F9005A577E /* Build configuration list for PBXNativeTarget "Eidetic" */;
+			buildConfigurationList = AD375128219DE7F9005A577E /* Build configuration list for PBXNativeTarget "PicTag" */;
 			buildPhases = (
 				E096BF342A7A4FC0810B6DEE /* [CP] Check Pods Manifest.lock */,
 				AD375112219DE7F7005A577E /* Sources */,
@@ -267,9 +267,9 @@
 			dependencies = (
 				6C866BF5221B834500ACDA4B /* PBXTargetDependency */,
 			);
-			name = Eidetic;
+			name = PicTag;
 			productName = Eidetic;
-			productReference = AD375116219DE7F7005A577E /* Eidetic.app */;
+			productReference = AD375116219DE7F7005A577E /* PicTag.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -298,7 +298,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AD375111219DE7F7005A577E /* Build configuration list for PBXProject "Eidetic" */;
+			buildConfigurationList = AD375111219DE7F7005A577E /* Build configuration list for PBXProject "PicTag" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -311,7 +311,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AD375115219DE7F7005A577E /* Eidetic */,
+				AD375115219DE7F7005A577E /* PicTag */,
 				6C866BEE221B834500ACDA4B /* NotificationService */,
 			);
 		};
@@ -668,7 +668,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AD375111219DE7F7005A577E /* Build configuration list for PBXProject "Eidetic" */ = {
+		AD375111219DE7F7005A577E /* Build configuration list for PBXProject "PicTag" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AD375126219DE7F9005A577E /* Debug */,
@@ -677,7 +677,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AD375128219DE7F9005A577E /* Build configuration list for PBXNativeTarget "Eidetic" */ = {
+		AD375128219DE7F9005A577E /* Build configuration list for PBXNativeTarget "PicTag" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AD375129219DE7F9005A577E /* Debug */,

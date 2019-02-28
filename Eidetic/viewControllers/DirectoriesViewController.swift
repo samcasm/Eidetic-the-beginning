@@ -24,7 +24,7 @@ class DirectoriesViewController: UIViewController, UICollectionViewDataSource, U
             showcase.backgroundPromptColorAlpha = 0.8
             showcase.targetHolderRadius = 7
             showcase.primaryText = "Create your own folders"
-            showcase.secondaryText = "Tick the Make folder checkbox while tagging an image. Fun Fact: All images with tagnames that match with the folder will automatically move to that folder"
+            showcase.secondaryText = "Tick the Make folder checkbox while tagging an image to create a folder of that tagname."
             showcase.show(completion: {
                 // You can save showcase state here
                 // Later you can check and do not show it again

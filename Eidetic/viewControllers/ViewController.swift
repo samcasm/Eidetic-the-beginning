@@ -451,6 +451,8 @@ extension ViewController: UISearchBarDelegate {
         searchBar.setShowsCancelButton(true, animated: true)
         if recents.count != 0{
             recentSearchesTableView.isHidden = false
+            recentSearches = recents
+            recentSearchesTableView.reloadData()
         }
     }
     
@@ -495,6 +497,7 @@ extension ViewController: AddTagModalControllerDelegate{
         for assetId in assetIds {
             addTagToAsset(assetId: assetId, newTag: value, makeFolder: makeFolder)
         }
+        self.recentSearchesTableView.reloadData()
         self.clearSelections(allowsMultipleSelection: false)
     }
     
