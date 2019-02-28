@@ -63,9 +63,11 @@ class RemindersViewController: UITableViewController, ReminderCellDelegate {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if reminders.count == 0 {
+            self.tableView.separatorStyle = .none
             self.tableView.setEmptyMessage("No reminders set yet. Add reminders by clicking the clock button on the image tag screen")
             return 0
         } else {
+            self.tableView.separatorStyle = .singleLine
             self.tableView.restore()
             return reminders.count
         }

@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Eidetic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PicTag" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,7 +28,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="cd0-Hv-Rda" customClass="PhotoCell" customModule="Eidetic" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="cd0-Hv-Rda" customClass="PhotoCell" customModule="PicTag" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -162,7 +162,7 @@
         <!--Backup Screen-->
         <scene sceneID="TTr-Rq-G1h">
             <objects>
-                <viewController id="eNJ-g3-fB6" customClass="BackupScreen" customModule="Eidetic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="eNJ-g3-fB6" customClass="BackupScreen" customModule="PicTag" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ehp-sh-MMf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -247,13 +247,13 @@
         <!--Reminders View Controller-->
         <scene sceneID="2st-vL-kc8">
             <objects>
-                <tableViewController id="Ct1-0k-VjH" customClass="RemindersViewController" customModule="Eidetic" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Ct1-0k-VjH" customClass="RemindersViewController" customModule="PicTag" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="EtY-aG-Z8a" userLabel="Reminders Table View">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reminderCell" rowHeight="92" id="lJp-nq-ft7" userLabel="Reminder Cell" customClass="ReminderCell" customModule="Eidetic" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reminderCell" rowHeight="92" id="lJp-nq-ft7" userLabel="Reminder Cell" customClass="ReminderCell" customModule="PicTag" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="92"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lJp-nq-ft7" id="hiH-bZ-XN6">
@@ -314,7 +314,7 @@
         <!--Detailed View Controller-->
         <scene sceneID="DmG-8d-dhs">
             <objects>
-                <viewController storyboardIdentifier="DetailedViewController" hidesBottomBarWhenPushed="YES" id="b5k-6f-cbX" customClass="DetailedViewController" customModule="Eidetic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailedViewController" hidesBottomBarWhenPushed="YES" id="b5k-6f-cbX" customClass="DetailedViewController" customModule="PicTag" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7IO-E6-TMB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -329,7 +329,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="cell" id="WPW-4X-dxD" customClass="DetailedCollectionViewCell" customModule="Eidetic" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="cell" id="WPW-4X-dxD" customClass="DetailedCollectionViewCell" customModule="PicTag" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="-25.5" width="375" height="602.5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -397,8 +397,11 @@
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <state key="normal" title="Button" image="play"/>
+                                                    <connections>
+                                                        <action selector="playVideoOnPlayButtonClick:" destination="b5k-6f-cbX" eventType="touchUpInside" id="bbz-MS-OTb"/>
+                                                    </connections>
                                                 </button>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Vw9-lJ-Wwl" customClass="TagsCollection" customModule="Eidetic" customModuleProvider="target">
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Vw9-lJ-Wwl" customClass="TagsCollection" customModule="PicTag" customModuleProvider="target">
                                                     <rect key="frame" x="19" y="407" width="338" height="144"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="Ia2-Ex-8yM">
@@ -408,7 +411,7 @@
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TagCell" id="TZP-AK-zWH" customClass="TagCell" customModule="Eidetic" customModuleProvider="target">
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TagCell" id="TZP-AK-zWH" customClass="TagCell" customModule="PicTag" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="107" height="72"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -542,7 +545,7 @@
         <!--Authorization Screen-->
         <scene sceneID="KIv-v7-zr8">
             <objects>
-                <viewController storyboardIdentifier="authScreen" id="4KB-yr-Ulx" customClass="AuthorizationScreen" customModule="Eidetic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="authScreen" id="4KB-yr-Ulx" customClass="AuthorizationScreen" customModule="PicTag" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LJ6-xI-7dt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -615,7 +618,7 @@
         <!--Directory View Controller Scene-->
         <scene sceneID="55v-DI-xIy">
             <objects>
-                <viewController id="MgY-gY-c7a" userLabel="Directory View Controller Scene" customClass="DirectoriesViewController" customModule="Eidetic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="MgY-gY-c7a" userLabel="Directory View Controller Scene" customClass="DirectoriesViewController" customModule="PicTag" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KmG-wO-6ko">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -630,7 +633,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DirectoryCell" id="fhC-QJ-Qe9" customClass="DirectoryCell" customModule="Eidetic" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DirectoryCell" id="fhC-QJ-Qe9" customClass="DirectoryCell" customModule="PicTag" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="116" height="94"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -712,7 +715,7 @@
         <!--Add tag popup-->
         <scene sceneID="4HN-3x-GnX">
             <objects>
-                <viewController storyboardIdentifier="modalStoryBoard" modalPresentationStyle="overCurrentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1oV-w1-wSd" userLabel="Add tag popup" customClass="AddTagModalController" customModule="Eidetic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="modalStoryBoard" modalPresentationStyle="overCurrentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1oV-w1-wSd" userLabel="Add tag popup" customClass="AddTagModalController" customModule="PicTag" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T1N-14-HEA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -859,7 +862,7 @@
         <image name="folder-glyph" width="22.5" height="22.5"/>
         <image name="folder1" width="178.28572082519531" height="178.28572082519531"/>
         <image name="icloud" width="180" height="180"/>
-        <image name="play" width="180" height="180"/>
+        <image name="play" width="75" height="75"/>
         <image name="uncheckbox" width="37.5" height="37.5"/>
     </resources>
     <inferredMetricsTieBreakers>
