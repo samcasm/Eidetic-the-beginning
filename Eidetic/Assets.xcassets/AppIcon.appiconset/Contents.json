@@ -53,13 +53,6 @@
       "idiom" : "ios-marketing",
       "filename" : "Icon-1024.png",
       "scale" : "1x"
-    },
-    {
-      "size" : "1024x1024",
-      "idiom" : "ios-marketing",
-      "filename" : "eideticWithBroomIcon1024@1x.png",
-      "unassigned" : true,
-      "scale" : "1x"
     }
   ],
   "info" : {
