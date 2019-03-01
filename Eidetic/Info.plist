@@ -24,12 +24,16 @@
 	<true/>
 	<key>LSSupportsOpeningDocumentsInPlace</key>
 	<true/>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Permission is required to access your calendar</string>
 	<key>NSCameraUsageDescription</key>
-	<string>PicTag would like to access your camera</string>
+	<string>Eidetic would like to access your camera</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>PicTag would like to save in the photo library</string>
+	<string>Eidetic would like to save in the photo library</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>PicTag would like to access you photo library</string>
+	<string>Eidetic would like to access you photo library</string>
+	<key>NSRemindersUsageDescription</key>
+	<string>Permission is required to access your reminders</string>
 	<key>UIFileSharingEnabled</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>

@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 import UserNotifications
 import Photos
-import MaterialShowcase
 
 class RemindersViewController: UITableViewController, ReminderCellDelegate {
 
@@ -42,14 +41,10 @@ class RemindersViewController: UITableViewController, ReminderCellDelegate {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         self.title = "Reminders List"
         fetchCurrentUserNotifications()
-        
     }
     
     
@@ -63,8 +58,7 @@ class RemindersViewController: UITableViewController, ReminderCellDelegate {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if reminders.count == 0 {
-            self.tableView.separatorStyle = .none
-            self.tableView.setEmptyMessage("No reminders set yet. Add reminders by clicking the clock button on the image tag screen")
+            self.tableView.setEmptyMessage("No reminders set yet")
             return 0
         } else {
             self.tableView.separatorStyle = .singleLine

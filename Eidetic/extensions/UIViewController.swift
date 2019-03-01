@@ -12,35 +12,6 @@ import Photos
 import PhotosUI
 
 extension UIViewController {
-    
-    func isAppsFirstLaunch()->String{
-        let defaults = UserDefaults.standard
-        
-        if self is ViewController{
-            if let _ = defaults.string(forKey: "ViewController"){
-                return ""
-            }else{
-                defaults.set(true, forKey: "ViewController")
-                return "ViewController"
-            }
-        }else if self is DirectoriesViewController{
-            if let _ = defaults.string(forKey: "DirectoriesViewController"){
-                return ""
-            }else{
-                defaults.set(true, forKey: "DirectoriesViewController")
-                return "DirectoriesViewController"
-            }
-        }else if self is RemindersViewController{
-            if let _ = defaults.string(forKey: "RemindersViewController"){
-                return ""
-            }else{
-                defaults.set(true, forKey: "RemindersViewController")
-                return "RemindersViewController"
-            }
-        }
-        return ""
-    }
-    
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false

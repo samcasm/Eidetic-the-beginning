@@ -9,6 +9,7 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
+<<<<<<< HEAD
             filePath = "Eidetic/models/DetailedCollectionViewCell.swift"
             timestampString = "573014318.672599"
             startingColumnNumber = "9223372036854775807"
@@ -16,6 +17,15 @@
             startingLineNumber = "100"
             endingLineNumber = "100"
             landmarkName = "addTagToCollection()"
+=======
+            filePath = "Eidetic/viewControllers/DetailedViewController.swift"
+            timestampString = "572740888.879319"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "330"
+            endingLineNumber = "330"
+            landmarkName = "scheduleNotification(date:)"
+>>>>>>> parent of 09850ae... Major UI changes and finishing touch
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,6 +35,7 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
+<<<<<<< HEAD
             filePath = "Eidetic/extensions/UIViewController.swift"
             timestampString = "573014318.67267"
             startingColumnNumber = "9223372036854775807"
@@ -32,6 +43,63 @@
             startingLineNumber = "116"
             endingLineNumber = "116"
             landmarkName = "addTagToAsset(assetId:newTag:makeFolder:)"
+=======
+            filePath = "Eidetic/viewControllers/DetailedViewController.swift"
+            timestampString = "572740888.879437"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "399"
+            endingLineNumber = "399"
+            landmarkName = "addReminderAction(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Eidetic/viewControllers/DetailedViewController.swift"
+            timestampString = "572740888.879536"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "313"
+            endingLineNumber = "313"
+            landmarkName = "scheduleNotification(date:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Eidetic/viewControllers/DetailedViewController.swift"
+            timestampString = "572740888.879627"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "319"
+            endingLineNumber = "319"
+            landmarkName = "scheduleNotification(date:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Eidetic/viewControllers/DetailedViewController.swift"
+            timestampString = "572740888.8796951"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "289"
+            endingLineNumber = "289"
+            landmarkName = "sendNotification(interval:)"
+>>>>>>> parent of 09850ae... Major UI changes and finishing touch
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

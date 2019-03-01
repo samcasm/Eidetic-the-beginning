@@ -1,5 +1,4 @@
 import UIKit
-import MaterialShowcase
 
 class DirectoriesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     @IBOutlet weak var collectionView: UICollectionView!
@@ -12,7 +11,6 @@ class DirectoriesViewController: UIViewController, UICollectionViewDataSource, U
         let width = (view.frame.size.width - 4) / 3
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: width, height: width)
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -30,8 +28,6 @@ class DirectoriesViewController: UIViewController, UICollectionViewDataSource, U
                 // Later you can check and do not show it again
             })
             
-        }else{
-            print("what")
         }
     }
     
