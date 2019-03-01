@@ -57,7 +57,6 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("Test print latest")
         navigationController?.isToolbarHidden = true
         let defaults = UserDefaults.standard
         recentSearches = defaults.object(forKey:"recentlyAddedTags") as? [String] ?? [String]()
@@ -83,6 +82,7 @@ class ViewController: UIViewController {
             }
         }else if directoryName == "favorites" {
             do {
+                self.title = "Favorites"
                 let allImages = try [Images]()
                 let imageIds = allImages.filter{$0.isFavorite == true}.map({$0.id})
                 let allPhotosOptions = PHFetchOptions()
@@ -93,6 +93,7 @@ class ViewController: UIViewController {
             }
         } else{
             do{
+                self.title = directoryName
                 let allDirectories = try [Directory]()
                 let imageIds = allDirectories.first{$0.id == directoryName}?.imageIDs
                 let allPhotosOptions = PHFetchOptions()
@@ -450,6 +451,8 @@ extension ViewController: UISearchBarDelegate {
         searchBar.setShowsCancelButton(true, animated: true)
         if recents.count != 0{
             recentSearchesTableView.isHidden = false
+            recentSearches = recents
+            recentSearchesTableView.reloadData()
         }
     }
     
@@ -494,11 +497,11 @@ extension ViewController: AddTagModalControllerDelegate{
         for assetId in assetIds {
             addTagToAsset(assetId: assetId, newTag: value, makeFolder: makeFolder)
         }
+        self.recentSearchesTableView.reloadData()
         self.clearSelections(allowsMultipleSelection: false)
     }
     
     
 }
-
 
 
