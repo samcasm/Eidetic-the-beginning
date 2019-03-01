@@ -95,11 +95,12 @@ class DetailedCollectionViewCell: UICollectionViewCell, UITextFieldDelegate{
                 //Mark: Recently Added Tags
                 let defaults = UserDefaults.standard
                 var recentlyAddedTags = defaults.object(forKey:"recentlyAddedTags") as? [String] ?? [String]()
+            
                 
-                if recentlyAddedTags.count > 7{
+                if recentlyAddedTags.count > 7 && !recentlyAddedTags.contains(newTag){
                     recentlyAddedTags.removeLast()
                     recentlyAddedTags.insert(newTag, at: 0)
-                }else{
+                }else if !recentlyAddedTags.contains(newTag){
                     recentlyAddedTags.insert(newTag, at: 0)
                 }
                 defaults.set(recentlyAddedTags, forKey: "recentlyAddedTags")
