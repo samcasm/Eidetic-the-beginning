@@ -53,6 +53,13 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
         PHPhotoLibrary.shared().register(self)
         self.hideKeyboardWhenTappedAround()
         
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
+        }
+        catch {
+            print("Setting category to AVAudioSessionCategoryPlayback failed.")
+        }
+        
         if directoryName == nil {
             if fetchResult == nil {
                 let allPhotosOptions = PHFetchOptions()
@@ -106,6 +113,11 @@ class DetailedViewController: UIViewController, UICollectionViewDataSource, UICo
         self.detailedCollectionView.scrollToItem(at:IndexPath(item: indexForCell.item, section: 0), at: .centeredHorizontally, animated: false)
         detailedCollectionView.layoutSubviews()
         detailedCollectionView.isPagingEnabled = true
+    }
+    
+    
+    @IBAction func playVideoOnPlayButtonClick(_ sender: UIButton) {
+        playVideo()
     }
     
     func fetchCurrentCellFromCollectionView() -> DetailedCollectionViewCell{
@@ -809,4 +821,3 @@ extension DetailedViewController: PHPhotoLibraryChangeObserver {
     }
     
 }
-
