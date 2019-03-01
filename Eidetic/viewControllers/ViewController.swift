@@ -57,6 +57,7 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        print("Test print latest")
         navigationController?.isToolbarHidden = true
         let defaults = UserDefaults.standard
         recentSearches = defaults.object(forKey:"recentlyAddedTags") as? [String] ?? [String]()
