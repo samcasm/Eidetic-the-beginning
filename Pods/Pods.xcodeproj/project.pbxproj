@@ -1,0 +1,1194 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		171C3DE00B061274271806315E0AA3DD /* MaterialShowcase+Calculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD24DBB125D028418A83739E9F420F3 /* MaterialShowcase+Calculations.swift */; };
+		1C4B4D241909FA34A7BED32158FDFF2F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E404AA6957590324067E330E0EC533 /* UIKit.framework */; };
+		2BFB22EC64D9BC7FC1DE0D77544DFEFA /* DateTimePicker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2415F99601FC0B1EDD81DC28247424 /* DateTimePicker-dummy.m */; };
+		2CE99C85493E9E101E81AA09356C37AE /* FullDateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2039C9F6C873B446BB5D2756C40BEB8 /* FullDateCollectionViewCell.swift */; };
+		42AB24591A17B1431434C4600DE665E7 /* MaterialShowcaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC584509D0604B8F50DEAC33B287258 /* MaterialShowcaseController.swift */; };
+		438797A311F04DC1D30E253A807D6190 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EFB40531CB700ADF867FEEE78561E78 /* Foundation.framework */; };
+		4BB6809634974B7F7206A532C500BE51 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EFB40531CB700ADF867FEEE78561E78 /* Foundation.framework */; };
+		52B978B931479C53448156E7369E2224 /* DateTimePicker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A2674156CDD54831148D87E4358F35B4 /* DateTimePicker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5643CB173209AC08C341A350A97CFC1E /* EEZoomableImageView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CE7A6A5430A6FB62F7DFFD27FD9C82A /* EEZoomableImageView-dummy.m */; };
+		660D12F1E6ACFA76B422699872FB867A /* UICollectionViewLeftAlignedLayout-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CEA4E2CCA235A16CC12ADEE9C15C76 /* UICollectionViewLeftAlignedLayout-dummy.m */; };
+		672F22162F6CB7BC9A4904BA82D578F7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E404AA6957590324067E330E0EC533 /* UIKit.framework */; };
+		6C49B73B778537D0CB4CEF9FBB824FF2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EFB40531CB700ADF867FEEE78561E78 /* Foundation.framework */; };
+		7B367C9332E9E5352D760D761A484FD3 /* Pods-Eidetic-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 79CD035C87F8B53E6C96DC717C0FA28D /* Pods-Eidetic-dummy.m */; };
+		95155FA6FB7045839E669562BEA90763 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EFB40531CB700ADF867FEEE78561E78 /* Foundation.framework */; };
+		A8221BDB88D185951997174B08B4E388 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C07A6959A0E07AB9A25D033F45C5E00 /* Utility.swift */; };
+		AE7C490B9C8C73EEF50C89805876B93C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EFB40531CB700ADF867FEEE78561E78 /* Foundation.framework */; };
+		AEB2B25071FEA74109A458F9FDAE944A /* EEZoomableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B4C33B58EB00FF6D25F77E530DF770 /* EEZoomableImageView.swift */; };
+		B126BA10DF980EF5E11349A35955B41C /* MaterialShowcaseInstructionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACB0064E47EF2260A6B7AB90CF5E1E4 /* MaterialShowcaseInstructionView.swift */; };
+		BFBE63E96AB2BF695B8AD65AD5CDE266 /* UICollectionViewLeftAlignedLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB8A717EBF3EB28FC4BC1F5543F75DB /* UICollectionViewLeftAlignedLayout.swift */; };
+		CD505D9207975508F509DAE5C722C7A3 /* UICollectionViewLeftAlignedLayout-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D49CFAC71EDB80B979D465F133C90395 /* UICollectionViewLeftAlignedLayout-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D7BFB26D9CB62A9815EC2AD5B0BCE498 /* MaterialShowcase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A75C2F894560A7402370AA22855CDB7 /* MaterialShowcase.swift */; };
+		D7F7904BB837382B13544716924B43CE /* MaterialShowcase-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 227A50A56CA49C3F7CA0428CD4A1B1B1 /* MaterialShowcase-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D873BB638C62062D1BC3A70E43C43B04 /* StepCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E49831F06D24149D9AA110D4C2E23A /* StepCollectionViewFlowLayout.swift */; };
+		E888476B32B045AC64C722099D687F03 /* MaterialShowcase-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 521C77F16ECD6C1FB633CB3942A55CF5 /* MaterialShowcase-dummy.m */; };
+		EA752D7EBD04D13B9982626A092EB9E2 /* Pods-Eidetic-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B22E929786122EB8787A4BDCC9E94B95 /* Pods-Eidetic-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F19A8DB8935F113A52D968AA20B745A4 /* DateTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F8F61AF02817E578838472CE2FF322 /* DateTimePicker.swift */; };
+		F59E263A4A3E2852BB11DEEF0793BF3B /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A20F03134FF758891111BBA8E6362E /* DateCollectionViewCell.swift */; };
+		FD8C3F9CCE1BEB673A9893CA23E44706 /* EEZoomableImageView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D069D1855B005F3B58F22BAD05653130 /* EEZoomableImageView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3CD7296547F4A2B504E581768ED241CF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 115C0F27C5F56A278792157F449C08D2;
+			remoteInfo = DateTimePicker;
+		};
+		7EF9D710CC6CF28B42EB781EBCD8FF24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F5F4E108B25302161F1C43CDD7447577;
+			remoteInfo = UICollectionViewLeftAlignedLayout;
+		};
+		C446F0DBE2E253D6D636430954919FCE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 86CCDBF03703CE48C242C42E7FBB0DF1;
+			remoteInfo = EEZoomableImageView;
+		};
+		DD36A2EE9DFE40B434B7A569007AE136 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 266119A3B76A3E13B20BA0BBE72C4319;
+			remoteInfo = MaterialShowcase;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		09B631808EB4FF44F6EFE83C9EC72FAB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12E9798D7EF7CE28A33B5F1B32E9ED67 /* EEZoomableImageView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = EEZoomableImageView.framework; path = EEZoomableImageView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B68634C78CDD099EA1A91D44B1B24E8 /* Pods-Eidetic-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Eidetic-acknowledgements.markdown"; sourceTree = "<group>"; };
+		1C07A6959A0E07AB9A25D033F45C5E00 /* Utility.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Utility.swift; path = MaterialShowcase/Utility.swift; sourceTree = "<group>"; };
+		1F9D175D58B9B89AF73485E653BFF31C /* DateTimePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DateTimePicker.framework; path = DateTimePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		227A50A56CA49C3F7CA0428CD4A1B1B1 /* MaterialShowcase-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MaterialShowcase-umbrella.h"; sourceTree = "<group>"; };
+		2EFB40531CB700ADF867FEEE78561E78 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		3016354970750C324A24EFF5ED6B6487 /* Pods-Eidetic-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Eidetic-resources.sh"; sourceTree = "<group>"; };
+		324E22F00E7F1BCD4A43D3DA404375E1 /* EEZoomableImageView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = EEZoomableImageView.modulemap; sourceTree = "<group>"; };
+		34A20F03134FF758891111BBA8E6362E /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateCollectionViewCell.swift; path = Source/DateCollectionViewCell.swift; sourceTree = "<group>"; };
+		39F58AFFBF4CABF77BA5A5DE07D949D7 /* Pods-Eidetic.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Eidetic.modulemap"; sourceTree = "<group>"; };
+		3A16882B0DAF2526F28236D3CC0431CC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A75C2F894560A7402370AA22855CDB7 /* MaterialShowcase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MaterialShowcase.swift; path = MaterialShowcase/MaterialShowcase.swift; sourceTree = "<group>"; };
+		44E26E0FB9A0F4B307E4C27D4680678A /* MaterialShowcase.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MaterialShowcase.xcconfig; sourceTree = "<group>"; };
+		4D7526F351C5D90DFB9EA61F91C9BCC0 /* MaterialShowcase.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MaterialShowcase.modulemap; sourceTree = "<group>"; };
+		4EB8A717EBF3EB28FC4BC1F5543F75DB /* UICollectionViewLeftAlignedLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UICollectionViewLeftAlignedLayout.swift; path = UICollectionViewLeftAlignedLayout/UICollectionViewLeftAlignedLayout.swift; sourceTree = "<group>"; };
+		4F7B9327E5B36E7DCFB0AA73D1BEF8AA /* EEZoomableImageView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EEZoomableImageView-prefix.pch"; sourceTree = "<group>"; };
+		521C77F16ECD6C1FB633CB3942A55CF5 /* MaterialShowcase-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MaterialShowcase-dummy.m"; sourceTree = "<group>"; };
+		62FC7E0DE8558D480CCBB34D0F164714 /* UICollectionViewLeftAlignedLayout-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewLeftAlignedLayout-prefix.pch"; sourceTree = "<group>"; };
+		66F8F61AF02817E578838472CE2FF322 /* DateTimePicker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateTimePicker.swift; path = Source/DateTimePicker.swift; sourceTree = "<group>"; };
+		6CE7A6A5430A6FB62F7DFFD27FD9C82A /* EEZoomableImageView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "EEZoomableImageView-dummy.m"; sourceTree = "<group>"; };
+		74E404AA6957590324067E330E0EC533 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		79CD035C87F8B53E6C96DC717C0FA28D /* Pods-Eidetic-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Eidetic-dummy.m"; sourceTree = "<group>"; };
+		880A95A394BD83D370AAAA2361268207 /* DateTimePicker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DateTimePicker.xcconfig; sourceTree = "<group>"; };
+		89FF407C6A789389086736A8E932E141 /* UICollectionViewLeftAlignedLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = UICollectionViewLeftAlignedLayout.framework; path = UICollectionViewLeftAlignedLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BC584509D0604B8F50DEAC33B287258 /* MaterialShowcaseController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MaterialShowcaseController.swift; path = MaterialShowcase/MaterialShowcaseController.swift; sourceTree = "<group>"; };
+		90B4C33B58EB00FF6D25F77E530DF770 /* EEZoomableImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EEZoomableImageView.swift; path = EEZoomableImageView/EEZoomableImageView/EEZoomableImageView.swift; sourceTree = "<group>"; };
+		90CCB35F3D15C65C071AA5766DAEA0EB /* MaterialShowcase-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MaterialShowcase-prefix.pch"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A0F9201987E719335AFF94243C5ADF29 /* DateTimePicker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = DateTimePicker.modulemap; sourceTree = "<group>"; };
+		A2039C9F6C873B446BB5D2756C40BEB8 /* FullDateCollectionViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FullDateCollectionViewCell.swift; path = Source/FullDateCollectionViewCell.swift; sourceTree = "<group>"; };
+		A2674156CDD54831148D87E4358F35B4 /* DateTimePicker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DateTimePicker-umbrella.h"; sourceTree = "<group>"; };
+		A33BB2A4147D70EAFC6F63E7E2455C09 /* EEZoomableImageView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = EEZoomableImageView.xcconfig; sourceTree = "<group>"; };
+		A7CEA4E2CCA235A16CC12ADEE9C15C76 /* UICollectionViewLeftAlignedLayout-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewLeftAlignedLayout-dummy.m"; sourceTree = "<group>"; };
+		A9B6BD1D87F7D574E898E82003CC60FE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9FA77EC73E1E3184D06741807DAE74E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B22E929786122EB8787A4BDCC9E94B95 /* Pods-Eidetic-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Eidetic-umbrella.h"; sourceTree = "<group>"; };
+		BACB0064E47EF2260A6B7AB90CF5E1E4 /* MaterialShowcaseInstructionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MaterialShowcaseInstructionView.swift; path = MaterialShowcase/MaterialShowcaseInstructionView.swift; sourceTree = "<group>"; };
+		BC5D98DE0976C692A852AF9212F9027B /* UICollectionViewLeftAlignedLayout.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = UICollectionViewLeftAlignedLayout.modulemap; sourceTree = "<group>"; };
+		C96F56A261F9E5D981F472064D66F611 /* Pods-Eidetic-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Eidetic-frameworks.sh"; sourceTree = "<group>"; };
+		CCD24DBB125D028418A83739E9F420F3 /* MaterialShowcase+Calculations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "MaterialShowcase+Calculations.swift"; path = "MaterialShowcase/MaterialShowcase+Calculations.swift"; sourceTree = "<group>"; };
+		CE65BBE2C6DC10995D1C587E1B9A317E /* DateTimePicker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DateTimePicker-prefix.pch"; sourceTree = "<group>"; };
+		D069D1855B005F3B58F22BAD05653130 /* EEZoomableImageView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EEZoomableImageView-umbrella.h"; sourceTree = "<group>"; };
+		D49CFAC71EDB80B979D465F133C90395 /* UICollectionViewLeftAlignedLayout-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewLeftAlignedLayout-umbrella.h"; sourceTree = "<group>"; };
+		D4E49831F06D24149D9AA110D4C2E23A /* StepCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StepCollectionViewFlowLayout.swift; path = Source/StepCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		DC15ADB4F8BA3AFF0EFF816D5AEC810A /* Pods-Eidetic-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Eidetic-acknowledgements.plist"; sourceTree = "<group>"; };
+		DD2B98C1370B420E39C75D1056A09C21 /* Pods-Eidetic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Eidetic.debug.xcconfig"; sourceTree = "<group>"; };
+		DE2415F99601FC0B1EDD81DC28247424 /* DateTimePicker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DateTimePicker-dummy.m"; sourceTree = "<group>"; };
+		ED0019199E6B694697BA174291EB296A /* Pods-Eidetic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Eidetic.release.xcconfig"; sourceTree = "<group>"; };
+		F331C8DAB86941564096970B7B80FFEF /* MaterialShowcase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MaterialShowcase.framework; path = MaterialShowcase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3E0DDCD55AC4AB6B90FBC99694413CD /* Pods_Eidetic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Eidetic.framework; path = "Pods-Eidetic.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8A6833484F81581B6F9781B2C23C8DD /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F95DA87811BE5E9E1F5B2693EF461867 /* UICollectionViewLeftAlignedLayout.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = UICollectionViewLeftAlignedLayout.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		29E4413587A799C1DEC227570169263F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				438797A311F04DC1D30E253A807D6190 /* Foundation.framework in Frameworks */,
+				1C4B4D241909FA34A7BED32158FDFF2F /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6C9E8EC3A7393672B488B90E8E2F68CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C49B73B778537D0CB4CEF9FBB824FF2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6DDCC45EE72421D1A57F83FE4491E9E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95155FA6FB7045839E669562BEA90763 /* Foundation.framework in Frameworks */,
+				672F22162F6CB7BC9A4904BA82D578F7 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C486CA034CAE249FA116EBC9EAE9E7B5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BB6809634974B7F7206A532C500BE51 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F713ABAD95BD90046281808951403E54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE7C490B9C8C73EEF50C89805876B93C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		06CDD10DE71306278CF89108B3036DFD /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				2EFB40531CB700ADF867FEEE78561E78 /* Foundation.framework */,
+				74E404AA6957590324067E330E0EC533 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		20782AE197962A17DACC14A03259F2A4 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				324E22F00E7F1BCD4A43D3DA404375E1 /* EEZoomableImageView.modulemap */,
+				A33BB2A4147D70EAFC6F63E7E2455C09 /* EEZoomableImageView.xcconfig */,
+				6CE7A6A5430A6FB62F7DFFD27FD9C82A /* EEZoomableImageView-dummy.m */,
+				4F7B9327E5B36E7DCFB0AA73D1BEF8AA /* EEZoomableImageView-prefix.pch */,
+				D069D1855B005F3B58F22BAD05653130 /* EEZoomableImageView-umbrella.h */,
+				3A16882B0DAF2526F28236D3CC0431CC /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/EEZoomableImageView";
+			sourceTree = "<group>";
+		};
+		359222FA64F26FE4B66D4D477D5DD0F0 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				59F073864706D5CAA0E6AE8D6C20CFF9 /* Pods-Eidetic */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				06CDD10DE71306278CF89108B3036DFD /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5564CC211DC3C7D0FA004EFBE944ABA8 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A0F9201987E719335AFF94243C5ADF29 /* DateTimePicker.modulemap */,
+				880A95A394BD83D370AAAA2361268207 /* DateTimePicker.xcconfig */,
+				DE2415F99601FC0B1EDD81DC28247424 /* DateTimePicker-dummy.m */,
+				CE65BBE2C6DC10995D1C587E1B9A317E /* DateTimePicker-prefix.pch */,
+				A2674156CDD54831148D87E4358F35B4 /* DateTimePicker-umbrella.h */,
+				09B631808EB4FF44F6EFE83C9EC72FAB /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/DateTimePicker";
+			sourceTree = "<group>";
+		};
+		59F073864706D5CAA0E6AE8D6C20CFF9 /* Pods-Eidetic */ = {
+			isa = PBXGroup;
+			children = (
+				A9B6BD1D87F7D574E898E82003CC60FE /* Info.plist */,
+				39F58AFFBF4CABF77BA5A5DE07D949D7 /* Pods-Eidetic.modulemap */,
+				1B68634C78CDD099EA1A91D44B1B24E8 /* Pods-Eidetic-acknowledgements.markdown */,
+				DC15ADB4F8BA3AFF0EFF816D5AEC810A /* Pods-Eidetic-acknowledgements.plist */,
+				79CD035C87F8B53E6C96DC717C0FA28D /* Pods-Eidetic-dummy.m */,
+				C96F56A261F9E5D981F472064D66F611 /* Pods-Eidetic-frameworks.sh */,
+				3016354970750C324A24EFF5ED6B6487 /* Pods-Eidetic-resources.sh */,
+				B22E929786122EB8787A4BDCC9E94B95 /* Pods-Eidetic-umbrella.h */,
+				DD2B98C1370B420E39C75D1056A09C21 /* Pods-Eidetic.debug.xcconfig */,
+				ED0019199E6B694697BA174291EB296A /* Pods-Eidetic.release.xcconfig */,
+			);
+			name = "Pods-Eidetic";
+			path = "Target Support Files/Pods-Eidetic";
+			sourceTree = "<group>";
+		};
+		638864941156D3A52F596732CAB47BC8 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A9FA77EC73E1E3184D06741807DAE74E /* Info.plist */,
+				4D7526F351C5D90DFB9EA61F91C9BCC0 /* MaterialShowcase.modulemap */,
+				44E26E0FB9A0F4B307E4C27D4680678A /* MaterialShowcase.xcconfig */,
+				521C77F16ECD6C1FB633CB3942A55CF5 /* MaterialShowcase-dummy.m */,
+				90CCB35F3D15C65C071AA5766DAEA0EB /* MaterialShowcase-prefix.pch */,
+				227A50A56CA49C3F7CA0428CD4A1B1B1 /* MaterialShowcase-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/MaterialShowcase";
+			sourceTree = "<group>";
+		};
+		6A8A4981C63BBED18B82DD2A44CD7DE5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				82C0742B712E96A50C5DF7B07F2F5596 /* DateTimePicker */,
+				CD3A9AE5FF5618618555D838AFB4E704 /* EEZoomableImageView */,
+				7D1B98E8DC2B422DBE95FB5ABA900A77 /* MaterialShowcase */,
+				9DD74131580BD629C6F2F351691C87A8 /* UICollectionViewLeftAlignedLayout */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7D1B98E8DC2B422DBE95FB5ABA900A77 /* MaterialShowcase */ = {
+			isa = PBXGroup;
+			children = (
+				3A75C2F894560A7402370AA22855CDB7 /* MaterialShowcase.swift */,
+				CCD24DBB125D028418A83739E9F420F3 /* MaterialShowcase+Calculations.swift */,
+				8BC584509D0604B8F50DEAC33B287258 /* MaterialShowcaseController.swift */,
+				BACB0064E47EF2260A6B7AB90CF5E1E4 /* MaterialShowcaseInstructionView.swift */,
+				1C07A6959A0E07AB9A25D033F45C5E00 /* Utility.swift */,
+				638864941156D3A52F596732CAB47BC8 /* Support Files */,
+			);
+			name = MaterialShowcase;
+			path = MaterialShowcase;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
+				6A8A4981C63BBED18B82DD2A44CD7DE5 /* Pods */,
+				A38BC5AD71AF817433499C3FCB2EFE1E /* Products */,
+				359222FA64F26FE4B66D4D477D5DD0F0 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		82C0742B712E96A50C5DF7B07F2F5596 /* DateTimePicker */ = {
+			isa = PBXGroup;
+			children = (
+				34A20F03134FF758891111BBA8E6362E /* DateCollectionViewCell.swift */,
+				66F8F61AF02817E578838472CE2FF322 /* DateTimePicker.swift */,
+				A2039C9F6C873B446BB5D2756C40BEB8 /* FullDateCollectionViewCell.swift */,
+				D4E49831F06D24149D9AA110D4C2E23A /* StepCollectionViewFlowLayout.swift */,
+				5564CC211DC3C7D0FA004EFBE944ABA8 /* Support Files */,
+			);
+			name = DateTimePicker;
+			path = DateTimePicker;
+			sourceTree = "<group>";
+		};
+		9464ABAAA7C2DBBA6FD87C316E0700C4 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F8A6833484F81581B6F9781B2C23C8DD /* Info.plist */,
+				BC5D98DE0976C692A852AF9212F9027B /* UICollectionViewLeftAlignedLayout.modulemap */,
+				F95DA87811BE5E9E1F5B2693EF461867 /* UICollectionViewLeftAlignedLayout.xcconfig */,
+				A7CEA4E2CCA235A16CC12ADEE9C15C76 /* UICollectionViewLeftAlignedLayout-dummy.m */,
+				62FC7E0DE8558D480CCBB34D0F164714 /* UICollectionViewLeftAlignedLayout-prefix.pch */,
+				D49CFAC71EDB80B979D465F133C90395 /* UICollectionViewLeftAlignedLayout-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/UICollectionViewLeftAlignedLayout";
+			sourceTree = "<group>";
+		};
+		9DD74131580BD629C6F2F351691C87A8 /* UICollectionViewLeftAlignedLayout */ = {
+			isa = PBXGroup;
+			children = (
+				4EB8A717EBF3EB28FC4BC1F5543F75DB /* UICollectionViewLeftAlignedLayout.swift */,
+				9464ABAAA7C2DBBA6FD87C316E0700C4 /* Support Files */,
+			);
+			name = UICollectionViewLeftAlignedLayout;
+			path = UICollectionViewLeftAlignedLayout;
+			sourceTree = "<group>";
+		};
+		A38BC5AD71AF817433499C3FCB2EFE1E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1F9D175D58B9B89AF73485E653BFF31C /* DateTimePicker.framework */,
+				12E9798D7EF7CE28A33B5F1B32E9ED67 /* EEZoomableImageView.framework */,
+				F331C8DAB86941564096970B7B80FFEF /* MaterialShowcase.framework */,
+				F3E0DDCD55AC4AB6B90FBC99694413CD /* Pods_Eidetic.framework */,
+				89FF407C6A789389086736A8E932E141 /* UICollectionViewLeftAlignedLayout.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CD3A9AE5FF5618618555D838AFB4E704 /* EEZoomableImageView */ = {
+			isa = PBXGroup;
+			children = (
+				90B4C33B58EB00FF6D25F77E530DF770 /* EEZoomableImageView.swift */,
+				20782AE197962A17DACC14A03259F2A4 /* Support Files */,
+			);
+			name = EEZoomableImageView;
+			path = EEZoomableImageView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		302E971620E5D6B82B30108DAE7E2207 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD8C3F9CCE1BEB673A9893CA23E44706 /* EEZoomableImageView-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38269195CEB77E08FF107BBF8F8D60BD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD505D9207975508F509DAE5C722C7A3 /* UICollectionViewLeftAlignedLayout-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		580E7F2FCFC18CE9DF5C5B5C8988DB19 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA752D7EBD04D13B9982626A092EB9E2 /* Pods-Eidetic-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		850BDA76B99E6CF9103E3CA1223BD05C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7F7904BB837382B13544716924B43CE /* MaterialShowcase-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1FFB26C34DC6FC26FE242EE06705C34 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52B978B931479C53448156E7369E2224 /* DateTimePicker-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		115C0F27C5F56A278792157F449C08D2 /* DateTimePicker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BE5AE8344D69EAE316906959B753090 /* Build configuration list for PBXNativeTarget "DateTimePicker" */;
+			buildPhases = (
+				C1FFB26C34DC6FC26FE242EE06705C34 /* Headers */,
+				887D751FD2DF67AFA64FA2A3C6BBACCD /* Sources */,
+				6DDCC45EE72421D1A57F83FE4491E9E6 /* Frameworks */,
+				F418C1ED417B02AA18D470293FF13408 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DateTimePicker;
+			productName = DateTimePicker;
+			productReference = 1F9D175D58B9B89AF73485E653BFF31C /* DateTimePicker.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		266119A3B76A3E13B20BA0BBE72C4319 /* MaterialShowcase */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4626783FFF9D953EDF11CBFC516A9821 /* Build configuration list for PBXNativeTarget "MaterialShowcase" */;
+			buildPhases = (
+				850BDA76B99E6CF9103E3CA1223BD05C /* Headers */,
+				A1DF11E30D4F7996387433FC7C3876FB /* Sources */,
+				F713ABAD95BD90046281808951403E54 /* Frameworks */,
+				C8580733CA9614492A759579DAFFC25A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MaterialShowcase;
+			productName = MaterialShowcase;
+			productReference = F331C8DAB86941564096970B7B80FFEF /* MaterialShowcase.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		65ABE62CA27DE824FDD9C8ACAACC791E /* Pods-Eidetic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 98BCAB6FACECC7CF0C3C4BB68FCAB1F8 /* Build configuration list for PBXNativeTarget "Pods-Eidetic" */;
+			buildPhases = (
+				580E7F2FCFC18CE9DF5C5B5C8988DB19 /* Headers */,
+				FBF6FF057E45035405422C96E2DBDBF4 /* Sources */,
+				C486CA034CAE249FA116EBC9EAE9E7B5 /* Frameworks */,
+				55094298829224D044F95530C0E481F0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				71ECBA3F19E7C4CA3907F8481A8ACC59 /* PBXTargetDependency */,
+				518F3E82C04D263940A8D4B0A08B396D /* PBXTargetDependency */,
+				503B26DADA440E58C504A8A401746874 /* PBXTargetDependency */,
+				6A2DF5B004C521487CF2621D6692A002 /* PBXTargetDependency */,
+			);
+			name = "Pods-Eidetic";
+			productName = "Pods-Eidetic";
+			productReference = F3E0DDCD55AC4AB6B90FBC99694413CD /* Pods_Eidetic.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		86CCDBF03703CE48C242C42E7FBB0DF1 /* EEZoomableImageView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 629281792208480F0FDF71E36AE9185E /* Build configuration list for PBXNativeTarget "EEZoomableImageView" */;
+			buildPhases = (
+				302E971620E5D6B82B30108DAE7E2207 /* Headers */,
+				8D4AD7D5E946185D009BC9C6AFB62E01 /* Sources */,
+				29E4413587A799C1DEC227570169263F /* Frameworks */,
+				3A1A12109105AD338272A18CEC5686E2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EEZoomableImageView;
+			productName = EEZoomableImageView;
+			productReference = 12E9798D7EF7CE28A33B5F1B32E9ED67 /* EEZoomableImageView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F5F4E108B25302161F1C43CDD7447577 /* UICollectionViewLeftAlignedLayout */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28E3250AD772B7DC273C0849A1C0D35F /* Build configuration list for PBXNativeTarget "UICollectionViewLeftAlignedLayout" */;
+			buildPhases = (
+				38269195CEB77E08FF107BBF8F8D60BD /* Headers */,
+				C52352EB73EE4B575AA2F7040FB3DCEA /* Sources */,
+				6C9E8EC3A7393672B488B90E8E2F68CC /* Frameworks */,
+				3C2FF3A8857EED2C75097900FF89B90A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UICollectionViewLeftAlignedLayout;
+			productName = UICollectionViewLeftAlignedLayout;
+			productReference = 89FF407C6A789389086736A8E932E141 /* UICollectionViewLeftAlignedLayout.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = A38BC5AD71AF817433499C3FCB2EFE1E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				115C0F27C5F56A278792157F449C08D2 /* DateTimePicker */,
+				86CCDBF03703CE48C242C42E7FBB0DF1 /* EEZoomableImageView */,
+				266119A3B76A3E13B20BA0BBE72C4319 /* MaterialShowcase */,
+				65ABE62CA27DE824FDD9C8ACAACC791E /* Pods-Eidetic */,
+				F5F4E108B25302161F1C43CDD7447577 /* UICollectionViewLeftAlignedLayout */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3A1A12109105AD338272A18CEC5686E2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3C2FF3A8857EED2C75097900FF89B90A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55094298829224D044F95530C0E481F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8580733CA9614492A759579DAFFC25A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F418C1ED417B02AA18D470293FF13408 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		887D751FD2DF67AFA64FA2A3C6BBACCD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F59E263A4A3E2852BB11DEEF0793BF3B /* DateCollectionViewCell.swift in Sources */,
+				2BFB22EC64D9BC7FC1DE0D77544DFEFA /* DateTimePicker-dummy.m in Sources */,
+				F19A8DB8935F113A52D968AA20B745A4 /* DateTimePicker.swift in Sources */,
+				2CE99C85493E9E101E81AA09356C37AE /* FullDateCollectionViewCell.swift in Sources */,
+				D873BB638C62062D1BC3A70E43C43B04 /* StepCollectionViewFlowLayout.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D4AD7D5E946185D009BC9C6AFB62E01 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5643CB173209AC08C341A350A97CFC1E /* EEZoomableImageView-dummy.m in Sources */,
+				AEB2B25071FEA74109A458F9FDAE944A /* EEZoomableImageView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1DF11E30D4F7996387433FC7C3876FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				171C3DE00B061274271806315E0AA3DD /* MaterialShowcase+Calculations.swift in Sources */,
+				E888476B32B045AC64C722099D687F03 /* MaterialShowcase-dummy.m in Sources */,
+				D7BFB26D9CB62A9815EC2AD5B0BCE498 /* MaterialShowcase.swift in Sources */,
+				42AB24591A17B1431434C4600DE665E7 /* MaterialShowcaseController.swift in Sources */,
+				B126BA10DF980EF5E11349A35955B41C /* MaterialShowcaseInstructionView.swift in Sources */,
+				A8221BDB88D185951997174B08B4E388 /* Utility.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C52352EB73EE4B575AA2F7040FB3DCEA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				660D12F1E6ACFA76B422699872FB867A /* UICollectionViewLeftAlignedLayout-dummy.m in Sources */,
+				BFBE63E96AB2BF695B8AD65AD5CDE266 /* UICollectionViewLeftAlignedLayout.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBF6FF057E45035405422C96E2DBDBF4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B367C9332E9E5352D760D761A484FD3 /* Pods-Eidetic-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		503B26DADA440E58C504A8A401746874 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MaterialShowcase;
+			target = 266119A3B76A3E13B20BA0BBE72C4319 /* MaterialShowcase */;
+			targetProxy = DD36A2EE9DFE40B434B7A569007AE136 /* PBXContainerItemProxy */;
+		};
+		518F3E82C04D263940A8D4B0A08B396D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = EEZoomableImageView;
+			target = 86CCDBF03703CE48C242C42E7FBB0DF1 /* EEZoomableImageView */;
+			targetProxy = C446F0DBE2E253D6D636430954919FCE /* PBXContainerItemProxy */;
+		};
+		6A2DF5B004C521487CF2621D6692A002 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = UICollectionViewLeftAlignedLayout;
+			target = F5F4E108B25302161F1C43CDD7447577 /* UICollectionViewLeftAlignedLayout */;
+			targetProxy = 7EF9D710CC6CF28B42EB781EBCD8FF24 /* PBXContainerItemProxy */;
+		};
+		71ECBA3F19E7C4CA3907F8481A8ACC59 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DateTimePicker;
+			target = 115C0F27C5F56A278792157F449C08D2 /* DateTimePicker */;
+			targetProxy = 3CD7296547F4A2B504E581768ED241CF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		219D5DBD7DDD041022F78A7342EEEFA1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A33BB2A4147D70EAFC6F63E7E2455C09 /* EEZoomableImageView.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/EEZoomableImageView/EEZoomableImageView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/EEZoomableImageView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/EEZoomableImageView/EEZoomableImageView.modulemap";
+				PRODUCT_MODULE_NAME = EEZoomableImageView;
+				PRODUCT_NAME = EEZoomableImageView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		26B85CEA75ADDF5F0DA05C1CA2C9027F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44E26E0FB9A0F4B307E4C27D4680678A /* MaterialShowcase.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/MaterialShowcase/MaterialShowcase-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MaterialShowcase/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/MaterialShowcase/MaterialShowcase.modulemap";
+				PRODUCT_MODULE_NAME = MaterialShowcase;
+				PRODUCT_NAME = MaterialShowcase;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6AF51D25351A52669FEE02A4E312B920 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 880A95A394BD83D370AAAA2361268207 /* DateTimePicker.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/DateTimePicker/DateTimePicker-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DateTimePicker/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/DateTimePicker/DateTimePicker.modulemap";
+				PRODUCT_MODULE_NAME = DateTimePicker;
+				PRODUCT_NAME = DateTimePicker;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7AA41580319AB674C1D813361F84EB1E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44E26E0FB9A0F4B307E4C27D4680678A /* MaterialShowcase.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/MaterialShowcase/MaterialShowcase-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MaterialShowcase/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/MaterialShowcase/MaterialShowcase.modulemap";
+				PRODUCT_MODULE_NAME = MaterialShowcase;
+				PRODUCT_NAME = MaterialShowcase;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7EEEBA539432693C9A9A4C04451FC550 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 880A95A394BD83D370AAAA2361268207 /* DateTimePicker.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/DateTimePicker/DateTimePicker-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DateTimePicker/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/DateTimePicker/DateTimePicker.modulemap";
+				PRODUCT_MODULE_NAME = DateTimePicker;
+				PRODUCT_NAME = DateTimePicker;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		85475B104B901291A018E14E269BF858 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A33BB2A4147D70EAFC6F63E7E2455C09 /* EEZoomableImageView.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/EEZoomableImageView/EEZoomableImageView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/EEZoomableImageView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/EEZoomableImageView/EEZoomableImageView.modulemap";
+				PRODUCT_MODULE_NAME = EEZoomableImageView;
+				PRODUCT_NAME = EEZoomableImageView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9468632862D7384DCB816132C24AE7A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD2B98C1370B420E39C75D1056A09C21 /* Pods-Eidetic.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Eidetic/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Eidetic/Pods-Eidetic.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		98E98810EEEB96C99CB95CB91F4ADE0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		9BBF0C2C2AE90AABBC2C66B29DBD8BBC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED0019199E6B694697BA174291EB296A /* Pods-Eidetic.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Eidetic/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Eidetic/Pods-Eidetic.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B46C15F844B712B69872FA95A7C41B57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F95DA87811BE5E9E1F5B2693EF461867 /* UICollectionViewLeftAlignedLayout.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/UICollectionViewLeftAlignedLayout/UICollectionViewLeftAlignedLayout-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/UICollectionViewLeftAlignedLayout/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/UICollectionViewLeftAlignedLayout/UICollectionViewLeftAlignedLayout.modulemap";
+				PRODUCT_MODULE_NAME = UICollectionViewLeftAlignedLayout;
+				PRODUCT_NAME = UICollectionViewLeftAlignedLayout;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B97A7F6ACE1216BB5A2307CA83FC93C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		E738F74E9F0EF3DAEED7923BA480DA0B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F95DA87811BE5E9E1F5B2693EF461867 /* UICollectionViewLeftAlignedLayout.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/UICollectionViewLeftAlignedLayout/UICollectionViewLeftAlignedLayout-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/UICollectionViewLeftAlignedLayout/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/UICollectionViewLeftAlignedLayout/UICollectionViewLeftAlignedLayout.modulemap";
+				PRODUCT_MODULE_NAME = UICollectionViewLeftAlignedLayout;
+				PRODUCT_NAME = UICollectionViewLeftAlignedLayout;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		28E3250AD772B7DC273C0849A1C0D35F /* Build configuration list for PBXNativeTarget "UICollectionViewLeftAlignedLayout" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B46C15F844B712B69872FA95A7C41B57 /* Debug */,
+				E738F74E9F0EF3DAEED7923BA480DA0B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98E98810EEEB96C99CB95CB91F4ADE0A /* Debug */,
+				B97A7F6ACE1216BB5A2307CA83FC93C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3BE5AE8344D69EAE316906959B753090 /* Build configuration list for PBXNativeTarget "DateTimePicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6AF51D25351A52669FEE02A4E312B920 /* Debug */,
+				7EEEBA539432693C9A9A4C04451FC550 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4626783FFF9D953EDF11CBFC516A9821 /* Build configuration list for PBXNativeTarget "MaterialShowcase" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7AA41580319AB674C1D813361F84EB1E /* Debug */,
+				26B85CEA75ADDF5F0DA05C1CA2C9027F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		629281792208480F0FDF71E36AE9185E /* Build configuration list for PBXNativeTarget "EEZoomableImageView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				219D5DBD7DDD041022F78A7342EEEFA1 /* Debug */,
+				85475B104B901291A018E14E269BF858 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		98BCAB6FACECC7CF0C3C4BB68FCAB1F8 /* Build configuration list for PBXNativeTarget "Pods-Eidetic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9468632862D7384DCB816132C24AE7A7 /* Debug */,
+				9BBF0C2C2AE90AABBC2C66B29DBD8BBC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
