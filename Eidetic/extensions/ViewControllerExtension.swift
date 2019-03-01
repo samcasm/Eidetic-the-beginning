@@ -126,7 +126,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             cameraButton.isEnabled = true
             selectButton.title = "Select"
             navigationController?.isToolbarHidden = true
-            self.navigationItem.title = ""
+            self.navigationItem.title = directoryName
             searchBar.isUserInteractionEnabled = true
             searchBar.alpha = 1
             searchBar.searchBarStyle = .default
