@@ -113,11 +113,11 @@ extension UIViewController {
             let defaults = UserDefaults.standard
             var recentlyAddedTags = defaults.object(forKey:"recentlyAddedTags") as? [String] ?? [String]()
             
-            if recentlyAddedTags.count > 10 {
-                recentlyAddedTags.removeFirst()
-                recentlyAddedTags.append(newTag)
-            }else{
-                recentlyAddedTags.append(newTag)
+            if recentlyAddedTags.count > 7 && !recentlyAddedTags.contains(newTag) {
+                recentlyAddedTags.removeLast()
+                recentlyAddedTags.insert(newTag, at: 0)
+            }else if !recentlyAddedTags.contains(newTag){
+                recentlyAddedTags.insert(newTag, at: 0)
             }
             defaults.set(recentlyAddedTags, forKey: "recentlyAddedTags")
             
