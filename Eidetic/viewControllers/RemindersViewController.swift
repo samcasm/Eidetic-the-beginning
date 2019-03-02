@@ -58,6 +58,7 @@ class RemindersViewController: UITableViewController, ReminderCellDelegate {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if reminders.count == 0 {
+            self.tableView.separatorStyle = .none
             self.tableView.setEmptyMessage("No reminders set yet")
             return 0
         } else {
