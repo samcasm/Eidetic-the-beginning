@@ -1,4 +1,4 @@
-# Eidetic
+# Eidetic-Picture management
 
 Eidetic lets you "memory tag" your images so you never have to lose them in a heap of images your photo library. 
 It also very ingeniously organizes your tagged images into folders/directories for those who like to keep things tidy and know where they are when needed.
