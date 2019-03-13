@@ -9,7 +9,8 @@ Prerequisite installations:
 Xcode 10.0
 Swift 4.2
 
-![alt text](https://s3.us-east-2.amazonaws.com/samcasmbucket/image00001.png)
+![alt text](https://s3.us-east-2.amazonaws.com/samcasmbucket/image00001.png){:height="50%" width="50%"}
 ![alt text](https://s3.us-east-2.amazonaws.com/samcasmbucket/image00002.png)
 ![alt text](https://s3.us-east-2.amazonaws.com/samcasmbucket/image00003.png)
+<img src="https://s3.us-east-2.amazonaws.com/samcasmbucket/image00003.png" width="100" height="100">
 
