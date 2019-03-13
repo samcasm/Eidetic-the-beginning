@@ -10,4 +10,6 @@ Xcode 10.0
 Swift 4.2
 
 ![alt text](https://s3.us-east-2.amazonaws.com/samcasmbucket/image00001.png)
+![alt text](https://s3.us-east-2.amazonaws.com/samcasmbucket/image00002.png)
+![alt text](https://s3.us-east-2.amazonaws.com/samcasmbucket/image00003.png)
 
